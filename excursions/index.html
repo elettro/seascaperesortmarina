@@ -7,8 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:#04131c;color:#e8f4f0;overflow-x:hidden}
 :root{
   --deep:#04131c;
   --mid:#082f42;
@@ -20,6 +18,48 @@ body{font-family:'DM Sans',sans-serif;background:#04131c;color:#e8f4f0;overflow-
   --white:#f8fafc;
   --gold:#d4a847;
   --red:#e74c3c;
+}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:#04131c;
+  color:#e8f4f0;
+  overflow-x:hidden;
+}
+
+/* ── ACCESSIBILITY ── */
+.skip-link{
+  position:absolute;
+  left:-9999px;
+  top:0;
+  background:#ffffff;
+  color:#04131c;
+  padding:12px 16px;
+  font-weight:700;
+  z-index:1001;
+  border-radius:8px;
+  text-decoration:none;
+}
+.skip-link:focus{
+  left:12px;
+  top:12px;
+}
+a:focus-visible,
+button:focus-visible,
+iframe:focus-visible,
+[tabindex]:focus-visible{
+  outline:3px solid var(--sand);
+  outline-offset:3px;
+}
+#videos,
+#captain,
+#excursions,
+#reviews,
+#diving{
+  scroll-margin-top:100px;
 }
 
 /* ── SCROLLBAR ── */
@@ -35,6 +75,7 @@ nav{
   backdrop-filter:blur(8px);
   border-bottom:1px solid rgba(18,168,157,0.2);
 }
+.nav-brand{text-decoration:none;display:inline-block}
 .nav-logo-top{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--white)}
 .nav-logo-sub{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--bright);margin-top:.1rem}
 .nav-links{display:flex;align-items:center;gap:1.5rem}
@@ -76,7 +117,8 @@ nav{
 
 /* ── BUTTONS ── */
 .btn-primary{
-  display:inline-block;text-decoration:none;
+  display:inline-flex;align-items:center;gap:.5rem;
+  text-decoration:none;
   background:linear-gradient(135deg,var(--aqua),var(--bright));
   color:var(--white);padding:.85rem 2rem;border-radius:50px;
   font-weight:600;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;
@@ -84,7 +126,8 @@ nav{
 }
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 35px rgba(18,168,157,.55)}
 .btn-outline{
-  display:inline-block;text-decoration:none;
+  display:inline-flex;align-items:center;gap:.5rem;
+  text-decoration:none;
   background:transparent;color:var(--white);
   padding:.85rem 2rem;border-radius:50px;
   font-weight:500;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;
@@ -134,12 +177,17 @@ nav{
 .yt-scroll{overflow-y:auto;flex:1}
 .yt-scroll::-webkit-scrollbar{width:3px}
 .yt-scroll::-webkit-scrollbar-thumb{background:rgba(18,168,157,.3)}
-.yt-item{display:flex;gap:.65rem;padding:.7rem .9rem;cursor:pointer;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s;align-items:center;text-decoration:none}
+.yt-item{
+  display:flex;width:100%;gap:.65rem;padding:.7rem .9rem;cursor:pointer;
+  border:0;border-bottom:1px solid rgba(255,255,255,.04);
+  transition:background .2s;align-items:center;text-decoration:none;
+  background:transparent;text-align:left;font:inherit;color:inherit;
+}
 .yt-item:hover,.yt-item.on{background:rgba(18,168,157,.1)}
 .yt-thumb{width:76px;height:46px;border-radius:5px;overflow:hidden;flex-shrink:0;background:var(--deep);position:relative}
 .yt-thumb img{width:100%;height:100%;object-fit:cover}
 .yt-thumb .pov{position:absolute;inset:0;background:rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s}
-.yt-item:hover .pov{opacity:1}
+.yt-item:hover .pov,.yt-item:focus-visible .pov{opacity:1}
 .yt-pb{width:20px;height:20px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.5rem;color:#222}
 .yt-meta{flex:1;min-width:0}
 .yt-vtitle{font-size:.73rem;font-weight:600;color:var(--white);line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -195,7 +243,7 @@ nav{
 .cta-strip-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
 .cta-strip h3{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--white)}
 .cta-strip p{font-size:.9rem;color:rgba(255,255,255,.8);font-weight:300;margin-top:.25rem}
-.btn-white{display:inline-block;text-decoration:none;background:var(--white);color:var(--aqua);padding:.9rem 2.2rem;border-radius:50px;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:transform .2s,box-shadow .2s;box-shadow:0 5px 18px rgba(0,0,0,.2)}
+.btn-white{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;background:var(--white);color:var(--aqua);padding:.9rem 2.2rem;border-radius:50px;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:transform .2s,box-shadow .2s;box-shadow:0 5px 18px rgba(0,0,0,.2)}
 .btn-white:hover{transform:translateY(-2px);box-shadow:0 9px 28px rgba(0,0,0,.3)}
 
 /* ── REVIEWS ── */
@@ -291,6 +339,19 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .reveal.on{opacity:1;transform:none}
 
+/* ── SCREEN READER UTILITIES ── */
+.sr-only{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:920px){
   nav{padding:.9rem 1.4rem}
@@ -324,20 +385,53 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   .how-steps{grid-template-columns:1fr}
   .section{padding:3.5rem 1.4rem}
   .yt-wrap,.dive-wrap{padding:3rem 1.4rem}
+  .sticky-phone{
+    right:1rem;
+    bottom:1rem;
+    padding:.8rem 1rem;
+    font-size:.75rem;
+  }
+}
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,
+  *::before,
+  *::after{
+    animation:none!important;
+    transition:none!important;
+  }
+  .reveal{
+    opacity:1!important;
+    transform:none!important;
+  }
+  .hero-img{
+    animation:none!important;
+    transform:none!important;
+  }
+  .sticky-phone{
+    animation:none!important;
+  }
 }
 </style>
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
 <!-- STICKY PHONE -->
-<a href="tel:+13057436212" class="sticky-phone">📞 Call Front Desk</a>
+<a href="tel:+13057436212" class="sticky-phone" aria-label="Call Seascape front desk at 305 743 6212">
+  <span aria-hidden="true">📞</span>
+  <span>Call Front Desk</span>
+</a>
 
 <!-- NAV -->
-<nav>
-  <div>
+<nav aria-label="Primary">
+  <a class="nav-brand" href="https://www.seascaperesortandmarina.com/">
     <div class="nav-logo-top">Seascape Resort &amp; Marina</div>
     <div class="nav-logo-sub">Marathon · Florida Keys</div>
-  </div>
+  </a>
   <div class="nav-links">
     <a href="#excursions">Excursions</a>
     <a href="#captain">The Captain</a>
@@ -346,54 +440,63 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   </div>
 </nav>
 
+<main id="main-content">
+
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-img"></div>
-  <div class="hero-overlay"></div>
+<section class="hero" aria-label="Local excursions hero section">
+  <div class="hero-img" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Seascape Resort &amp; Marina · Exclusive Guest Excursions</div>
     <h1>Where the <em>Ocean</em><br>Becomes Your<br>Playground</h1>
-    <p class="hero-desc">Step off our dock and into the wild, shimmering world of the Florida Keys. In partnership with Capt. Kevin Johnsen of Florida Keys Reel Adventures — your perfect day on the water starts here.</p>
+    <p class="hero-desc">Step off our dock and into the wild, shimmering world of the Florida Keys. In partnership with Capt. Kevin Johnsen of Florida Keys Reel Adventures, your perfect day on the water starts here.</p>
     <div class="hero-btns">
       <a href="#excursions" class="btn-primary">Explore Excursions</a>
-      <a href="tel:+13057436212" class="btn-outline">📞 (305) 743-6212 · Front Desk</a>
+      <a href="tel:+13057436212" class="btn-outline" aria-label="Call front desk at 305 743 6212">
+        <span aria-hidden="true">📞</span>
+        <span>(305) 743-6212 · Front Desk</span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- STATS -->
-<div class="stats">
+<section class="stats" aria-label="Excursion highlights">
   <div class="stat"><div class="stat-n">30+</div><div class="stat-l">Years on the Water</div></div>
   <div class="stat"><div class="stat-n">375+</div><div class="stat-l">5-Star Reviews</div></div>
   <div class="stat"><div class="stat-n">300+</div><div class="stat-l">Days on Water / Year</div></div>
   <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Private Custom Charters</div></div>
-</div>
+</section>
 
 <!-- FISHING PLAYLIST -->
-<div class="yt-wrap" id="videos">
+<section class="yt-wrap" id="videos" aria-labelledby="fishing-title">
   <div class="yt-inner">
     <div class="yt-header reveal">
       <div>
-        <div class="eyebrow">🎣 Real Trips · Real Catches · Real Keys</div>
-        <h2 class="sec-title">Fishing &amp; Diving <em>Adventures</em><br>with Capt. Kevin Johnsen</h2>
-        <p style="font-size:.92rem;font-weight:300;color:var(--muted);margin-top:.5rem;max-width:540px;line-height:1.7">These aren't highlight reels — this is what your actual day looks like. Ask the <strong style="color:var(--bright)">Seascape front desk</strong> about availability and how to get on the water.</p>
+        <div class="eyebrow">Real Trips · Real Catches · Real Keys</div>
+        <h2 class="sec-title" id="fishing-title">Fishing &amp; Diving <em>Adventures</em><br>with Capt. Kevin Johnsen</h2>
+        <p style="font-size:.92rem;font-weight:300;color:var(--muted);margin-top:.5rem;max-width:540px;line-height:1.7">These aren't highlight reels. This is what your actual day looks like. Ask the <strong style="color:var(--bright)">Seascape front desk</strong> about availability and how to get on the water.</p>
       </div>
       <div class="yt-header-ctas">
-        <a href="tel:+13057436212" class="btn-primary" style="font-size:.78rem;padding:.7rem 1.5rem">📞 Ask Front Desk</a>
-        <a href="https://www.youtube.com/playlist?list=PLUyy1UkCd1TJX4y80VFXpVXr__dsUoPV-" target="_blank" rel="noopener" class="yt-pl-link">▶ Full Playlist on YouTube →</a>
+        <a href="tel:+13057436212" class="btn-primary" style="font-size:.78rem;padding:.7rem 1.5rem">
+          <span aria-hidden="true">📞</span>
+          <span>Ask Front Desk</span>
+        </a>
+        <a href="https://www.youtube.com/playlist?list=PLUyy1UkCd1TJX4y80VFXpVXr__dsUoPV-" target="_blank" rel="noopener" class="yt-pl-link">Full Playlist on YouTube</a>
       </div>
     </div>
     <div class="yt-layout reveal">
       <div class="yt-player">
         <iframe id="fish-frame"
           src="https://www.youtube.com/embed/VDkIneFeW-g?list=PLUyy1UkCd1TJX4y80VFXpVXr__dsUoPV-&rel=0&modestbranding=1"
-          title="Florida Keys Reel Adventures — Fishing"
+          title="Florida Keys Reel Adventures fishing video player"
+          loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </div>
-      <div class="yt-sidebar">
+      <div class="yt-sidebar" aria-label="Fishing video playlist">
         <div class="yt-sidebar-head">
-          <div class="yt-icon-box">▶</div>
+          <div class="yt-icon-box" aria-hidden="true">▶</div>
           <div>
             <div class="yt-pl-name">Florida Keys Reel Adventures</div>
             <div class="yt-pl-sub">Capt. Kevin Johnsen · Marathon, FL</div>
@@ -403,16 +506,16 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- CAPTAIN -->
-<div class="captain-bg" id="captain">
+<section class="captain-bg" id="captain" aria-labelledby="captain-title">
   <div class="section">
     <div class="captain-grid">
       <div class="reveal" style="position:relative;padding-bottom:1.5rem">
         <div class="cap-photo">
-          <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=700&q=85" alt="Captain Kevin Johnsen Florida Keys">
-          <div class="cap-badge">
+          <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=700&q=85" alt="Capt. Kevin Johnsen, Seascape excursion partner in Marathon, Florida Keys">
+          <div class="cap-badge" aria-label="TripAdvisor rating 4.9 stars">
             <div class="bn">⭐ 4.9</div>
             <div class="bl">TripAdvisor</div>
           </div>
@@ -420,10 +523,10 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
       </div>
       <div class="cap-text reveal">
         <div class="eyebrow">Your Guide</div>
-        <div class="cap-name">Capt. Kevin Johnsen</div>
+        <h2 class="cap-name" id="captain-title">Capt. Kevin Johnsen</h2>
         <div class="cap-rank">USCG Licensed Master Captain · Florida Keys Reel Adventures</div>
-        <p>A 30+ year resident of Marathon and the Middle Keys, Captain Kevin has spent his life mastering every secret the reef, the flats, and the open ocean has to offer. With 300+ days on the water each year, he doesn't just know the Keys — he <em>is</em> the Keys.</p>
-        <p>As Seascape's exclusive excursion partner, Capt. Kevin tailors every trip to your group — no cookie-cutter packages, no crowds. Whether you're an avid angler, a first-time snorkeler, or a family seeking something unforgettable, he builds the trip you've dreamed of.</p>
+        <p>A 30+ year resident of Marathon and the Middle Keys, Captain Kevin has spent his life mastering every secret the reef, the flats, and the open ocean has to offer. With 300+ days on the water each year, he doesn't just know the Keys. He is the Keys.</p>
+        <p>As Seascape's exclusive excursion partner, Capt. Kevin tailors every trip to your group. No cookie-cutter packages. No crowds. Whether you're an avid angler, a first-time snorkeler, or a family seeking something unforgettable, he builds the trip you've dreamed of.</p>
         <p class="cap-quote">"My goal is to provide a rewarding and successful day on the water and to create memories worth repeating."<br><small style="font-style:normal;font-size:.78rem;color:var(--muted)">— Captain Kevin Johnsen</small></p>
         <div class="pills">
           <span class="pill">USCG Master Captain</span>
@@ -436,197 +539,204 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- EXCURSIONS -->
-<div class="exc-bg" id="excursions">
+<section class="exc-bg" id="excursions" aria-labelledby="excursions-title">
   <div class="section">
     <div class="reveal">
       <div class="eyebrow">Resort Excursion Menu</div>
-      <h2 class="sec-title">Your Perfect Day<br>Starts <em>Here</em></h2>
-      <p class="sec-lead">From sunrise reef fishing to golden-hour sunset cruises, Capt. Kevin designs every adventure around you. All trips depart from our marina — no shuttle, no hassle.</p>
+      <h2 class="sec-title" id="excursions-title">Your Perfect Day<br>Starts <em>Here</em></h2>
+      <p class="sec-lead">From sunrise reef fishing to golden-hour sunset cruises, Capt. Kevin designs every adventure around you. All trips depart from our marina. No shuttle. No hassle.</p>
     </div>
     <div class="exc-grid">
 
-      <div class="card wide reveal">
+      <article class="card wide reveal">
         <div class="card-img">
-          <div class="card-icon">🎣</div>
-          <img src="https://images.unsplash.com/photo-1516490701955-e3af30ab7ffa?w=900&q=80" alt="Reef fishing Florida Keys">
+          <div class="card-icon" aria-hidden="true">🎣</div>
+          <img src="https://images.unsplash.com/photo-1516490701955-e3af30ab7ffa?w=900&q=80" alt="Private reef fishing charter in the Florida Keys">
         </div>
         <div class="card-body">
-          <div class="card-tag">★ Most Popular · Family Favourite</div>
+          <div class="card-tag">Most Popular · Family Favourite</div>
           <h3>Reef &amp; Wreck Fishing Adventure</h3>
-          <p>Yellowtail snapper, grouper, kingfish, sharks — the reefs of Marathon hold extraordinary bounty. Capt. Kevin puts you directly over proven hot spots. Bait, tackle, licenses, ice and fish cleaning all included. You're not going fishing — you're going <strong style="color:var(--sand)">catching</strong>.</p>
+          <p>Yellowtail snapper, grouper, kingfish, sharks. The reefs of Marathon hold extraordinary bounty. Capt. Kevin puts you directly over proven hot spots. Bait, tackle, licenses, ice and fish cleaning all included. You're not going fishing. You're going <strong style="color:var(--sand)">catching</strong>.</p>
           <div class="card-foot">
             <div class="card-dur">Duration: <span>4 hrs / 6 hrs</span> · Up to 6 guests</div>
-            <a href="tel:+13057436212" class="card-link">Book via Front Desk →</a>
+            <a href="tel:+13057436212" class="card-link">Book via Front Desk</a>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="card reveal">
-        <div class="card-img"><div class="card-icon">🤿</div><img src="https://images.unsplash.com/photo-1596563912743-f8b5ac5c3eb6?w=600&q=80" alt="Snorkeling reef Keys"></div>
+      <article class="card reveal">
+        <div class="card-img"><div class="card-icon" aria-hidden="true">🤿</div><img src="https://images.unsplash.com/photo-1596563912743-f8b5ac5c3eb6?w=600&q=80" alt="Guests snorkeling above a coral reef in the Florida Keys"></div>
         <div class="card-body">
           <div class="card-tag">All Skill Levels</div>
           <h3>Coral Reef Snorkel &amp; Sea Life Tour</h3>
           <p>Float above living coral gardens teeming with tropical fish, sea turtles, and rays. Capt. Kevin navigates to hand-picked reef sites where the underwater magic is impossible to miss.</p>
-          <div class="card-foot"><div class="card-dur"><span>3 hrs</span> · Up to 6 guests</div><a href="tel:+13057436212" class="card-link">Book at Desk →</a></div>
+          <div class="card-foot"><div class="card-dur"><span>3 hrs</span> · Up to 6 guests</div><a href="tel:+13057436212" class="card-link">Book at Desk</a></div>
         </div>
-      </div>
+      </article>
 
-      <div class="card reveal">
-        <div class="card-img"><div class="card-icon">🦞</div><img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80" alt="Lobster diving Keys"></div>
+      <article class="card reveal">
+        <div class="card-img"><div class="card-icon" aria-hidden="true">🦞</div><img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80" alt="Florida Keys lobster diving excursion"></div>
         <div class="card-body">
           <div class="card-tag">August – October · Seasonal</div>
           <h3>Florida Lobster Diving</h3>
           <p>Hunt, tickle and bag your own fresh Florida spiny lobster under the tutelage of a true Keys expert. Gear and instruction provided. Cook your catch poolside at Seascape.</p>
-          <div class="card-foot"><div class="card-dur"><span>4 hrs</span> · Gear included</div><a href="tel:+13057436212" class="card-link">Book at Desk →</a></div>
+          <div class="card-foot"><div class="card-dur"><span>4 hrs</span> · Gear included</div><a href="tel:+13057436212" class="card-link">Book at Desk</a></div>
         </div>
-      </div>
+      </article>
 
-      <div class="card reveal">
-        <div class="card-img"><div class="card-icon">🌊</div><img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?w=600&q=80" alt="Family fun Keys"></div>
+      <article class="card reveal">
+        <div class="card-img"><div class="card-icon" aria-hidden="true">🌊</div><img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?w=600&q=80" alt="Family enjoying a private Florida Keys boat excursion"></div>
         <div class="card-body">
           <div class="card-tag">Best for Families</div>
           <h3>Family Fish &amp; Snorkel Combo</h3>
           <p>Can't choose? Don't. Spend half your trip landing colourful reef fish, the other half face-down in crystal-clear Atlantic. Perfect for mixed groups and first-timers.</p>
-          <div class="card-foot"><div class="card-dur"><span>4 hrs</span> · All ages</div><a href="tel:+13057436212" class="card-link">Book at Desk →</a></div>
+          <div class="card-foot"><div class="card-dur"><span>4 hrs</span> · All ages</div><a href="tel:+13057436212" class="card-link">Book at Desk</a></div>
         </div>
-      </div>
+      </article>
 
-      <div class="card reveal">
-        <div class="card-img"><div class="card-icon">⚓</div><img src="https://images.unsplash.com/photo-1500908423773-41c7b5c03428?w=600&q=80" alt="Offshore fishing Keys"></div>
+      <article class="card reveal">
+        <div class="card-img"><div class="card-icon" aria-hidden="true">⚓</div><img src="https://images.unsplash.com/photo-1500908423773-41c7b5c03428?w=600&q=80" alt="Offshore fishing trip in the open Atlantic near Marathon Florida"></div>
         <div class="card-body">
           <div class="card-tag">Advanced · Blue Water</div>
           <h3>Deep Offshore Trolling</h3>
           <p>Head into the open Atlantic chasing mahi-mahi, wahoo, and tuna. Capt. Kevin's legendary 6 and 7-hour offshore runs are for anglers who want to go the distance.</p>
-          <div class="card-foot"><div class="card-dur"><span>6–7 hrs</span> · Max 6 guests</div><a href="tel:+13057436212" class="card-link">Book at Desk →</a></div>
+          <div class="card-foot"><div class="card-dur"><span>6–7 hrs</span> · Max 6 guests</div><a href="tel:+13057436212" class="card-link">Book at Desk</a></div>
         </div>
-      </div>
+      </article>
 
-      <div class="card reveal">
-        <div class="card-img"><div class="card-icon">🌅</div><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Sunset cruise Keys"></div>
+      <article class="card reveal">
+        <div class="card-img"><div class="card-icon" aria-hidden="true">🌅</div><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Sunset boat cruise in the Florida Keys"></div>
         <div class="card-body">
           <div class="card-tag">Romance · Celebration</div>
           <h3>Sunset Cruise &amp; Sandbar Escape</h3>
-          <p>Drift to a private sandbar, wade in crystal shallows, then cruise home under a Keys sunset that stops your breath. Cooler with drinks included — bring your own beverages.</p>
-          <div class="card-foot"><div class="card-dur"><span>2 hrs</span> · Up to 6 guests</div><a href="tel:+13057436212" class="card-link">Book at Desk →</a></div>
+          <p>Drift to a private sandbar, wade in crystal shallows, then cruise home under a Keys sunset that stops your breath. Cooler with drinks included. Bring your own beverages.</p>
+          <div class="card-foot"><div class="card-dur"><span>2 hrs</span> · Up to 6 guests</div><a href="tel:+13057436212" class="card-link">Book at Desk</a></div>
         </div>
-      </div>
+      </article>
 
-      <div class="card reveal">
-        <div class="card-img"><div class="card-icon">🧜</div><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=600&q=80" alt="Mermaid snorkel Keys"></div>
+      <article class="card reveal">
+        <div class="card-img"><div class="card-icon" aria-hidden="true">🧜</div><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=600&q=80" alt="Snorkeling excursion for kids and families in the Florida Keys"></div>
         <div class="card-body">
           <div class="card-tag">Kids &amp; Families · Magical</div>
           <h3>Mermaid Tails Snorkel Adventure</h3>
-          <p>Add enchantment to any snorkel trip with mermaid tail rentals — a one-of-a-kind Keys memory for children and the young at heart. Snap incredible photos above the reef.</p>
-          <div class="card-foot"><div class="card-dur"><span>3 hrs</span> · Tails add-on $50</div><a href="tel:+13057436212" class="card-link">Book at Desk →</a></div>
+          <p>Add enchantment to any snorkel trip with mermaid tail rentals. A one-of-a-kind Keys memory for children and the young at heart. Snap incredible photos above the reef.</p>
+          <div class="card-foot"><div class="card-dur"><span>3 hrs</span> · Tails add-on $50</div><a href="tel:+13057436212" class="card-link">Book at Desk</a></div>
         </div>
-      </div>
+      </article>
 
-      <div class="card reveal">
-        <div class="card-img"><div class="card-icon">🦈</div><img src="https://images.unsplash.com/photo-1571752726703-5e7d1f6a986d?w=600&q=80" alt="Shark fishing Keys"></div>
+      <article class="card reveal">
+        <div class="card-img"><div class="card-icon" aria-hidden="true">🦈</div><img src="https://images.unsplash.com/photo-1571752726703-5e7d1f6a986d?w=600&q=80" alt="Shark fishing excursion in the Florida Keys"></div>
         <div class="card-body">
           <div class="card-tag">Thrill Seekers · Apr–Jul</div>
           <h3>Shark Fishing &amp; Tarpon Run</h3>
-          <p>Lock into a bull shark or hook a rolling silver king tarpon — these are bucket-list catches. Available April through mid-July during peak tarpon migration season.</p>
-          <div class="card-foot"><div class="card-dur"><span>4 hrs</span> · Apr – Jul</div><a href="tel:+13057436212" class="card-link">Book at Desk →</a></div>
+          <p>Lock into a bull shark or hook a rolling silver king tarpon. These are bucket-list catches. Available April through mid-July during peak tarpon migration season.</p>
+          <div class="card-foot"><div class="card-dur"><span>4 hrs</span> · Apr – Jul</div><a href="tel:+13057436212" class="card-link">Book at Desk</a></div>
         </div>
-      </div>
+      </article>
 
-      <div class="card reveal">
-        <div class="card-img"><div class="card-icon">🌙</div><img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&q=80" alt="Night fishing Keys"></div>
+      <article class="card reveal">
+        <div class="card-img"><div class="card-icon" aria-hidden="true">🌙</div><img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&q=80" alt="Night fishing trip under the stars in the Florida Keys"></div>
         <div class="card-body">
           <div class="card-tag">June – July · After Dark</div>
           <h3>Night Reef Snapper Trip</h3>
-          <p>As the sun disappears, the reef comes alive. Capt. Kevin's boat is rigged perfectly for after-dark fishing — yellowtail snapper run hard at night under a dome of Keys stars.</p>
-          <div class="card-foot"><div class="card-dur"><span>Evening</span> · Jun – Jul</div><a href="tel:+13057436212" class="card-link">Book at Desk →</a></div>
+          <p>As the sun disappears, the reef comes alive. Capt. Kevin's boat is rigged perfectly for after-dark fishing. Yellowtail snapper run hard at night under a dome of Keys stars.</p>
+          <div class="card-foot"><div class="card-dur"><span>Evening</span> · Jun – Jul</div><a href="tel:+13057436212" class="card-link">Book at Desk</a></div>
         </div>
-      </div>
+      </article>
 
     </div>
   </div>
-</div>
+</section>
 
 <!-- CTA STRIP -->
-<div class="cta-strip">
+<section class="cta-strip" aria-label="Call to action">
   <div class="cta-strip-inner">
     <div>
       <h3>Ready to Book Your Keys Adventure?</h3>
-      <p>Visit the Seascape front desk — we'll match you with the perfect excursion and handle everything with Capt. Kevin.</p>
+      <p>Visit the Seascape front desk. We'll match you with the perfect excursion and handle everything with Capt. Kevin.</p>
     </div>
-    <a href="tel:+13057436212" class="btn-white">📞 Call (305) 743-6212</a>
+    <a href="tel:+13057436212" class="btn-white" aria-label="Call 305 743 6212">
+      <span aria-hidden="true">📞</span>
+      <span>Call (305) 743-6212</span>
+    </a>
   </div>
-</div>
+</section>
 
 <!-- REVIEWS -->
-<div class="reviews-bg" id="reviews">
+<section class="reviews-bg" id="reviews" aria-labelledby="reviews-title">
   <div class="section">
     <div class="reveal">
       <div class="eyebrow">What Guests Are Saying</div>
-      <h2 class="sec-title">375+ Five-Star <em>Adventures</em></h2>
-      <p class="sec-lead">Here's what real guests have said about their time on the water with Capt. Kevin — sourced from TripAdvisor, Yelp, and Google.</p>
+      <h2 class="sec-title" id="reviews-title">375+ Five-Star <em>Adventures</em></h2>
+      <p class="sec-lead">Here's what real guests have said about their time on the water with Capt. Kevin, sourced from TripAdvisor, Yelp, and Google.</p>
     </div>
     <div class="rev-grid">
-      <div class="rev-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="rev-text">"Captain Kevin is the man you want showing you the Florida Keys. Each trip is completely customized — he wants to know who you are and what you want. Absolutely incredible experience."</p>
-        <div class="reviewer"><div class="rev-av">JM</div><div><div class="rev-name">James M.</div><div class="rev-via">TripAdvisor · Verified Guest</div></div></div>
-      </div>
-      <div class="rev-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="rev-text">"Over 100 fish — 13 species — in 6 hours! Kevin is patient and works his butt off for his clients. When you go with Kevin you don't go fishing, you go <em>catching</em>."</p>
-        <div class="reviewer"><div class="rev-av">DR</div><div><div class="rev-name">David R.</div><div class="rev-via">TripAdvisor · Winter Trip</div></div></div>
-      </div>
-      <div class="rev-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="rev-text">"Reeling in yellowtail snapper immediately, then a massive king mackerel, groupers and sharks. Such a great day! We will definitely book with Capt Kevin again."</p>
-        <div class="reviewer"><div class="rev-av">SA</div><div><div class="rev-name">Sarah A.</div><div class="rev-via">Google · Early 2025</div></div></div>
-      </div>
-      <div class="rev-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="rev-text">"We spent a gorgeous day lobstering. Capt. Kevin was a wonderful instructor, fun to be around, overall a great experience. Top notch charter captain — HIGHLY recommend!"</p>
-        <div class="reviewer"><div class="rev-av">LP</div><div><div class="rev-name">Linda P.</div><div class="rev-via">TripAdvisor · Lobster Trip</div></div></div>
-      </div>
-      <div class="rev-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="rev-text">"Sandbar for shelling, then snorkeling, then fishing. At the end he let my daughter drive the boat back to the dock — the highlight of our vacation. You won't be disappointed."</p>
-        <div class="reviewer"><div class="rev-av">TK</div><div><div class="rev-name">Tom K.</div><div class="rev-via">TripAdvisor · Family Trip</div></div></div>
-      </div>
-      <div class="rev-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="rev-text">"15+ years coming to the Keys — by far my favorite experience on the water. My son and I caught more tuna than we could ever imagine. We WILL be back!"</p>
-        <div class="reviewer"><div class="rev-av">MH</div><div><div class="rev-name">Mike H.</div><div class="rev-via">Yelp · Offshore Trip</div></div></div>
-      </div>
+      <article class="rev-card reveal">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="rev-text">"Captain Kevin is the man you want showing you the Florida Keys. Each trip is completely customized. He wants to know who you are and what you want. Absolutely incredible experience."</p>
+        <div class="reviewer"><div class="rev-av" aria-hidden="true">JM</div><div><div class="rev-name">James M.</div><div class="rev-via">TripAdvisor · Verified Guest</div></div></div>
+      </article>
+      <article class="rev-card reveal">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="rev-text">"Over 100 fish. 13 species. In 6 hours. Kevin is patient and works his butt off for his clients. When you go with Kevin you don't go fishing, you go <em>catching</em>."</p>
+        <div class="reviewer"><div class="rev-av" aria-hidden="true">DR</div><div><div class="rev-name">David R.</div><div class="rev-via">TripAdvisor · Winter Trip</div></div></div>
+      </article>
+      <article class="rev-card reveal">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="rev-text">"Reeling in yellowtail snapper immediately, then a massive king mackerel, groupers and sharks. Such a great day. We will definitely book with Capt Kevin again."</p>
+        <div class="reviewer"><div class="rev-av" aria-hidden="true">SA</div><div><div class="rev-name">Sarah A.</div><div class="rev-via">Google · Early 2025</div></div></div>
+      </article>
+      <article class="rev-card reveal">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="rev-text">"We spent a gorgeous day lobstering. Capt. Kevin was a wonderful instructor, fun to be around, overall a great experience. Top notch charter captain. Highly recommend."</p>
+        <div class="reviewer"><div class="rev-av" aria-hidden="true">LP</div><div><div class="rev-name">Linda P.</div><div class="rev-via">TripAdvisor · Lobster Trip</div></div></div>
+      </article>
+      <article class="rev-card reveal">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="rev-text">"Sandbar for shelling, then snorkeling, then fishing. At the end he let my daughter drive the boat back to the dock. The highlight of our vacation. You won't be disappointed."</p>
+        <div class="reviewer"><div class="rev-av" aria-hidden="true">TK</div><div><div class="rev-name">Tom K.</div><div class="rev-via">TripAdvisor · Family Trip</div></div></div>
+      </article>
+      <article class="rev-card reveal">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="rev-text">"15+ years coming to the Keys. By far my favorite experience on the water. My son and I caught more tuna than we could ever imagine. We will be back."</p>
+        <div class="reviewer"><div class="rev-av" aria-hidden="true">MH</div><div><div class="rev-name">Mike H.</div><div class="rev-via">Yelp · Offshore Trip</div></div></div>
+      </article>
     </div>
   </div>
-</div>
+</section>
 
 <!-- DIVING PLAYLIST -->
-<div class="dive-wrap" id="diving">
+<section class="dive-wrap" id="diving" aria-labelledby="diving-title">
   <div class="dive-inner">
     <div class="yt-header reveal">
       <div>
-        <div class="eyebrow">🤿 Beneath the Surface · Florida Keys</div>
-        <h2 class="sec-title">Diving the Keys —<br><em>Liquid Magic</em> Awaits Below</h2>
+        <div class="eyebrow">Beneath the Surface · Florida Keys</div>
+        <h2 class="sec-title" id="diving-title">Diving the Keys —<br><em>Liquid Magic</em> Awaits Below</h2>
         <p style="font-size:.92rem;font-weight:300;color:var(--muted);margin-top:.5rem;max-width:540px;line-height:1.7">The Keys sit atop one of the world's most spectacular coral reef ecosystems. These videos capture what no photo can describe. <strong style="color:var(--bright)">Stop by the Seascape front desk</strong> and ask about our diving excursion packages.</p>
       </div>
       <div class="yt-header-ctas">
-        <a href="tel:+13057436212" class="btn-primary" style="font-size:.78rem;padding:.7rem 1.5rem">📞 Ask About Diving</a>
-        <a href="https://www.youtube.com/playlist?list=PLUyy1UkCd1TIeweZADzUlDX6OrOF6VgUR" target="_blank" rel="noopener" class="yt-pl-link">▶ Full Dive Playlist →</a>
+        <a href="tel:+13057436212" class="btn-primary" style="font-size:.78rem;padding:.7rem 1.5rem">
+          <span aria-hidden="true">📞</span>
+          <span>Ask About Diving</span>
+        </a>
+        <a href="https://www.youtube.com/playlist?list=PLUyy1UkCd1TIeweZADzUlDX6OrOF6VgUR" target="_blank" rel="noopener" class="yt-pl-link">Full Dive Playlist</a>
       </div>
     </div>
     <div class="yt-layout reveal">
       <div class="yt-player">
         <iframe id="dive-frame"
           src="https://www.youtube.com/embed/TkKM38uGIUw?list=PLUyy1UkCd1TIeweZADzUlDX6OrOF6VgUR&rel=0&modestbranding=1"
-          title="Diving the Florida Keys"
+          title="Diving the Florida Keys video player"
+          loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </div>
-      <div class="yt-sidebar">
+      <div class="yt-sidebar" aria-label="Diving video playlist">
         <div class="yt-sidebar-head">
-          <div class="yt-icon-box">🤿</div>
+          <div class="yt-icon-box" aria-hidden="true">🤿</div>
           <div>
             <div class="yt-pl-name">Diving in the Florida Keys</div>
             <div class="yt-pl-sub">Capt. Kevin Johnsen · FKRA</div>
@@ -636,70 +746,87 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
       </div>
     </div>
     <div class="dive-cta-bar reveal">
-      <p>🌊 The Keys reef is one of the last truly wild places on Earth — right outside your door at Seascape. <strong>Ask our front desk team</strong> about snorkeling, diving, and underwater excursion packages tailored for your group.</p>
-      <a href="tel:+13057436212" class="btn-primary">📞 (305) 743-6212 · Front Desk</a>
+      <p>The Keys reef is one of the last truly wild places on Earth, right outside your door at Seascape. <strong>Ask our front desk team</strong> about snorkeling, diving, and underwater excursion packages tailored for your group.</p>
+      <a href="tel:+13057436212" class="btn-primary" aria-label="Call front desk at 305 743 6212">
+        <span aria-hidden="true">📞</span>
+        <span>(305) 743-6212 · Front Desk</span>
+      </a>
     </div>
   </div>
-</div>
+</section>
 
 <!-- HOW IT WORKS -->
-<div class="how-bg">
+<section class="how-bg" aria-labelledby="how-title">
   <div class="section">
     <div class="reveal">
       <div class="eyebrow">Hassle-Free Booking</div>
-      <h2 class="sec-title">Your Excursion,<br><em>Our Treat</em></h2>
-      <p class="sec-lead">As a Seascape guest, booking your excursion is as easy as a conversation at the front desk. We handle the coordination — you just show up ready for fun.</p>
+      <h2 class="sec-title" id="how-title">Your Excursion,<br><em>Our Treat</em></h2>
+      <p class="sec-lead">As a Seascape guest, booking your excursion is as easy as a conversation at the front desk. We handle the coordination. You just show up ready for fun.</p>
     </div>
     <div class="how-steps">
-      <div class="step reveal"><div class="step-num">1</div><h4>Visit the Front Desk</h4><p>Our team helps you pick the perfect excursion for your group — size, interests, and schedule all considered.</p></div>
-      <div class="step reveal"><div class="step-num">2</div><h4>We Connect with Capt. Kevin</h4><p>Seascape coordinates directly with Capt. Kevin to reserve your private custom charter.</p></div>
-      <div class="step reveal"><div class="step-num">3</div><h4>Walk to the Dock</h4><p>On the morning of your trip, walk steps from your room to the marina. Capt. Kevin meets you dockside, ready to go.</p></div>
-      <div class="step reveal"><div class="step-num">4</div><h4>Make Memories</h4><p>Catch fish, explore the reef, spot wildlife. Return with stories, fresh fillets, and a deep love for the Florida Keys.</p></div>
+      <div class="step reveal"><div class="step-num">1</div><h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:.45rem">Visit the Front Desk</h3><p>Our team helps you pick the perfect excursion for your group, size, interests, and schedule all considered.</p></div>
+      <div class="step reveal"><div class="step-num">2</div><h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:.45rem">We Connect with Capt. Kevin</h3><p>Seascape coordinates directly with Capt. Kevin to reserve your private custom charter.</p></div>
+      <div class="step reveal"><div class="step-num">3</div><h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:.45rem">Walk to the Dock</h3><p>On the morning of your trip, walk steps from your room to the marina. Capt. Kevin meets you dockside, ready to go.</p></div>
+      <div class="step reveal"><div class="step-num">4</div><h3 style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:.45rem">Make Memories</h3><p>Catch fish, explore the reef, spot wildlife. Return with stories, fresh fillets, and a deep love for the Florida Keys.</p></div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- GALLERY -->
-<div style="background:var(--deep);padding:0 0 5rem">
+<section style="background:var(--deep);padding:0 0 5rem" aria-labelledby="gallery-title">
   <div class="section" style="padding-top:5rem">
     <div class="reveal">
       <div class="eyebrow">Life on the Water</div>
-      <h2 class="sec-title">The Keys, <em>Unfiltered</em></h2>
+      <h2 class="sec-title" id="gallery-title">The Keys, <em>Unfiltered</em></h2>
     </div>
     <div class="gal-grid reveal">
-      <div class="gal-item"><img src="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=600&q=80" alt="Florida Keys turquoise water"></div>
-      <div class="gal-item"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80" alt="Charter boat open ocean"></div>
-      <div class="gal-item"><img src="https://images.unsplash.com/photo-1596563912743-f8b5ac5c3eb6?w=600&q=80" alt="Snorkeling coral reef"></div>
-      <div class="gal-item"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Florida Keys sunset"></div>
-      <div class="gal-item"><img src="https://images.unsplash.com/photo-1571752726703-5e7d1f6a986d?w=800&q=80" alt="Tropical fish reef"></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=600&q=80" alt="Turquoise water in the Florida Keys"></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80" alt="Charter boat on open water in the Florida Keys"></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1596563912743-f8b5ac5c3eb6?w=600&q=80" alt="Snorkeling over coral reef in the Florida Keys"></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Sunset sky over the Florida Keys ocean"></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1571752726703-5e7d1f6a986d?w=800&q=80" alt="Tropical fish near a coral reef in the Florida Keys"></div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- BIG CTA -->
-<div class="big-cta">
-  <div class="big-cta-bg"></div>
-  <div class="big-cta-ov"></div>
+<section class="big-cta" aria-labelledby="book-title">
+  <div class="big-cta-bg" aria-hidden="true"></div>
+  <div class="big-cta-ov" aria-hidden="true"></div>
   <div class="big-cta-inner">
     <div class="reveal">
       <div class="eyebrow">Book Your Excursion</div>
-      <h2>Don't Let a Single<br><em>Sunrise</em> Go to Waste</h2>
-      <p class="sub">The Florida Keys are one of the world's truly magical places — and the best way to experience them is from the water. As a Seascape guest, you have front-row access to the most authentic, private ocean excursions in Marathon.</p>
+      <h2 id="book-title">Don't Let a Single<br><em>Sunrise</em> Go to Waste</h2>
+      <p class="sub">The Florida Keys are one of the world's truly magical places, and the best way to experience them is from the water. As a Seascape guest, you have front-row access to the most authentic, private ocean excursions in Marathon.</p>
       <div style="display:flex;gap:.9rem;flex-wrap:wrap">
-        <a href="tel:+13057436212" class="btn-primary">📞 Call Front Desk</a>
+        <a href="tel:+13057436212" class="btn-primary">
+          <span aria-hidden="true">📞</span>
+          <span>Call Front Desk</span>
+        </a>
         <a href="https://floridakeysreeladventures.com" target="_blank" rel="noopener" class="btn-outline">Visit FKRA Website</a>
       </div>
     </div>
     <div class="contact-box reveal">
       <h3>Seascape Front Desk</h3>
       <p class="csub">Excursion Concierge · Marathon, FL</p>
-      <div class="crow"><div class="cicon">📞</div><div class="cinfo"><strong>(305) 743-6212</strong><span>Front Desk · 8am – 8pm Daily</span></div></div>
-      <div class="crow"><div class="cicon">📍</div><div class="cinfo"><strong>1275 76th Street Ocean</strong><span>Marathon, FL 33050 · Heart of the Keys</span></div></div>
-      <div class="crow"><div class="cicon">✉️</div><div class="cinfo"><strong>info@seascaperesortandmarina.com</strong><span>We coordinate with Capt. Kevin for you</span></div></div>
+      <div class="crow">
+        <div class="cicon" aria-hidden="true">📞</div>
+        <div class="cinfo"><strong>(305) 743-6212</strong><span>Front Desk · 8am – 8pm Daily</span></div>
+      </div>
+      <div class="crow">
+        <div class="cicon" aria-hidden="true">📍</div>
+        <div class="cinfo"><strong>1275 76th Street Ocean</strong><span>Marathon, FL 33050 · Heart of the Keys</span></div>
+      </div>
+      <div class="crow">
+        <div class="cicon" aria-hidden="true">✉️</div>
+        <div class="cinfo"><strong>info@seascaperesortandmarina.com</strong><span>We coordinate with Capt. Kevin for you</span></div>
+      </div>
       <a href="tel:+13057436212" class="btn-cta-block">Reserve Your Excursion Now</a>
     </div>
   </div>
-</div>
+</section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -724,16 +851,16 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     <div class="foot-col">
       <h4>Resort</h4>
       <ul>
-        <li><a href="https://www.seascaperesortandmarina.com/" target="_blank">Rooms &amp; Rates</a></li>
-        <li><a href="https://www.seascaperesortandmarina.com/accommodations/" target="_blank">Accommodations</a></li>
+        <li><a href="https://www.seascaperesortandmarina.com/" target="_blank" rel="noopener">Rooms &amp; Rates</a></li>
+        <li><a href="https://www.seascaperesortandmarina.com/accommodations/" target="_blank" rel="noopener">Accommodations</a></li>
         <li><a href="tel:+13057436212">Book Direct · Best Rate</a></li>
-        <li><a href="https://floridakeysreeladventures.com" target="_blank">FKRA Website</a></li>
+        <li><a href="https://floridakeysreeladventures.com" target="_blank" rel="noopener">FKRA Website</a></li>
       </ul>
     </div>
   </div>
   <div class="foot-bottom">
     <p>© 2026 Seascape Resort &amp; Marina · 1275 76th Street Ocean, Marathon FL 33050 · <a href="tel:+13057436212">(305) 743-6212</a></p>
-    <p>Excursions by <a href="https://floridakeysreeladventures.com" target="_blank">Florida Keys Reel Adventures</a> · Capt. Kevin Johnsen · USCG Licensed</p>
+    <p>Excursions by <a href="https://floridakeysreeladventures.com" target="_blank" rel="noopener">Florida Keys Reel Adventures</a> · Capt. Kevin Johnsen · USCG Licensed</p>
   </div>
 </footer>
 
@@ -763,26 +890,31 @@ const diveVideos = [
 function buildList(videos, containerId, frameId, playlistId, activeIdx) {
   const el = document.getElementById(containerId);
   el.innerHTML = '';
+
   videos.forEach(function(v, i) {
-    const a = document.createElement('a');
-    a.className = 'yt-item' + (i === activeIdx ? ' on' : '');
-    a.href = '#';
-    a.innerHTML =
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'yt-item' + (i === activeIdx ? ' on' : '');
+    btn.setAttribute('aria-pressed', i === activeIdx ? 'true' : 'false');
+    btn.setAttribute('aria-label', 'Play video: ' + v.title);
+
+    btn.innerHTML =
       '<div class="yt-thumb">' +
         '<img src="https://img.youtube.com/vi/' + v.id + '/mqdefault.jpg" alt="" loading="lazy">' +
-        '<div class="pov"><div class="yt-pb">▶</div></div>' +
+        '<div class="pov" aria-hidden="true"><div class="yt-pb">▶</div></div>' +
       '</div>' +
       '<div class="yt-meta">' +
         '<div class="yt-vtitle">' + v.title + '</div>' +
-        '<div class="yt-vnum">' + (i === activeIdx ? '▶ Now Playing' : 'Video ' + (i+1)) + '</div>' +
+        '<div class="yt-vnum">' + (i === activeIdx ? 'Now Playing' : 'Video ' + (i+1)) + '</div>' +
       '</div>';
-    a.addEventListener('click', function(e) {
-      e.preventDefault();
+
+    btn.addEventListener('click', function() {
       document.getElementById(frameId).src =
         'https://www.youtube.com/embed/' + v.id + '?list=' + playlistId + '&autoplay=1&rel=0&modestbranding=1';
       buildList(videos, containerId, frameId, playlistId, i);
     });
-    el.appendChild(a);
+
+    el.appendChild(btn);
   });
 }
 
@@ -798,7 +930,7 @@ function tempPhotoFor(altText) {
   if (label.includes('snorkel') || label.includes('coral') || label.includes('dive') || label.includes('reef')) {
     return 'https://loremflickr.com/1200/800/snorkeling,reef,ocean?lock=502';
   }
-  if (label.includes('captain') || label.includes('boat') || label.includes('charter')) {
+  if (label.includes('capt.') || label.includes('captain') || label.includes('boat') || label.includes('charter')) {
     return 'https://loremflickr.com/1200/800/boat,captain,ocean?lock=503';
   }
   if (label.includes('lobster') || label.includes('fish') || label.includes('fishing') || label.includes('shark')) {
@@ -808,7 +940,7 @@ function tempPhotoFor(altText) {
 }
 
 document.querySelectorAll('img').forEach(function(img) {
-  img.addEventListener('error', function handleImageError() {
+  img.addEventListener('error', function() {
     if (img.dataset.fallbackApplied === 'true') return;
     img.dataset.fallbackApplied = 'true';
     img.src = tempPhotoFor(img.alt);
@@ -816,16 +948,22 @@ document.querySelectorAll('img').forEach(function(img) {
 });
 
 // ── SCROLL REVEAL ──
-var reveals = document.querySelectorAll('.reveal');
-var obs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('on');
-      obs.unobserve(entry.target);
-    }
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  var reveals = document.querySelectorAll('.reveal');
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('on');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  reveals.forEach(function(el) { obs.observe(el); });
+} else {
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    el.classList.add('on');
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-reveals.forEach(function(el) { obs.observe(el); });
+}
 </script>
 </body>
 </html>
