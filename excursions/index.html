@@ -789,6 +789,32 @@ function buildList(videos, containerId, frameId, playlistId, activeIdx) {
 buildList(fishVideos, 'fish-list', 'fish-frame', 'PLUyy1UkCd1TJX4y80VFXpVXr__dsUoPV-', 0);
 buildList(diveVideos, 'dive-list', 'dive-frame', 'PLUyy1UkCd1TIeweZADzUlDX6OrOF6VgUR', 0);
 
+// ── FALLBACK PHOTOS FOR EMPTY/BROKEN IMAGE SLOTS ──
+function tempPhotoFor(altText) {
+  var label = (altText || '').toLowerCase();
+  if (label.includes('sunset') || label.includes('sandbar')) {
+    return 'https://loremflickr.com/1200/800/sunset,beach,boat?lock=501';
+  }
+  if (label.includes('snorkel') || label.includes('coral') || label.includes('dive') || label.includes('reef')) {
+    return 'https://loremflickr.com/1200/800/snorkeling,reef,ocean?lock=502';
+  }
+  if (label.includes('captain') || label.includes('boat') || label.includes('charter')) {
+    return 'https://loremflickr.com/1200/800/boat,captain,ocean?lock=503';
+  }
+  if (label.includes('lobster') || label.includes('fish') || label.includes('fishing') || label.includes('shark')) {
+    return 'https://loremflickr.com/1200/800/fishing,sea,boat?lock=504';
+  }
+  return 'https://loremflickr.com/1200/800/florida,keys,ocean?lock=505';
+}
+
+document.querySelectorAll('img').forEach(function(img) {
+  img.addEventListener('error', function handleImageError() {
+    if (img.dataset.fallbackApplied === 'true') return;
+    img.dataset.fallbackApplied = 'true';
+    img.src = tempPhotoFor(img.alt);
+  });
+});
+
 // ── SCROLL REVEAL ──
 var reveals = document.querySelectorAll('.reveal');
 var obs = new IntersectionObserver(function(entries) {
