@@ -121,17 +121,24 @@ nav{
 .hero-desc{font-size:1.05rem;font-weight:300;color:rgba(232,244,240,.82);max-width:560px;line-height:1.75;margin-bottom:2rem}
 .hero-btns{display:flex;gap:.9rem;flex-wrap:wrap}
 
-.hero-audio-toggle{
+.hero-video-controls{
   position:absolute;right:2.5rem;bottom:2rem;z-index:3;
+  display:flex;align-items:center;gap:.55rem;
+}
+
+.hero-audio-toggle,
+.hero-next-video{
   display:inline-flex;align-items:center;gap:.45rem;
   background:rgba(4,19,28,.58);color:var(--white);
   border:1px solid rgba(232,244,240,.35);border-radius:999px;
   padding:.55rem .95rem;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
   backdrop-filter:blur(8px);cursor:pointer;transition:background .2s,border-color .2s,transform .2s;
 }
-.hero-audio-toggle:hover{background:rgba(10,90,110,.62);border-color:rgba(29,211,196,.7);transform:translateY(-1px)}
+.hero-audio-toggle:hover,
+.hero-next-video:hover{background:rgba(10,90,110,.62);border-color:rgba(29,211,196,.7);transform:translateY(-1px)}
 .hero-audio-toggle[aria-pressed="true"]{background:rgba(10,90,110,.72);border-color:rgba(29,211,196,.9);color:var(--bright)}
-.hero-audio-toggle:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.hero-audio-toggle:disabled,
+.hero-next-video:disabled{opacity:.6;cursor:not-allowed;transform:none}
 
 /* ── BUTTONS ── */
 .btn-primary{
@@ -395,12 +402,14 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   .dive-cta-bar{flex-direction:column;text-align:center}
   .yt-header{flex-direction:column}
   .yt-header-ctas{align-items:flex-start}
-  .hero-audio-toggle{right:1.4rem;bottom:1.4rem}
+  .hero-video-controls{right:1.4rem;bottom:1.4rem}
 }
 @media(max-width:580px){
   .hero-content{padding:0 1.4rem 4.5rem}
   .hero-btns{flex-direction:column}
-  .hero-audio-toggle{right:1rem;bottom:1rem;font-size:.66rem;padding:.48rem .75rem}
+  .hero-video-controls{right:1rem;bottom:1rem;gap:.4rem}
+  .hero-audio-toggle,
+  .hero-next-video{font-size:.66rem;padding:.48rem .75rem}
   .exc-grid{grid-template-columns:1fr}
   .how-steps{grid-template-columns:1fr}
   .section{padding:3.5rem 1.4rem}
@@ -478,10 +487,16 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
         <span>(305) 743-6212 · Front Desk</span>
       </a>
     </div>
-    <button id="hero-audio-toggle" class="hero-audio-toggle" type="button" aria-pressed="false" aria-label="Unmute hero background video" disabled>
-      <span aria-hidden="true">🔇</span>
-      <span>Muted</span>
-    </button>
+    <div class="hero-video-controls">
+      <button id="hero-audio-toggle" class="hero-audio-toggle" type="button" aria-pressed="false" aria-label="Unmute hero background video" disabled>
+        <span aria-hidden="true">🔇</span>
+        <span>Muted</span>
+      </button>
+      <button id="hero-next-video" class="hero-next-video" type="button" aria-label="Play next random hero video" disabled>
+        <span aria-hidden="true">⏭️</span>
+        <span>Next Video</span>
+      </button>
+    </div>
   </div>
 </section>
 
@@ -579,10 +594,10 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
       <article class="card wide reveal">
         <div class="card-img">
           <div class="card-icon" aria-hidden="true">🎣</div>
-          <img src="https://images.unsplash.com/photo-1516490701955-e3af30ab7ffa?w=900&q=80" alt="Private reef fishing charter in the Florida Keys">
+          <img id="reef-wreck-featured-image" src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (1).png" alt="Capt. Kevin leading a private reef and wreck fishing charter in Marathon, Florida Keys">
         </div>
         <div class="card-body">
-          <div class="card-tag">Most Popular · Family Favourite</div>
+          <div class="card-tag">Most Popular · Family Favorite</div>
           <h3>Reef &amp; Wreck Fishing Adventure</h3>
           <p>Yellowtail snapper, grouper, kingfish, sharks. The reefs of Marathon hold extraordinary bounty. Capt. Kevin puts you directly over proven hot spots. Bait, tackle, licenses, ice and fish cleaning all included. You're not going fishing. You're going <strong style="color:var(--sand)">catching</strong>.</p>
           <div class="card-foot">
@@ -593,7 +608,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
       </article>
 
       <article class="card reveal">
-        <div class="card-img"><div class="card-icon" aria-hidden="true">🌊</div><img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?w=600&q=80" alt="Family enjoying a private Florida Keys boat excursion"></div>
+        <div class="card-img"><div class="card-icon" aria-hidden="true">🌊</div><img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (2).png" alt="Family enjoying a private Florida Keys boat excursion"></div>
         <div class="card-body">
           <div class="card-tag">Best for Families</div>
           <h3>Family Fish &amp; Snorkel Combo</h3>
@@ -603,7 +618,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
       </article>
 
       <article class="card reveal">
-        <div class="card-img"><div class="card-icon" aria-hidden="true">⚓</div><img src="https://images.unsplash.com/photo-1500908423773-41c7b5c03428?w=600&q=80" alt="Offshore fishing trip in the open Atlantic near Marathon Florida"></div>
+        <div class="card-img"><div class="card-icon" aria-hidden="true">⚓</div><img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (6).png" alt="Offshore fishing trip in the open Atlantic near Marathon Florida"></div>
         <div class="card-body">
           <div class="card-tag">Advanced · Blue Water</div>
           <h3>Deep Offshore Trolling</h3>
@@ -904,10 +919,31 @@ if (window.location.hash === '#excursion' || window.location.hash === '#excursio
 
 // ── HERO VIDEO BACKGROUND ──
 const heroVideoIds = ['VDkIneFeW-g','7hlWECji6qM','pnKIQplgKXM','Vy8X5N00DVw','F7ywYq7FYFA','tvto8PacvWY','rWVWfF1frPM'];
-const heroVideoId = heroVideoIds[Math.floor(Math.random() * heroVideoIds.length)];
+let currentHeroVideoId = heroVideoIds[Math.floor(Math.random() * heroVideoIds.length)];
 const heroAudioToggle = document.getElementById('hero-audio-toggle');
+const heroNextVideoButton = document.getElementById('hero-next-video');
 let heroPlayer;
 let heroIsMuted = true;
+
+function getNextRandomHeroVideoId() {
+  if (heroVideoIds.length < 2) return currentHeroVideoId;
+  let nextVideoId = currentHeroVideoId;
+  while (nextVideoId === currentHeroVideoId) {
+    nextVideoId = heroVideoIds[Math.floor(Math.random() * heroVideoIds.length)];
+  }
+  return nextVideoId;
+}
+
+function playRandomHeroVideo() {
+  if (!heroPlayer) return;
+  currentHeroVideoId = getNextRandomHeroVideoId();
+  heroPlayer.loadVideoById(currentHeroVideoId);
+  if (heroIsMuted) {
+    heroPlayer.mute();
+  } else {
+    heroPlayer.unMute();
+  }
+}
 
 function updateHeroAudioButton() {
   if (!heroAudioToggle) return;
@@ -920,7 +956,7 @@ function updateHeroAudioButton() {
 
 window.onYouTubeIframeAPIReady = function() {
   heroPlayer = new YT.Player('hero-video-player', {
-    videoId: heroVideoId,
+    videoId: currentHeroVideoId,
     playerVars: {
       autoplay: 1,
       controls: 0,
@@ -931,7 +967,7 @@ window.onYouTubeIframeAPIReady = function() {
       modestbranding: 1,
       playsinline: 1,
       rel: 0,
-      playlist: heroVideoId
+      playlist: currentHeroVideoId
     },
     events: {
       onReady: function(event) {
@@ -940,6 +976,7 @@ window.onYouTubeIframeAPIReady = function() {
         heroIsMuted = true;
         updateHeroAudioButton();
         if (heroAudioToggle) heroAudioToggle.disabled = false;
+        if (heroNextVideoButton) heroNextVideoButton.disabled = false;
       },
       onStateChange: function(event) {
         if (event.data === YT.PlayerState.ENDED) {
@@ -963,6 +1000,30 @@ if (heroAudioToggle) {
     }
     updateHeroAudioButton();
   });
+}
+
+if (heroNextVideoButton) {
+  heroNextVideoButton.addEventListener('click', function() {
+    playRandomHeroVideo();
+  });
+}
+
+
+const reefWreckFeaturedImage = document.getElementById('reef-wreck-featured-image');
+if (reefWreckFeaturedImage) {
+  const reefWreckImageOptions = [
+    'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (1).png',
+    'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (2).png',
+    'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (3).png',
+    'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (4).png',
+    'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (5).png',
+    'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (6).png',
+    'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (7).png',
+    'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (8).png',
+    'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (9).png'
+  ];
+  const reefWreckRandomIndex = Math.floor(Math.random() * reefWreckImageOptions.length);
+  reefWreckFeaturedImage.src = reefWreckImageOptions[reefWreckRandomIndex];
 }
 
 const ytApiScript = document.createElement('script');
