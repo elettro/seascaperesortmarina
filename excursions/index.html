@@ -249,6 +249,18 @@ nav{
 .card:hover .card-img img{transform:scale(1.06)}
 .card-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:55px;background:linear-gradient(to top,#061924,transparent)}
 .card-icon{position:absolute;top:.9rem;right:.9rem;width:38px;height:38px;background:rgba(18,168,157,.88);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;z-index:2}
+.featured-slider-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+  width:34px;height:34px;border-radius:50%;border:1px solid rgba(232,244,240,.35);
+  background:rgba(4,19,28,.56);color:var(--white);display:inline-flex;align-items:center;justify-content:center;
+  font-size:1.1rem;line-height:1;cursor:pointer;backdrop-filter:blur(8px);transition:background .2s,border-color .2s,transform .2s;
+}
+.featured-slider-arrow:hover{background:rgba(10,90,110,.62);border-color:rgba(29,211,196,.75);transform:translateY(-50%) scale(1.05)}
+.featured-slider-arrow:focus-visible{outline:2px solid var(--bright);outline-offset:2px}
+.featured-slider-arrow.prev{left:.75rem}
+.featured-slider-arrow.next{right:.75rem}
+@media(max-width:900px){.featured-slider-arrow{width:32px;height:32px}}
+@media(max-width:580px){.featured-slider-arrow{width:30px;height:30px;font-size:1rem}}
 .card-body{padding:1.4rem}
 .card-tag{font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--bright);margin-bottom:.45rem}
 .card h3{font-family:'Playfair Display',serif;font-size:1.22rem;font-weight:700;color:var(--white);margin-bottom:.6rem;line-height:1.25}
@@ -595,6 +607,8 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
         <div class="card-img">
           <div class="card-icon" aria-hidden="true">🎣</div>
           <img id="reef-wreck-featured-image" src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (1).png" alt="Capt. Kevin leading a private reef and wreck fishing charter in Marathon, Florida Keys">
+          <button type="button" class="featured-slider-arrow prev" id="reef-wreck-prev" aria-label="Previous image">‹</button>
+          <button type="button" class="featured-slider-arrow next" id="reef-wreck-next" aria-label="Next image">›</button>
         </div>
         <div class="card-body">
           <div class="card-tag">Most Popular · Family Favorite</div>
@@ -1010,7 +1024,10 @@ if (heroNextVideoButton) {
 
 
 const reefWreckFeaturedImage = document.getElementById('reef-wreck-featured-image');
-if (reefWreckFeaturedImage) {
+const reefWreckPrevButton = document.getElementById('reef-wreck-prev');
+const reefWreckNextButton = document.getElementById('reef-wreck-next');
+
+if (reefWreckFeaturedImage && reefWreckPrevButton && reefWreckNextButton) {
   const reefWreckImageOptions = [
     'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (1).png',
     'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (2).png',
@@ -1022,8 +1039,57 @@ if (reefWreckFeaturedImage) {
     'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (8).png',
     'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (9).png'
   ];
-  const reefWreckRandomIndex = Math.floor(Math.random() * reefWreckImageOptions.length);
-  reefWreckFeaturedImage.src = reefWreckImageOptions[reefWreckRandomIndex];
+
+  let reefWreckCurrentIndex = Math.floor(Math.random() * reefWreckImageOptions.length);
+  let reefWreckSliderTimer;
+  let reefWreckTouchStartX = 0;
+
+  function renderReefWreckImage() {
+    reefWreckFeaturedImage.src = reefWreckImageOptions[reefWreckCurrentIndex];
+  }
+
+  function showNextReefWreckImage() {
+    reefWreckCurrentIndex = (reefWreckCurrentIndex + 1) % reefWreckImageOptions.length;
+    renderReefWreckImage();
+  }
+
+  function showPrevReefWreckImage() {
+    reefWreckCurrentIndex = (reefWreckCurrentIndex - 1 + reefWreckImageOptions.length) % reefWreckImageOptions.length;
+    renderReefWreckImage();
+  }
+
+  function resetReefWreckAutoplay() {
+    clearInterval(reefWreckSliderTimer);
+    reefWreckSliderTimer = setInterval(showNextReefWreckImage, 4500);
+  }
+
+  reefWreckNextButton.addEventListener('click', function() {
+    showNextReefWreckImage();
+    resetReefWreckAutoplay();
+  });
+
+  reefWreckPrevButton.addEventListener('click', function() {
+    showPrevReefWreckImage();
+    resetReefWreckAutoplay();
+  });
+
+  reefWreckFeaturedImage.addEventListener('touchstart', function(event) {
+    reefWreckTouchStartX = event.changedTouches[0].clientX;
+  }, { passive: true });
+
+  reefWreckFeaturedImage.addEventListener('touchend', function(event) {
+    const touchDelta = event.changedTouches[0].clientX - reefWreckTouchStartX;
+    if (Math.abs(touchDelta) < 40) return;
+    if (touchDelta < 0) {
+      showNextReefWreckImage();
+    } else {
+      showPrevReefWreckImage();
+    }
+    resetReefWreckAutoplay();
+  }, { passive: true });
+
+  renderReefWreckImage();
+  resetReefWreckAutoplay();
 }
 
 const ytApiScript = document.createElement('script');
