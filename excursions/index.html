@@ -870,6 +870,13 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 </footer>
 
 <script>
+
+// ── FORCE TOP-OF-PAGE LOAD (REMOVE EXCURSION HASH) ──
+if (window.location.hash === '#excursion' || window.location.hash === '#excursions') {
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+}
+
 // ── FISHING PLAYLIST ──
 const fishVideos = [
   { id:'VDkIneFeW-g', title:'Florida Keys Reel Adventures — On the Water with Capt. Kevin' },
