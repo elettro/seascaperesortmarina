@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seascape Excursions Showcase Concepts</title>
+  <style>
+    :root{
+      --bg:#04131c;
+      --panel:#082330;
+      --panel-2:#0b2d3d;
+      --line:rgba(255,255,255,.08);
+      --text:#eef7fb;
+      --muted:#9db7c4;
+      --accent:#19c7b7;
+      --sand:#e7c37a;
+      --shadow:0 18px 50px rgba(0,0,0,.28);
+      --radius:22px;
+      --gap:18px;
+      --max:1320px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(25,199,183,.12), transparent 30%),
+        linear-gradient(180deg,#021018 0%, #04131c 100%);
+      color:var(--text);
+    }
+
+    a{color:inherit}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+
+    .page{
+      width:min(calc(100% - 32px), var(--max));
+      margin:0 auto;
+      padding:28px 0 80px;
+    }
+
+    .hero{
+      padding:28px;
+      border:1px solid var(--line);
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      box-shadow:var(--shadow);
+      margin-bottom:30px;
+    }
+
+    .eyebrow{
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(32px, 5vw, 64px);
+      line-height:1;
+      letter-spacing:-.03em;
+    }
+
+    .lead{
+      max-width:900px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.6;
+      margin:0;
+    }
+
+    .section{
+      margin-top:34px;
+      padding:24px;
+      border:1px solid var(--line);
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+
+    .section h2{
+      margin:0 0 6px;
+      font-size:clamp(22px,3vw,36px);
+      letter-spacing:-.03em;
+    }
+
+    .section p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .tag{
+      border:1px solid rgba(25,199,183,.28);
+      color:var(--accent);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .frame{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+    }
+
+    .grid{display:grid;gap:var(--gap)}
+    .stack{display:grid;gap:var(--gap)}
+
+    .tile{
+      position:relative;
+      min-height:220px;
+      border-radius:22px;
+      overflow:hidden;
+      background:var(--panel-2);
+      box-shadow:var(--shadow);
+    }
+
+    .tile.tall{min-height:460px}
+    .tile.medium{min-height:320px}
+    .tile.short{min-height:170px}
+    .tile.hero-tile{min-height:540px}
+    .tile.wide{min-height:280px}
+
+    .overlay{
+      position:absolute;
+      inset:auto 0 0 0;
+      padding:18px;
+      background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.72) 100%);
+      z-index:2;
+    }
+
+    .overlay strong{
+      display:block;
+      font-size:15px;
+      letter-spacing:.02em;
+    }
+
+    .overlay span{
+      display:block;
+      margin-top:6px;
+      color:#d8e7ef;
+      font-size:13px;
+      opacity:.9;
+    }
+
+    /* 1 */
+    .concept-1{
+      display:grid;
+      grid-template-columns:1.45fr 1fr;
+      gap:var(--gap);
+    }
+    .concept-1 .right{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:var(--gap);
+      align-content:start;
+    }
+    .concept-1 .right .top{
+      grid-column:1 / -1;
+      min-height:260px;
+    }
+
+    /* 2 */
+    .concept-2{
+      column-count:4;
+      column-gap:var(--gap);
+    }
+    .concept-2 .tile{
+      break-inside:avoid;
+      margin-bottom:var(--gap);
+    }
+
+    /* 3 */
+    .concept-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:var(--gap);
+    }
+
+    /* 4 */
+    .concept-4{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:var(--gap);
+      align-items:stretch;
+    }
+    .concept-4 .side{
+      display:grid;
+      grid-template-rows:repeat(4,1fr);
+      gap:var(--gap);
+    }
+
+    /* 5 */
+    .concept-5{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:var(--gap);
+    }
+    .concept-5 .tile{min-height:260px}
+
+    /* 6 */
+    .concept-6{
+      display:grid;
+      gap:var(--gap);
+    }
+    .concept-6 .row{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:var(--gap);
+    }
+    .concept-6 .row.alt{
+      grid-template-columns:.8fr 1.2fr;
+    }
+
+    /* 7 */
+    .concept-7{
+      position:relative;
+      min-height:860px;
+      border-radius:28px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(25,199,183,.08), transparent 20%),
+        radial-gradient(circle at 80% 75%, rgba(231,195,122,.07), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,.015), rgba(255,255,255,.01));
+      overflow:hidden;
+    }
+    .float{
+      position:absolute;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,.07);
+    }
+
+    /* 8 */
+    .concept-8{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      grid-auto-rows:90px;
+      gap:var(--gap);
+    }
+    .concept-8 .a{grid-column:span 7; grid-row:span 4}
+    .concept-8 .b{grid-column:span 5; grid-row:span 2}
+    .concept-8 .c{grid-column:span 5; grid-row:span 2}
+    .concept-8 .d{grid-column:span 4; grid-row:span 2}
+    .concept-8 .e{grid-column:span 4; grid-row:span 2}
+    .concept-8 .f{grid-column:span 4; grid-row:span 2}
+
+    /* 9 */
+    .concept-9{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:var(--gap);
+    }
+    .concept-9 .filmstrip{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:var(--gap);
+      margin-top:var(--gap);
+    }
+    .concept-9 .filmstrip .tile{min-height:150px}
+    .concept-9 .right{
+      display:grid;
+      gap:var(--gap);
+      grid-template-rows:1fr 1fr;
+    }
+
+    /* 10 */
+    .concept-10{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      grid-auto-rows:88px;
+      gap:var(--gap);
+    }
+    .concept-10 .tile:nth-child(1){grid-column:span 6;grid-row:span 4}
+    .concept-10 .tile:nth-child(2){grid-column:span 3;grid-row:span 2}
+    .concept-10 .tile:nth-child(3){grid-column:span 3;grid-row:span 2}
+    .concept-10 .tile:nth-child(4){grid-column:span 3;grid-row:span 2}
+    .concept-10 .tile:nth-child(5){grid-column:span 3;grid-row:span 2}
+    .concept-10 .tile:nth-child(6){grid-column:span 6;grid-row:span 2}
+    .concept-10 .tile:nth-child(7){grid-column:span 4;grid-row:span 2}
+    .concept-10 .tile:nth-child(8){grid-column:span 4;grid-row:span 2}
+    .concept-10 .tile:nth-child(9){grid-column:span 4;grid-row:span 2}
+
+    .footer-note{
+      margin-top:26px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+      text-align:center;
+    }
+
+    @media (max-width:1100px){
+      .concept-1,
+      .concept-4,
+      .concept-9,
+      .concept-6 .row,
+      .concept-6 .row.alt{
+        grid-template-columns:1fr;
+      }
+      .concept-2{column-count:3}
+      .concept-5{grid-template-columns:repeat(2,1fr)}
+      .concept-3{grid-template-columns:1fr}
+    }
+
+    @media (max-width:800px){
+      .section{padding:18px}
+      .concept-2{column-count:2}
+      .concept-5{grid-template-columns:1fr}
+      .concept-8,
+      .concept-10{
+        grid-template-columns:repeat(2,1fr);
+        grid-auto-rows:auto;
+      }
+      .concept-8 .a,
+      .concept-8 .b,
+      .concept-8 .c,
+      .concept-8 .d,
+      .concept-8 .e,
+      .concept-8 .f,
+      .concept-10 .tile{
+        grid-column:auto;
+        grid-row:auto;
+        min-height:220px;
+      }
+      .concept-7{
+        min-height:auto;
+        display:grid;
+        gap:var(--gap);
+        background:none;
+      }
+      .float{
+        position:relative !important;
+        inset:auto !important;
+        width:100% !important;
+        height:auto !important;
+        min-height:220px;
+      }
+      .concept-9 .filmstrip{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media (max-width:560px){
+      .page{width:min(calc(100% - 20px), var(--max))}
+      .hero{padding:22px}
+      .section-head{margin-bottom:14px}
+      .concept-2{column-count:1}
+      .concept-1 .right{grid-template-columns:1fr}
+      .concept-9 .filmstrip{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <div class="eyebrow">Seascape Excursions</div>
+      <h1>10 Travel Showcase Concepts</h1>
+      <p class="lead">
+        This page uses your real image filenames with relative paths like <strong>images/...</strong>.
+        Drop this file into the <strong>excursions</strong> folder and it will pull from <strong>excursions/images/</strong>.
+        These are concept directions for a premium multi-image display system, not final locked designs.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>1. Hero Editorial Mosaic</h2>
+          <p>Strong homepage-level statement. Premium travel spread feel.</p>
+        </div>
+        <div class="tag">High Impact</div>
+      </div>
+      <div class="concept-1">
+        <div class="tile hero-tile">
+          <img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (4).png" alt="Featured charter fishing image">
+          <div class="overlay"><strong>Editorial Hero</strong><span>Big destination energy</span></div>
+        </div>
+        <div class="right">
+          <div class="tile top">
+            <img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image-BoatLitUpAtNight-1.png" alt="Boat lit at night">
+          </div>
+          <div class="tile short">
+            <img src="images/Captain-Kevin-Johnsen-Seascape-Marina-Resort.jpg" alt="Captain Kevin">
+          </div>
+          <div class="tile short">
+            <img src="images/seascape-marina-resport-captain-kevin-marathon-key-16x9-shark1.png" alt="Shark fishing image">
+          </div>
+          <div class="tile short">
+            <img src="images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (5).jpeg" alt="Boat detail">
+          </div>
+          <div class="tile short">
+            <img src="images/Seascape-Marina-Resort-Marathon-key-Captain-Kevin-Website-images- (4).jpg" alt="Snorkel visual">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>2. Randomized Luxury Masonry</h2>
+          <p>Editorial masonry wall. Strong for a lifestyle-heavy gallery section.</p>
+        </div>
+        <div class="tag">Gallery-Driven</div>
+      </div>
+      <div class="concept-2" data-random-grid="masonry"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>3. Adventure Timeline Grid</h2>
+          <p>Sequence-driven. Great for telling the excursion story.</p>
+        </div>
+        <div class="tag">Storytelling</div>
+      </div>
+      <div class="concept-3">
+        <div class="tile medium">
+          <img src="images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (1).jpeg" alt="Boat helm">
+          <div class="overlay"><strong>Step 1</strong><span>Board and prepare</span></div>
+        </div>
+        <div class="tile medium">
+          <img src="images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (7).jpg" alt="Open water">
+          <div class="overlay"><strong>Step 2</strong><span>Head into the Keys</span></div>
+        </div>
+        <div class="tile medium">
+          <img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (6).png" alt="Action fishing image">
+          <div class="overlay"><strong>Step 3</strong><span>Chase the bite</span></div>
+        </div>
+        <div class="tile medium">
+          <img src="images/Seascape-Marina-Resort-Marathon-key-Captain-Kevin-Website-images- (4).jpg" alt="Snorkel and reef">
+          <div class="overlay"><strong>Step 4</strong><span>Experience the reef</span></div>
+        </div>
+        <div class="tile medium">
+          <img src="images/seascape-marina-resport-captain-kevin-marathon-key-16x9-shark1.png" alt="Shark run">
+          <div class="overlay"><strong>Step 5</strong><span>Thrill-seeker options</span></div>
+        </div>
+        <div class="tile medium">
+          <img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image-BoatLitUpAtNight-1.png" alt="Night fishing boat">
+          <div class="overlay"><strong>Step 6</strong><span>After-dark adventure</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>4. Split Feature Wall</h2>
+          <p>Simple, controlled, elegant. Easy to maintain.</p>
+        </div>
+        <div class="tag">Clean Luxury</div>
+      </div>
+      <div class="concept-4">
+        <div class="tile hero-tile">
+          <img src="images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (10).jpg" alt="Featured wide charter image">
+          <div class="overlay"><strong>Signature Seascape Experience</strong><span>Premium resort-meets-waterfront look</span></div>
+        </div>
+        <div class="side">
+          <div class="tile short"><img src="images/Captain-Kevin-Johnsen-Seascape-Marina-Resort.jpg" alt="Captain portrait"></div>
+          <div class="tile short"><img src="images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (3).jpeg" alt="Boat seating"></div>
+          <div class="tile short"><img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (2).png" alt="Family fish and snorkel"></div>
+          <div class="tile short"><img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (8).png" alt="Lobster diving"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>5. Experience Categories Grid</h2>
+          <p>Direct, commercial, and highly useful for browsing offers.</p>
+        </div>
+        <div class="tag">Conversion-Friendly</div>
+      </div>
+      <div class="concept-5">
+        <div class="tile">
+          <img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (3).png" alt="Reef and wreck fishing">
+          <div class="overlay"><strong>Reef &amp; Wreck</strong><span>Family Favorite</span></div>
+        </div>
+        <div class="tile">
+          <img src="images/Seascape-Marina-Resort-Marathon-key-Captain-Kevin-Website-images- (4).jpg" alt="Coral reef snorkel">
+          <div class="overlay"><strong>Snorkel &amp; Sea Life</strong><span>All skill levels</span></div>
+        </div>
+        <div class="tile">
+          <img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (8).png" alt="Lobster diving">
+          <div class="overlay"><strong>Lobster Diving</strong><span>Seasonal adventure</span></div>
+        </div>
+        <div class="tile">
+          <img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (2).png" alt="Family fish and snorkel combo">
+          <div class="overlay"><strong>Family Combo</strong><span>Best for mixed groups</span></div>
+        </div>
+        <div class="tile">
+          <img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (6).png" alt="Deep offshore trolling">
+          <div class="overlay"><strong>Deep Trolling</strong><span>Blue water action</span></div>
+        </div>
+        <div class="tile">
+          <img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image-BoatLitUpAtNight-1.png" alt="Night reef snapper trip">
+          <div class="overlay"><strong>Night Snapper</strong><span>After-dark fishing</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>6. Alternating Story Blocks</h2>
+          <p>Good for long pages. Creates visual motion as you scroll.</p>
+        </div>
+        <div class="tag">Scroll Narrative</div>
+      </div>
+      <div class="concept-6">
+        <div class="row">
+          <div class="tile hero-tile">
+            <img src="images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (12).jpg" alt="Resort and excursion lifestyle">
+          </div>
+          <div class="tile hero-tile">
+            <img src="images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (1).jpeg" alt="Electronics and helm">
+          </div>
+        </div>
+        <div class="row alt">
+          <div class="tile hero-tile">
+            <img src="images/seascape-marina-resport-captain-kevin-marathon-key-16x9-shark1.png" alt="Shark fishing excitement">
+          </div>
+          <div class="tile hero-tile">
+            <img src="images/Seascape-Marina-Resort-Marathon-key-Captain-Kevin-Website-images- (2).jpg" alt="Website supporting image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>7. Floating Islands Grid</h2>
+          <p>Art-directed. More bespoke. Strong boutique hotel energy.</p>
+        </div>
+        <div class="tag">Bespoke Layout</div>
+      </div>
+      <div class="concept-7">
+        <div class="float" style="top:20px; left:0; width:42%; height:340px;">
+          <img src="images/Captain-Kevin-Johnsen-Seascape-Marina-Resort.jpg" alt="Captain Kevin portrait">
+        </div>
+        <div class="float" style="top:50px; right:0; width:34%; height:250px;">
+          <img src="images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (4).jpeg" alt="Boat top view">
+        </div>
+        <div class="float" style="top:390px; left:6%; width:28%; height:220px;">
+          <img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (5).png" alt="Action image">
+        </div>
+        <div class="float" style="top:320px; right:10%; width:38%; height:300px;">
+          <img src="images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (18).jpg" alt="Travel horizontal image">
+        </div>
+        <div class="float" style="bottom:0; left:30%; width:42%; height:220px;">
+          <img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image-BoatLitUpAtNight-1.png" alt="Night boat lit up">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>8. Immersive Edge-to-Edge Gallery</h2>
+          <p>Large visual wall. Works well as a destination selling section.</p>
+        </div>
+        <div class="tag">Immersive</div>
+      </div>
+      <div class="concept-8">
+        <div class="tile a"><img src="images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (15).jpg" alt="Wide destination image"></div>
+        <div class="tile b"><img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (7).png" alt="Excursion image"></div>
+        <div class="tile c"><img src="images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (6).jpeg" alt="Helm view"></div>
+        <div class="tile d"><img src="images/Captain-Kevin-Johnsen-Seascape-Marina-Resort.jpg" alt="Captain Kevin"></div>
+        <div class="tile e"><img src="images/seascape-marina-resport-captain-kevin-marathon-key-16x9-shark1.png" alt="Shark image"></div>
+        <div class="tile f"><img src="images/Seascape-Marina-Resort-Marathon-key-Captain-Kevin-Website-images- (5).jpg" alt="Website support image"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>9. Cinematic Filmstrip</h2>
+          <p>Perfect transition section between content blocks.</p>
+        </div>
+        <div class="tag">Cinematic</div>
+      </div>
+      <div class="concept-9">
+        <div>
+          <div class="tile hero-tile">
+            <img src="images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (9).jpg" alt="Main cinematic image">
+            <div class="overlay"><strong>Florida Keys Charter Atmosphere</strong><span>Travel-film framing</span></div>
+          </div>
+          <div class="filmstrip">
+            <div class="tile"><img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (1).png" alt=""></div>
+            <div class="tile"><img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (2).png" alt=""></div>
+            <div class="tile"><img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (6).png" alt=""></div>
+            <div class="tile"><img src="images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (2).jpeg" alt=""></div>
+            <div class="tile"><img src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image-BoatLitUpAtNight-1.png" alt=""></div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="tile medium"><img src="images/Seascape-Marina-Resort-Marathon-key-Captain-Kevin-Website-images- (1).jpg" alt=""></div>
+          <div class="tile medium"><img src="images/Captain-Kevin-Johnsen-Seascape-Marina-Resort.jpg" alt=""></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>10. Dynamic Randomized Showcase</h2>
+          <p>Template-driven random image wall. Fresh on each load.</p>
+        </div>
+        <div class="tag">Most Flexible</div>
+      </div>
+      <div class="concept-10" data-random-grid="showcase"></div>
+    </section>
+
+    <p class="footer-note">
+      These concepts are using your image folder naming pattern. If you want, the next move is selecting the 2 strongest concepts and turning them into production-ready sections for the excursions page.
+    </p>
+  </div>
+
+  <script>
+    const imagePool = [
+      'images/Captain-Kevin-Johnsen-Seascape-Marina-Resort.jpg',
+      'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (1).png',
+      'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (2).png',
+      'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (3).png',
+      'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (4).png',
+      'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (5).png',
+      'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (6).png',
+      'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (7).png',
+      'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (8).png',
+      'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image- (9).png',
+      'images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image-BoatLitUpAtNight-1.png',
+      'images/seascape-marina-resport-captain-kevin-marathon-key-16x9-shark1.png',
+      'images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (1).jpeg',
+      'images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (2).jpeg',
+      'images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (3).jpeg',
+      'images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (4).jpeg',
+      'images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (5).jpeg',
+      'images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (6).jpeg',
+      'images/Seascape-Marina-Resort-Marathon-Key-Captain-Kevin-Interior-boat-Images- (7).jpeg',
+      'images/Seascape-Marina-Resort-Marathon-key-Captain-Kevin-Website-images- (1).jpg',
+      'images/Seascape-Marina-Resort-Marathon-key-Captain-Kevin-Website-images- (2).jpg',
+      'images/Seascape-Marina-Resort-Marathon-key-Captain-Kevin-Website-images- (3).jpg',
+      'images/Seascape-Marina-Resort-Marathon-key-Captain-Kevin-Website-images- (4).jpg',
+      'images/Seascape-Marina-Resort-Marathon-key-Captain-Kevin-Website-images- (5).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (1).JPG',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (1).jpeg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (2).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (3).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (4).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (5).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (6).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (7).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (8).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (9).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (10).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (11).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (12).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (13).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (14).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (15).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (16).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (17).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (18).jpg',
+      'images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (19).jpg'
+    ];
+
+    function shuffle(arr){
+      const a = [...arr];
+      for(let i = a.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function buildTile(src, sizeClass = ''){
+      const div = document.createElement('div');
+      div.className = `tile ${sizeClass}`.trim();
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Seascape excursions showcase image';
+      div.appendChild(img);
+      return div;
+    }
+
+    function fillMasonry(){
+      const wrap = document.querySelector('[data-random-grid="masonry"]');
+      if(!wrap) return;
+      const picks = shuffle(imagePool).slice(0, 10);
+      const sizes = ['tall','medium','short','medium','tall','short','medium','short','medium','tall'];
+      picks.forEach((src, i) => wrap.appendChild(buildTile(src, sizes[i] || 'medium')));
+    }
+
+    function fillShowcase(){
+      const wrap = document.querySelector('[data-random-grid="showcase"]');
+      if(!wrap) return;
+      const picks = shuffle(imagePool).slice(0, 9);
+      picks.forEach(src => wrap.appendChild(buildTile(src)));
+    }
+
+    fillMasonry();
+    fillShowcase();
+  </script>
+</body>
+</html>
