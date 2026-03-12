@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seascape Marina & Resort | Marketing Synergy Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --turquoise: #2EC4C7;
+      --seafoam: #9FE0D0;
+      --sand: #F3E7D3;
+      --coral: #FF7F6E;
+      --driftwood: #8B8A86;
+      --deep: #163B43;
+      --deep-2: #224C53;
+      --white: #ffffff;
+      --offwhite: #fbf8f2;
+      --line: rgba(22, 59, 67, 0.12);
+      --shadow: 0 18px 50px rgba(22, 59, 67, 0.10);
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--deep);
+      background:
+        radial-gradient(circle at top right, rgba(46,196,199,0.12), transparent 28%),
+        radial-gradient(circle at left 20%, rgba(255,127,110,0.10), transparent 22%),
+        linear-gradient(180deg, #f8fcfc 0%, #f7f4ee 50%, #fbfaf7 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,0.76);
+      border-bottom: 1px solid rgba(22, 59, 67, 0.08);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--turquoise), var(--deep-2));
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 72px 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .stats-card,
+    .section-card,
+    .mini-card,
+    .timeline-card,
+    .tip-card,
+    .cta-card {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(22, 59, 67, 0.08);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+    }
+
+    .hero-card {
+      padding: 44px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -110px auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(46,196,199,0.18), rgba(46,196,199,0));
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(46,196,199,0.12);
+      color: var(--deep-2);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      max-width: 760px;
+      color: rgba(22, 59, 67, 0.84);
+      margin: 0 0 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--turquoise), #25a8ab);
+      color: var(--white);
+      box-shadow: 0 12px 24px rgba(46,196,199,0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(243,231,211,0.75);
+      color: var(--deep);
+      border: 1px solid rgba(22, 59, 67, 0.08);
+    }
+
+    .stats-card {
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(159,224,208,0.16));
+    }
+
+    .stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(22,59,67,0.08);
+      background: rgba(255,255,255,0.84);
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--coral), #ff9c72);
+      flex: 0 0 auto;
+    }
+
+    .stat-pill strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .section {
+      padding: 18px 0 10px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin: 0 0 20px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 660px;
+      color: rgba(22,59,67,0.78);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .section-card {
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--turquoise), var(--seafoam), rgba(255,127,110,0.9));
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--deep-2), var(--turquoise));
+      font-size: 20px;
+      flex: 0 0 auto;
+    }
+
+    .card-top h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--deep-2);
+      background: rgba(159,224,208,0.18);
+      border-radius: 999px;
+      padding: 8px 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-card p {
+      margin: 0 0 16px;
+      color: rgba(22,59,67,0.82);
+    }
+
+    ul.clean {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    ul.clean li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    ul.clean li:last-child { border-bottom: 0; padding-bottom: 0; }
+
+    ul.clean i {
+      color: var(--turquoise);
+      margin-top: 3px;
+      flex: 0 0 16px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .mini-card {
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(243,231,211,0.55));
+    }
+
+    .mini-card h4 {
+      margin: 14px 0 10px;
+      font-size: 20px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: rgba(22,59,67,0.78);
+    }
+
+    .mini-card .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--coral), #ff9f8e);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .timeline-card {
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(159,224,208,0.14));
+    }
+
+    .timeline-num {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 14px;
+    }
+
+    .timeline-card h4 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .timeline-card p {
+      margin: 0;
+      color: rgba(22,59,67,0.78);
+    }
+
+    .tip-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .tip-card {
+      padding: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(243,231,211,0.60));
+    }
+
+    .tip-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .tip-card p {
+      margin: 0 0 14px;
+      color: rgba(22,59,67,0.8);
+    }
+
+    .cta {
+      padding: 18px 0 80px;
+    }
+
+    .cta-card {
+      padding: 34px;
+      background: linear-gradient(135deg, rgba(22,59,67,0.98), rgba(34,76,83,0.95));
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::before,
+    .cta-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(46,196,199,0.22), transparent 68%);
+    }
+
+    .cta-card::before {
+      width: 260px;
+      height: 260px;
+      right: -100px;
+      top: -100px;
+    }
+
+    .cta-card::after {
+      width: 220px;
+      height: 220px;
+      left: -80px;
+      bottom: -80px;
+    }
+
+    .cta-card h2 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.03;
+      letter-spacing: -0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-card p,
+    .cta-card ul {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-card p {
+      max-width: 860px;
+      margin: 0 0 18px;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .cta-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .cta-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      font-weight: 600;
+    }
+
+    .muted {
+      color: rgba(22,59,67,0.72);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .cards,
+      .mini-grid,
+      .timeline,
+      .tip-row,
+      .cta-list {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: grid;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero { padding-top: 42px; }
+      .hero-card,
+      .stats-card,
+      .section-card,
+      .mini-card,
+      .timeline-card,
+      .tip-card,
+      .cta-card { border-radius: 20px; }
+      .hero-card { padding: 28px 22px; }
+      .stats-card,
+      .section-card,
+      .mini-card,
+      .timeline-card,
+      .tip-card,
+      .cta-card { padding: 22px; }
+      .topbar-inner { padding: 12px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <div class="brand-badge"><i class="fa-solid fa-water"></i></div>
+        <div>
+          <div>Seascape Marina &amp; Resort</div>
+          <div class="muted" style="font-size:13px; font-weight:600;">Marketing Synergy Plan. Marathon, Florida Keys</div>
+        </div>
+      </div>
+      <a class="btn btn-secondary" href="#plan"><i class="fa-solid fa-compass"></i> View Plan</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow"><i class="fa-solid fa-sun"></i> Ocean and Sand palette direction</div>
+          <h1>Clean marketing synergy plan for Seascape Marina &amp; Resort.</h1>
+          <p class="hero-sub">
+            Built around last-minute room fill, South Florida staycation traffic, direct booking growth, marina lifestyle content, snorkeling and fishing excursion partnerships, in-room QR monetization, event energy, and stronger repeat guest retention.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#plan"><i class="fa-solid fa-arrow-down"></i> Full Strategy</a>
+            <a class="btn btn-secondary" href="#coffee"><i class="fa-solid fa-mug-hot"></i> Private Label Coffee</a>
+          </div>
+        </div>
+
+        <aside class="stats-card">
+          <div class="stat-pill">
+            <div class="stat-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+            <div>
+              <strong>Last-minute staycation engine</strong>
+              <div class="muted">Use email to fill open rooms fast from Jupiter south through Miami.</div>
+            </div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-icon"><i class="fa-solid fa-qrcode"></i></div>
+            <div>
+              <strong>On-property upsell system</strong>
+              <div class="muted">QR codes in rooms move guests into merch, charter, and return-stay offers.</div>
+            </div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-icon"><i class="fa-solid fa-ticket"></i></div>
+            <div>
+              <strong>Fee discount lever</strong>
+              <div class="muted">Use resort fee waivers and discounts to create perceived value without slashing room rates.</div>
+            </div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-icon"><i class="fa-solid fa-video"></i></div>
+            <div>
+              <strong>Content that sells the Keys</strong>
+              <div class="muted">Turn every trip, sunset, dock moment, and stay into ads, reels, and YouTube discovery traffic.</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="plan">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow"><i class="fa-solid fa-layer-group"></i> Full list</div>
+            <h2>Revenue, occupancy, and brand-building sections.</h2>
+          </div>
+          <p>
+            This version uses the Seascape palette direction of Turquoise, Seafoam, Sand, Coral Accent, and Driftwood from the Ocean and Sand brand recommendation. It keeps the resort calm, clean, tropical, and booking-focused. citeturn123106view0
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="section-card">
+            <div class="card-top">
+              <div class="card-icon"><i class="fa-solid fa-phone-volume"></i></div>
+              <div>
+                <div class="tag"><i class="fa-solid fa-headset"></i> Lead Capture</div>
+                <h3>1. Phone System + Call Tracking</h3>
+              </div>
+            </div>
+            <p>Turn every call into a measurable lead. Route inquiries fast. Build a cleaner guest follow-up system.</p>
+            <ul class="clean">
+              <li><i class="fa-solid fa-check"></i><span>Separate call flows for rooms, marina, fishing, and snorkeling excursions.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Track call source so you know what content and campaigns generate bookings.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Capture caller data for return-stay offers and local staycation promotions.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Use voicemail-to-text or SMS follow-up for missed calls.</span></li>
+            </ul>
+          </article>
+
+          <article class="section-card">
+            <div class="card-top">
+              <div class="card-icon"><i class="fa-solid fa-paper-plane"></i></div>
+              <div>
+                <div class="tag"><i class="fa-solid fa-bolt"></i> Occupancy Driver</div>
+                <h3>2. Email Marketing for Last-Minute Openings</h3>
+              </div>
+            </div>
+            <p>Use the email list as a rapid room-fill tool. This is strongest when aimed at people within driving distance of Marathon.</p>
+            <ul class="clean">
+              <li><i class="fa-solid fa-location-dot"></i><span>Lean into South Florida staycations from Jupiter, West Palm Beach, Boca Raton, Fort Lauderdale, Miami, and Homestead.</span></li>
+              <li><i class="fa-solid fa-location-dot"></i><span>Position Seascape as a quick-drive tropical escape with dock sunsets, fishing, snorkeling, and relaxed marina energy.</span></li>
+              <li><i class="fa-solid fa-location-dot"></i><span>Create a dedicated “48 Hour Keys Escape List” for guests willing to travel on short notice.</span></li>
+              <li><i class="fa-solid fa-location-dot"></i><span>Trigger campaigns on cancellations, soft midweek occupancy, and unsold weekend inventory.</span></li>
+            </ul>
+          </article>
+
+          <article class="section-card">
+            <div class="card-top">
+              <div class="card-icon"><i class="fa-solid fa-percent"></i></div>
+              <div>
+                <div class="tag"><i class="fa-solid fa-coins"></i> Pricing Strategy</div>
+                <h3>3. Resort Fee as a Promotional Lever</h3>
+              </div>
+            </div>
+            <p>Protect the room rate. Promote discounts or waivers on the resort fee to create visible savings without cutting core pricing.</p>
+            <ul class="clean">
+              <li><i class="fa-solid fa-check"></i><span>Set a standard resort fee that supports the property’s amenities and guest experience.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Offer “Resort Fee Waived” for return guests, staycation specials, and last-minute bookings.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Use “50% Off Resort Fee” for midweek demand generation and direct-booking incentives.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Build perceived value while keeping the room positioned as premium inventory.</span></li>
+            </ul>
+          </article>
+
+          <article class="section-card">
+            <div class="card-top">
+              <div class="card-icon"><i class="fa-solid fa-star"></i></div>
+              <div>
+                <div class="tag"><i class="fa-solid fa-comment-dots"></i> Reputation</div>
+                <h3>4. Review Response Engine</h3>
+              </div>
+            </div>
+            <p>Every review response should reinforce trust, direct booking, and repeat-stay value.</p>
+            <ul class="clean">
+              <li><i class="fa-solid fa-check"></i><span>Respond to every Google and TripAdvisor review.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Thank guests and mention direct-booking advantages for future stays.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Use return-guest offers in selective responses when appropriate.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Turn public responses into micro-marketing moments for future guests.</span></li>
+            </ul>
+          </article>
+
+          <article class="section-card">
+            <div class="card-top">
+              <div class="card-icon"><i class="fa-solid fa-film"></i></div>
+              <div>
+                <div class="tag"><i class="fa-solid fa-camera-retro"></i> Discovery Traffic</div>
+                <h3>5. YouTube + Video Content System</h3>
+              </div>
+            </div>
+            <p>Use video to attract travelers searching for the exact experiences Seascape sells.</p>
+            <ul class="clean">
+              <li><i class="fa-solid fa-check"></i><span>Feature snorkeling outings, fishing trips, dock sunsets, marina mornings, and room walk-throughs.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Create short clips for Instagram Reels, Facebook, and YouTube Shorts.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Show the resort as a basecamp for adventure plus relaxation.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Use content both for ads and for organic search discovery.</span></li>
+            </ul>
+          </article>
+
+          <article class="section-card">
+            <div class="card-top">
+              <div class="card-icon"><i class="fa-solid fa-camera"></i></div>
+              <div>
+                <div class="tag"><i class="fa-solid fa-share-nodes"></i> Social Media</div>
+                <h3>6. Social Content Pillars</h3>
+              </div>
+            </div>
+            <p>Build a repeatable content framework so the resort always has something worth posting.</p>
+            <ul class="clean">
+              <li><i class="fa-solid fa-check"></i><span>Resort life. Rooms, pool, docks, sunrises, sunsets, and marina views.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Ocean adventure. Snorkeling trips, fishing charters, boats leaving the dock, guest catches.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Local lifestyle. Restaurants, cocktails, cook-your-catch spots, and easy Keys evenings.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Promotional moments. Last-minute openings, fee-waived specials, and event nights.</span></li>
+            </ul>
+          </article>
+
+          <article class="section-card">
+            <div class="card-top">
+              <div class="card-icon"><i class="fa-solid fa-qrcode"></i></div>
+              <div>
+                <div class="tag"><i class="fa-solid fa-mobile-screen-button"></i> In-Room Monetization</div>
+                <h3>7. QR Code Guest Revenue System</h3>
+              </div>
+            </div>
+            <p>Capture guest attention while they are already on property and in buying mode.</p>
+            <ul class="clean">
+              <li><i class="fa-solid fa-check"></i><span>Place QR codes in rooms for merch, charter bookings, snorkeling reservations, and return-stay discounts.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Create a small mobile-friendly digital store tied to the guest stay.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Offer a future-booking incentive before guests check out.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Track scans and conversions to see which offers perform best.</span></li>
+            </ul>
+          </article>
+
+          <article class="section-card">
+            <div class="card-top">
+              <div class="card-icon"><i class="fa-solid fa-shirt"></i></div>
+              <div>
+                <div class="tag"><i class="fa-solid fa-store"></i> Merchandising</div>
+                <h3>8. Print-on-Demand Seascape Merch</h3>
+              </div>
+            </div>
+            <p>Give guests something memorable to buy without taking on inventory headaches.</p>
+            <ul class="clean">
+              <li><i class="fa-solid fa-check"></i><span>Create branded hats, fishing shirts, beach towels, stickers, tumblers, and marina lifestyle apparel.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Use room QR codes, social posts, and front desk prompts to drive purchases.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Pair product drops with seasonality, events, and excursion promotions.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Extend the Seascape brand beyond the stay itself.</span></li>
+            </ul>
+          </article>
+
+          <article class="section-card" id="coffee">
+            <div class="card-top">
+              <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
+              <div>
+                <div class="tag"><i class="fa-solid fa-seedling"></i> New Revenue Stream</div>
+                <h3>9. Private Label Coffee Program</h3>
+              </div>
+            </div>
+            <p>Add a branded Seascape coffee line powered by Don Pablo Coffee, a highly regarded U.S. roaster with a reputation built around top-tier Arabica quality.</p>
+            <ul class="clean">
+              <li><i class="fa-solid fa-check"></i><span>Offer Seascape private label coffee sourced through Don Pablo Coffee.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Position it as locally connected, premium, giftable, and tied to the Florida Keys stay experience.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Sell bags in-room through QR codes, at the front desk, online, and inside staycation promo bundles.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Create themed blends such as Dockside Sunrise Roast, Captain’s Morning Blend, or Sunset Marina Roast.</span></li>
+            </ul>
+          </article>
+
+          <article class="section-card">
+            <div class="card-top">
+              <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+              <div>
+                <div class="tag"><i class="fa-solid fa-handshake"></i> Partnerships</div>
+                <h3>10. Influencer + Excursion Partnerships</h3>
+              </div>
+            </div>
+            <p>Partner with people and operators who already fit the visual and lifestyle tone of the resort.</p>
+            <ul class="clean">
+              <li><i class="fa-solid fa-check"></i><span>Collaborate with Captain Kevin for fishing and snorkeling packages plus real on-the-water content.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Host selected lifestyle influencers who naturally fit Keys travel and coastal content.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Create stay + charter and stay + snorkeling combinations for direct promotion.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Use influencer content as social proof and future ad creative.</span></li>
+            </ul>
+          </article>
+
+          <article class="section-card">
+            <div class="card-top">
+              <div class="card-icon"><i class="fa-solid fa-music"></i></div>
+              <div>
+                <div class="tag"><i class="fa-solid fa-calendar-days"></i> Events</div>
+                <h3>11. Weekend Entertainment + Community Energy</h3>
+              </div>
+            </div>
+            <p>Give guests a reason to stay on property longer and give locals a reason to stop by.</p>
+            <ul class="clean">
+              <li><i class="fa-solid fa-check"></i><span>Build sunset music nights, reggae nights, classic rock sets, and dockside DJ evenings.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Let excursion operators underwrite selected event nights.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Promote event weekends to the same South Florida staycation list.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Turn entertainment into content, not only into a one-night happening.</span></li>
+            </ul>
+          </article>
+
+          <article class="section-card">
+            <div class="card-top">
+              <div class="card-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+              <div>
+                <div class="tag"><i class="fa-solid fa-box-open"></i> Packages</div>
+                <h3>12. Stay + Experience Packages</h3>
+              </div>
+            </div>
+            <p>Package the Seascape stay around what people want to do in Marathon, not only where they sleep.</p>
+            <ul class="clean">
+              <li><i class="fa-solid fa-check"></i><span>Fishing weekends with room, charter, fish cleaning, and cook-your-catch guidance.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Snorkeling adventure getaways with room, guided outing, and sunset dock time.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>Church retreat and group weekends with simple bundled pricing.</span></li>
+              <li><i class="fa-solid fa-check"></i><span>South Florida drive-down bundles with waived or discounted resort fees.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow"><i class="fa-solid fa-gauge-high"></i> Core focus areas</div>
+            <h2>What matters most first.</h2>
+          </div>
+          <p>These are the fastest levers to produce measurable movement without overcomplicating operations.</p>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini-card">
+            <div class="card-icon"><i class="fa-solid fa-bed"></i></div>
+            <h4>Fill open rooms faster</h4>
+            <p>Use South Florida staycation emails, Stories, and direct-booking offers to move last-minute inventory.</p>
+          </div>
+          <div class="mini-card">
+            <div class="card-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+            <h4>Increase revenue per guest</h4>
+            <p>Use resort fee promotions, private label coffee, merch, and on-property QR offers to grow average spend.</p>
+          </div>
+          <div class="mini-card">
+            <div class="card-icon"><i class="fa-solid fa-clapperboard"></i></div>
+            <h4>Build stronger visibility</h4>
+            <p>Turn the property into an ongoing media engine through repeated short-form content and YouTube search traffic.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow"><i class="fa-solid fa-route"></i> Rollout</div>
+            <h2>Suggested implementation timeline.</h2>
+          </div>
+          <p>Simple phased execution keeps the plan realistic while still moving quickly.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-card">
+            <div class="timeline-num">Phase 01</div>
+            <h4>Capture and organize</h4>
+            <p>Set up call tracking, guest list segmentation, review response workflow, and QR concept structure.</p>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-num">Phase 02</div>
+            <h4>Launch demand drivers</h4>
+            <p>Deploy last-minute staycation emails, Stories, direct-booking promos, and resort fee-waiver offers.</p>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-num">Phase 03</div>
+            <h4>Monetize the stay</h4>
+            <p>Push merch, private label coffee, package sales, and in-room future-booking incentives.</p>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-num">Phase 04</div>
+            <h4>Scale the brand</h4>
+            <p>Expand content production, partnerships, events, YouTube discovery, and recurring local audience campaigns.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap tip-row">
+        <div class="tip-card">
+          <div class="eyebrow"><i class="fa-solid fa-lightbulb"></i> Messaging angle</div>
+          <h3>Position Seascape as the quick-drive Keys reset.</h3>
+          <p>Do not market the property like a generic hotel. Market it as a calm marina basecamp with sunset atmosphere, easy access to fishing and snorkeling, and a much faster path to the Keys experience.</p>
+          <ul class="clean">
+            <li><i class="fa-solid fa-check"></i><span>A quick drive to paradise.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Trade traffic for dock sunsets.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Stay, fish, snorkel, unwind.</span></li>
+          </ul>
+        </div>
+        <div class="tip-card">
+          <div class="eyebrow"><i class="fa-solid fa-circle-info"></i> Brand fit</div>
+          <h3>Why the palette direction works.</h3>
+          <p>The Ocean and Sand recommendation uses Turquoise, Seafoam, Sand, Coral Accent, and Driftwood. It was selected for Seascape because it feels waterfront, relaxed, upscale, and right for room pages, booking buttons, marina messaging, and excursion promotions. citeturn123106view0</p>
+          <ul class="clean">
+            <li><i class="fa-solid fa-check"></i><span>Turquoise for booking buttons, active states, and icons.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Sand and off-white for airy readable sections.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Coral as a controlled accent for promotions and availability callouts.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <div class="cta-card">
+          <div class="eyebrow" style="background: rgba(46,196,199,0.16); color: #d9ffff;"><i class="fa-solid fa-anchor"></i> Positioning summary</div>
+          <h2>Seascape should sell more than rooms. It should sell an easy Keys experience.</h2>
+          <p>
+            The strongest version of this resort brand is not only lodging. It is direct-booked weekend escapes, marina lifestyle energy, fishing and snorkeling access, in-room upsells, private label coffee, event moments, and repeat visits driven by smart last-minute email marketing.
+          </p>
+          <ul class="cta-list">
+            <li><i class="fa-solid fa-envelope"></i> Last-minute email fills</li>
+            <li><i class="fa-solid fa-fish"></i> Excursion package revenue</li>
+            <li><i class="fa-solid fa-mug-hot"></i> Coffee and merch sales</li>
+            <li><i class="fa-solid fa-repeat"></i> Repeat guest retention</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
