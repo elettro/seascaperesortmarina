@@ -23,48 +23,51 @@
     </div>
 
     <div class="nav-wrap">
-      <nav class="floating-nav">
-        <div class="nav-left">
-          <a href="#">Stay</a>
-          <a href="#">Marina</a>
-          <a href="#">Experiences</a>
-        </div>
-
-        <a href="#" class="brand" aria-label="Seascape Marina and Resort home">
+      <nav class="floating-nav site-nav" aria-label="Primary">
+        <a href="/" class="brand" aria-label="Seascape Marina and Resort home">
           <span class="brand-main">SEASCAPE</span>
           <span class="brand-sub">MARINA &amp; RESORT</span>
         </a>
 
-        <div class="nav-right">
-          <a href="#">Weddings</a>
-          <a href="#">Gallery</a>
-          <a href="tel:+13057436212" class="nav-phone mobile-phone" aria-label="Call Seascape Marina and Resort at 305 743 6212">
-            <span aria-hidden="true">☎</span>
-            <span>(305) 743-6212</span>
-          </a>
-          <a href="#" class="cta-link">Book Now</a>
+        <div class="nav-controls">
+          <a class="nav-phone" href="tel:+13055555555" aria-label="Call 305-555-5555">Call 305-555-5555</a>
           <button
             class="menu-toggle"
             type="button"
             aria-expanded="false"
-            aria-controls="mobile-menu-panel"
-            aria-label="Toggle navigation menu"
+            aria-controls="primary-menu"
+            aria-label="Open menu"
           >
             <span></span>
             <span></span>
             <span></span>
           </button>
         </div>
-
       </nav>
-      <div id="mobile-menu-panel" class="mobile-menu-panel" hidden>
-        <a href="#">Stay</a>
-        <a href="#">Marina</a>
-        <a href="#">Experiences</a>
-        <a href="#">Weddings</a>
-        <a href="#">Gallery</a>
-        <a href="#">Book Now</a>
-      </div>
+      <ul id="primary-menu" class="nav-menu">
+        <li><a href="/rooms/">Rooms</a></li>
+        <li><a href="/amenities/">Amenities</a></li>
+        <li><a href="/marina/">Marina</a></li>
+        <li><a href="/pool/">Pool</a></li>
+        <li><a href="/excursions/">Excursions</a></li>
+        <li><a href="/fun-blog/">Fun Blog</a></li>
+        <li><a href="/weddings/">Weddings</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li class="menu-item-has-children">
+          <a
+            href="/local/"
+            class="local-link"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-label="Local submenu"
+          >Local</a>
+          <ul class="sub-menu">
+            <li><a href="/local/where-to-eat/">Where to Eat</a></li>
+            <li><a href="/local/attractions/">Attractions</a></li>
+            <li><a href="/local/events/">Events</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
 
     <div class="hero-content">
@@ -106,7 +109,9 @@
     (() => {
       const navWrap = document.querySelector(".nav-wrap");
       const menuToggle = document.querySelector(".menu-toggle");
-      const mobileMenuPanel = document.querySelector("#mobile-menu-panel");
+      const menuPanel = document.querySelector("#primary-menu");
+      const localItem = document.querySelector(".menu-item-has-children");
+      const localLink = localItem?.querySelector(".local-link");
 
       if (!navWrap) {
         return;
@@ -119,31 +124,66 @@
       handleScroll();
       window.addEventListener("scroll", handleScroll, { passive: true });
 
-      if (!menuToggle || !mobileMenuPanel) {
+      if (!menuToggle || !menuPanel) {
         return;
       }
 
       const closeMenu = () => {
+        const isMobile = window.innerWidth <= 767;
         menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open menu");
         navWrap.classList.remove("menu-open");
-        mobileMenuPanel.hidden = true;
+        menuPanel.hidden = isMobile;
+      };
+
+      const closeLocalMenu = () => {
+        if (!localItem || !localLink) {
+          return;
+        }
+        localItem.classList.remove("local-open");
+        localLink.setAttribute("aria-expanded", "false");
       };
 
       menuToggle.addEventListener("click", () => {
         const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
         menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+        menuToggle.setAttribute("aria-label", isExpanded ? "Open menu" : "Close menu");
         navWrap.classList.toggle("menu-open", !isExpanded);
-        mobileMenuPanel.hidden = isExpanded;
+        menuPanel.hidden = isExpanded;
+        if (isExpanded) {
+          closeLocalMenu();
+        }
       });
 
-      mobileMenuPanel.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", closeMenu);
+      menuPanel.querySelectorAll("a").forEach((link) => {
+        if (link.classList.contains("local-link")) {
+          return;
+        }
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 767) {
+            closeMenu();
+            closeLocalMenu();
+          }
+        });
       });
+
+      if (localItem && localLink) {
+        localLink.addEventListener("click", (event) => {
+          if (window.innerWidth > 767) {
+            return;
+          }
+          const isOpen = localItem.classList.contains("local-open");
+          event.preventDefault();
+          localItem.classList.toggle("local-open", !isOpen);
+          localLink.setAttribute("aria-expanded", String(!isOpen));
+        });
+      }
+
+      closeMenu();
 
       window.addEventListener("resize", () => {
-        if (window.innerWidth > 767) {
-          closeMenu();
-        }
+        closeMenu();
+        closeLocalMenu();
       });
     })();
   </script>
