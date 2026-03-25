@@ -38,14 +38,33 @@
         <div class="nav-right">
           <a href="#">Weddings</a>
           <a href="#">Gallery</a>
-          <a href="tel:+13057436212" class="nav-phone" aria-label="Call Seascape Marina and Resort at 305 743 6212">
+          <a href="tel:+13057436212" class="nav-phone mobile-phone" aria-label="Call Seascape Marina and Resort at 305 743 6212">
             <span aria-hidden="true">☎</span>
             <span>(305) 743-6212</span>
           </a>
           <a href="#" class="cta-link">Book Now</a>
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu-panel"
+            aria-label="Toggle navigation menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
 
       </nav>
+      <div id="mobile-menu-panel" class="mobile-menu-panel" hidden>
+        <a href="#">Stay</a>
+        <a href="#">Marina</a>
+        <a href="#">Experiences</a>
+        <a href="#">Weddings</a>
+        <a href="#">Gallery</a>
+        <a href="#">Book Now</a>
+      </div>
     </div>
 
     <div class="hero-content">
@@ -86,6 +105,8 @@
   <script>
     (() => {
       const navWrap = document.querySelector(".nav-wrap");
+      const menuToggle = document.querySelector(".menu-toggle");
+      const mobileMenuPanel = document.querySelector("#mobile-menu-panel");
 
       if (!navWrap) {
         return;
@@ -97,6 +118,33 @@
 
       handleScroll();
       window.addEventListener("scroll", handleScroll, { passive: true });
+
+      if (!menuToggle || !mobileMenuPanel) {
+        return;
+      }
+
+      const closeMenu = () => {
+        menuToggle.setAttribute("aria-expanded", "false");
+        navWrap.classList.remove("menu-open");
+        mobileMenuPanel.hidden = true;
+      };
+
+      menuToggle.addEventListener("click", () => {
+        const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+        navWrap.classList.toggle("menu-open", !isExpanded);
+        mobileMenuPanel.hidden = isExpanded;
+      });
+
+      mobileMenuPanel.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 767) {
+          closeMenu();
+        }
+      });
     })();
   </script>
 </body>
