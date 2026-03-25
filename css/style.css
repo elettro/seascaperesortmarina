@@ -186,6 +186,11 @@ a {
   font-weight: 700;
 }
 
+.menu-toggle,
+.mobile-menu-panel {
+  display: none;
+}
+
 .hero-content {
   position: relative;
   z-index: 4;
@@ -398,16 +403,17 @@ a {
     --nav-angle-cut: 0px;
     width: 100%;
     max-width: none;
-    min-height: 68px;
+    min-height: 60px;
     margin: 0;
-    padding: 12px 16px;
+    padding: calc(env(safe-area-inset-top, 0px) + 6px) 12px 6px;
     border-radius: 0;
     clip-path: none;
-    grid-template-columns: 1fr auto;
-    gap: 12px;
-    box-shadow: none;
+    grid-template-columns: 1fr auto auto;
+    gap: 8px;
+    box-shadow: 0 2px 10px rgba(9, 27, 42, 0.08);
     border-bottom: 1px solid rgba(16, 38, 60, 0.12);
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(255, 255, 255, 0.99);
+    align-items: center;
   }
 
   .nav-wrap.is-scrolled .floating-nav {
@@ -422,49 +428,120 @@ a {
     align-items: flex-start;
     text-align: left;
     min-width: 0;
+    max-width: 100%;
+    white-space: nowrap;
   }
 
   .brand-main {
-    font-size: 1.28rem;
-    letter-spacing: 0.16em;
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
   }
 
   .brand-sub {
-    margin-top: 4px;
-    font-size: 0.56rem;
-    letter-spacing: 0.2em;
+    margin-top: 2px;
+    font-size: 0.48rem;
+    letter-spacing: 0.14em;
   }
 
   .nav-right {
     justify-content: flex-end;
-    gap: 0;
+    gap: 6px;
     padding-right: 0;
     flex-wrap: nowrap;
+    display: contents;
   }
 
-  .nav-right a:not(.nav-phone) {
+  .nav-left,
+  .nav-right a:not(.mobile-phone) {
     display: none;
   }
 
-  .nav-phone {
-    padding: 8px 0;
+  .mobile-phone {
+    grid-column: 2;
+    justify-self: end;
+    padding: 8px 4px;
     border: 0;
     border-radius: 0;
     background: transparent;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 700;
     line-height: 1;
     white-space: nowrap;
     color: #18344f;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
   }
 
-  .nav-phone span[aria-hidden="true"] {
+  .mobile-phone span[aria-hidden="true"] {
     font-size: 0.9em;
     opacity: 0.75;
   }
 
+  .menu-toggle {
+    grid-column: 3;
+    justify-self: end;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: #18344f;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav-wrap.menu-open .menu-toggle span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .nav-wrap.menu-open .menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-wrap.menu-open .menu-toggle span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .mobile-menu-panel {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.99);
+    border-bottom: 1px solid rgba(16, 38, 60, 0.12);
+    box-shadow: 0 10px 24px rgba(9, 27, 42, 0.08);
+    padding: 8px 12px 12px;
+  }
+
+  .mobile-menu-panel[hidden] {
+    display: none;
+  }
+
+  .mobile-menu-panel a {
+    display: block;
+    padding: 11px 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #18344f;
+  }
+
   .hero-content {
-    padding-top: 138px;
+    padding-top: 124px;
   }
 }
 
