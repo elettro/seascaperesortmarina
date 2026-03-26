@@ -23,27 +23,29 @@
     </div>
 
     <div class="site-header">
-      <div class="utility-bar" aria-label="Property quick information">
+      <div class="utility-bar">
         <div class="utility-left">
-          <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" target="_blank" rel="noopener noreferrer">Get Directions</a>
-          <span>1275 76th Street Ocean, Marathon, FL 33050</span>
-          <span>Mile Marker: 50</span>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" class="utility-directions" target="_blank" rel="noopener">Get Directions</a>
+          <span class="utility-separator">|</span>
+          <span class="utility-address">1275 76th Street Ocean, Marathon, FL 33050</span>
+          <span class="utility-separator">|</span>
+          <span class="utility-mile-marker">Mile Marker: 50</span>
         </div>
+
         <div class="utility-right">
-        <a class="utility-phone" href="tel:+13057436212" aria-label="Call Seascape Marina and Resort at 305-743-6212">
-          <span class="phone-icon" aria-hidden="true">☎</span>
-          <span>(305) 743-6212</span>
-        </a>
-        <span class="best-rates">Always Call Direct For Best Rates</span>
+          <a href="tel:+13057436212" class="utility-phone">
+            <span class="phone-icon" aria-hidden="true">☎</span>
+            <span class="phone-number">(305) 743-6212</span>
+          </a>
+          <span class="best-rates">Always Call Direct For Best Rates</span>
         </div>
       </div>
 
-      <nav class="main-nav" aria-label="Primary">
-        <div class="nav-left" aria-label="Primary left links">
+      <nav class="main-nav" aria-label="Main navigation">
+        <div class="nav-left">
           <a href="/rooms/">Rooms</a>
           <a href="/marina/">Marina</a>
           <a href="/amenities/">Amenities</a>
-          <a href="/weddings/">Weddings</a>
         </div>
 
         <a href="/" class="nav-logo" aria-label="Seascape Marina and Resort home">
@@ -51,46 +53,47 @@
           <span class="logo-sub">MARINA &amp; RESORT</span>
         </a>
 
-        <div class="nav-right" aria-label="Primary right links">
+        <div class="nav-right">
+          <a href="/excursions/">Excursions</a>
+
           <div class="nav-dropdown">
-            <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">Explore</button>
-            <div class="nav-dropdown-menu" aria-label="Explore submenu">
-              <a href="/local/events/">Local Events</a>
-              <a href="/local/where-to-eat/">Local Places to Eat</a>
-              <a href="/local/attractions/">Local Attractions</a>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Group Stays</button>
+            <div class="nav-dropdown-menu">
+              <a href="/group-stays/full-property-buyouts/">Full Property Buyouts</a>
+              <a href="/group-stays/weddings/">Weddings</a>
+              <a href="/group-stays/family-reunions/">Family Reunions</a>
+              <a href="/group-stays/retreats-gatherings/">Retreats &amp; Gatherings</a>
             </div>
           </div>
+
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Explore Keys</button>
+            <div class="nav-dropdown-menu">
+              <a href="/explore-keys/where-to-eat/">Where to Eat</a>
+              <a href="/explore-keys/things-to-do/">Things to Do</a>
+              <a href="/explore-keys/local-events/">Local Events</a>
+            </div>
+          </div>
+
           <a href="/contact/">Contact</a>
           <a href="/book-now/" class="book-now">Book Now</a>
         </div>
 
-        <button
-          class="mobile-menu-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="mobile-menu-panel"
-          aria-label="Open menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
+        <div class="mobile-header-row">
+          <a href="/" class="mobile-logo" aria-label="Seascape Marina and Resort home">
+            <span class="logo-main">SEASCAPE</span>
+            <span class="logo-sub">MARINA &amp; RESORT</span>
+          </a>
 
-      <div id="mobile-menu-panel" class="mobile-menu-panel" hidden>
-        <ul class="mobile-menu-list">
-          <li><a href="/rooms/">Rooms</a></li>
-          <li><a href="/marina/">Marina</a></li>
-          <li><a href="/amenities/">Amenities</a></li>
-          <li><a href="/weddings/">Weddings</a></li>
-          <li><a href="/local/events/">Local Events</a></li>
-          <li><a href="/local/where-to-eat/">Local Places to Eat</a></li>
-          <li><a href="/local/attractions/">Local Attractions</a></li>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" target="_blank" rel="noopener noreferrer">Get Directions</a></li>
-          <li><a class="book-now" href="/book-now/">Book Now</a></li>
-        </ul>
-      </div>
+          <a href="tel:+13057436212" class="mobile-phone">(305) 743-6212</a>
+
+          <button class="mobile-menu-toggle" type="button" aria-label="Open navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
     </div>
 
     <div class="hero-content">
