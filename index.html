@@ -80,11 +80,55 @@
               <span class="mobile-phone-note">Call Us For Best Rates</span>
             </a>
 
-            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation">
+            <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
               <span></span>
               <span></span>
               <span></span>
             </button>
+          </div>
+
+          <div class="mobile-menu-panel" id="mobile-menu" hidden>
+            <a href="/rooms/">Rooms</a>
+            <a href="/marina/">Marina</a>
+            <a href="/amenities/">Amenities</a>
+            <a href="/SeascapeMarinaResort/excursions/">Excursions</a>
+
+            <div class="mobile-submenu-group">
+              <button
+                class="mobile-submenu-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="mobile-group-stays-submenu"
+              >
+                Group Stays
+              </button>
+              <div class="mobile-submenu" id="mobile-group-stays-submenu" hidden>
+                <a href="/group-stays/full-property-buyouts/">Full Property Buyouts</a>
+                <a href="/group-stays/weddings/">Weddings</a>
+                <a href="/group-stays/family-reunions/">Family Reunions</a>
+                <a href="/group-stays/retreats-gatherings/">Retreats &amp; Gatherings</a>
+              </div>
+            </div>
+
+            <div class="mobile-submenu-group">
+              <button
+                class="mobile-submenu-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="mobile-explore-keys-submenu"
+              >
+                Explore Keys
+              </button>
+              <div class="mobile-submenu" id="mobile-explore-keys-submenu" hidden>
+                <a href="/explore-keys/where-to-eat/">Where to Eat</a>
+                <a href="/explore-keys/things-to-do/">Things to Do</a>
+                <a href="/explore-keys/local-events/">Local Events</a>
+              </div>
+            </div>
+
+            <a href="/contact/">Contact</a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" target="_blank" rel="noopener">Get Directions</a>
+            <a href="/book-now/" class="mobile-book-now">Book Now</a>
           </div>
       </nav>
     </div>
