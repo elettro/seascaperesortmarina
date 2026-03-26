@@ -70,6 +70,14 @@ a {
   width: 100%;
 }
 
+/* TEMPORARILY HIDDEN DESKTOP UTILITY BAR.
+   To reactivate later, remove display: none below. */
+@media (min-width: 1025px) {
+  .utility-bar {
+    display: none;
+  }
+}
+
 .utility-bar {
   display: flex;
   justify-content: space-between;
@@ -120,7 +128,7 @@ a {
 
 .main-nav {
   position: relative;
-  margin: 18px 34px 0;
+  margin: 0 34px;
   min-height: 78px;
   padding: 0 28px;
   display: grid;
