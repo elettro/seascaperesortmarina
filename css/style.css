@@ -1103,4 +1103,40 @@ a {
     justify-content: center !important;
     border-bottom: 0 !important;
   }
+
+  /* Ensure hero media sits flush under the white mobile/tablet nav. */
+  .hero {
+    min-height: 100svh;
+    padding-top: 0;
+    margin-top: 0;
+    background: #0c1d2e;
+  }
+
+  .video-shell {
+    inset: 0;
+    top: 0;
+    margin-top: 0;
+  }
+
+  .video-shell iframe,
+  #hero-video-player {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: none;
+  }
+
+  .hero-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    min-height: 0;
+    margin: 0;
+    padding: 0 20px 64px;
+  }
 }
