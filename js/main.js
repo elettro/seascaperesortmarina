@@ -1,58 +1,72 @@
 (() => {
-  const siteHeader = document.querySelector('.site-header');
+  const mobileBreakpoint = 1024;
   const menuToggle = document.querySelector('.mobile-menu-toggle');
-  const menuPanel = document.querySelector('#mobile-menu-panel');
-  const exploreItem = document.querySelector('.nav-dropdown');
-  const exploreLink = exploreItem?.querySelector('.nav-dropdown-toggle');
+  const mobileMenu = document.querySelector('#mobile-menu');
+  const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
 
-  if (!siteHeader) return;
+  if (!menuToggle || !mobileMenu) return;
 
-  const closeMobileMenu = () => {
-    if (!menuToggle || !menuPanel) return;
-    menuToggle.setAttribute('aria-expanded', 'false');
-    menuToggle.setAttribute('aria-label', 'Open menu');
-    siteHeader.classList.remove('menu-open');
-    menuPanel.hidden = true;
+  const isMobileViewport = () => window.innerWidth <= mobileBreakpoint;
+
+  const closeAllSubmenus = () => {
+    submenuToggles.forEach((toggle) => {
+      const submenuId = toggle.getAttribute('aria-controls');
+      const submenu = submenuId ? document.getElementById(submenuId) : null;
+      toggle.setAttribute('aria-expanded', 'false');
+      if (submenu) submenu.hidden = true;
+    });
   };
 
-  if (menuToggle && menuPanel) {
-    closeMobileMenu();
+  const closeMobileMenu = () => {
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open navigation');
+    mobileMenu.hidden = true;
+    closeAllSubmenus();
+  };
 
-    menuToggle.addEventListener('click', () => {
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', String(!isExpanded));
-      menuToggle.setAttribute('aria-label', isExpanded ? 'Open menu' : 'Close menu');
-      siteHeader.classList.toggle('menu-open', !isExpanded);
-      menuPanel.hidden = isExpanded;
-    });
+  const openMobileMenu = () => {
+    menuToggle.setAttribute('aria-expanded', 'true');
+    menuToggle.setAttribute('aria-label', 'Close navigation');
+    mobileMenu.hidden = false;
+  };
 
-    menuPanel.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        closeMobileMenu();
-      });
-    });
+  closeMobileMenu();
 
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 1024) {
-        closeMobileMenu();
-      }
-    });
-  }
+  menuToggle.addEventListener('click', () => {
+    if (!isMobileViewport()) return;
 
-  if (exploreItem && exploreLink) {
-    exploreLink.addEventListener('click', (event) => {
-      if (window.innerWidth <= 1024) return;
-      const isOpen = exploreItem.classList.contains('dropdown-open');
-      event.preventDefault();
-      exploreItem.classList.toggle('dropdown-open', !isOpen);
-      exploreLink.setAttribute('aria-expanded', String(!isOpen));
-    });
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    if (isExpanded) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
 
-    document.addEventListener('click', (event) => {
-      if (!exploreItem.contains(event.target)) {
-        exploreItem.classList.remove('dropdown-open');
-        exploreLink.setAttribute('aria-expanded', 'false');
-      }
+  submenuToggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      if (!isMobileViewport()) return;
+
+      const submenuId = toggle.getAttribute('aria-controls');
+      const submenu = submenuId ? document.getElementById(submenuId) : null;
+      if (!submenu) return;
+
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isExpanded));
+      submenu.hidden = isExpanded;
     });
-  }
+  });
+
+  mobileMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (!isMobileViewport()) return;
+      closeMobileMenu();
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    if (!isMobileViewport()) {
+      closeMobileMenu();
+    }
+  });
 })();
