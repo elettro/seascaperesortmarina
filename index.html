@@ -23,51 +23,72 @@
     </div>
 
     <div class="nav-wrap">
-      <nav class="floating-nav site-nav" aria-label="Primary">
+      <div class="utility-strip" aria-label="Property quick information">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" class="utility-link" target="_blank" rel="noopener noreferrer">Get Directions</a>
+        <span class="utility-item utility-address">1275 76th Street Ocean, Marathon, FL 33050</span>
+        <span class="utility-item">Mile Marker: 50</span>
+        <a class="utility-phone" href="tel:+13057436212" aria-label="Call Seascape Marina and Resort at 305-743-6212">
+          <span class="phone-icon" aria-hidden="true">☎</span>
+          <span>(305) 743-6212</span>
+        </a>
+        <span class="utility-note">Always Call Direct For Best Rates</span>
+      </div>
+
+      <nav class="main-nav" aria-label="Primary">
+        <div class="main-nav-links main-nav-left" aria-label="Primary left links">
+          <a href="/rooms/">Rooms</a>
+          <a href="/marina/">Marina</a>
+          <a href="/amenities/">Amenities</a>
+          <a href="/weddings/">Weddings</a>
+        </div>
+
         <a href="/" class="brand" aria-label="Seascape Marina and Resort home">
           <span class="brand-main">SEASCAPE</span>
           <span class="brand-sub">MARINA &amp; RESORT</span>
         </a>
 
-        <div class="nav-controls">
-          <a class="nav-phone" href="tel:+13055555555" aria-label="Call 305-555-5555">Call 305-555-5555</a>
-          <button
-            class="menu-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="primary-menu"
-            aria-label="Open menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+        <div class="main-nav-links main-nav-right" aria-label="Primary right links">
+          <div class="menu-item-has-children">
+            <a href="/local/" class="explore-link" aria-haspopup="true" aria-expanded="false">Explore</a>
+            <ul class="sub-menu" aria-label="Explore submenu">
+              <li><a href="/local/events/">Local Events</a></li>
+              <li><a href="/local/where-to-eat/">Local Places to Eat</a></li>
+              <li><a href="/local/attractions/">Local Attractions</a></li>
+            </ul>
+          </div>
+          <a href="/contact/">Contact</a>
+          <a href="/book-now/" class="book-now">Book Now</a>
         </div>
+
+        <a class="mobile-phone" href="tel:+13057436212" aria-label="Call 305-743-6212">(305) 743-6212</a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-menu-panel"
+          aria-label="Open menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
-      <ul id="primary-menu" class="nav-menu">
-        <li><a href="/rooms/">Rooms</a></li>
-        <li><a href="/amenities/">Amenities</a></li>
-        <li><a href="/marina/">Marina</a></li>
-        <li><a href="/pool/">Pool</a></li>
-        <li><a href="/excursions/">Excursions</a></li>
-        <li><a href="/fun-blog/">Fun Blog</a></li>
-        <li><a href="/weddings/">Weddings</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li class="menu-item-has-children">
-          <a
-            href="/local/"
-            class="local-link"
-            aria-haspopup="true"
-            aria-expanded="false"
-            aria-label="Local submenu"
-          >Local</a>
-          <ul class="sub-menu">
-            <li><a href="/local/where-to-eat/">Where to Eat</a></li>
-            <li><a href="/local/attractions/">Attractions</a></li>
-            <li><a href="/local/events/">Events</a></li>
-          </ul>
-        </li>
-      </ul>
+
+      <div id="mobile-menu-panel" class="mobile-menu-panel" hidden>
+        <ul class="mobile-menu-list">
+          <li><a href="/rooms/">Rooms</a></li>
+          <li><a href="/marina/">Marina</a></li>
+          <li><a href="/amenities/">Amenities</a></li>
+          <li><a href="/weddings/">Weddings</a></li>
+          <li><a href="/local/events/">Local Events</a></li>
+          <li><a href="/local/where-to-eat/">Local Places to Eat</a></li>
+          <li><a href="/local/attractions/">Local Attractions</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" target="_blank" rel="noopener noreferrer">Get Directions</a></li>
+          <li><a class="book-now" href="/book-now/">Book Now</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="hero-content">
@@ -105,87 +126,6 @@
     </section>
   </main>
 
-  <script>
-    (() => {
-      const navWrap = document.querySelector(".nav-wrap");
-      const menuToggle = document.querySelector(".menu-toggle");
-      const menuPanel = document.querySelector("#primary-menu");
-      const localItem = document.querySelector(".menu-item-has-children");
-      const localLink = localItem?.querySelector(".local-link");
-
-      if (!navWrap) {
-        return;
-      }
-
-      const handleScroll = () => {
-        navWrap.classList.toggle("is-scrolled", window.scrollY > 24);
-      };
-
-      handleScroll();
-      window.addEventListener("scroll", handleScroll, { passive: true });
-
-      if (!menuToggle || !menuPanel) {
-        return;
-      }
-
-      const closeMenu = () => {
-        const isMobile = window.innerWidth <= 767;
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open menu");
-        navWrap.classList.remove("menu-open");
-        menuPanel.hidden = isMobile;
-      };
-
-      const closeLocalMenu = () => {
-        if (!localItem || !localLink) {
-          return;
-        }
-        localItem.classList.remove("local-open");
-        localLink.setAttribute("aria-expanded", "false");
-      };
-
-      menuToggle.addEventListener("click", () => {
-        const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-        menuToggle.setAttribute("aria-expanded", String(!isExpanded));
-        menuToggle.setAttribute("aria-label", isExpanded ? "Open menu" : "Close menu");
-        navWrap.classList.toggle("menu-open", !isExpanded);
-        menuPanel.hidden = isExpanded;
-        if (isExpanded) {
-          closeLocalMenu();
-        }
-      });
-
-      menuPanel.querySelectorAll("a").forEach((link) => {
-        if (link.classList.contains("local-link")) {
-          return;
-        }
-        link.addEventListener("click", () => {
-          if (window.innerWidth <= 767) {
-            closeMenu();
-            closeLocalMenu();
-          }
-        });
-      });
-
-      if (localItem && localLink) {
-        localLink.addEventListener("click", (event) => {
-          if (window.innerWidth > 767) {
-            return;
-          }
-          const isOpen = localItem.classList.contains("local-open");
-          event.preventDefault();
-          localItem.classList.toggle("local-open", !isOpen);
-          localLink.setAttribute("aria-expanded", String(!isOpen));
-        });
-      }
-
-      closeMenu();
-
-      window.addEventListener("resize", () => {
-        closeMenu();
-        closeLocalMenu();
-      });
-    })();
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
