@@ -189,6 +189,7 @@ a {
 }
 
 .book-now {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -197,15 +198,31 @@ a {
   border-radius: 999px;
   background: #10263c;
   color: #ffffff !important;
+  overflow: hidden;
   box-shadow: 0 8px 18px rgba(16, 38, 60, 0.22);
   transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
 }
 
 .book-now:hover {
   opacity: 1;
-  background: #17344e;
+  background: #10263c;
   transform: translateY(-1px);
   box-shadow: 0 10px 22px rgba(16, 38, 60, 0.28);
+}
+
+.book-now::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 9px;
+  width: calc(100% - 32px);
+  height: 1.5px;
+  background: #ffffff;
+  border-radius: 999px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.28s ease-out;
+  pointer-events: none;
 }
 
 .nav-dropdown {
@@ -351,6 +368,11 @@ a {
   .nav-right > a:not(.book-now):hover,
   .nav-dropdown-toggle:hover {
     opacity: 0.86;
+  }
+
+  .book-now:hover::after,
+  .book-now:focus-visible::after {
+    transform: translateX(-50%) scaleX(1);
   }
 }
 
@@ -678,65 +700,5 @@ a {
   .hero-highlights span {
     width: 100%;
     justify-content: center;
-  }
-}
-
-
-
-
-
-.book-now {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 0 18px;
-  border-radius: 999px;
-  background: #10263c;
-  color: #ffffff !important;
-  transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
-}
-
-.book-now:hover {
-  background: #18344f;
-  transform: translateY(-1px);
-  box-shadow: 0 10px 20px rgba(16, 38, 60, 0.16);
-}
-
-@media (min-width: 1025px) {
-  .nav-left a,
-  .nav-right > a,
-  .nav-dropdown-toggle {
-    position: relative;
-    padding-bottom: 6px;
-  }
-
-  .nav-left a::after,
-  .nav-right > a::after,
-  .nav-dropdown-toggle::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
-    height: 1.5px;
-    background: currentColor;
-    transform: translateX(-50%);
-    transition: width 0.28s ease;
-    opacity: 0.95;
-  }
-
-  .nav-left a:hover::after,
-  .nav-left a:focus-visible::after,
-  .nav-right > a:hover::after,
-  .nav-right > a:focus-visible::after,
-  .nav-dropdown-toggle:hover::before,
-  .nav-dropdown-toggle:focus-visible::before {
-    width: 100%;
-  }
-
-  .book-now::after,
-  .book-now::before {
-    display: none !important;
   }
 }
