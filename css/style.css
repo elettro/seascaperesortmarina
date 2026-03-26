@@ -64,18 +64,14 @@ a {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   width: 100%;
-}
-
-/* TEMPORARILY HIDDEN DESKTOP UTILITY BAR.
-   To reactivate later, remove display: none below. */
-@media (min-width: 1025px) {
-  .utility-bar {
-    display: none;
-  }
+  padding-top: 8px;
+  background: transparent;
 }
 
 .utility-bar {
@@ -84,9 +80,8 @@ a {
   align-items: center;
   gap: 24px;
   padding: 10px 34px;
-  background: rgba(10, 27, 43, 0.88);
-  color: #ffffff;
-  backdrop-filter: blur(10px);
+  background: transparent;
+  color: #fdfcf8;
 }
 
 .utility-left,
@@ -99,10 +94,11 @@ a {
 
 .utility-bar a,
 .utility-bar span {
-  color: #ffffff;
+  color: #fdfcf8;
   font-size: 13px;
   line-height: 1.2;
   text-decoration: none;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
 }
 
 .utility-directions,
