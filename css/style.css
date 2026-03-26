@@ -192,6 +192,21 @@ a {
   letter-spacing: 0.28em;
 }
 
+.logo-divider {
+  width: 72%;
+  max-width: 190px;
+  margin: 5px 0 4px;
+  border-top: 1px solid #000000;
+}
+
+.logo-location {
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #10263c;
+}
+
 .book-now {
   display: inline-flex;
   align-items: center;
@@ -343,6 +358,10 @@ a {
   .logo-sub {
     font-size: 9px;
   }
+
+  .logo-location {
+    font-size: 7px;
+  }
 }
 
 @media (min-width: 1025px) {
@@ -423,6 +442,16 @@ a {
   .mobile-logo .logo-sub {
     font-size: 8px;
     letter-spacing: 0.18em;
+  }
+
+  .mobile-logo .logo-divider {
+    width: 66%;
+    margin: 4px 0 3px;
+  }
+
+  .mobile-logo .logo-location {
+    font-size: 7px;
+    letter-spacing: 0.16em;
   }
 
   .mobile-phone-block {
