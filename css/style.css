@@ -42,7 +42,8 @@ a {
   overflow: hidden;
 }
 
-.video-shell iframe {
+.video-shell iframe,
+#hero-video-player {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -52,7 +53,40 @@ a {
   min-height: 100vh;
   transform: translate(-50%, -50%);
   border: 0;
+}
+
+.video-shell iframe {
   pointer-events: none;
+}
+
+.hero-audio-toggle {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 5;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(12, 24, 36, 0.58);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 999px;
+  min-height: 34px;
+  padding: 0 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-audio-toggle:hover {
+  background: rgba(12, 24, 36, 0.74);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-audio-toggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.96);
+  outline-offset: 2px;
 }
 
 .video-overlay {
@@ -840,6 +874,14 @@ a {
 }
 
 @media (max-width: 480px) {
+  .hero-audio-toggle {
+    right: 12px;
+    bottom: 12px;
+    min-height: 32px;
+    padding: 0 10px;
+    font-size: 0.76rem;
+  }
+
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
