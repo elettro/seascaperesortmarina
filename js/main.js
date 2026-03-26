@@ -1,24 +1,17 @@
 (() => {
-  const navWrap = document.querySelector('.nav-wrap');
-  const menuToggle = document.querySelector('.menu-toggle');
+  const siteHeader = document.querySelector('.site-header');
+  const menuToggle = document.querySelector('.mobile-menu-toggle');
   const menuPanel = document.querySelector('#mobile-menu-panel');
-  const exploreItem = document.querySelector('.menu-item-has-children');
-  const exploreLink = exploreItem?.querySelector('.explore-link');
+  const exploreItem = document.querySelector('.nav-dropdown');
+  const exploreLink = exploreItem?.querySelector('.nav-dropdown-toggle');
 
-  if (!navWrap) return;
-
-  const handleScroll = () => {
-    navWrap.classList.toggle('is-scrolled', window.scrollY > 24);
-  };
-
-  handleScroll();
-  window.addEventListener('scroll', handleScroll, { passive: true });
+  if (!siteHeader) return;
 
   const closeMobileMenu = () => {
     if (!menuToggle || !menuPanel) return;
     menuToggle.setAttribute('aria-expanded', 'false');
     menuToggle.setAttribute('aria-label', 'Open menu');
-    navWrap.classList.remove('menu-open');
+    siteHeader.classList.remove('menu-open');
     menuPanel.hidden = true;
   };
 
@@ -29,7 +22,7 @@
       const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
       menuToggle.setAttribute('aria-expanded', String(!isExpanded));
       menuToggle.setAttribute('aria-label', isExpanded ? 'Open menu' : 'Close menu');
-      navWrap.classList.toggle('menu-open', !isExpanded);
+      siteHeader.classList.toggle('menu-open', !isExpanded);
       menuPanel.hidden = isExpanded;
     });
 
@@ -40,7 +33,7 @@
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 900) {
+      if (window.innerWidth > 1024) {
         closeMobileMenu();
       }
     });
@@ -48,7 +41,7 @@
 
   if (exploreItem && exploreLink) {
     exploreLink.addEventListener('click', (event) => {
-      if (window.innerWidth <= 900) return;
+      if (window.innerWidth <= 1024) return;
       const isOpen = exploreItem.classList.contains('dropdown-open');
       event.preventDefault();
       exploreItem.classList.toggle('dropdown-open', !isOpen);
