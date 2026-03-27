@@ -1385,3 +1385,33 @@ a {
   border: 0 !important;
   pointer-events: none !important;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .main-nav,
+  .nav-left,
+  .nav-right {
+    overflow: visible;
+  }
+
+  .nav-left {
+    display: flex !important;
+  }
+
+  .tablet-landscape-only-excursions {
+    display: inline-flex !important;
+  }
+
+  .tablet-landscape-only-group-stays-left {
+    display: inline-flex !important;
+    position: relative;
+  }
+
+  .tablet-landscape-only-group-stays-left .nav-dropdown-menu {
+    z-index: 1100;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    display: block;
+  }
+}
