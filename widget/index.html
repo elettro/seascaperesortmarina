@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seascape Marina and Resort | Booking Widget Concepts</title>
+  <style>
+    :root {
+      --navy: #12344a;
+      --deep: #0d2736;
+      --teal: #2f7c89;
+      --seafoam: #dff5f3;
+      --sand: #f7f1e7;
+      --mist: #f5f9fb;
+      --white: #ffffff;
+      --text: #18313f;
+      --muted: #587180;
+      --gold: #caa76a;
+      --border: rgba(18, 52, 74, 0.12);
+      --shadow-soft: 0 18px 50px rgba(14, 39, 54, 0.08);
+      --shadow-card: 0 12px 30px rgba(14, 39, 54, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --max: 1400px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(223,245,243,0.65) 0%, rgba(245,249,251,1) 35%, rgba(255,255,255,1) 100%);
+    }
+
+    body {
+      line-height: 1.45;
+    }
+
+    .hero {
+      padding: 56px 24px 28px;
+      background:
+        linear-gradient(135deg, rgba(18,52,74,0.94), rgba(47,124,137,0.78)),
+        radial-gradient(circle at top right, rgba(255,255,255,0.12), transparent 35%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -120px auto;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      filter: blur(10px);
+    }
+
+    .hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.82;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      max-width: 900px;
+    }
+
+    .hero p {
+      max-width: 780px;
+      font-size: 1.02rem;
+      opacity: 0.92;
+      margin: 0;
+    }
+
+    .page-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 36px 24px 80px;
+    }
+
+    .intro {
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .concept {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .concept-top {
+      padding: 22px 24px 0;
+    }
+
+    .concept-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: rgba(18, 52, 74, 0.08);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+
+    .concept h2 {
+      margin: 0 0 8px;
+      font-size: 1.45rem;
+      line-height: 1.15;
+    }
+
+    .concept p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .widget-shell {
+      margin: 0 24px 24px;
+      border-radius: var(--radius-lg);
+      min-height: 260px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(18, 52, 74, 0.1);
+      box-shadow: var(--shadow-card);
+      background: var(--white);
+    }
+
+    .widget-placeholder {
+      width: 100%;
+      min-height: 260px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .widget-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .widget-copy {
+      color: var(--muted);
+      max-width: 560px;
+      font-size: 0.95rem;
+    }
+
+    .fake-controls {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .fake-input,
+    .fake-btn {
+      border-radius: 12px;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      font-size: 0.94rem;
+    }
+
+    .fake-input {
+      background: rgba(18, 52, 74, 0.05);
+      border: 1px solid rgba(18, 52, 74, 0.08);
+      color: var(--text);
+    }
+
+    .fake-btn {
+      justify-content: center;
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 700;
+      border: 0;
+    }
+
+    .small-note {
+      margin-top: 4px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .concept-1 .widget-shell {
+      background: linear-gradient(180deg, #ffffff 0%, #f6fbfc 100%);
+    }
+
+    .concept-2 .widget-shell {
+      background:
+        linear-gradient(180deg, rgba(18,52,74,0.86), rgba(18,52,74,0.75)),
+        linear-gradient(135deg, rgba(47,124,137,0.6), rgba(202,167,106,0.16));
+      color: var(--white);
+      border: none;
+    }
+
+    .concept-2 .widget-copy,
+    .concept-2 .small-note {
+      color: rgba(255,255,255,0.82);
+    }
+
+    .concept-2 .fake-input {
+      background: rgba(255,255,255,0.11);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--white);
+    }
+
+    .concept-2 .fake-btn {
+      background: var(--gold);
+      color: var(--deep);
+    }
+
+    .concept-3 .widget-shell {
+      background: rgba(255,255,255,0.45);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.65);
+    }
+
+    .concept-4 .widget-shell {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.92)),
+        linear-gradient(135deg, rgba(223,245,243,0.9), rgba(247,241,231,0.8));
+    }
+
+    .concept-4 .widget-placeholder::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(47,124,137,0.10), transparent 28%),
+        radial-gradient(circle at 80% 18%, rgba(202,167,106,0.12), transparent 24%);
+      pointer-events: none;
+    }
+
+    .concept-5 .widget-shell {
+      padding: 16px;
+      background: var(--mist);
+    }
+
+    .concept-5 .widget-placeholder {
+      min-height: 220px;
+      border-radius: 16px;
+      background: var(--white);
+      border: 1px solid rgba(18,52,74,0.08);
+    }
+
+    .concept-6 .widget-shell {
+      background: linear-gradient(180deg, #fefcf8 0%, #ffffff 100%);
+      border-top: 6px solid var(--gold);
+    }
+
+    .concept-7 .widget-shell {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.96)),
+        linear-gradient(135deg, rgba(223,245,243,0.7), rgba(255,255,255,0.95));
+    }
+
+    .concept-7 .fake-controls {
+      grid-template-columns: 1.2fr 1.2fr 0.8fr 1fr;
+    }
+
+    .concept-8 .widget-shell {
+      background: linear-gradient(180deg, #112f42 0%, #1e4d65 100%);
+      border: none;
+    }
+
+    .concept-8 .widget-title {
+      color: var(--white);
+    }
+
+    .concept-8 .widget-copy,
+    .concept-8 .small-note {
+      color: rgba(255,255,255,0.82);
+    }
+
+    .concept-8 .fake-input {
+      background: rgba(255,255,255,0.10);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .concept-8 .fake-btn {
+      background: #ffffff;
+      color: var(--deep);
+    }
+
+    .concept-9 .widget-shell {
+      background: linear-gradient(180deg, #ffffff 0%, #ffffff 55%, #eef8f9 100%);
+    }
+
+    .concept-9 .widget-placeholder {
+      justify-content: flex-start;
+      padding-top: 34px;
+    }
+
+    .concept-10 .widget-shell {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.98)),
+        repeating-linear-gradient(
+          90deg,
+          rgba(18,52,74,0.03) 0,
+          rgba(18,52,74,0.03) 1px,
+          transparent 1px,
+          transparent 24px
+        );
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .badge {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(18,52,74,0.07);
+      color: var(--navy);
+      font-size: 0.77rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .code-note {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .embed-box {
+      margin-top: 18px;
+      padding: 14px;
+      background: rgba(18,52,74,0.04);
+      border: 1px dashed rgba(18,52,74,0.18);
+      border-radius: 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 48px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1100px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 42px 18px 24px;
+      }
+
+      .page-wrap {
+        padding: 24px 18px 56px;
+      }
+
+      .concept-top {
+        padding: 20px 18px 0;
+      }
+
+      .widget-shell {
+        margin: 0 18px 18px;
+      }
+
+      .widget-placeholder {
+        padding: 20px;
+      }
+
+      .fake-controls,
+      .concept-7 .fake-controls {
+        grid-template-columns: 1fr;
+      }
+
+      .fake-input,
+      .fake-btn {
+        min-height: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Florida Keys Booking Concepts</div>
+      <h1>10 Free To Book widget presentation styles for Seascape Marina and Resort</h1>
+      <p>Simple. Beautiful. Modern. Coastal. Each option below is designed to feel more like a custom resort booking experience and less like a generic plugin drop-in.</p>
+    </div>
+  </section>
+
+  <main class="page-wrap">
+    <div class="intro">
+      Choose the direction you like most. Then replace the placeholder area with the live Free To Book embed inside that exact card style.
+    </div>
+
+    <div class="grid">
+
+      <section class="concept concept-1">
+        <div class="concept-top">
+          <div class="concept-number">01</div>
+          <h2>Clean White Resort Card</h2>
+          <p>Elegant and safe. Best if you want trust, clarity, and a polished hotel look.</p>
+        </div>
+        <div class="widget-shell">
+          <div class="widget-placeholder">
+            <div class="widget-title">Check Availability</div>
+            <div class="widget-copy">A premium direct booking card with soft edges and subtle coastal tone.</div>
+            <div class="fake-controls">
+              <div class="fake-input">Arrival</div>
+              <div class="fake-input">Departure</div>
+              <div class="fake-btn">Book Direct</div>
+            </div>
+            <div class="small-note">Best rates. Live availability. Easy online booking.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept concept-2">
+        <div class="concept-top">
+          <div class="concept-number">02</div>
+          <h2>Dark Luxury Harbor Look</h2>
+          <p>More dramatic. Strong for a premium marina and evening waterfront brand feel.</p>
+        </div>
+        <div class="widget-shell">
+          <div class="widget-placeholder">
+            <div class="widget-title">Reserve Your Marathon Key Stay</div>
+            <div class="widget-copy">A deeper navy booking block with gold action tone and a boutique hotel mood.</div>
+            <div class="fake-controls">
+              <div class="fake-input">Arrival Date</div>
+              <div class="fake-input">Departure Date</div>
+              <div class="fake-btn">Check Rooms</div>
+            </div>
+            <div class="small-note">Direct booking with a refined after-dark Keys style.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept concept-3">
+        <div class="concept-top">
+          <div class="concept-number">03</div>
+          <h2>Glass Coastal Panel</h2>
+          <p>Very current. Light glassmorphism without looking gimmicky.</p>
+        </div>
+        <div class="widget-shell">
+          <div class="widget-placeholder">
+            <div class="widget-title">Stay at Seascape</div>
+            <div class="widget-copy">This version feels airy and upscale. Strong with video or water photography behind it.</div>
+            <div class="fake-controls">
+              <div class="fake-input">Check In</div>
+              <div class="fake-input">Check Out</div>
+              <div class="fake-btn">View Rates</div>
+            </div>
+            <div class="small-note">Beautiful over imagery. Strong modern resort energy.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept concept-4">
+        <div class="concept-top">
+          <div class="concept-number">04</div>
+          <h2>Soft Tropical Breeze</h2>
+          <p>Light seafoam and sand tones. Very Florida Keys. Very approachable.</p>
+        </div>
+        <div class="widget-shell">
+          <div class="widget-placeholder">
+            <div class="widget-title">Book Your Waterfront Escape</div>
+            <div class="widget-copy">A softer palette for guests who respond to warmth and calm more than hard contrast.</div>
+            <div class="fake-controls">
+              <div class="fake-input">Arrival</div>
+              <div class="fake-input">Departure</div>
+              <div class="fake-btn">Search Stay</div>
+            </div>
+            <div class="small-note">Warm. Calm. Boutique. Built for vacation mode.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept concept-5">
+        <div class="concept-top">
+          <div class="concept-number">05</div>
+          <h2>Floating Mini Booking Module</h2>
+          <p>Compact and high-conversion. Good if you want a lighter block under the hero.</p>
+        </div>
+        <div class="widget-shell">
+          <div class="widget-placeholder">
+            <div class="widget-title">Check Dates Fast</div>
+            <div class="widget-copy">A tighter shell that feels fast and clean. Good for mobile responsiveness too.</div>
+            <div class="fake-controls">
+              <div class="fake-input">Arrive</div>
+              <div class="fake-input">Depart</div>
+              <div class="fake-btn">Search</div>
+            </div>
+            <div class="small-note">Minimal. Efficient. Simple luxury.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept concept-6">
+        <div class="concept-top">
+          <div class="concept-number">06</div>
+          <h2>Boutique Hotel Editorial Style</h2>
+          <p>Looks more curated and brand-led. Best if you want sophistication over utility.</p>
+        </div>
+        <div class="widget-shell">
+          <div class="widget-placeholder">
+            <div class="widget-title">Direct Booking at Seascape Marina and Resort</div>
+            <div class="widget-copy">This approach blends a premium editorial feel with a straightforward booking action.</div>
+            <div class="fake-controls">
+              <div class="fake-input">Arrival</div>
+              <div class="fake-input">Departure</div>
+              <div class="fake-btn">Book Your Stay</div>
+            </div>
+            <div class="small-note">Great fit for a more premium resort brand presentation.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept concept-7">
+        <div class="concept-top">
+          <div class="concept-number">07</div>
+          <h2>Full Booking Bar Layout</h2>
+          <p>Best for conversion. Reads like a real hotel booking engine front end.</p>
+        </div>
+        <div class="widget-shell">
+          <div class="widget-placeholder">
+            <div class="widget-title">Plan Your Stay</div>
+            <div class="widget-copy">A horizontal booking bar feel. Strong if you want the page to push action immediately.</div>
+            <div class="fake-controls">
+              <div class="fake-input">Arrival</div>
+              <div class="fake-input">Departure</div>
+              <div class="fake-input">Guests</div>
+              <div class="fake-btn">Check Availability</div>
+            </div>
+            <div class="small-note">The most hotel-like conversion option.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept concept-8">
+        <div class="concept-top">
+          <div class="concept-number">08</div>
+          <h2>Midnight Marina Panel</h2>
+          <p>Stronger luxury contrast. Good if the rest of the page leans darker and richer.</p>
+        </div>
+        <div class="widget-shell">
+          <div class="widget-placeholder">
+            <div class="widget-title">Reserve the Keys Your Way</div>
+            <div class="widget-copy">This one feels like deep water, evening calm, polished wood, and marina lights.</div>
+            <div class="fake-controls">
+              <div class="fake-input">Arrival</div>
+              <div class="fake-input">Departure</div>
+              <div class="fake-btn">Reserve</div>
+            </div>
+            <div class="small-note">Boutique marina tone with high-end contrast.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept concept-9">
+        <div class="concept-top">
+          <div class="concept-number">09</div>
+          <h2>Simple Trust-First Booking Card</h2>
+          <p>Very conversion-friendly. Straightforward and calm. Great for broad audiences.</p>
+        </div>
+        <div class="widget-shell">
+          <div class="widget-placeholder">
+            <div class="widget-title">Check Rates and Availability</div>
+            <div class="widget-copy">Clear direct-book messaging without overdesign. Good for older guests and broad usability.</div>
+            <div class="badge-row">
+              <span class="badge">Best Rates</span>
+              <span class="badge">Book Direct</span>
+              <span class="badge">Live Availability</span>
+            </div>
+            <div class="fake-controls">
+              <div class="fake-input">Check In</div>
+              <div class="fake-input">Check Out</div>
+              <div class="fake-btn">View Options</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept concept-10">
+        <div class="concept-top">
+          <div class="concept-number">10</div>
+          <h2>Ultra Minimal Modern Keys</h2>
+          <p>Very clean. Quiet luxury. Good if you want the design to feel expensive without trying hard.</p>
+        </div>
+        <div class="widget-shell">
+          <div class="widget-placeholder">
+            <div class="widget-title">Direct Booking</div>
+            <div class="widget-copy">Minimal framing. More whitespace. More confidence. Very strong for premium brands.</div>
+            <div class="fake-controls">
+              <div class="fake-input">Arrival</div>
+              <div class="fake-input">Departure</div>
+              <div class="fake-btn">Book Now</div>
+            </div>
+            <div class="small-note">Quiet design. Strong brand feel. Clean conversion path.</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="embed-box">
+      To turn any option live, replace the placeholder area inside the chosen .widget-shell with your actual Free To Book embed:
+
+      <br><br>
+      &lt;script type="text/javascript" src="https://static.freetobook.com/widgets/js/abfc3342.js"&gt;&lt;/script&gt;<br>
+      &lt;div class="ftb_widget ftb_combined"&gt;&lt;/div&gt;
+    </div>
+  </main>
+
+  <footer>
+    Best next move: pick your top 2 or 3 directions. Then I will turn those into live Free To Book production-ready versions for Seascape Marina and Resort.
+  </footer>
+
+</body>
+</html>
