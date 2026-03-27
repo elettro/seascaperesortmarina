@@ -39,6 +39,9 @@ a {
 .video-shell {
   position: absolute;
   inset: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
@@ -104,7 +107,7 @@ a {
   right: 0;
   z-index: 1000;
   width: 100%;
-  padding-top: 8px;
+  padding-top: 0;
   background: transparent;
 }
 
@@ -159,6 +162,8 @@ a {
 .main-nav {
   position: relative;
   margin: 0 34px;
+  margin-top: 0;
+  margin-bottom: 0;
   min-height: 78px;
   padding: 0 28px;
   display: grid;
@@ -685,7 +690,7 @@ a {
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   .video-shell iframe,
   #hero-video-player {
-    top: calc(50% - 30px);
+    top: 50%;
   }
 
   .hero-content .eyebrow {
