@@ -74,6 +74,7 @@
 (() => {
   const videoShell = document.querySelector('.video-shell');
   const heroIframe = document.getElementById('hero-video-iframe');
+  const heroAudioToggle = document.getElementById('hero-audio-toggle');
 
   if (!videoShell || !heroIframe) return;
 
@@ -110,7 +111,7 @@
   const mobileLandscapeVideoId = extractVideoId(videoShell.dataset.mobileLandscapeVideoId);
 
   const buildEmbedSrc = (videoId) =>
-    `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&modestbranding=1&rel=0`;
+    `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&modestbranding=1&rel=0&enablejsapi=1`;
 
   const isMobileViewport = () => window.innerWidth <= mobileOnlyBreakpoint;
   const isPortrait = () => window.matchMedia('(orientation: portrait)').matches;
@@ -127,6 +128,34 @@
 
   let currentVideoId = '';
   let resizeRafId = null;
+  let heroIsMuted = true;
+
+  const postPlayerCommand = (func) => {
+    if (!heroIframe.contentWindow) return;
+
+    heroIframe.contentWindow.postMessage(
+      JSON.stringify({
+        event: 'command',
+        func,
+        args: []
+      }),
+      '*'
+    );
+  };
+
+  const syncAudioToggleUi = () => {
+    if (!heroAudioToggle) return;
+
+    heroAudioToggle.setAttribute('aria-pressed', String(!heroIsMuted));
+    heroAudioToggle.setAttribute(
+      'aria-label',
+      heroIsMuted ? 'Turn on video sound' : 'Turn off video sound'
+    );
+  };
+
+  const applyHeroAudioState = () => {
+    postPlayerCommand(heroIsMuted ? 'mute' : 'unMute');
+  };
 
   const updateHeroVideoSource = () => {
     const targetVideoId = getTargetVideoId();
@@ -144,6 +173,22 @@
       updateHeroVideoSource();
     });
   };
+
+  if (heroAudioToggle) {
+    syncAudioToggleUi();
+
+    heroAudioToggle.addEventListener('click', () => {
+      heroIsMuted = !heroIsMuted;
+      syncAudioToggleUi();
+      applyHeroAudioState();
+    });
+  }
+
+  heroIframe.addEventListener('load', () => {
+    window.setTimeout(() => {
+      applyHeroAudioState();
+    }, 220);
+  });
 
   updateHeroVideoSource();
   window.addEventListener('resize', scheduleUpdate);
