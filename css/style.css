@@ -617,6 +617,11 @@ a {
 
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .video-shell iframe,
+  #hero-video-player {
+    top: calc(50% - 30px);
+  }
+
   .hero-content .eyebrow {
     display: none;
     margin: 0;
