@@ -297,6 +297,10 @@ a {
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.12);
   display: none;
 }
+.nav-left .nav-dropdown-menu {
+  left: 0;
+  right: auto;
+}
 
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown:focus-within .nav-dropdown-menu {
