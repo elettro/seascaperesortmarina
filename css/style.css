@@ -678,7 +678,6 @@ a {
     display: inline-flex;
   }
 
-  .nav-right-group-stays,
   .nav-right > a[href="/SeascapeMarinaResort/excursions/"],
   .nav-right > a[href="/blog/"] {
     display: none;
