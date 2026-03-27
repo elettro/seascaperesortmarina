@@ -1457,3 +1457,19 @@ a {
     font-size: 13px;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .video-shell {
+    top: -64px;
+    bottom: 0;
+  }
+
+  .video-shell iframe,
+  #hero-video-player {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 64px);
+    transform: none;
+  }
+}
