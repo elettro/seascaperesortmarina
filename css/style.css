@@ -1438,3 +1438,74 @@ a {
     transform: translate(-50%, -50%) !important;
   }
 }
+
+@media (max-width: 932px) and (orientation: landscape) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .site-header,
+  .hero,
+  .main-nav,
+  .mobile-header-row,
+  .video-shell,
+  .hero-content {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .main-nav {
+    margin: 0 !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    border-radius: 0 !important;
+    display: block !important;
+    box-shadow: none !important;
+  }
+
+  .nav-left,
+  .nav-right,
+  .nav-logo {
+    display: none !important;
+  }
+
+  .mobile-header-row {
+    display: flex !important;
+  }
+
+  .hero {
+    width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .video-shell {
+    inset: 0 !important;
+    width: 100vw !important;
+    overflow: hidden !important;
+  }
+
+  .video-shell iframe {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 100vw !important;
+    height: 177.78vw !important;
+    min-width: 100vw !important;
+    min-height: 100% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .hero-content {
+    margin: 0 !important;
+    padding: 120px 20px 72px !important;
+  }
+}
