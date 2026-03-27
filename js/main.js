@@ -73,10 +73,11 @@
 
 (() => {
   const videoShell = document.querySelector('.video-shell');
-  const playerContainer = document.getElementById('hero-video-player');
-  const audioToggle = document.querySelector('.hero-audio-toggle');
+  const heroIframe = document.getElementById('hero-video-iframe');
 
-  if (!videoShell || !playerContainer || !audioToggle) return;
+  if (!videoShell || !heroIframe) return;
+
+  const mobileOnlyBreakpoint = 767;
 
   const extractVideoId = (rawValue) => {
     if (!rawValue) return '';
@@ -104,76 +105,47 @@
     return '';
   };
 
-  const mobileOnlyBreakpoint = 767;
   const defaultVideoId = extractVideoId(videoShell.dataset.heroVideoId);
-  const mobileVideoId = extractVideoId(videoShell.dataset.mobileHeroVideoId);
+  const mobilePortraitVideoId = extractVideoId(videoShell.dataset.mobilePortraitVideoId);
+  const mobileLandscapeVideoId = extractVideoId(videoShell.dataset.mobileLandscapeVideoId);
+
+  const buildEmbedSrc = (videoId) =>
+    `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&modestbranding=1&rel=0`;
+
   const isMobileViewport = () => window.innerWidth <= mobileOnlyBreakpoint;
-  const activeVideoId = isMobileViewport() && mobileVideoId ? mobileVideoId : defaultVideoId;
+  const isPortrait = () => window.matchMedia('(orientation: portrait)').matches;
 
-  if (!activeVideoId) return;
+  const getTargetVideoId = () => {
+    if (!isMobileViewport()) return defaultVideoId;
 
-  let heroPlayer;
+    if (isPortrait()) {
+      return mobilePortraitVideoId || mobileLandscapeVideoId || defaultVideoId;
+    }
 
-  const setButtonState = (isMuted) => {
-    audioToggle.textContent = isMuted ? 'Muted' : 'Sound On';
-    audioToggle.setAttribute('aria-label', isMuted ? 'Unmute hero video' : 'Mute hero video');
-    audioToggle.setAttribute('aria-pressed', String(!isMuted));
+    return mobileLandscapeVideoId || mobilePortraitVideoId || defaultVideoId;
   };
 
-  const createHeroPlayer = () => {
-    heroPlayer = new YT.Player('hero-video-player', {
-      videoId: activeVideoId,
-      playerVars: {
-        autoplay: 1,
-        controls: 0,
-        modestbranding: 1,
-        rel: 0,
-        playsinline: 1,
-        loop: 1,
-        mute: 1,
-        playlist: activeVideoId
-      },
-      events: {
-        onReady: (event) => {
-          event.target.mute();
-          event.target.playVideo();
-          setButtonState(true);
-        },
-        onStateChange: (event) => {
-          if (event.data === YT.PlayerState.ENDED) {
-            event.target.playVideo();
-          }
-        }
-      }
+  let currentVideoId = '';
+  let resizeRafId = null;
+
+  const updateHeroVideoSource = () => {
+    const targetVideoId = getTargetVideoId();
+    if (!targetVideoId || targetVideoId === currentVideoId) return;
+
+    currentVideoId = targetVideoId;
+    heroIframe.src = buildEmbedSrc(targetVideoId);
+  };
+
+  const scheduleUpdate = () => {
+    if (resizeRafId !== null) return;
+
+    resizeRafId = window.requestAnimationFrame(() => {
+      resizeRafId = null;
+      updateHeroVideoSource();
     });
   };
 
-  audioToggle.addEventListener('click', () => {
-    if (!heroPlayer || typeof heroPlayer.isMuted !== 'function') return;
-
-    const muted = heroPlayer.isMuted();
-    if (muted) {
-      heroPlayer.unMute();
-      setButtonState(false);
-    } else {
-      heroPlayer.mute();
-      setButtonState(true);
-    }
-  });
-
-  setButtonState(true);
-
-  window.onYouTubeIframeAPIReady = (() => {
-    const previousHandler = window.onYouTubeIframeAPIReady;
-
-    return () => {
-      if (typeof previousHandler === 'function') previousHandler();
-      createHeroPlayer();
-    };
-  })();
-
-  const youtubeApiScript = document.createElement('script');
-  youtubeApiScript.src = 'https://www.youtube.com/iframe_api';
-  youtubeApiScript.async = true;
-  document.head.appendChild(youtubeApiScript);
+  updateHeroVideoSource();
+  window.addEventListener('resize', scheduleUpdate);
+  window.addEventListener('orientationchange', scheduleUpdate);
 })();
