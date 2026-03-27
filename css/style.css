@@ -180,6 +180,10 @@ a {
   justify-content: flex-end;
 }
 
+.tablet-landscape-only-excursions {
+  display: none;
+}
+
 .nav-left a,
 .nav-right > a:not(.book-now),
 .nav-dropdown-toggle {
@@ -615,6 +619,68 @@ a {
   }
 }
 
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .main-nav {
+    margin: 0 20px;
+    min-height: 72px;
+    width: auto;
+    padding: 0 16px;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-left,
+  .nav-logo,
+  .nav-right {
+    display: flex;
+  }
+
+  .mobile-header-row,
+  .mobile-menu-panel {
+    display: none !important;
+  }
+
+  .nav-left,
+  .nav-right {
+    gap: 12px;
+  }
+
+  .nav-left a,
+  .nav-right > a:not(.book-now),
+  .nav-dropdown-toggle {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .nav-logo .logo-main {
+    font-size: 22px;
+    letter-spacing: 0.14em;
+  }
+
+  .nav-logo .logo-sub {
+    font-size: 8px;
+    letter-spacing: 0.22em;
+  }
+
+  .tablet-landscape-only-excursions {
+    display: inline-flex;
+  }
+
+  .nav-right > a[href="/SeascapeMarinaResort/excursions/"],
+  .nav-right > a[href="/blog/"] {
+    display: none;
+  }
+
+  .book-now {
+    min-height: 38px;
+    padding: 0 14px;
+  }
+}
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   .video-shell iframe,
