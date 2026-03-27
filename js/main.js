@@ -74,7 +74,7 @@
 (() => {
   const videoShell = document.querySelector('.video-shell');
   const heroIframe = document.getElementById('hero-video-iframe');
-  const heroAudioToggle = document.getElementById('hero-audio-toggle');
+  const heroAudioToggles = document.querySelectorAll('.hero-audio-toggle');
 
   if (!videoShell || !heroIframe) return;
 
@@ -144,13 +144,15 @@
   };
 
   const syncAudioToggleUi = () => {
-    if (!heroAudioToggle) return;
+    if (!heroAudioToggles.length) return;
 
-    heroAudioToggle.setAttribute('aria-pressed', String(!heroIsMuted));
-    heroAudioToggle.setAttribute(
-      'aria-label',
-      heroIsMuted ? 'Turn on video sound' : 'Turn off video sound'
-    );
+    heroAudioToggles.forEach((audioToggle) => {
+      audioToggle.setAttribute('aria-pressed', String(!heroIsMuted));
+      audioToggle.setAttribute(
+        'aria-label',
+        heroIsMuted ? 'Turn on video sound' : 'Turn off video sound'
+      );
+    });
   };
 
   const applyHeroAudioState = () => {
@@ -174,13 +176,15 @@
     });
   };
 
-  if (heroAudioToggle) {
+  if (heroAudioToggles.length) {
     syncAudioToggleUi();
 
-    heroAudioToggle.addEventListener('click', () => {
-      heroIsMuted = !heroIsMuted;
-      syncAudioToggleUi();
-      applyHeroAudioState();
+    heroAudioToggles.forEach((audioToggle) => {
+      audioToggle.addEventListener('click', () => {
+        heroIsMuted = !heroIsMuted;
+        syncAudioToggleUi();
+        applyHeroAudioState();
+      });
     });
   }
 
