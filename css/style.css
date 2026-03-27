@@ -1321,3 +1321,63 @@ a {
     display: none !important;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .main-nav {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    min-height: 68px;
+    padding: 0 16px;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .nav-right {
+    justify-content: flex-end;
+  }
+
+  .mobile-header-row,
+  .mobile-menu-panel {
+    display: none !important;
+  }
+
+  .nav-left a,
+  .nav-right > a:not(.book-now),
+  .nav-dropdown-toggle {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .nav-right > a[href="/blog/"] {
+    display: none;
+  }
+
+  .nav-logo {
+    display: inline-flex;
+    justify-self: center;
+    align-items: center;
+  }
+
+  .nav-logo .logo-main {
+    font-size: 24px;
+  }
+
+  .nav-logo .logo-sub {
+    font-size: 8px;
+    letter-spacing: 0.22em;
+  }
+
+  .book-now {
+    height: 40px;
+    padding: 0 15px;
+    font-size: 13px;
+  }
+}
