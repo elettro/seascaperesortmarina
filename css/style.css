@@ -1559,6 +1559,12 @@ a {
     overflow: hidden !important;
   }
 
+  .hero-audio-toggle {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .booking-direct-section {
     margin-top: 0 !important;
     transform: none !important;
