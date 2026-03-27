@@ -185,7 +185,8 @@ a {
   justify-content: flex-end;
 }
 
-.tablet-landscape-only-excursions {
+.tablet-landscape-only-excursions,
+.tablet-landscape-only-group-stays-left {
   display: none;
 }
 
@@ -672,10 +673,12 @@ a {
     letter-spacing: 0.22em;
   }
 
-  .tablet-landscape-only-excursions {
+  .tablet-landscape-only-excursions,
+  .tablet-landscape-only-group-stays-left {
     display: inline-flex;
   }
 
+  .nav-right-group-stays,
   .nav-right > a[href="/SeascapeMarinaResort/excursions/"],
   .nav-right > a[href="/blog/"] {
     display: none;
