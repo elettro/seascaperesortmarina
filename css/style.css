@@ -1568,6 +1568,10 @@ a {
     display: none !important;
   }
 
+  .hero-actions .btn-secondary ~ .btn {
+    display: none !important;
+  }
+
   /* Temporary mobile-portrait cleanup for the rounded artifact near the section seam. */
   .hero-highlights {
     display: none !important;
