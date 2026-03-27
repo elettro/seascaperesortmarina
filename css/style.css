@@ -687,11 +687,11 @@ a {
 
   .tablet-landscape-only-excursions,
   .tablet-landscape-only-group-stays-left {
-    display: inline-flex;
+    display: inline-flex !important;
   }
 
   .nav-right-group-stays {
-    display: none;
+    display: none !important;
   }
 
   .nav-right > a[href="/blog/"] {
