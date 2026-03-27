@@ -1551,3 +1551,25 @@ a {
     padding: 120px 20px 72px !important;
   }
 }
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+  .hero,
+  .hero-content,
+  .hero-actions {
+    overflow: hidden !important;
+  }
+
+  .booking-direct-section {
+    margin-top: 0 !important;
+    transform: none !important;
+  }
+
+  .booking-direct-section::before {
+    display: none !important;
+  }
+
+  /* Temporary mobile-portrait cleanup for the rounded artifact near the section seam. */
+  .hero-highlights {
+    display: none !important;
+  }
+}
