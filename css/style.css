@@ -49,8 +49,7 @@ a {
   overflow: hidden;
 }
 
-.video-shell iframe,
-#hero-video-player {
+.video-shell iframe {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1374,8 +1373,7 @@ a {
   overflow: hidden !important;
 }
 
-.video-shell iframe,
-#hero-video-player {
+.video-shell iframe {
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
