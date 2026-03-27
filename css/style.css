@@ -615,6 +615,19 @@ a {
   }
 }
 
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .hero-content .eyebrow {
+    display: none;
+    margin: 0;
+    padding: 0;
+    height: 0;
+  }
+
+  .hero-content {
+    padding-top: 84px;
+  }
+}
 @media (max-width: 767px) {
   .mobile-phone-block {
     flex-direction: column;
