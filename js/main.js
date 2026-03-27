@@ -77,7 +77,7 @@
 
   if (!videoShell || !heroIframe) return;
 
-  const mobileOnlyBreakpoint = 767;
+  const mobileOnlyBreakpoint = 1024;
 
   const extractVideoId = (rawValue) => {
     if (!rawValue) return '';
