@@ -1429,10 +1429,10 @@ a {
   .video-shell iframe {
     top: 50% !important;
     left: 50% !important;
-    width: 180vh !important;
-    height: 101vw !important;
-    min-width: 140vw !important;
-    min-height: 100% !important;
+    width: max(177.78svh, 177.78vw) !important;
+    height: max(100svh, 56.25vw) !important;
+    min-width: max(100vw, 177.78svh) !important;
+    min-height: max(100svh, 56.25vw) !important;
     max-width: none !important;
     transform: translate(-50%, -50%) !important;
   }
