@@ -104,8 +104,13 @@
     return '';
   };
 
-  const videoId = extractVideoId(videoShell.dataset.heroVideoId);
-  if (!videoId) return;
+  const mobileOnlyBreakpoint = 767;
+  const defaultVideoId = extractVideoId(videoShell.dataset.heroVideoId);
+  const mobileVideoId = extractVideoId(videoShell.dataset.mobileHeroVideoId);
+  const isMobileViewport = () => window.innerWidth <= mobileOnlyBreakpoint;
+  const activeVideoId = isMobileViewport() && mobileVideoId ? mobileVideoId : defaultVideoId;
+
+  if (!activeVideoId) return;
 
   let heroPlayer;
 
@@ -117,7 +122,7 @@
 
   const createHeroPlayer = () => {
     heroPlayer = new YT.Player('hero-video-player', {
-      videoId,
+      videoId: activeVideoId,
       playerVars: {
         autoplay: 1,
         controls: 0,
@@ -126,7 +131,7 @@
         playsinline: 1,
         loop: 1,
         mute: 1,
-        playlist: videoId
+        playlist: activeVideoId
       },
       events: {
         onReady: (event) => {
