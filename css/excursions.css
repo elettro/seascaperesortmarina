@@ -162,34 +162,20 @@ nav{
 .excursions-page .hero-video-controls .hero-next-video:disabled{opacity:.8;cursor:not-allowed;transform:none}
 
 @media (min-width:1024px){
-  .excursions-page .big-cta .cta-actions .btn-phone-mobile{
+  .excursions-page .big-cta .cta-actions .btn-phone-mobile.shared-phone-pill{
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
   }
 
-  .excursions-page .big-cta .cta-actions .btn-phone-mobile .btn-inner{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
+  .excursions-page .big-cta .cta-actions .btn-phone-mobile.shared-phone-pill .pill-btn__inner{
     margin:0 auto;
   }
 
-  .excursions-page .big-cta .cta-actions .btn-phone-mobile .icon{
-    margin:0;
-    position:static;
-    transform:none;
-    line-height:1;
-    flex:0 0 auto;
-  }
-
-  .excursions-page .big-cta .cta-actions .btn-phone-mobile .label{
-    margin:0;
-    line-height:1.1;
-    white-space:nowrap;
-    display:inline-block;
+  .excursions-page .ask-snorkeling-btn.shared-phone-pill .pill-btn__label{
+    font-size:.95rem;
+    letter-spacing:.03em;
   }
 }
 
@@ -214,55 +200,53 @@ nav{
 .btn-outline:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.7);transform:translateY(-2px)}
 .btn-compact{font-size:.78rem;padding:.7rem 1.5rem}
 
-/* ── SNORKELING CTA ALIGNMENT FIX ── */
-.excursions-page .ask-snorkeling{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  overflow:hidden !important;
-  text-align:center !important;
+.pill-btn.shared-phone-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
 }
-.excursions-page .ask-snorkeling .btn-inner{
-  display:inline-flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  gap:10px !important;
-  max-width:100% !important;
-  margin:0 auto !important;
-  white-space:nowrap !important;
+
+.pill-btn.shared-phone-pill .pill-btn__inner,
+.btn-primary.shared-phone-pill .pill-btn__inner{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:0 auto;
+  white-space:nowrap;
 }
-.excursions-page .ask-snorkeling .icon{
-  flex:0 0 auto !important;
-  display:inline-flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  margin:0 !important;
-  position:static !important;
-  transform:none !important;
-  left:auto !important;
-  right:auto !important;
+
+.pill-btn.shared-phone-pill .pill-btn__icon,
+.btn-primary.shared-phone-pill .pill-btn__icon{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin:0;
+  line-height:1;
+  position:static;
+  transform:none;
 }
-.excursions-page .ask-snorkeling .label{
-  flex:0 1 auto !important;
-  display:inline-block !important;
-  width:auto !important;
-  max-width:100% !important;
-  margin:0 !important;
-  position:static !important;
-  transform:none !important;
-  left:auto !important;
-  right:auto !important;
-  text-align:center !important;
-  white-space:nowrap !important;
-  overflow-wrap:normal !important;
-  word-break:normal !important;
-  line-height:1.1 !important;
+
+.pill-btn.shared-phone-pill .pill-btn__label,
+.btn-primary.shared-phone-pill .pill-btn__label{
+  flex:0 1 auto;
+  display:inline-block;
+  width:auto;
+  max-width:100%;
+  margin:0;
+  white-space:nowrap;
+  text-align:center;
+  line-height:1.1;
+  position:static;
+  transform:none;
 }
-.excursions-page .ask-snorkeling span{
-  width:auto !important;
-}
-.excursions-page .ask-snorkeling br{
-  display:none !important;
+
+.pill-btn.shared-phone-pill br,
+.btn-primary.shared-phone-pill br{
+  display:none;
 }
 
 .section-note{font-size:.92rem;font-weight:300;color:var(--muted);margin-top:.5rem;max-width:540px;line-height:1.7}
@@ -991,9 +975,8 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     text-align:center;
   }
 
-  .excursions-page .mobile-phone-cta,
-  .excursions-page .ask-snorkeling,
-  .excursions-page .frontdesk-number{
+  .excursions-page .mobile-phone-cta.shared-phone-pill,
+  .excursions-page .frontdesk-number.shared-phone-pill{
     display:flex !important;
     align-items:center !important;
     justify-content:center !important;
@@ -1005,9 +988,8 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     text-align:center !important;
   }
 
-  .excursions-page .mobile-phone-cta .btn-inner,
-  .excursions-page .ask-snorkeling .btn-inner,
-  .excursions-page .frontdesk-number .btn-inner{
+  .excursions-page .mobile-phone-cta.shared-phone-pill .pill-btn__inner,
+  .excursions-page .frontdesk-number.shared-phone-pill .pill-btn__inner{
     display:inline-flex !important;
     align-items:center !important;
     justify-content:center !important;
@@ -1016,9 +998,8 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     white-space:nowrap !important;
   }
 
-  .excursions-page .mobile-phone-cta .icon,
-  .excursions-page .ask-snorkeling .icon,
-  .excursions-page .frontdesk-number .icon{
+  .excursions-page .mobile-phone-cta.shared-phone-pill .pill-btn__icon,
+  .excursions-page .frontdesk-number.shared-phone-pill .pill-btn__icon{
     flex:0 0 auto !important;
     display:inline-flex !important;
     align-items:center !important;
@@ -1029,9 +1010,8 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     transform:none !important;
   }
 
-  .excursions-page .mobile-phone-cta .label,
-  .excursions-page .ask-snorkeling .label,
-  .excursions-page .frontdesk-number .label{
+  .excursions-page .mobile-phone-cta.shared-phone-pill .pill-btn__label,
+  .excursions-page .frontdesk-number.shared-phone-pill .pill-btn__label{
     flex:0 1 auto !important;
     display:inline-block !important;
     width:auto !important;
@@ -1046,43 +1026,14 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     overflow-wrap:normal !important;
   }
 
-  .excursions-page .ask-snorkeling .label{
-    font-size:.98rem !important;
-    letter-spacing:.03em !important;
-  }
 
-  /* Mobile-only visual balance tuning for the snorkeling CTA */
-  .excursions-page .yt-header-ctas .ask-snorkeling{
-    padding:12px 18px !important;
-  }
-
-  .excursions-page .yt-header-ctas .ask-snorkeling .btn-inner{
-    gap:8px !important;
-    margin:0 auto !important;
-  }
-
-  .excursions-page .yt-header-ctas .ask-snorkeling .icon{
-    margin:0 !important;
-    padding:0 !important;
-    font-size:.9rem !important;
-    line-height:1 !important;
-  }
-
-  .excursions-page .yt-header-ctas .ask-snorkeling .label{
-    margin:0 !important;
-    font-size:1rem !important;
-    line-height:1.05 !important;
-    white-space:nowrap !important;
-  }
-
-  .excursions-page .frontdesk-number .label{
+  .excursions-page .frontdesk-number.shared-phone-pill .pill-btn__label{
     font-size:1rem !important;
     letter-spacing:.02em !important;
   }
 
-  .excursions-page .mobile-phone-cta br,
-  .excursions-page .ask-snorkeling br,
-  .excursions-page .frontdesk-number br{
+  .excursions-page .mobile-phone-cta.shared-phone-pill br,
+  .excursions-page .frontdesk-number.shared-phone-pill br{
     display:none !important;
   }
 
@@ -1226,5 +1177,12 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   }
   .sticky-phone{
     animation:none!important;
+  }
+}
+
+@media (max-width:768px) and (orientation:portrait){
+  .excursions-page .mobile-phone-pill.shared-phone-pill .pill-btn__label{
+    font-size:1rem;
+    letter-spacing:.02em;
   }
 }
