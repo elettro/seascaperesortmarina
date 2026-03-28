@@ -154,14 +154,13 @@ a {
   outline-offset: 2px;
 }
 
-.video-overlay {
+.video-overlay,
+.hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background:
-    linear-gradient(to bottom, rgba(8, 16, 26, 0.22), rgba(8, 16, 26, 0.18) 18%, rgba(8, 16, 26, 0.48) 78%, rgba(8, 16, 26, 0.72)),
-    linear-gradient(to right, rgba(10, 19, 30, 0.26), transparent 30%, transparent 70%, rgba(10, 19, 30, 0.26));
+  background: rgba(0, 0, 0, 0.35);
 }
 
 .site-header {
@@ -832,6 +831,19 @@ a {
   color: var(--white);
   opacity: 1;
   visibility: visible;
+}
+
+/* Force hero headline to white across all devices */
+.hero h1,
+.hero-title,
+.hero-headline {
+  color: #FFFFFF !important;
+}
+
+.hero,
+.hero-content {
+  opacity: 1 !important;
+  filter: none !important;
 }
 
 .eyebrow {
