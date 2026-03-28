@@ -1263,7 +1263,8 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 
   .excursions-page .hero {
     min-height: 100svh !important;
-    padding-top: 0 !important;
+    display: block !important;
+    padding-top: var(--hero-text-top) !important;
     overflow: hidden !important;
   }
 
@@ -1290,8 +1291,8 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   }
 
   .excursions-page .hero-content {
-    position: absolute !important;
-    top: var(--hero-text-top) !important;
+    position: relative !important;
+    top: auto !important;
     left: 0 !important;
     right: 0 !important;
     bottom: auto !important;
