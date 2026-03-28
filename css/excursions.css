@@ -969,6 +969,24 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     font-weight:700;
     line-height:1;
   }
+
+  .excursions-page .before-you-book{
+    align-items:flex-start;
+    justify-content:flex-start;
+    text-align:left !important;
+    gap:.8rem;
+  }
+
+  .excursions-page .before-you-book > *{
+    text-align:left !important;
+  }
+
+  .excursions-page .before-you-book p{
+    max-width:none;
+    width:100%;
+    line-height:1.55;
+    text-align:left !important;
+  }
 }
 @media(max-width:580px){
   .hero-content{padding:0 1.4rem 4.5rem}
