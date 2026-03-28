@@ -920,9 +920,9 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     overflow:hidden !important;
     white-space:nowrap !important;
     text-align:center !important;
-    line-height:1.1;
-    letter-spacing:.055em;
-    font-size:.8rem;
+    line-height:1.05;
+    letter-spacing:.04em;
+    font-size:.98rem;
   }
 
   .excursions-page .btn-phone-mobile .btn-inner,
@@ -931,7 +931,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     display:inline-flex !important;
     align-items:center !important;
     justify-content:center !important;
-    gap:12px !important;
+    gap:10px !important;
     width:auto !important;
     max-width:100% !important;
     white-space:nowrap !important;
@@ -944,6 +944,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     display:inline-flex !important;
     align-items:center !important;
     justify-content:center !important;
+    font-size:1em !important;
     line-height:1 !important;
     margin:0 !important;
     width:auto !important;
