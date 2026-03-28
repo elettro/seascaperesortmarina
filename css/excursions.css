@@ -421,6 +421,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 .foot-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.05)}
 .foot-brand-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.4rem;font-weight:700;color:var(--white)}
 .foot-brand-sub{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-weight:600}
+.foot-brand-link{display:inline-block;color:inherit;text-decoration:none}
 .foot-brand p{font-size:.82rem;color:var(--muted);line-height:1.7;margin-top:.9rem;max-width:300px}
 .foot-col h4{font-size:.68rem;letter-spacing:.17em;text-transform:uppercase;color:var(--white);font-weight:700;margin-bottom:1.1rem}
 .foot-col ul{list-style:none}
