@@ -695,6 +695,65 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   .excursion-guide-section p{
     text-shadow:0 2px 8px rgba(0,0,0,.35);
   }
+
+  .dive-wrap{
+    position:relative;
+    overflow:hidden;
+  }
+
+  .dive-wrap::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+      to bottom,
+      rgba(6,18,32,.86) 0%,
+      rgba(10,22,36,.8) 32%,
+      rgba(16,24,34,.72) 62%,
+      rgba(24,28,32,.6) 100%
+    );
+    pointer-events:none;
+    z-index:1;
+  }
+
+  .dive-wrap > *{
+    position:relative;
+    z-index:2;
+  }
+
+  .dive-wrap .yt-header > div:first-child{
+    background:rgba(7,16,28,.3);
+    backdrop-filter:blur(3px);
+    border-radius:18px;
+    padding:18px 16px;
+  }
+
+  .dive-wrap .sec-title{
+    color:rgba(255,255,255,.97);
+    text-shadow:0 3px 12px rgba(0,0,0,.38);
+  }
+
+  .dive-wrap .sec-title em{
+    color:#d9b877;
+    opacity:.98;
+  }
+
+  .dive-wrap .section-note{
+    color:rgba(255,255,255,.95);
+    line-height:1.78;
+    text-shadow:0 1px 8px rgba(0,0,0,.28);
+  }
+
+  .dive-wrap .section-note strong,
+  .dive-wrap .section-note .text-brass{
+    color:#d7b06a;
+    opacity:1;
+    font-weight:600;
+  }
+
+  .dive-wrap .eyebrow{
+    color:rgba(215,176,106,.96);
+  }
 }
 
 @media(max-width:920px){
