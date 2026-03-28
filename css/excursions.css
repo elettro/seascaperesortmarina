@@ -161,6 +161,38 @@ nav{
 .excursions-page .hero-video-controls .hero-audio-toggle:disabled,
 .excursions-page .hero-video-controls .hero-next-video:disabled{opacity:.8;cursor:not-allowed;transform:none}
 
+@media (min-width:1024px){
+  .excursions-page .big-cta .cta-actions .btn-phone-mobile{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+
+  .excursions-page .big-cta .cta-actions .btn-phone-mobile .btn-inner{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin:0 auto;
+  }
+
+  .excursions-page .big-cta .cta-actions .btn-phone-mobile .icon{
+    margin:0;
+    position:static;
+    transform:none;
+    line-height:1;
+    flex:0 0 auto;
+  }
+
+  .excursions-page .big-cta .cta-actions .btn-phone-mobile .label{
+    margin:0;
+    line-height:1.1;
+    white-space:nowrap;
+    display:inline-block;
+  }
+}
+
 /* ── BUTTONS ── */
 .btn-primary{
   display:inline-flex;align-items:center;gap:.5rem;
