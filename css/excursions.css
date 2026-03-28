@@ -583,10 +583,37 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 }
 
 @media (max-width:767px){
+  nav{
+    padding:.7rem 1rem;
+    align-items:center;
+    gap:.75rem;
+  }
+
+  .nav-brand{
+    flex:1 1 auto;
+    min-width:0;
+  }
+
+  .nav-logo-top{
+    font-size:1rem;
+    line-height:1.1;
+    white-space:nowrap;
+    margin:0 0 2px;
+  }
+
+  .nav-logo-sub{
+    font-size:.56rem;
+    line-height:1.05;
+    letter-spacing:.18em;
+    margin-top:0;
+    white-space:nowrap;
+  }
+
   .nav-links{
     display:flex;
     align-items:center;
-    gap:12px;
+    justify-content:flex-end;
+    gap:10px;
     flex:0 0 auto;
   }
 
@@ -594,14 +621,20 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     display:inline-flex !important;
     align-items:center;
     justify-content:center;
-    white-space:nowrap;
+    flex-direction:column;
+    gap:1px;
     text-align:center;
     width:auto;
-    min-width:168px;
-    padding-left:28px;
-    padding-right:28px;
+    min-width:92px;
+    padding:10px 14px;
+    line-height:1.05;
     box-sizing:border-box;
     flex:0 0 auto;
+  }
+
+  .nav-links .nav-btn span{
+    display:block;
+    width:100%;
   }
 
   .book-now,
