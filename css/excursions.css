@@ -539,14 +539,21 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 
   .book-now,
   .btn-book,
-  .header-cta,
+  .header-cta{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+    padding-left:22px !important;
+    padding-right:22px !important;
+    min-width:140px;
+  }
+
   .nav-btn{
     display:flex !important;
     align-items:center !important;
     justify-content:center !important;
     text-align:center !important;
-    padding-left:0 !important;
-    padding-right:0 !important;
   }
 
   .explore-excursions,
@@ -572,6 +579,45 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   .nav-btn{
     line-height:normal !important;
     white-space:nowrap;
+  }
+}
+
+@media (max-width:767px){
+  .excursion-guide-section{
+    position:relative;
+  }
+
+  .excursion-guide-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(15,35,50,.75);
+    z-index:1;
+  }
+
+  .excursion-guide-section > *{
+    position:relative;
+    z-index:2;
+  }
+
+  .excursion-guide-section h2,
+  .excursion-guide-section .guide-name{
+    color:#E5C38B;
+  }
+
+  .excursion-guide-section p{
+    color:rgba(255,255,255,.95);
+    line-height:1.6;
+  }
+
+  .excursion-guide-section .guide-label,
+  .excursion-guide-section .guide-subtitle{
+    color:rgba(255,255,255,.75);
+  }
+
+  .excursion-guide-section h2,
+  .excursion-guide-section p{
+    text-shadow:0 2px 8px rgba(0,0,0,.35);
   }
 }
 
