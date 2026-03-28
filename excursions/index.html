@@ -683,23 +683,27 @@ if (reefWreckFeaturedImage && reefWreckPrevButton && reefWreckNextButton) {
   resetReefWreckAutoplay();
 }
 
-(function syncExcursionsHeroOffsets() {
-  function updateHeroSafeTop() {
+(function syncExcursionsHeroMobileLayout() {
+  function updateExcursionsHeroLayout() {
+    if (!window.matchMedia('(max-width: 767px) and (orientation: portrait)').matches) return;
+
     const nav = document.querySelector('.excursions-page nav');
-    const hero = document.querySelector('.excursions-page .hero');
-    if (!nav || !hero) return;
+    const root = document.documentElement;
+    if (!nav || !root) return;
 
     const navHeight = Math.ceil(nav.getBoundingClientRect().height);
-    const extraGap = window.innerWidth <= 767 ? 14 : 18;
-    const safeTop = navHeight + extraGap;
+    const controlsTop = navHeight + 18;
+    const textTop = controlsTop + 86;
 
-    document.documentElement.style.setProperty('--hero-safe-top', safeTop + 'px');
+    root.style.setProperty('--hero-nav-safe-top', navHeight + 'px');
+    root.style.setProperty('--hero-controls-top', controlsTop + 'px');
+    root.style.setProperty('--hero-text-top', textTop + 'px');
   }
 
-  window.addEventListener('load', updateHeroSafeTop);
-  window.addEventListener('resize', updateHeroSafeTop);
-  window.addEventListener('orientationchange', updateHeroSafeTop);
-  updateHeroSafeTop();
+  window.addEventListener('load', updateExcursionsHeroLayout);
+  window.addEventListener('resize', updateExcursionsHeroLayout);
+  window.addEventListener('orientationchange', updateExcursionsHeroLayout);
+  updateExcursionsHeroLayout();
 })();
 
 

@@ -1252,3 +1252,63 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     font-size: 0.95rem !important;
   }
 }
+
+
+@media (max-width: 767px) and (orientation: portrait) {
+  .excursions-page {
+    --hero-nav-safe-top: 112px;
+    --hero-controls-top: 128px;
+    --hero-text-top: 214px;
+  }
+
+  .excursions-page .hero {
+    min-height: 100svh !important;
+    padding-top: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .excursions-page .hero-video-controls,
+  .excursions-page .video-controls {
+    position: absolute !important;
+    top: var(--hero-controls-top) !important;
+    right: 16px !important;
+    left: auto !important;
+    z-index: 6 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    gap: 8px !important;
+    max-width: calc(100% - 24px) !important;
+    transform: none !important;
+  }
+
+  .excursions-page .hero-video-controls .hero-audio-toggle,
+  .excursions-page .hero-video-controls .hero-next-video {
+    min-height: 36px !important;
+    white-space: nowrap !important;
+  }
+
+  .excursions-page .hero-content {
+    position: absolute !important;
+    top: var(--hero-text-top) !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    z-index: 5 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 20px 56px !important;
+    justify-content: flex-start !important;
+    transform: none !important;
+  }
+
+  .excursions-page .hero-eyebrow {
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .excursions-page .hero h1 {
+    margin-top: 0 !important;
+  }
+}
