@@ -583,6 +583,28 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 }
 
 @media (max-width:767px){
+  .book-now,
+  .btn-book,
+  .header-cta{
+    padding-left:26px !important;
+    padding-right:26px !important;
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+
+  .book-now span,
+  .btn-book span{
+    white-space:nowrap;
+  }
+
+  .book-now,
+  .btn-book{
+    width:auto !important;
+    min-width:unset !important;
+  }
+
   .excursion-guide-section{
     position:relative;
   }
