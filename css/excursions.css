@@ -295,6 +295,32 @@ nav{
 .yt-vnum{font-size:.63rem;color:var(--muted);margin-top:.15rem}
 .yt-item.on .yt-vnum{color:var(--bright)}
 
+@media (min-width:769px){
+  .dive-wrap .yt-header-ctas{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    gap:.62rem;
+    width:fit-content;
+    margin-left:auto;
+    text-align:center;
+  }
+
+  .dive-wrap .yt-header-ctas .btn-primary,
+  .dive-wrap .yt-header-ctas .yt-pl-link{
+    margin:0;
+    padding-left:0;
+    text-indent:0;
+    text-align:center;
+    align-self:center;
+  }
+
+  .dive-wrap .yt-header-ctas .yt-pl-link{
+    display:inline-block;
+  }
+}
+
 /* ── CAPTAIN ── */
 .captain-bg{background:linear-gradient(135deg,var(--mid) 0%,#061e2c 100%)}
 .captain-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center}
