@@ -23,6 +23,10 @@ body{
   overflow-x:hidden;
 }
 
+.excursions-page{
+  --hero-safe-top:120px;
+}
+
 /* ── ACCESSIBILITY ── */
 .skip-link{
   position:absolute;
@@ -133,7 +137,7 @@ nav{
 .excursions-page .hero-video-controls,
 .excursions-page .video-controls{
   position:absolute;
-  top:calc(var(--hero-header-offset) + 12px);
+  top:var(--hero-safe-top);
   right:16px;
   display:flex;
   align-items:center;
@@ -869,7 +873,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   .policy-notice{padding:1.35rem 1.2rem}
   .yt-header{flex-direction:column}
   .yt-header-ctas{align-items:flex-start}
-  .excursions-page .hero-video-controls{top:calc(var(--hero-header-offset) + 10px);right:14px}
+  .excursions-page .hero-video-controls{top:var(--hero-safe-top);right:14px}
 }
 @media (max-width:768px) and (orientation: portrait){
   html,
@@ -1055,7 +1059,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 @media(max-width:580px){
   .hero-content{padding:0 1.4rem 4.5rem}
   .hero-btns{flex-direction:column}
-  .excursions-page .hero-video-controls{top:calc(var(--hero-header-offset) + 8px);right:12px;gap:8px}
+  .excursions-page .hero-video-controls{top:var(--hero-safe-top);right:12px;gap:8px}
   .excursions-page .hero-video-controls .hero-audio-toggle,
   .excursions-page .hero-video-controls .hero-next-video{font-size:.66rem;padding:.48rem .75rem;min-height:34px}
   .exc-grid{grid-template-columns:1fr}
@@ -1094,9 +1098,41 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 }
 
 
+
+
+@media (max-width: 767px) and (orientation: portrait) {
+  .excursions-page .hero-video-controls,
+  .excursions-page .video-controls {
+    top: var(--hero-safe-top) !important;
+    right: 16px !important;
+    z-index: 5 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    max-width: calc(100% - 24px) !important;
+  }
+
+  .excursions-page .hero-eyebrow {
+    margin-top: 6px !important;
+  }
+
+  .excursions-page .hero h1 {
+    margin-top: 8px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .excursions-page .hero-video-controls,
+  .excursions-page .video-controls {
+    top: var(--hero-safe-top) !important;
+    right: 24px !important;
+  }
+}
 @media (max-width:768px) and (orientation:portrait){
   .excursions-page{
     --hero-header-offset:var(--header-offset-mobile-portrait);
+    --hero-safe-top:120px;
   }
 
   .excursions-page .hero-content{
@@ -1107,6 +1143,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 @media (min-width:1024px){
   .excursions-page{
     --hero-header-offset:var(--header-offset-desktop);
+    --hero-safe-top:120px;
   }
 
   .excursions-page .hero-content{

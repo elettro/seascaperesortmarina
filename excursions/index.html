@@ -683,6 +683,26 @@ if (reefWreckFeaturedImage && reefWreckPrevButton && reefWreckNextButton) {
   resetReefWreckAutoplay();
 }
 
+(function syncExcursionsHeroOffsets() {
+  function updateHeroSafeTop() {
+    const nav = document.querySelector('.excursions-page nav');
+    const hero = document.querySelector('.excursions-page .hero');
+    if (!nav || !hero) return;
+
+    const navHeight = Math.ceil(nav.getBoundingClientRect().height);
+    const extraGap = window.innerWidth <= 767 ? 14 : 18;
+    const safeTop = navHeight + extraGap;
+
+    document.documentElement.style.setProperty('--hero-safe-top', safeTop + 'px');
+  }
+
+  window.addEventListener('load', updateHeroSafeTop);
+  window.addEventListener('resize', updateHeroSafeTop);
+  window.addEventListener('orientationchange', updateHeroSafeTop);
+  updateHeroSafeTop();
+})();
+
+
 const ytApiScript = document.createElement('script');
 ytApiScript.src = 'https://www.youtube.com/iframe_api';
 document.head.appendChild(ytApiScript);
