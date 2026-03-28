@@ -8,6 +8,9 @@
   --sand:var(--brass);
   --gold:var(--brass);
   --red:#e74c3c;
+  --header-offset-mobile-portrait:88px;
+  --header-offset-desktop:96px;
+  --hero-header-offset:0px;
 }
 html{
   scroll-behavior:smooth;
@@ -85,8 +88,10 @@ nav{
 /* ── HERO ── */
 .hero{
   position:relative;height:100vh;min-height:650px;
-  display:flex;align-items:flex-end;overflow:hidden;
+  display:flex;align-items:flex-end;overflow:visible;
+  padding-top:var(--hero-header-offset);
 }
+
 .video-container{
   position:relative;
 }
@@ -109,7 +114,7 @@ nav{
   z-index:2;
   pointer-events:none;
 }
-.hero-content{position:relative;z-index:2;padding:0 3rem 6rem;max-width:860px}
+.hero-content{position:relative;z-index:3;padding:0 3rem 6rem;max-width:860px;margin-top:0;transform:none}
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:.5rem;
   font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
@@ -128,12 +133,12 @@ nav{
 .excursions-page .hero-video-controls,
 .excursions-page .video-controls{
   position:absolute;
-  top:16px;
+  top:calc(var(--hero-header-offset) + 12px);
   right:16px;
   display:flex;
   align-items:center;
   gap:10px;
-  z-index:10;
+  z-index:4;
   visibility:visible;
   opacity:1;
   transform:none;
@@ -912,7 +917,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   .policy-notice{padding:1.35rem 1.2rem}
   .yt-header{flex-direction:column}
   .yt-header-ctas{align-items:flex-start}
-  .excursions-page .hero-video-controls{top:14px;right:14px}
+  .excursions-page .hero-video-controls{top:calc(var(--hero-header-offset) + 10px);right:14px}
 }
 @media (max-width:768px) and (orientation: portrait){
   html,
@@ -1098,7 +1103,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 @media(max-width:580px){
   .hero-content{padding:0 1.4rem 4.5rem}
   .hero-btns{flex-direction:column}
-  .excursions-page .hero-video-controls{top:12px;right:12px;gap:8px}
+  .excursions-page .hero-video-controls{top:calc(var(--hero-header-offset) + 8px);right:12px;gap:8px}
   .excursions-page .hero-video-controls .hero-audio-toggle,
   .excursions-page .hero-video-controls .hero-next-video{font-size:.66rem;padding:.48rem .75rem;min-height:34px}
   .exc-grid{grid-template-columns:1fr}
@@ -1133,6 +1138,27 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   .excursions-page .contact-box *{
     min-width:0;
     box-sizing:border-box;
+  }
+}
+
+
+@media (max-width:768px) and (orientation:portrait){
+  .excursions-page{
+    --hero-header-offset:var(--header-offset-mobile-portrait);
+  }
+
+  .excursions-page .hero-content{
+    padding-top:18px;
+  }
+}
+
+@media (min-width:1024px){
+  .excursions-page{
+    --hero-header-offset:var(--header-offset-desktop);
+  }
+
+  .excursions-page .hero-content{
+    padding-top:20px;
   }
 }
 
