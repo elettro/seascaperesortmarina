@@ -475,6 +475,53 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 }
 
 /* ── RESPONSIVE ── */
+@media (max-width:767px) and (orientation:portrait){
+  .call-button,
+  .floating-call,
+  .call-front-desk,
+  .sticky-call,
+  .sticky-phone{
+    display:none !important;
+  }
+
+  .book-now,
+  .btn-book,
+  .header-cta,
+  .nav-btn{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+
+  .explore-excursions,
+  .btn-primary,
+  .hero .button-primary{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+  }
+
+  button span,
+  .button-primary span,
+  .btn-primary span,
+  .nav-btn span{
+    width:100%;
+    text-align:center;
+  }
+
+  button,
+  .button-primary,
+  .btn-primary,
+  .nav-btn{
+    line-height:normal !important;
+    white-space:nowrap;
+  }
+}
+
 @media(max-width:920px){
   nav{padding:.9rem 1.4rem}
   .nav-links a:not(.nav-btn){display:none}
