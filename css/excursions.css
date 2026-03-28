@@ -249,6 +249,38 @@ nav{
   display:none;
 }
 
+/* Specific alignment tuning for the snorkeling CTA in the diving header */
+.excursions-page .ask-snorkeling-btn.shared-phone-pill{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.excursions-page .ask-snorkeling-btn.shared-phone-pill .pill-btn__inner{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  margin:0 auto;
+  white-space:nowrap;
+}
+
+.excursions-page .ask-snorkeling-btn.shared-phone-pill .pill-btn__icon{
+  flex:0 0 auto;
+  margin:0;
+  position:static;
+  transform:none;
+  line-height:1;
+}
+
+.excursions-page .ask-snorkeling-btn.shared-phone-pill .pill-btn__label{
+  flex:0 1 auto;
+  margin:0;
+  white-space:nowrap;
+  line-height:1.1;
+}
+
 .section-note{font-size:.92rem;font-weight:300;color:var(--muted);margin-top:.5rem;max-width:540px;line-height:1.7}
 .text-brass{color:var(--brass)}
 .cap-photo-wrap{position:relative;padding-bottom:1.5rem}
@@ -1181,8 +1213,29 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 }
 
 @media (max-width:768px) and (orientation:portrait){
+  .excursions-page .ask-snorkeling-btn.shared-phone-pill .pill-btn__inner{
+    gap:13px !important;
+  }
+
+  .excursions-page .ask-snorkeling-btn.shared-phone-pill .pill-btn__icon{
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+
   .excursions-page .mobile-phone-pill.shared-phone-pill .pill-btn__label{
     font-size:1rem;
     letter-spacing:.02em;
+  }
+}
+
+@media (min-width:1024px){
+  .excursions-page .ask-snorkeling-btn.shared-phone-pill .pill-btn__inner{
+    gap:8px !important;
+    transform:translateX(4px);
+  }
+
+  .excursions-page .ask-snorkeling-btn.shared-phone-pill .pill-btn__icon{
+    margin-left:0 !important;
+    margin-right:0 !important;
   }
 }
