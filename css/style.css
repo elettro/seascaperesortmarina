@@ -1528,6 +1528,23 @@ a {
   }
 }
 
+
+
+@media (max-width: 767px) and (orientation: portrait) {
+  .excursions-page .hero-content {
+    position: absolute !important;
+    top: var(--hero-safe-top) !important;
+    right: 0 !important;
+    left: 0 !important;
+    bottom: auto !important;
+    z-index: 4 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 20px 56px !important;
+    justify-content: flex-start !important;
+  }
+}
+
 /* Universal video cover — overrides all breakpoints */
 .video-shell {
   position: absolute !important;
