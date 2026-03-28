@@ -65,6 +65,14 @@ nav{
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
 }
+.site-logo-link{
+  text-decoration:none;
+  color:inherit;
+  display:inline-block;
+}
+.site-logo-link:hover{
+  opacity:.9;
+}
 .nav-brand{text-decoration:none;display:inline-block}
 .nav-logo-top{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--white)}
 .nav-logo-sub{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-top:.1rem}
