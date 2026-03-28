@@ -1013,11 +1013,22 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     display:inline-flex;
     align-items:center;
     justify-content:center;
+    gap:12px;
     margin:0 auto;
     align-self:center;
-    padding-left:0;
+    padding-left:22px;
+    padding-right:22px;
     transform:none;
     left:auto;
+  }
+
+  .excursions-page .yt-wrap .yt-header-ctas .btn-primary span,
+  .excursions-page .dive-wrap .yt-header-ctas .btn-primary span{
+    width:auto !important;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 auto;
   }
 
   .excursions-page .yt-wrap .yt-header-ctas .yt-pl-link,
