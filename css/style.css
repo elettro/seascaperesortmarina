@@ -1962,3 +1962,11 @@ a {
     background: #FFFFFF !important;
   }
 }
+
+
+@media (max-width: 767px) and (orientation: portrait) {
+  .excursions-page .hero-content {
+    top: var(--hero-text-top) !important;
+    padding: 0 20px 56px !important;
+  }
+}
