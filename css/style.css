@@ -1766,3 +1766,143 @@ a {
     margin-top: clamp(56px, 18svh, 140px);
   }
 }
+
+/* Homepage story flow + parallax sections */
+.homepage-story-section {
+  padding: clamp(58px, 9vw, 96px) 24px;
+  background: #f8f4ec;
+}
+
+.rooms-preview-section,
+.final-cta-section {
+  background: linear-gradient(180deg, #f8f4ec 0%, #f5f9fb 100%);
+}
+
+.experience-section {
+  background: #f7f1e7;
+}
+
+.homepage-story-inner {
+  width: min(100%, 1060px);
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #4a6477;
+}
+
+.homepage-story-inner h2 {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.1;
+  color: #12304a;
+  max-width: 18ch;
+}
+
+.homepage-story-inner p {
+  margin: 16px 0 0;
+  max-width: 64ch;
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 1.72;
+  color: rgba(16, 38, 60, 0.82);
+}
+
+.story-cta {
+  margin-top: 26px;
+  background: #10263c;
+  color: #ffffff;
+}
+
+.story-cta:hover {
+  background: #17344e;
+}
+
+.parallax-section {
+  position: relative;
+  min-height: clamp(340px, 52vw, 620px);
+  display: grid;
+  place-items: center;
+  background-color: #162c3f;
+  background-image: var(--parallax-image);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  isolation: isolate;
+}
+
+.parallax-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 24, 36, 0.18) 0%, rgba(12, 24, 36, 0.4) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 24px;
+}
+
+.parallax-content p {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.75rem, 3.6vw, 2.9rem);
+  line-height: 1.15;
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 8px 26px rgba(0, 0, 0, 0.2);
+}
+
+.parallax-marina {
+  --parallax-image: url("../excursions/images/seascape-marina-resort-marathon-key-captain-kevin-sunset-16x9-1.png");
+}
+
+.parallax-shoreline {
+  --parallax-image: url("../excursions/images/seascape-marina-resort-marathon-key-captain-kevin-sun-down-16x9-1.png");
+}
+
+.parallax-waterfront {
+  --parallax-image: url("../excursions/images/SeascapeMarinaResort-MarathonKey-CaptainKevin-horizontal-image- (10).jpg");
+}
+
+.parallax-section--visual-only .parallax-overlay {
+  background: linear-gradient(180deg, rgba(12, 24, 36, 0.12) 0%, rgba(12, 24, 36, 0.3) 100%);
+}
+
+@media (max-width: 1024px) {
+  .parallax-section {
+    min-height: clamp(320px, 44vw, 500px);
+    background-attachment: scroll;
+    background-position: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .homepage-story-section {
+    padding: 48px 16px;
+  }
+
+  .homepage-story-inner h2 {
+    max-width: 100%;
+  }
+
+  .parallax-section {
+    min-height: 300px;
+  }
+
+  .parallax-content {
+    padding: 20px 16px;
+  }
+
+  .parallax-content p {
+    font-size: clamp(1.6rem, 8vw, 2.1rem);
+  }
+}
