@@ -1263,7 +1263,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 @media (max-width: 767px) and (orientation: portrait) {
   .excursions-page {
     --hero-nav-safe-top: 112px;
-    --hero-controls-top: 128px;
+    --hero-controls-top: calc(var(--hero-nav-safe-top) + 2px);
     --hero-text-top: 214px;
   }
 
@@ -1282,13 +1282,13 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     left: 0 !important;
     z-index: 6 !important;
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 10px !important;
+    gap: 6px !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding-inline: 16px !important;
+    padding-inline: 10px !important;
     transform: none !important;
   }
 
@@ -1299,11 +1299,11 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    min-height: 38px !important;
-    width: min(320px, 100%) !important;
-    max-width: 320px !important;
-    margin: 0 auto !important;
-    padding: 0.55rem 1rem !important;
+    min-height: 36px !important;
+    width: auto !important;
+    max-width: calc(50vw - 20px) !important;
+    margin: 0 !important;
+    padding: 0.5rem 0.8rem !important;
     text-align: center !important;
     white-space: nowrap !important;
   }
