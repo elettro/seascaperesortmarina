@@ -907,83 +907,74 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     text-align:center;
   }
 
-  .excursions-page .btn-phone-mobile,
-  .excursions-page .phone-cta,
-  .excursions-page .call-button{
+  .excursions-page .mobile-phone-cta,
+  .excursions-page .ask-snorkeling,
+  .excursions-page .frontdesk-number{
     display:flex !important;
     align-items:center !important;
     justify-content:center !important;
-    padding:16px 20px !important;
     width:100% !important;
     max-width:100% !important;
+    padding:14px 18px !important;
     box-sizing:border-box !important;
     overflow:hidden !important;
-    white-space:nowrap !important;
     text-align:center !important;
-    line-height:1.05;
-    letter-spacing:.04em;
-    font-size:.98rem;
   }
 
-  .excursions-page .btn-phone-mobile .btn-inner,
-  .excursions-page .phone-cta .btn-inner,
-  .excursions-page .call-button .btn-inner{
+  .excursions-page .mobile-phone-cta .btn-inner,
+  .excursions-page .ask-snorkeling .btn-inner,
+  .excursions-page .frontdesk-number .btn-inner{
     display:inline-flex !important;
     align-items:center !important;
     justify-content:center !important;
-    gap:10px !important;
-    width:auto !important;
+    gap:12px !important;
     max-width:100% !important;
     white-space:nowrap !important;
   }
 
-  .excursions-page .btn-phone-mobile .icon,
-  .excursions-page .phone-cta .icon,
-  .excursions-page .call-button .icon{
+  .excursions-page .mobile-phone-cta .icon,
+  .excursions-page .ask-snorkeling .icon,
+  .excursions-page .frontdesk-number .icon{
     flex:0 0 auto !important;
     display:inline-flex !important;
     align-items:center !important;
     justify-content:center !important;
-    font-size:1em !important;
-    line-height:1 !important;
     margin:0 !important;
-    width:auto !important;
+    line-height:1 !important;
     position:static !important;
+    transform:none !important;
   }
 
-  .excursions-page .btn-phone-mobile .label,
-  .excursions-page .phone-cta .label,
-  .excursions-page .call-button .label{
+  .excursions-page .mobile-phone-cta .label,
+  .excursions-page .ask-snorkeling .label,
+  .excursions-page .frontdesk-number .label{
     flex:0 1 auto !important;
     display:inline-block !important;
     width:auto !important;
     max-width:100% !important;
-    white-space:nowrap !important;
-    line-height:1.1 !important;
-    font-size:1rem !important;
-    letter-spacing:.03em !important;
-    text-align:center !important;
     margin:0 !important;
+    line-height:1.08 !important;
+    text-align:center !important;
+    white-space:nowrap !important;
     position:static !important;
-  }
-
-  .excursions-page .btn-phone-mobile .btn-inner,
-  .excursions-page .btn-phone-mobile .btn-inner .icon,
-  .excursions-page .btn-phone-mobile .btn-inner .label,
-  .excursions-page .phone-cta .btn-inner,
-  .excursions-page .phone-cta .btn-inner .icon,
-  .excursions-page .phone-cta .btn-inner .label,
-  .excursions-page .call-button .btn-inner,
-  .excursions-page .call-button .btn-inner .icon,
-  .excursions-page .call-button .btn-inner .label{
     transform:none !important;
-    left:auto !important;
-    right:auto !important;
+    word-break:normal !important;
+    overflow-wrap:normal !important;
   }
 
-  .excursions-page .btn-phone-mobile br,
-  .excursions-page .phone-cta br,
-  .excursions-page .call-button br{
+  .excursions-page .ask-snorkeling .label{
+    font-size:.98rem !important;
+    letter-spacing:.03em !important;
+  }
+
+  .excursions-page .frontdesk-number .label{
+    font-size:1rem !important;
+    letter-spacing:.02em !important;
+  }
+
+  .excursions-page .mobile-phone-cta br,
+  .excursions-page .ask-snorkeling br,
+  .excursions-page .frontdesk-number br{
     display:none !important;
   }
 
