@@ -811,8 +811,9 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   .yt-header-ctas{align-items:flex-start}
   .excursions-page .hero-video-controls{top:14px;right:14px}
 }
-@media (max-width:768px){
-  .excursions-page .yt-wrap .yt-header-ctas{
+@media (max-width:768px) and (orientation: portrait){
+  .excursions-page .yt-wrap .yt-header-ctas,
+  .excursions-page .dive-wrap .yt-header-ctas{
     width:100%;
     display:flex;
     flex-direction:column;
@@ -821,19 +822,25 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     text-align:center;
     margin-left:auto;
     margin-right:auto;
+    padding-left:0;
+    left:auto;
+    transform:none;
   }
 
-  .excursions-page .yt-wrap .yt-header-ctas .btn-primary{
+  .excursions-page .yt-wrap .yt-header-ctas .btn-primary,
+  .excursions-page .dive-wrap .yt-header-ctas .btn-primary{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    margin-left:auto;
-    margin-right:auto;
+    margin:0 auto;
+    align-self:center;
+    padding-left:0;
     transform:none;
     left:auto;
   }
 
-  .excursions-page .yt-wrap .yt-header-ctas .yt-pl-link{
+  .excursions-page .yt-wrap .yt-header-ctas .yt-pl-link,
+  .excursions-page .dive-wrap .yt-header-ctas .yt-pl-link{
     display:block;
     width:auto;
     margin:12px auto 0;
@@ -842,6 +849,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     padding-right:0;
     align-self:center;
     margin-left:auto;
+    margin-right:auto;
     transform:none;
     left:auto;
   }
