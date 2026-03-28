@@ -152,6 +152,7 @@ nav{
 .excursions-page .hero-video-controls .hero-audio-toggle,
 .excursions-page .hero-video-controls .hero-next-video{
   display:inline-flex;align-items:center;gap:.45rem;
+  position:static;
   background:rgba(4,19,28,.58);color:var(--white);
   border:1px solid rgba(232,244,240,.35);border-radius:999px;
   padding:.55rem .95rem;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
@@ -1276,7 +1277,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     left: auto !important;
     z-index: 6 !important;
     display: flex !important;
-    flex-wrap: wrap !important;
+    flex-wrap: nowrap !important;
     justify-content: flex-end !important;
     align-items: center !important;
     gap: 8px !important;
@@ -1286,6 +1287,8 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 
   .excursions-page .hero-video-controls .hero-audio-toggle,
   .excursions-page .hero-video-controls .hero-next-video {
+    position: static !important;
+    inset: auto !important;
     min-height: 36px !important;
     white-space: nowrap !important;
   }
