@@ -812,6 +812,114 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   .excursions-page .hero-video-controls{top:14px;right:14px}
 }
 @media (max-width:768px) and (orientation: portrait){
+  html,
+  body{
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  .excursions-page,
+  .excursions-page *{
+    box-sizing:border-box;
+    min-width:0;
+  }
+
+  .excursions-page .hero-video-player{
+    width:100%;
+    max-width:100%;
+    min-width:100%;
+  }
+
+  .excursions-page section,
+  .excursions-page .section,
+  .excursions-page .yt-wrap,
+  .excursions-page .dive-wrap,
+  .excursions-page .yt-inner,
+  .excursions-page .dive-inner,
+  .excursions-page .big-cta-inner,
+  .excursions-page .contact-box,
+  .excursions-page .policy-notice,
+  .excursions-page .dive-cta-bar,
+  .excursions-page .cta-strip,
+  .excursions-page .cta-strip-inner,
+  .excursions-page footer,
+  .excursions-page .foot-inner,
+  .excursions-page .foot-bottom{
+    width:100%;
+    max-width:100%;
+  }
+
+  .excursions-page .section,
+  .excursions-page .yt-wrap,
+  .excursions-page .dive-wrap,
+  .excursions-page .big-cta-inner,
+  .excursions-page footer{
+    padding-left:16px;
+    padding-right:16px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .excursions-page h1,
+  .excursions-page h2,
+  .excursions-page h3,
+  .excursions-page h4,
+  .excursions-page p,
+  .excursions-page a,
+  .excursions-page li,
+  .excursions-page span{
+    overflow-wrap:break-word;
+    word-wrap:break-word;
+  }
+
+  .excursions-page .yt-header,
+  .excursions-page .yt-layout,
+  .excursions-page .cta-strip-inner,
+  .excursions-page .dive-cta-bar,
+  .excursions-page .cta-actions,
+  .excursions-page .foot-inner,
+  .excursions-page .foot-bottom{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+
+  .excursions-page .yt-header > *,
+  .excursions-page .yt-layout > *,
+  .excursions-page .cta-strip-inner > *,
+  .excursions-page .dive-cta-bar > *,
+  .excursions-page .cta-actions > *,
+  .excursions-page .foot-inner > *,
+  .excursions-page .foot-bottom > *{
+    flex:1 1 100%;
+    width:100%;
+    max-width:100%;
+  }
+
+  .excursions-page .btn-primary,
+  .excursions-page .btn-outline,
+  .excursions-page .btn-white,
+  .excursions-page .btn-cta-block{
+    width:100%;
+    max-width:100%;
+    justify-content:center;
+    white-space:normal !important;
+    text-align:center;
+  }
+
+  .excursions-page .yt-pl-link{
+    white-space:normal;
+  }
+
+  .excursions-page img,
+  .excursions-page video,
+  .excursions-page svg,
+  .excursions-page canvas{
+    max-width:100%;
+    height:auto;
+    display:block;
+  }
+
   .excursions-page .yt-wrap .yt-header-ctas,
   .excursions-page .dive-wrap .yt-header-ctas{
     width:100%;
