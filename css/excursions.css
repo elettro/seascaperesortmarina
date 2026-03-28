@@ -333,14 +333,14 @@ nav{
 /* ── REVIEWS ── */
 .reviews-bg{background:linear-gradient(180deg,var(--deep) 0%,var(--mid) 100%)}
 .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:3rem}
-.rev-card{background:rgba(255,255,255,.04);border:1px solid rgba(18,168,157,.1);border-radius:14px;padding:1.8rem;transition:background .3s;position:relative}
-.rev-card:hover{background:rgba(255,255,255,.07)}
-.rev-card::before{content:'\201C';position:absolute;top:-.4rem;left:1.3rem;font-family:'Cormorant Garamond',Georgia,serif;font-size:5rem;color:var(--aqua);opacity:.18;line-height:1}
+.rev-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:1.8rem;transition:background .3s,border-color .3s;position:relative}
+.rev-card:hover{background:var(--white);border-color:rgba(22,50,74,.24)}
+.rev-card::before{content:'\201C';position:absolute;top:-.4rem;left:1.3rem;font-family:'Cormorant Garamond',Georgia,serif;font-size:5rem;color:var(--gold);opacity:.34;line-height:1}
 .stars{color:var(--gold);font-size:.85rem;margin-bottom:.9rem}
-.rev-text{font-size:.87rem;font-weight:300;color:rgba(232,244,240,.85);line-height:1.75;font-style:italic;margin-bottom:1.3rem}
+.rev-text{font-size:.87rem;font-weight:300;color:var(--text);line-height:1.75;font-style:italic;margin-bottom:1.3rem}
 .reviewer{display:flex;align-items:center;gap:.7rem}
 .rev-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--aqua),var(--teal));display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:var(--white);flex-shrink:0}
-.rev-name{font-size:.8rem;font-weight:600;color:var(--white)}
+.rev-name{font-size:.8rem;font-weight:600;color:var(--navy)}
 .rev-via{font-size:.65rem;color:var(--muted)}
 
 /* ── DIVING PLAYLIST SECTION ── */
