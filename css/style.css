@@ -1,10 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
 :root {
-  --bg: #f6f1e8;
-  --white: #ffffff;
-  --text: #10263c;
-  --text-soft: rgba(16, 38, 60, 0.78);
-  --accent: #c3a46b;
-  --shadow: 0 18px 50px rgba(0, 0, 0, 0.14);
+  --bg: #FBF8F2;
+  --bg-soft: #F2E8DA;
+  --white: #FFFFFF;
+  --navy: #16324A;
+  --marine: #2D5D73;
+  --brass: #B89B6B;
+  --text: #24323B;
+  --muted: #5B6972;
+  --line: rgba(22, 50, 74, 0.12);
+  --shadow: 0 18px 50px rgba(22, 50, 74, 0.10);
+  --radius: 22px;
+  --text-soft: var(--muted);
+  --accent: var(--brass);
 }
 
 * {
@@ -18,10 +27,38 @@ body {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.4;
+}
+
+h1,
+h2,
+h3,
+.brand-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  color: var(--navy);
+}
+
+.site-header,
+.site-footer {
+  background: var(--navy);
+  color: #FFFFFF;
+}
+
+.button-primary {
+  background: var(--brass);
+  color: #FFFFFF;
+}
+
+.card,
+.review-panel,
+.room-panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 a {
@@ -135,7 +172,7 @@ a {
   z-index: 1000;
   width: 100%;
   padding-top: 0;
-  background: transparent;
+  background: var(--navy);
 }
 
 .utility-bar {
