@@ -343,6 +343,42 @@ nav{
 .pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
 .pill{background:rgba(18,168,157,.12);border:1px solid rgba(18,168,157,.3);border-radius:50px;padding:.35rem .9rem;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--bright)}
 
+
+/* ── CAPTAIN READABILITY OVERLAY ── */
+.excursion-guide-section{position:relative;overflow:hidden}
+.excursion-guide-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(22,50,74,.62) 0%,rgba(17,39,58,.66) 100%);
+  z-index:1;
+}
+.excursion-guide-section>*{position:relative;z-index:2}
+.excursion-guide-section .cap-text{
+  background:linear-gradient(135deg,rgba(7,22,33,.44),rgba(7,22,33,.30));
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;
+  padding:1.4rem 1.5rem;
+  backdrop-filter:blur(2px);
+}
+.excursion-guide-section p{
+  color:rgba(255,255,255,.96);
+  font-size:1.0625rem;
+  line-height:1.7;
+}
+.excursion-guide-section h2,
+.excursion-guide-section .guide-name{color:var(--brass)}
+.excursion-guide-section .guide-label,
+.excursion-guide-section .guide-subtitle,
+.excursion-guide-section .eyebrow,
+.excursion-guide-section .cap-rank{color:rgba(255,255,255,.82)}
+.excursion-guide-section h2,
+.excursion-guide-section p{text-shadow:0 2px 12px rgba(0,0,0,.34)}
+@media(max-width:768px){
+  .excursion-guide-section .cap-text{padding:1.1rem 1rem}
+  .excursion-guide-section p{font-size:1rem;line-height:1.65}
+}
+
 /* ── EXCURSION CARDS ── */
 .exc-bg{background:var(--bg)}
 .exc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:3rem}
