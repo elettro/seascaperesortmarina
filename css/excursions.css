@@ -199,7 +199,7 @@ nav{
 }
 .policy-notice-compact{margin-bottom:1.6rem}
 .sec-lead-spaced{margin-top:.9rem}
-.step-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;color:var(--white);margin-bottom:.45rem}
+.step-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;color:var(--navy);margin-bottom:.45rem}
 .gallery-section{background:var(--deep);padding:0 0 5rem}
 .section-pad-top{padding-top:5rem}
 .dive-cta-tight{margin-top:0;margin-bottom:1.6rem}
@@ -357,8 +357,8 @@ nav{
 .how-steps::before{content:'';position:absolute;top:1.9rem;left:13%;right:13%;height:1px;background:linear-gradient(90deg,transparent,var(--aqua),var(--bright),var(--aqua),transparent);opacity:.35}
 .step{text-align:center}
 .step-num{width:46px;height:46px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;font-weight:700;color:var(--white);margin:0 auto 1.3rem;box-shadow:0 5px 18px rgba(18,168,157,.32);position:relative;z-index:1}
-.step h4{font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;color:var(--white);margin-bottom:.45rem}
-.step p{font-size:.8rem;color:var(--muted);line-height:1.65;font-weight:300}
+.step h4{font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;color:var(--navy);margin-bottom:.45rem}
+.step p{font-size:.8rem;color:var(--text);line-height:1.65;font-weight:300}
 
 /* ── BIG CTA ── */
 .big-cta{position:relative;overflow:hidden}
