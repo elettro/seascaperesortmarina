@@ -907,6 +907,38 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     text-align:center;
   }
 
+  .excursions-page .cta-actions .btn-phone{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:12px !important;
+    white-space:nowrap !important;
+    text-align:center !important;
+    line-height:1.1;
+    letter-spacing:.055em;
+    font-size:.8rem;
+    padding:16px 20px !important;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
+  .excursions-page .cta-actions .btn-phone .icon{
+    flex:0 0 auto;
+    line-height:1;
+  }
+
+  .excursions-page .cta-actions .btn-phone .label{
+    display:inline-block !important;
+    white-space:nowrap !important;
+    line-height:1.1;
+    letter-spacing:.055em;
+  }
+
+  .excursions-page .cta-actions .btn-phone br{
+    display:none !important;
+  }
+
   .excursions-page .yt-pl-link{
     white-space:normal;
   }
