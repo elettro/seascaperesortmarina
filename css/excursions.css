@@ -213,6 +213,58 @@ nav{
 }
 .btn-outline:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.7);transform:translateY(-2px)}
 .btn-compact{font-size:.78rem;padding:.7rem 1.5rem}
+
+/* ── SNORKELING CTA ALIGNMENT FIX ── */
+.excursions-page .ask-snorkeling{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+  text-align:center !important;
+}
+.excursions-page .ask-snorkeling .btn-inner{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:10px !important;
+  max-width:100% !important;
+  margin:0 auto !important;
+  white-space:nowrap !important;
+}
+.excursions-page .ask-snorkeling .icon{
+  flex:0 0 auto !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  margin:0 !important;
+  position:static !important;
+  transform:none !important;
+  left:auto !important;
+  right:auto !important;
+}
+.excursions-page .ask-snorkeling .label{
+  flex:0 1 auto !important;
+  display:inline-block !important;
+  width:auto !important;
+  max-width:100% !important;
+  margin:0 !important;
+  position:static !important;
+  transform:none !important;
+  left:auto !important;
+  right:auto !important;
+  text-align:center !important;
+  white-space:nowrap !important;
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+  line-height:1.1 !important;
+}
+.excursions-page .ask-snorkeling span{
+  width:auto !important;
+}
+.excursions-page .ask-snorkeling br{
+  display:none !important;
+}
+
 .section-note{font-size:.92rem;font-weight:300;color:var(--muted);margin-top:.5rem;max-width:540px;line-height:1.7}
 .text-brass{color:var(--brass)}
 .cap-photo-wrap{position:relative;padding-bottom:1.5rem}
