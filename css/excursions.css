@@ -1051,6 +1051,30 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     letter-spacing:.03em !important;
   }
 
+  /* Mobile-only visual balance tuning for the snorkeling CTA */
+  .excursions-page .yt-header-ctas .ask-snorkeling{
+    padding:12px 18px !important;
+  }
+
+  .excursions-page .yt-header-ctas .ask-snorkeling .btn-inner{
+    gap:8px !important;
+    margin:0 auto !important;
+  }
+
+  .excursions-page .yt-header-ctas .ask-snorkeling .icon{
+    margin:0 !important;
+    padding:0 !important;
+    font-size:.9rem !important;
+    line-height:1 !important;
+  }
+
+  .excursions-page .yt-header-ctas .ask-snorkeling .label{
+    margin:0 !important;
+    font-size:1rem !important;
+    line-height:1.05 !important;
+    white-space:nowrap !important;
+  }
+
   .excursions-page .frontdesk-number .label{
     font-size:1rem !important;
     letter-spacing:.02em !important;
