@@ -908,31 +908,61 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   }
 
   .excursions-page .cta-actions .btn-phone{
-    display:inline-flex !important;
+    display:flex !important;
     align-items:center !important;
     justify-content:center !important;
-    gap:12px !important;
+    padding:16px 20px !important;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box !important;
+    overflow:hidden !important;
     white-space:nowrap !important;
     text-align:center !important;
     line-height:1.1;
     letter-spacing:.055em;
     font-size:.8rem;
-    padding:16px 20px !important;
-    width:100%;
-    max-width:100%;
-    box-sizing:border-box;
+  }
+
+  .excursions-page .cta-actions .btn-phone .btn-inner{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:12px !important;
+    width:auto !important;
+    max-width:100% !important;
+    white-space:nowrap !important;
   }
 
   .excursions-page .cta-actions .btn-phone .icon{
-    flex:0 0 auto;
-    line-height:1;
+    flex:0 0 auto !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    line-height:1 !important;
+    margin:0 !important;
+    width:auto !important;
+    position:static !important;
   }
 
   .excursions-page .cta-actions .btn-phone .label{
+    flex:0 1 auto !important;
     display:inline-block !important;
+    width:auto !important;
+    max-width:100% !important;
     white-space:nowrap !important;
-    line-height:1.1;
+    line-height:1.1 !important;
     letter-spacing:.055em;
+    text-align:center !important;
+    margin:0 !important;
+    position:static !important;
+  }
+
+  .excursions-page .cta-actions .btn-phone .btn-inner,
+  .excursions-page .cta-actions .btn-phone .btn-inner .icon,
+  .excursions-page .cta-actions .btn-phone .btn-inner .label{
+    transform:none !important;
+    left:auto !important;
+    right:auto !important;
   }
 
   .excursions-page .cta-actions .btn-phone br{
