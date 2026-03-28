@@ -911,23 +911,23 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     display:flex !important;
     align-items:center !important;
     justify-content:center !important;
-    padding:16px 20px !important;
+    padding:14px 16px !important;
     width:100%;
     max-width:100%;
     box-sizing:border-box !important;
     overflow:hidden !important;
     white-space:nowrap !important;
     text-align:center !important;
-    line-height:1.1;
-    letter-spacing:.055em;
-    font-size:.8rem;
+    line-height:1.05;
+    letter-spacing:.04em;
+    font-size:.98rem;
   }
 
   .excursions-page .cta-actions .btn-phone .btn-inner{
     display:inline-flex !important;
     align-items:center !important;
     justify-content:center !important;
-    gap:12px !important;
+    gap:10px !important;
     width:auto !important;
     max-width:100% !important;
     white-space:nowrap !important;
@@ -938,6 +938,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     display:inline-flex !important;
     align-items:center !important;
     justify-content:center !important;
+    font-size:1em !important;
     line-height:1 !important;
     margin:0 !important;
     width:auto !important;
@@ -950,8 +951,8 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     width:auto !important;
     max-width:100% !important;
     white-space:nowrap !important;
-    line-height:1.1 !important;
-    letter-spacing:.055em;
+    line-height:1.05 !important;
+    letter-spacing:.04em;
     text-align:center !important;
     margin:0 !important;
     position:static !important;
