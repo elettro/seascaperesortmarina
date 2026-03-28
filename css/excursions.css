@@ -907,13 +907,15 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     text-align:center;
   }
 
-  .excursions-page .cta-actions .btn-phone{
+  .excursions-page .btn-phone-mobile,
+  .excursions-page .phone-cta,
+  .excursions-page .call-button{
     display:flex !important;
     align-items:center !important;
     justify-content:center !important;
-    padding:14px 16px !important;
-    width:100%;
-    max-width:100%;
+    padding:16px 20px !important;
+    width:100% !important;
+    max-width:100% !important;
     box-sizing:border-box !important;
     overflow:hidden !important;
     white-space:nowrap !important;
@@ -923,7 +925,9 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     font-size:.98rem;
   }
 
-  .excursions-page .cta-actions .btn-phone .btn-inner{
+  .excursions-page .btn-phone-mobile .btn-inner,
+  .excursions-page .phone-cta .btn-inner,
+  .excursions-page .call-button .btn-inner{
     display:inline-flex !important;
     align-items:center !important;
     justify-content:center !important;
@@ -933,7 +937,9 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     white-space:nowrap !important;
   }
 
-  .excursions-page .cta-actions .btn-phone .icon{
+  .excursions-page .btn-phone-mobile .icon,
+  .excursions-page .phone-cta .icon,
+  .excursions-page .call-button .icon{
     flex:0 0 auto !important;
     display:inline-flex !important;
     align-items:center !important;
@@ -945,28 +951,39 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     position:static !important;
   }
 
-  .excursions-page .cta-actions .btn-phone .label{
+  .excursions-page .btn-phone-mobile .label,
+  .excursions-page .phone-cta .label,
+  .excursions-page .call-button .label{
     flex:0 1 auto !important;
     display:inline-block !important;
     width:auto !important;
     max-width:100% !important;
     white-space:nowrap !important;
-    line-height:1.05 !important;
-    letter-spacing:.04em;
+    line-height:1.1 !important;
+    font-size:1rem !important;
+    letter-spacing:.03em !important;
     text-align:center !important;
     margin:0 !important;
     position:static !important;
   }
 
-  .excursions-page .cta-actions .btn-phone .btn-inner,
-  .excursions-page .cta-actions .btn-phone .btn-inner .icon,
-  .excursions-page .cta-actions .btn-phone .btn-inner .label{
+  .excursions-page .btn-phone-mobile .btn-inner,
+  .excursions-page .btn-phone-mobile .btn-inner .icon,
+  .excursions-page .btn-phone-mobile .btn-inner .label,
+  .excursions-page .phone-cta .btn-inner,
+  .excursions-page .phone-cta .btn-inner .icon,
+  .excursions-page .phone-cta .btn-inner .label,
+  .excursions-page .call-button .btn-inner,
+  .excursions-page .call-button .btn-inner .icon,
+  .excursions-page .call-button .btn-inner .label{
     transform:none !important;
     left:auto !important;
     right:auto !important;
   }
 
-  .excursions-page .cta-actions .btn-phone br{
+  .excursions-page .btn-phone-mobile br,
+  .excursions-page .phone-cta br,
+  .excursions-page .call-button br{
     display:none !important;
   }
 
