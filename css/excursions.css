@@ -782,6 +782,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   }
 }
 
+
 @media(max-width:920px){
   nav{padding:.9rem 1.4rem}
   .nav-links a:not(.nav-btn){display:none}
@@ -808,6 +809,41 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   .yt-header{flex-direction:column}
   .yt-header-ctas{align-items:flex-start}
   .excursions-page .hero-video-controls{top:14px;right:14px}
+}
+@media (max-width:768px){
+  .excursions-page .yt-wrap .yt-header-ctas{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .excursions-page .yt-wrap .yt-header-ctas .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-left:auto;
+    margin-right:auto;
+    transform:none;
+    left:auto;
+  }
+
+  .excursions-page .yt-wrap .yt-header-ctas .yt-pl-link{
+    display:block;
+    width:auto;
+    margin:12px auto 0;
+    text-align:center;
+    padding-left:0;
+    padding-right:0;
+    align-self:center;
+    margin-left:auto;
+    transform:none;
+    left:auto;
+  }
 }
 @media(max-width:580px){
   .hero-content{padding:0 1.4rem 4.5rem}
