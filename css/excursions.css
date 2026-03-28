@@ -1306,6 +1306,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     padding: 0.5rem 0.8rem !important;
     text-align: center !important;
     white-space: nowrap !important;
+    gap: 0.42rem !important;
   }
 
   .excursions-page .hero-video-controls .hero-audio-toggle span,
@@ -1314,9 +1315,20 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
     line-height: 1 !important;
     max-width: 100% !important;
     white-space: nowrap !important;
+  }
+
+  .excursions-page .hero-video-controls .hero-next-video span:last-child,
+  .excursions-page .hero-video-controls .hero-audio-toggle span:last-child {
+    line-height: 1.05 !important;
+    letter-spacing: 0.05em !important;
   }
 
   .excursions-page .hero-content {
