@@ -117,7 +117,8 @@ nav{
 .hero-desc{font-size:1.05rem;font-weight:300;color:rgba(255,255,255,.9);max-width:560px;line-height:1.75;margin-bottom:2rem}
 .hero-btns{display:flex;gap:.9rem;flex-wrap:wrap}
 
-.hero-video-controls{
+.excursions-page .hero-video-controls,
+.excursions-page .video-controls{
   position:absolute;
   top:16px;
   right:16px;
@@ -128,21 +129,29 @@ nav{
   visibility:visible;
   opacity:1;
   transform:none;
+  pointer-events:auto;
 }
 
-.hero-audio-toggle,
-.hero-next-video{
+.excursions-page .hero-video-controls .hero-audio-toggle,
+.excursions-page .hero-video-controls .hero-next-video{
   display:inline-flex;align-items:center;gap:.45rem;
   background:rgba(4,19,28,.58);color:var(--white);
   border:1px solid rgba(232,244,240,.35);border-radius:999px;
   padding:.55rem .95rem;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
   backdrop-filter:blur(8px);cursor:pointer;transition:background .2s,border-color .2s,transform .2s;
+  width:auto;
+  height:auto;
+  min-height:36px;
+  white-space:nowrap;
 }
-.hero-audio-toggle:hover,
-.hero-next-video:hover{background:rgba(10,90,110,.62);border-color:rgba(29,211,196,.7);transform:translateY(-1px)}
-.hero-audio-toggle[aria-pressed="true"]{background:rgba(10,90,110,.72);border-color:rgba(29,211,196,.9);color:var(--bright)}
-.hero-audio-toggle:disabled,
-.hero-next-video:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.excursions-page .hero-video-controls .hero-audio-toggle::before{
+  content:none;
+}
+.excursions-page .hero-video-controls .hero-audio-toggle:hover,
+.excursions-page .hero-video-controls .hero-next-video:hover{background:rgba(10,90,110,.62);border-color:rgba(29,211,196,.7);transform:translateY(-1px)}
+.excursions-page .hero-video-controls .hero-audio-toggle[aria-pressed="true"]{background:rgba(10,90,110,.72);border-color:rgba(29,211,196,.9);color:var(--bright)}
+.excursions-page .hero-video-controls .hero-audio-toggle:disabled,
+.excursions-page .hero-video-controls .hero-next-video:disabled{opacity:.8;cursor:not-allowed;transform:none}
 
 /* ── BUTTONS ── */
 .btn-primary{
@@ -482,14 +491,14 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
   .policy-notice{padding:1.35rem 1.2rem}
   .yt-header{flex-direction:column}
   .yt-header-ctas{align-items:flex-start}
-  .hero-video-controls{top:14px;right:14px}
+  .excursions-page .hero-video-controls{top:14px;right:14px}
 }
 @media(max-width:580px){
   .hero-content{padding:0 1.4rem 4.5rem}
   .hero-btns{flex-direction:column}
-  .hero-video-controls{top:12px;right:12px;gap:8px}
-  .hero-audio-toggle,
-  .hero-next-video{font-size:.66rem;padding:.48rem .75rem}
+  .excursions-page .hero-video-controls{top:12px;right:12px;gap:8px}
+  .excursions-page .hero-video-controls .hero-audio-toggle,
+  .excursions-page .hero-video-controls .hero-next-video{font-size:.66rem;padding:.48rem .75rem;min-height:34px}
   .exc-grid{grid-template-columns:1fr}
   .how-steps{grid-template-columns:1fr}
   .section{padding:3.5rem 1.4rem}
