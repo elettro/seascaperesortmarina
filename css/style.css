@@ -1692,6 +1692,35 @@ a {
   }
 }
 
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+  .hero-content {
+    justify-content: flex-start;
+    min-height: calc(100svh - 78px);
+    padding-top: clamp(106px, 11svh, 142px);
+    padding-bottom: clamp(42px, 8svh, 72px);
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.2rem, 5.1vw, 4.15rem);
+    line-height: 0.98;
+  }
+
+  .hero-subheadline {
+    margin-top: 14px;
+    max-width: 34ch;
+  }
+
+  .hero-actions {
+    margin-top: 18px;
+    gap: 12px;
+  }
+
+  .video-shell > .hero-audio-toggle {
+    right: 18px;
+    bottom: clamp(58px, 7svh, 96px);
+  }
+}
+
 @media only screen and (max-width: 767px) and (orientation: portrait) {
   .hero {
     isolation: isolate;
