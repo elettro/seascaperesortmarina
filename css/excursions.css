@@ -427,9 +427,8 @@ nav{
     display:inline-flex !important;
     align-items:center !important;
     justify-content:center !important;
-    min-height:44px;
-    padding-top:0 !important;
-    padding-bottom:0 !important;
+    min-height:46px;
+    padding:0 24px !important;
   }
 
   .dive-wrap .ask-snorkeling-btn .ask-snorkeling-btn__inner{
@@ -438,6 +437,7 @@ nav{
     justify-content:center;
     gap:9px !important;
     height:100%;
+    min-height:1em;
   }
 
   .dive-wrap .ask-snorkeling-btn .ask-snorkeling-btn__icon{
@@ -455,6 +455,28 @@ nav{
     display:inline-flex !important;
     align-items:center !important;
     line-height:1;
+  }
+}
+
+@media (min-width:769px) and (max-width:1180px){
+  .dive-wrap .ask-snorkeling-btn{
+    min-height:48px;
+    padding:0 22px !important;
+  }
+
+  .dive-wrap .ask-snorkeling-btn .ask-snorkeling-btn__inner{
+    gap:10px !important;
+  }
+
+  .dive-wrap .ask-snorkeling-btn .ask-snorkeling-btn__icon{
+    font-size:.88rem;
+    line-height:1 !important;
+  }
+
+  .dive-wrap .ask-snorkeling-btn .ask-snorkeling-btn__label{
+    font-size:.92rem;
+    line-height:1 !important;
+    letter-spacing:.045em;
   }
 }
 
