@@ -1696,7 +1696,7 @@ a {
   .hero-content {
     justify-content: flex-start;
     min-height: calc(100svh - 78px);
-    padding-top: clamp(106px, 11svh, 142px);
+    padding-top: clamp(128px, 14svh, 168px);
     padding-bottom: clamp(42px, 8svh, 72px);
   }
 
