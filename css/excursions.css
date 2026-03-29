@@ -976,6 +976,17 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     text-align:center;
   }
 
+  .excursions-page .btn-white,
+  .excursions-page .btn-white span{
+    white-space:nowrap !important;
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+  }
+
+  .excursions-page .btn-white{
+    font-size:.78rem;
+  }
+
   .excursions-page .pill-phone-btn{
     padding:14px 18px !important;
   }
