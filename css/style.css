@@ -1704,9 +1704,7 @@ a {
   }
 
   .video-shell > .hero-audio-toggle {
-    display: grid !important;
-    right: 12px !important;
-    bottom: 12px !important;
+    display: none !important;
   }
 
   .hero-trust-controls {
@@ -1716,7 +1714,11 @@ a {
   }
 
   .hero-audio-toggle--inline {
-    display: none !important;
+    display: inline-grid !important;
+    position: static !important;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 auto;
   }
 }
 
