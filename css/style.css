@@ -180,7 +180,7 @@ a {
   align-items: center;
   gap: 24px;
   padding: 10px 34px;
-  background: var(--navy);
+  background: transparent;
   color: #fdfcf8;
 }
 
