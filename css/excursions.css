@@ -392,22 +392,36 @@ nav{
   .dive-wrap .ask-snorkeling-btn{
     width:auto !important;
     min-width:225px;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-height:44px;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
   }
 
   .dive-wrap .ask-snorkeling-btn .ask-snorkeling-btn__inner{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    gap:8px !important;
+    gap:9px !important;
+    height:100%;
   }
 
   .dive-wrap .ask-snorkeling-btn .ask-snorkeling-btn__icon{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:1em;
     font-size:.9rem;
     line-height:1;
-    transform:translateY(0);
+    transform:none !important;
+    vertical-align:middle;
   }
 
   .dive-wrap .ask-snorkeling-btn .ask-snorkeling-btn__label{
+    display:inline-flex !important;
+    align-items:center !important;
     line-height:1;
   }
 }
