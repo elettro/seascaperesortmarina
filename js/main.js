@@ -186,15 +186,23 @@
 
   if (heroAudioToggles.length) {
     syncAudioToggleUi();
+    let lastTouchToggleAt = 0;
+
+    const toggleHeroAudio = (event) => {
+      if (event.type === 'click' && Date.now() - lastTouchToggleAt < 350) return;
+      if (event.type === 'touchend') {
+        lastTouchToggleAt = Date.now();
+      }
+      event.preventDefault();
+      event.stopPropagation();
+      heroIsMuted = !heroIsMuted;
+      syncAudioToggleUi();
+      applyHeroAudioState();
+    };
 
     heroAudioToggles.forEach((audioToggle) => {
-      audioToggle.addEventListener('click', (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        heroIsMuted = !heroIsMuted;
-        syncAudioToggleUi();
-        applyHeroAudioState();
-      });
+      audioToggle.addEventListener('click', toggleHeroAudio);
+      audioToggle.addEventListener('touchend', toggleHeroAudio, { passive: false });
     });
   }
 
