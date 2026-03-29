@@ -188,7 +188,9 @@
     syncAudioToggleUi();
 
     heroAudioToggles.forEach((audioToggle) => {
-      audioToggle.addEventListener('click', () => {
+      audioToggle.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
         heroIsMuted = !heroIsMuted;
         syncAudioToggleUi();
         applyHeroAudioState();
