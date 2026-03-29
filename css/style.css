@@ -1725,9 +1725,10 @@ a {
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
   .video-shell > .hero-audio-toggle {
     display: grid !important;
+    position: fixed;
     right: calc(12px + env(safe-area-inset-right, 0px));
     bottom: clamp(58px, 14svh, 108px);
-    z-index: 12;
+    z-index: 1015;
     pointer-events: auto;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
