@@ -1726,7 +1726,7 @@ a {
   .video-shell > .hero-audio-toggle {
     display: grid !important;
     right: calc(12px + env(safe-area-inset-right, 0px));
-    bottom: 14px;
+    bottom: clamp(58px, 14svh, 108px);
     z-index: 12;
     pointer-events: auto;
     touch-action: manipulation;
@@ -1755,6 +1755,13 @@ a {
     z-index: 7;
     display: inline-block;
     width: fit-content;
+  }
+}
+
+
+@media only screen and (max-width: 932px) and (orientation: landscape) {
+  .video-shell > .hero-audio-toggle {
+    bottom: clamp(72px, 18svh, 132px);
   }
 }
 
