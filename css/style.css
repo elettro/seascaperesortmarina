@@ -1722,6 +1722,48 @@ a {
   }
 }
 
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+  .video-shell > .hero-audio-toggle {
+    display: none !important;
+  }
+
+  .hero-trust {
+    width: 100%;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .hero-trust-controls {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 12px;
+    position: relative;
+    z-index: 8;
+  }
+
+  .hero-trust-line {
+    flex: 1 1 auto;
+  }
+
+  .hero-audio-toggle--inline {
+    display: inline-grid !important;
+    position: relative !important;
+    z-index: 9;
+    margin-left: auto;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .hero-trust-phone {
+    position: relative;
+    z-index: 7;
+    display: inline-block;
+    width: fit-content;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
   .hero-content {
     justify-content: flex-start;
