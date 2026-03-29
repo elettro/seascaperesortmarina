@@ -1724,7 +1724,13 @@ a {
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
   .video-shell > .hero-audio-toggle {
-    display: none !important;
+    display: grid !important;
+    right: calc(12px + env(safe-area-inset-right, 0px));
+    bottom: 14px;
+    z-index: 12;
+    pointer-events: auto;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .hero-trust {
@@ -1734,26 +1740,14 @@ a {
   }
 
   .hero-trust-controls {
-    display: flex !important;
-    align-items: center;
-    justify-content: space-between;
+    display: block !important;
     width: 100%;
-    gap: 12px;
     position: relative;
     z-index: 8;
   }
 
-  .hero-trust-line {
-    flex: 1 1 auto;
-  }
-
   .hero-audio-toggle--inline {
-    display: inline-grid !important;
-    position: relative !important;
-    z-index: 9;
-    margin-left: auto;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
+    display: none !important;
   }
 
   .hero-trust-phone {
