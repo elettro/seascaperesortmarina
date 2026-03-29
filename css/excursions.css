@@ -175,6 +175,38 @@ nav{
 .excursions-page .hero-video-controls .hero-audio-toggle:disabled,
 .excursions-page .hero-video-controls .hero-next-video:disabled{opacity:.8;cursor:not-allowed;transform:none}
 
+@media (min-width: 768px) and (max-width: 1180px) and (orientation: landscape) {
+  .excursions-page .hero {
+    height: 100svh;
+    min-height: 100svh;
+    align-items: flex-start;
+    padding-top: clamp(108px, 15vh, 148px);
+    overflow: hidden;
+  }
+
+  .excursions-page .hero-content {
+    max-width: 700px;
+    padding: 0 2.4rem clamp(30px, 4.5vh, 44px);
+  }
+
+  .excursions-page .hero h1 {
+    font-size: clamp(2.95rem, 6vw, 4.3rem);
+    line-height: 0.98;
+    margin-bottom: 0.9rem;
+  }
+
+  .excursions-page .hero-desc {
+    font-size: 0.98rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    max-width: 540px;
+  }
+
+  .excursions-page .hero-btns {
+    gap: 0.72rem;
+  }
+}
+
 /* ── BUTTONS ── */
 .btn-primary{
   display:inline-flex;align-items:center;gap:.5rem;
