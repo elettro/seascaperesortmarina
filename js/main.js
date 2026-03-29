@@ -110,8 +110,13 @@
   const mobilePortraitVideoId = extractVideoId(videoShell.dataset.mobilePortraitVideoId);
   const mobileLandscapeVideoId = extractVideoId(videoShell.dataset.mobileLandscapeVideoId);
 
+  const getEmbedOrigin = () => {
+    if (!window.location?.origin || window.location.origin === 'null') return '';
+    return `&origin=${encodeURIComponent(window.location.origin)}`;
+  };
+
   const buildEmbedSrc = (videoId) =>
-    `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&modestbranding=1&rel=0&enablejsapi=1`;
+    `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&modestbranding=1&rel=0&enablejsapi=1${getEmbedOrigin()}`;
 
   const isMobileViewport = () => window.innerWidth <= mobileOnlyBreakpoint;
   const isPortrait = () => window.matchMedia('(orientation: portrait)').matches;
@@ -157,6 +162,9 @@
 
   const applyHeroAudioState = () => {
     postPlayerCommand(heroIsMuted ? 'mute' : 'unMute');
+    if (!heroIsMuted) {
+      postPlayerCommand('playVideo');
+    }
   };
 
   const updateHeroVideoSource = () => {
