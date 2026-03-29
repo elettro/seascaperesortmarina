@@ -619,6 +619,7 @@ nav{
 .dive-wrap .section-note{color:rgba(255,255,255,.92)}
 .dive-wrap .section-note strong,
 .dive-wrap .section-note .highlight{color:var(--brass)}
+.dive-wrap #diving-title{color:rgba(255,255,255,.97)}
 .dive-cta-bar{background:linear-gradient(135deg,rgba(18,168,157,.13),rgba(8,51,69,.5));border:1px solid rgba(18,168,157,.28);border-radius:14px;padding:1.8rem 2.2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-top:2.2rem}
 .dive-cta-bar p{font-size:.95rem;color:var(--white);font-weight:300;line-height:1.65;max-width:580px}
 .dive-cta-bar strong{color:var(--bright)}
