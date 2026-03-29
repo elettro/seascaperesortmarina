@@ -1365,3 +1365,26 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
     margin-top: 0 !important;
   }
 }
+
+@media (max-width: 767px) and (orientation: portrait) {
+  .excursions-page .pill-phone-btn {
+    justify-content: center !important;
+    padding-inline: 20px !important;
+  }
+
+  .excursions-page .pill-phone-btn .pill-phone-btn__inner {
+    display: grid !important;
+    grid-auto-flow: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    column-gap: 12px !important;
+    width: max-content !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+  }
+
+  .excursions-page .pill-phone-btn .pill-phone-btn__icon,
+  .excursions-page .pill-phone-btn .pill-phone-btn__label {
+    justify-self: center !important;
+  }
+}
