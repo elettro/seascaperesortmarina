@@ -1837,11 +1837,11 @@ a {
 
   .video-shell > .hero-audio-toggle {
     display: grid !important;
-    position: absolute;
+    position: absolute !important;
     right: calc(10px + env(safe-area-inset-right, 0px));
-    top: 50%;
-    bottom: auto;
-    transform: translateY(-50%);
+    top: auto !important;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px)) !important;
+    transform: none !important;
     z-index: 6;
     pointer-events: auto;
     touch-action: manipulation;
