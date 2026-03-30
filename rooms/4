@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seascape Resort & Marina | Accommodations</title>
+  <meta
+    name="description"
+    content="Explore suites, ocean-view suites, apartments, and bungalows at Seascape Resort & Marina in Marathon, Florida Keys."
+  />
+  <style>
+    :root{
+      --bg: #f6fbfc;
+      --surface: #ffffff;
+      --surface-soft: #f3f8f9;
+      --ink: #0f2f46;
+      --ink-2: #35586c;
+      --ink-3: #64808f;
+      --line: rgba(15,47,70,.10);
+      --line-strong: rgba(15,47,70,.18);
+      --brand: #57b8c9;
+      --brand-deep: #248ca0;
+      --sand: #d4b067;
+      --sand-deep: #bc9346;
+      --sand-soft: #f3e8d0;
+      --shadow: 0 16px 48px rgba(15,47,70,.10);
+      --shadow-soft: 0 10px 28px rgba(15,47,70,.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --max: 1240px;
+      --section-pad: clamp(54px, 7vw, 92px);
+      --hero-pad: clamp(68px, 10vw, 118px);
+      --h1: clamp(2.4rem, 5vw, 4.6rem);
+      --h2: clamp(1.8rem, 3vw, 3rem);
+      --h3: clamp(1.25rem, 2vw, 1.7rem);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body{
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(87,184,201,.12), transparent 28%),
+        radial-gradient(circle at 100% 0%, rgba(212,176,103,.10), transparent 25%),
+        linear-gradient(180deg, #eef7f9 0%, #f7fbfc 24%, #ffffff 100%);
+      line-height: 1.55;
+    }
+
+    img{
+      display: block;
+      max-width: 100%;
+    }
+
+    a{
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container{
+      width: min(calc(100% - 28px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247,251,252,.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(15,47,70,.08);
+    }
+
+    .topbar-inner{
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand{
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand strong{
+      font-size: 1rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .brand span{
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--ink-3);
+    }
+
+    .nav-links{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-links a{
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 700;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(15,47,70,.08);
+      color: var(--ink-2);
+    }
+
+    .hero{
+      padding: var(--hero-pad) 0 52px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(87,184,201,.16), transparent 18%),
+        radial-gradient(circle at 84% 14%, rgba(212,176,103,.12), transparent 16%);
+    }
+
+    .hero-grid{
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .eyebrow{
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .20em;
+      color: var(--brand-deep);
+    }
+
+    .hero h1{
+      margin: 0 0 16px;
+      font-size: var(--h1);
+      line-height: .96;
+      max-width: 760px;
+    }
+
+    .hero p{
+      margin: 0 0 22px;
+      color: var(--ink-3);
+      font-size: 1.06rem;
+      max-width: 760px;
+    }
+
+    .hero-pills{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      font-size: .84rem;
+      font-weight: 700;
+      color: var(--ink);
+      background: rgba(87,184,201,.12);
+      border: 1px solid rgba(87,184,201,.20);
+    }
+
+    .pill.alt{
+      background: rgba(212,176,103,.14);
+      border-color: rgba(212,176,103,.25);
+    }
+
+    .hero-card{
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.96)),
+        linear-gradient(135deg, rgba(87,184,201,.10), rgba(212,176,103,.10));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .hero-stats{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .hero-stat{
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(15,47,70,.08);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .hero-stat strong{
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.45rem;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .hero-stat span{
+      font-size: .9rem;
+      color: var(--ink-3);
+    }
+
+    .cta-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: .95rem;
+      font-weight: 700;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .btn:hover{
+      transform: translateY(-1px);
+    }
+
+    .btn-primary{
+      background: linear-gradient(135deg, var(--sand), var(--sand-deep));
+      color: #1d2730;
+      box-shadow: 0 10px 24px rgba(188,147,70,.22);
+    }
+
+    .btn-secondary{
+      background: rgba(255,255,255,.82);
+      color: var(--ink);
+      border-color: rgba(15,47,70,.12);
+    }
+
+    .section{
+      padding: var(--section-pad) 0;
+    }
+
+    .section + .section{
+      border-top: 1px solid rgba(15,47,70,.06);
+    }
+
+    .section-head{
+      max-width: 860px;
+      margin-bottom: 26px;
+    }
+
+    .section-head h2{
+      margin: 0 0 12px;
+      font-size: var(--h2);
+      line-height: 1.04;
+    }
+
+    .section-head p{
+      margin: 0;
+      color: var(--ink-3);
+      font-size: 1.02rem;
+    }
+
+    .tabs{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 26px;
+    }
+
+    .tab-btn{
+      appearance: none;
+      border: 1px solid rgba(15,47,70,.10);
+      background: rgba(255,255,255,.88);
+      color: var(--ink-2);
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .84rem;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover{
+      background: linear-gradient(135deg, rgba(87,184,201,.18), rgba(212,176,103,.16));
+      color: var(--ink);
+      border-color: rgba(15,47,70,.16);
+    }
+
+    .room-stack{
+      display: grid;
+      gap: 18px;
+    }
+
+    .room-card{
+      display: grid;
+      grid-template-columns: 290px 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 18px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .room-image{
+      position: relative;
+      min-height: 210px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #dcebed;
+    }
+
+    .room-image img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-label{
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(15,47,70,.08);
+      color: var(--ink);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .badge-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .badge{
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(15,47,70,.05);
+      border: 1px solid rgba(15,47,70,.08);
+      color: var(--ink-2);
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    .room-name{
+      margin: 0 0 6px;
+      font-size: var(--h3);
+      line-height: 1.06;
+    }
+
+    .room-sub{
+      margin: 0 0 12px;
+      color: var(--ink-3);
+      font-size: .96rem;
+    }
+
+    .metric-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 14px;
+    }
+
+    .metric{
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(15,47,70,.05);
+      border: 1px solid rgba(15,47,70,.07);
+      color: var(--ink-2);
+      font-size: .84rem;
+      font-weight: 700;
+    }
+
+    .room-copy{
+      margin: 0 0 14px;
+      color: var(--ink-2);
+      font-size: .95rem;
+      max-width: 760px;
+    }
+
+    .amenity-list{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .amenity{
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(87,184,201,.08);
+      border: 1px solid rgba(87,184,201,.16);
+      color: var(--ink-2);
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    .room-actions{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 200px;
+    }
+
+    .category-summary{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .summary-card{
+      background: rgba(255,255,255,.90);
+      border: 1px solid rgba(15,47,70,.08);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .summary-card strong{
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.12rem;
+      color: var(--ink);
+    }
+
+    .summary-card span{
+      color: var(--ink-3);
+      font-size: .9rem;
+    }
+
+    .info-band{
+      background: linear-gradient(180deg, rgba(243,248,249,.9), rgba(255,255,255,.95));
+      border-top: 1px solid rgba(15,47,70,.06);
+      border-bottom: 1px solid rgba(15,47,70,.06);
+    }
+
+    .info-grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .info-card{
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(15,47,70,.08);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .info-card h3{
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      line-height: 1.1;
+    }
+
+    .info-card p,
+    .info-card li{
+      color: var(--ink-3);
+      font-size: .94rem;
+    }
+
+    .info-card ul{
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .footer-note{
+      padding: 22px 0 72px;
+      text-align: center;
+      color: var(--ink-3);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 1100px){
+      .hero-grid{
+        grid-template-columns: 1fr;
+      }
+
+      .room-card{
+        grid-template-columns: 1fr;
+      }
+
+      .room-actions{
+        min-width: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .category-summary,
+      .info-grid{
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px){
+      .topbar-inner{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0;
+      }
+
+      .hero{
+        padding-top: 46px;
+      }
+
+      .hero-stats{
+        grid-template-columns: 1fr;
+      }
+
+      .category-summary,
+      .info-grid{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px){
+      .container{
+        width: min(calc(100% - 20px), var(--max));
+      }
+
+      .room-card{
+        padding: 14px;
+      }
+
+      .room-image{
+        min-height: 220px;
+      }
+
+      .nav-links{
+        gap: 6px;
+      }
+
+      .nav-links a{
+        padding: 9px 12px;
+        font-size: .78rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <strong>Seascape Resort & Marina</strong>
+        <span>Accommodations</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#rooms">Rooms</a>
+        <a href="#property-info">Stay Details</a>
+        <a href="https://portal.freetobook.com/" target="_blank" rel="noopener">Book Direct</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Stay by the Water</span>
+          <h1>Choose the Seascape room style that fits your Keys getaway.</h1>
+          <p>
+            From simple suites for two to ocean-view bungalows and larger apartment-style stays, Seascape Resort & Marina offers a mix of accommodations designed around comfort, direct booking value, and easy access to the waterfront.
+          </p>
+          <div class="hero-pills">
+            <span class="pill">Suites</span>
+            <span class="pill">Ocean-View Suites</span>
+            <span class="pill">Apartments</span>
+            <span class="pill alt">Bungalows</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://portal.freetobook.com/" target="_blank" rel="noopener">Check Availability</a>
+            <a class="btn btn-secondary" href="tel:+13057436212">Call for Best Rate</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>12</strong>
+              <span>Accommodation options represented</span>
+            </div>
+            <div class="hero-stat">
+              <strong>Ocean View</strong>
+              <span>Available in select suites, apartments, and bungalows</span>
+            </div>
+            <div class="hero-stat">
+              <strong>Free WiFi</strong>
+              <span>Included throughout all room types</span>
+            </div>
+            <div class="hero-stat">
+              <strong>Direct Booking</strong>
+              <span>Call +1 (305) 743-6212 for guaranteed best rates</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container category-summary">
+        <div class="summary-card">
+          <strong>Suites</strong>
+          <span>Smart options for couples and smaller stays. Strong value. Clean resort-style comfort.</span>
+        </div>
+        <div class="summary-card">
+          <strong>Ocean-View Suites</strong>
+          <span>For guests who want a more view-forward stay without jumping into a larger footprint.</span>
+        </div>
+        <div class="summary-card">
+          <strong>Apartments</strong>
+          <span>Best fit for families, longer visits, and guests who want more kitchen support.</span>
+        </div>
+        <div class="summary-card">
+          <strong>Bungalows</strong>
+          <span>Direct ocean-view appeal with a relaxed Keys feel and strong family flexibility.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rooms">
+      <div class="container">
+        <div class="section-head">
+          <h2>Find your room by stay style</h2>
+          <p>
+            Browse by category to compare room layouts, views, sleeping setups, and key amenities. Every option below uses the same direct-booking structure so guests can move from browsing to booking fast.
+          </p>
+        </div>
+
+        <div class="tabs" id="category-tabs"></div>
+        <div class="room-stack" id="room-stack"></div>
+      </div>
+    </section>
+
+    <section class="section info-band" id="property-info">
+      <div class="container">
+        <div class="section-head">
+          <h2>Property details guests want to know</h2>
+          <p>
+            Clear booking details help reduce friction. This section keeps the most important stay information in one place for quick review.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Property Amenities</h3>
+            <ul>
+              <li>Free WiFi in all rooms and select common areas</li>
+              <li>Free ample on-site parking</li>
+              <li>Outdoor pool</li>
+              <li>Fishing, kayaking, and free bicycle rentals</li>
+              <li>BBQ grills, picnic area, marina on-site, terrace, private waterfront location</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>Policies</h3>
+            <ul>
+              <li>Check-in: 3 PM to 8 PM</li>
+              <li>Late check-in subject to availability</li>
+              <li>Minimum check-in age: 21</li>
+              <li>Check-out: 11 AM</li>
+              <li>Pets not allowed</li>
+              <li>Children welcome. Rollaway beds and cribs not available</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>Booking Details</h3>
+            <ul>
+              <li>Phone: +1 (305) 743-6212</li>
+              <li>Guaranteed best rates by phone</li>
+              <li>Online booking via FreeToBook</li>
+              <li>Address: 1275 76th Street Ocean, Marathon, FL 33050</li>
+              <li>Mile Marker 50</li>
+              <li>Visa, Mastercard, Amex, and Discover accepted</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container footer-note">
+      Seascape Resort & Marina. Marathon, Florida Keys.
+    </div>
+  </main>
+
+  <script>
+    const placeholderImage = "https://raw.githubusercontent.com/elettro/SeascapeMarinaResort/b41be728e1b3710d35a61263431d5f93f1b770be/images/exampleroom.jpg";
+    const bookingUrl = "https://portal.freetobook.com/";
+    const bookingPhone = "tel:+13057436212";
+
+    const rooms = [
+      {
+        unit: 1,
+        name: "Starfish Suite",
+        category: "Suites",
+        rating: "5/5",
+        sleeps: 2,
+        beds: "1 Queen Bed",
+        view: "Patio",
+        kitchen: "Microwave + fridge",
+        features: ["Free WiFi", "Patio"],
+        highlight: "A simple and comfortable suite for two with private patio appeal and easy resort access.",
+        amenities: ["AC", "Shower", "Hair Dryer", "Toiletries", "Cable TV", "Coffeemaker", "Microwave", "Fridge"]
+      },
+      {
+        unit: 2,
+        name: "Seaside Suite",
+        category: "Suites",
+        rating: "5/5",
+        sleeps: 2,
+        beds: "1 King Bed",
+        view: "Patio",
+        kitchen: "Microwave + fridge",
+        features: ["Free WiFi", "Patio"],
+        highlight: "A king-bed suite with patio access and a clean, relaxed setup for couples.",
+        amenities: ["AC", "Shower", "Hair Dryer", "Toiletries", "Cable TV", "Coffeemaker", "Microwave", "Fridge"]
+      },
+      {
+        unit: 3,
+        name: "Sea Breeze Suite",
+        category: "Suites",
+        rating: "5/5",
+        sleeps: 3,
+        beds: "1 King Bed + 1 Twin Futon",
+        view: "Patio",
+        kitchen: "Fridge",
+        features: ["Free WiFi", "Patio"],
+        highlight: "A flexible suite for couples or small families who want a king bed plus one extra sleep surface.",
+        amenities: ["AC", "Shower", "Hair Dryer", "Toiletries", "Cable TV", "Coffeemaker", "Fridge"]
+      },
+      {
+        unit: 4,
+        name: "Coconut Suite",
+        category: "Suites",
+        rating: "5/5",
+        sleeps: 2,
+        beds: "1 King Bed",
+        view: "Resort-side location",
+        kitchen: "Microwave + fridge",
+        features: ["Free WiFi"],
+        highlight: "A calm king suite with a simple footprint, well-suited to couples looking for easy comfort.",
+        amenities: ["AC", "Shower/Tub Combo", "Hair Dryer", "Toiletries", "Cable TV", "Coffeemaker", "Microwave", "Fridge"]
+      },
+      {
+        unit: 5,
+        name: "Sunshine Suite",
+        category: "Suites",
+        rating: "5/5",
+        sleeps: 3,
+        beds: "1 King Bed + 1 Twin Futon",
+        view: "Resort-side location",
+        kitchen: "Microwave + fridge",
+        features: ["Free WiFi"],
+        highlight: "A flexible suite that adds room for a third guest without losing the intimate boutique-resort feel.",
+        amenities: ["AC", "Shower/Tub Combo", "Hair Dryer", "Toiletries", "Cable TV", "Coffeemaker", "Microwave", "Fridge"]
+      },
+      {
+        unit: 6,
+        name: "Conch Suite",
+        category: "Suites",
+        rating: "4.9/5",
+        sleeps: 3,
+        beds: "1 King Bed + 1 Twin Futon",
+        view: "Suite-style layout",
+        kitchen: "Kitchenette + hot plate",
+        features: ["Free WiFi", "Kitchenette"],
+        highlight: "One of the strongest suite options for guests who want more in-room meal flexibility.",
+        amenities: ["AC", "Shower/Tub Combo", "Hair Dryer", "Toiletries", "Cable TV", "Coffeemaker", "Microwave", "Kitchenette", "Skillet", "Toaster", "Hot Plate", "Fridge"]
+      },
+      {
+        unit: 7,
+        name: "Seaview Suite",
+        category: "Ocean-View Suites",
+        rating: "5/5",
+        sleeps: 2,
+        beds: "1 King Bed",
+        view: "Direct Ocean View",
+        kitchen: "Microwave + hot plate + fridge",
+        features: ["Direct Ocean View", "Free WiFi"],
+        highlight: "A premium couple-focused option with direct ocean view and strong romantic appeal.",
+        amenities: ["AC", "Shower", "Hair Dryer", "Toiletries", "Cable TV", "Coffeemaker", "Microwave", "Hot Plate", "Fridge"]
+      },
+      {
+        unit: 8,
+        name: "Hideaway Suite",
+        category: "Ocean-View Suites",
+        rating: "4.8/5",
+        sleeps: 2,
+        beds: "1 Queen Bed",
+        view: "Ocean View from Patio",
+        kitchen: "Fridge",
+        features: ["Ocean View Patio", "Free WiFi"],
+        highlight: "A cozy suite for two with a tucked-away personality and ocean-view patio appeal.",
+        amenities: ["AC", "Shower/Tub Combo", "Hair Dryer", "Toiletries", "Cable TV", "Coffeemaker", "Fridge"]
+      },
+      {
+        unit: 9,
+        name: "Oasis Apartment",
+        category: "Apartments",
+        rating: "5/5",
+        sleeps: 4,
+        beds: "1 King Bed + 1 Queen Pull-Out Sofa",
+        view: "Apartment-style comfort",
+        kitchen: "Full kitchen",
+        features: ["Free WiFi", "Full Kitchen"],
+        highlight: "A smart fit for longer stays or guests who want a more residential layout and cooking support.",
+        amenities: ["AC", "Shower/Tub Combo", "Hair Dryer", "Toiletries", "Cable TV", "K-Cup Coffeemaker", "Microwave", "Oven", "Fridge"]
+      },
+      {
+        unit: 10,
+        name: "Atlantic Apartment",
+        category: "Apartments",
+        rating: "5/5",
+        sleeps: 6,
+        beds: "2 Queen Beds + 2 Twin Beds",
+        view: "Direct Ocean View",
+        kitchen: "Full kitchen",
+        features: ["Direct Ocean View", "Full Kitchen", "2 TVs"],
+        highlight: "The strongest larger-group accommodation with direct ocean view, bigger capacity, and the most practical family layout.",
+        amenities: ["AC", "Extra-Large Shower", "Half Bath", "Hair Dryer", "Towels", "2 TVs", "K-Cup Coffeemaker", "Microwave", "Oven", "Fridge"]
+      },
+      {
+        unit: 11,
+        name: "Anglers Apartment",
+        category: "Apartments",
+        rating: "5/5",
+        sleeps: 5,
+        beds: "1 Queen Bed + 2 Double Beds",
+        view: "Ocean View from Master Bedroom",
+        kitchen: "Eat-in kitchenette",
+        features: ["Ocean View Master", "Eat-In Kitchenette", "Free WiFi"],
+        highlight: "A practical multi-bed option for guests who want more sleeping flexibility and light meal support.",
+        amenities: ["AC", "Shower", "Hair Dryer", "Toiletries", "Cable TV", "K-Cup Coffeemaker", "Hot Plate", "Microwave", "Fridge"]
+      },
+      {
+        unit: 12,
+        name: "Seaview Bungalow",
+        category: "Bungalows",
+        rating: "4.9/5",
+        sleeps: 4,
+        beds: "2 Queen Beds",
+        view: "Direct Ocean View",
+        kitchen: "Microwave + fridge",
+        features: ["Direct Ocean View", "Free WiFi"],
+        highlight: "A relaxed bungalow stay with direct ocean view and easy four-guest comfort.",
+        amenities: ["AC", "Extra-Large Shower", "Hair Dryer", "Toiletries", "Cable TV", "K-Cup Coffeemaker", "Microwave", "Fridge"]
+      },
+      {
+        unit: 14,
+        name: "Seaview Bungalow",
+        category: "Bungalows",
+        rating: "4.9/5",
+        sleeps: 4,
+        beds: "2 Queen Beds",
+        view: "Direct Ocean View",
+        kitchen: "Microwave + fridge",
+        features: ["Direct Ocean View", "Spa Shower Panel", "Free WiFi"],
+        highlight: "A direct-ocean-view bungalow with a more spa-forward bath detail and strong family appeal.",
+        amenities: ["AC", "Spa Shower Panel", "Hair Dryer", "Toiletries", "Cable TV", "K-Cup Coffeemaker", "Microwave", "Fridge"]
+      }
+    ];
+
+    const tabLabels = [
+      "All Collections",
+      "Suites",
+      "Ocean-View Suites",
+      "Apartments",
+      "Bungalows"
+    ];
+
+    function featureBadges(room, limit = 3) {
+      return room.features.slice(0, limit).map(item => `<span class="badge">${item}</span>`).join("");
+    }
+
+    function amenityBadges(room, limit = 8) {
+      return room.amenities.slice(0, limit).map(item => `<span class="amenity">${item}</span>`).join("");
+    }
+
+    function roomMetrics(room) {
+      return `
+        <div class="metric-row">
+          <span class="metric">Sleeps ${room.sleeps}</span>
+          <span class="metric">${room.beds}</span>
+          <span class="metric">${room.view}</span>
+          <span class="metric">${room.kitchen}</span>
+        </div>
+      `;
+    }
+
+    function filteredRooms(category) {
+      if (category === "All Collections") return rooms;
+      return rooms.filter(room => room.category === category);
+    }
+
+    function renderTabs(active = "All Collections") {
+      const tabs = document.getElementById("category-tabs");
+      tabs.innerHTML = tabLabels.map(label => `
+        <button class="tab-btn ${label === active ? "active" : ""}" data-cat="${label}">
+          ${label}
+        </button>
+      `).join("");
+
+      tabs.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          renderTabs(btn.dataset.cat);
+          renderRooms(btn.dataset.cat);
+        });
+      });
+    }
+
+    function renderRooms(active = "All Collections") {
+      const stack = document.getElementById("room-stack");
+      const list = filteredRooms(active);
+
+      stack.innerHTML = list.map(room => `
+        <article class="room-card">
+          <div class="room-image">
+            <img src="${placeholderImage}" alt="${room.name} at Seascape Resort & Marina" loading="lazy" />
+            <div class="image-label">Unit ${room.unit} · ${room.category}</div>
+          </div>
+
+          <div>
+            <div class="badge-row">
+              <span class="badge">${room.rating} Rating</span>
+              ${featureBadges(room, 3)}
+            </div>
+
+            <h3 class="room-name">${room.name}</h3>
+            <p class="room-sub">${room.view}</p>
+
+            ${roomMetrics(room)}
+
+            <p class="room-copy">${room.highlight}</p>
+
+            <div class="amenity-list">
+              ${amenityBadges(room, 8)}
+            </div>
+          </div>
+
+          <div class="room-actions">
+            <a class="btn btn-primary" href="${bookingUrl}" target="_blank" rel="noopener">Check Dates</a>
+            <a class="btn btn-secondary" href="${bookingPhone}">Call Best Rate</a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    renderTabs();
+    renderRooms();
+  </script>
+</body>
+</html>
