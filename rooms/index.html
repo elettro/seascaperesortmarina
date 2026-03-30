@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seascape Resort & Marina | Accommodations Presentation Review</title>
+  <meta name="description" content="Review page with five different presentation directions for Seascape Resort & Marina accommodations." />
+  <style>
+    :root{
+      --bg: #f6fbfc;
+      --surface: #ffffff;
+      --surface-soft: #f0f7f8;
+      --ink: #0f2f46;
+      --ink-2: #32556a;
+      --ink-3: #5f7d8d;
+      --line: rgba(15,47,70,.10);
+      --line-strong: rgba(15,47,70,.18);
+      --brand: #57b8c9;
+      --brand-deep: #248ca0;
+      --sand: #d4b067;
+      --sand-soft: #f4ead3;
+      --success: #2e8b57;
+      --shadow: 0 18px 60px rgba(15,47,70,.10);
+      --shadow-soft: 0 10px 30px rgba(15,47,70,.07);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --max: 1280px;
+      --pad: clamp(18px, 2vw, 28px);
+      --section-pad: clamp(52px, 7vw, 92px);
+      --hero-pad: clamp(72px, 10vw, 120px);
+      --h1: clamp(2.3rem, 5vw, 4.5rem);
+      --h2: clamp(1.8rem, 3vw, 3rem);
+      --h3: clamp(1.25rem, 2vw, 1.8rem);
+      --body: 1rem;
+      --small: .92rem;
+      --tiny: .8rem;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(87,184,201,.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(212,176,103,.08), transparent 24%),
+        linear-gradient(180deg, #eff8fa 0%, #f7fbfc 26%, #ffffff 100%);
+      line-height: 1.55;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: .82rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--brand-deep);
+      margin-bottom: 12px;
+    }
+
+    .section-head {
+      max-width: 820px;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-size: var(--h2);
+      line-height: 1.05;
+      margin: 0 0 12px;
+      color: var(--ink);
+    }
+
+    .section-text {
+      margin: 0;
+      color: var(--ink-3);
+      font-size: 1.03rem;
+      max-width: 760px;
+    }
+
+    .pill,
+    .mini-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      font-size: .84rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .pill {
+      background: rgba(87,184,201,.12);
+      color: var(--ink);
+      border: 1px solid rgba(87,184,201,.20);
+    }
+
+    .pill.alt {
+      background: rgba(212,176,103,.14);
+      border-color: rgba(212,176,103,.28);
+    }
+
+    .mini-pill {
+      min-height: 30px;
+      padding: 0 12px;
+      font-size: .76rem;
+      background: rgba(15,47,70,.06);
+      border: 1px solid rgba(15,47,70,.08);
+      color: var(--ink);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .95rem;
+      border: 1px solid transparent;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--sand), #c89c48);
+      color: #1d2730;
+      box-shadow: 0 10px 24px rgba(200,156,72,.22);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.76);
+      color: var(--ink);
+      border-color: rgba(15,47,70,.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-ghost {
+      background: rgba(87,184,201,.10);
+      color: var(--ink);
+      border-color: rgba(87,184,201,.18);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(247,251,252,.84);
+      border-bottom: 1px solid rgba(15,47,70,.08);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 74px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .brand strong {
+      font-size: 1rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .brand span {
+      font-size: .8rem;
+      color: var(--ink-3);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .quick-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .quick-nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 700;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(15,47,70,.08);
+      color: var(--ink-2);
+    }
+
+    .hero {
+      padding: var(--hero-pad) 0 54px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(87,184,201,.18), transparent 22%),
+        radial-gradient(circle at 82% 18%, rgba(212,176,103,.14), transparent 18%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      margin: 0 0 16px;
+      font-size: var(--h1);
+      line-height: .96;
+      color: var(--ink);
+      max-width: 840px;
+    }
+
+    .hero-copy p {
+      margin: 0 0 22px;
+      max-width: 760px;
+      font-size: 1.06rem;
+      color: var(--ink-3);
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .hero-card {
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.96)),
+        linear-gradient(135deg, rgba(87,184,201,.12), rgba(212,176,103,.10));
+      border: 1px solid rgba(15,47,70,.10);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(87,184,201,.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .hero-stat {
+      background: rgba(255,255,255,.84);
+      border: 1px solid rgba(15,47,70,.08);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 1.5rem;
+      line-height: 1;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .hero-stat span {
+      color: var(--ink-3);
+      font-size: .9rem;
+    }
+
+    .section {
+      padding: var(--section-pad) 0;
+      position: relative;
+    }
+
+    .section + .section {
+      border-top: 1px solid rgba(15,47,70,.06);
+    }
+
+    .option-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(87,184,201,.14), rgba(212,176,103,.14));
+      border: 1px solid rgba(15,47,70,.08);
+      font-weight: 700;
+      font-size: .82rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .importance-key {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.90);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .room-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .metric-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0 16px;
+    }
+
+    .metric {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(15,47,70,.05);
+      border: 1px solid rgba(15,47,70,.07);
+      color: var(--ink-2);
+      font-size: .84rem;
+      font-weight: 700;
+    }
+
+    .amenity-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .amenity-list span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      background: rgba(87,184,201,.08);
+      border: 1px solid rgba(87,184,201,.16);
+      border-radius: 999px;
+      color: var(--ink-2);
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    .section-note {
+      margin-top: 18px;
+      color: var(--ink-3);
+      font-size: .9rem;
+    }
+
+    .placeholder-photo {
+      position: relative;
+      min-height: 280px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(10,37,54,.06), rgba(10,37,54,.22)),
+        linear-gradient(135deg, rgba(87,184,201,.34), rgba(212,176,103,.26)),
+        linear-gradient(180deg, #9fdbe6 0%, #76bfd0 38%, #d8c59c 100%);
+    }
+
+    .placeholder-photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 24%, rgba(255,255,255,.28), transparent 20%),
+        radial-gradient(circle at 68% 28%, rgba(255,255,255,.16), transparent 18%),
+        linear-gradient(180deg, rgba(255,255,255,.14), transparent 36%),
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,.03) 0,
+          rgba(255,255,255,.03) 3px,
+          transparent 3px,
+          transparent 18px
+        );
+    }
+
+    .placeholder-photo .photo-label {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.84);
+      border: 1px solid rgba(15,47,70,.08);
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .room-name {
+      font-size: 1.5rem;
+      line-height: 1.08;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+
+    .room-sub {
+      margin: 0 0 8px;
+      color: var(--ink-3);
+      font-size: .96rem;
+    }
+
+    .room-copy {
+      margin: 0 0 16px;
+      color: var(--ink-2);
+      font-size: .95rem;
+    }
+
+    .editorial-stack {
+      display: grid;
+      gap: 22px;
+    }
+
+    .editorial-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      padding: 22px;
+      align-items: stretch;
+    }
+
+    .editorial-card.reverse .placeholder-photo {
+      order: 2;
+    }
+
+    .editorial-card.reverse .editorial-copy {
+      order: 1;
+    }
+
+    .editorial-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8px;
+    }
+
+    .category-tabs,
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 24px;
+    }
+
+    .chip-btn {
+      appearance: none;
+      border: 1px solid rgba(15,47,70,.10);
+      background: rgba(255,255,255,.88);
+      color: var(--ink-2);
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .84rem;
+      cursor: pointer;
+      transition: all .18s ease;
+    }
+
+    .chip-btn.active,
+    .chip-btn:hover {
+      background: linear-gradient(135deg, rgba(87,184,201,.18), rgba(212,176,103,.16));
+      color: var(--ink);
+      border-color: rgba(15,47,70,.16);
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-card {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .grid-card .placeholder-photo {
+      min-height: 220px;
+    }
+
+    .grid-topline {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .rating-box {
+      flex: 0 0 auto;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(212,176,103,.12);
+      border: 1px solid rgba(212,176,103,.24);
+      font-weight: 700;
+      font-size: .84rem;
+      color: #6b531d;
+    }
+
+    .compare-wrap {
+      overflow-x: auto;
+      border-radius: 22px;
+      border: 1px solid rgba(15,47,70,.10);
+      background: rgba(255,255,255,.90);
+      box-shadow: var(--shadow-soft);
+    }
+
+    table.compare {
+      width: 100%;
+      min-width: 1080px;
+      border-collapse: collapse;
+    }
+
+    .compare thead th {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(180deg, #f8fcfd, #edf7f8);
+      z-index: 1;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--ink-2);
+    }
+
+    .compare th,
+    .compare td {
+      text-align: left;
+      vertical-align: top;
+      padding: 16px 14px;
+      border-bottom: 1px solid rgba(15,47,70,.08);
+    }
+
+    .compare tbody tr:hover {
+      background: rgba(87,184,201,.05);
+    }
+
+    .compare .room-col {
+      min-width: 220px;
+    }
+
+    .compare .room-title {
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .compare .room-cat {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--brand-deep);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .strip-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .strip-card {
+      display: grid;
+      grid-template-columns: 240px 1fr auto;
+      gap: 18px;
+      padding: 18px;
+      align-items: center;
+    }
+
+    .strip-card .placeholder-photo {
+      min-height: 180px;
+    }
+
+    .strip-center h3 {
+      margin: 0 0 8px;
+      font-size: 1.3rem;
+      line-height: 1.06;
+    }
+
+    .strip-center p {
+      margin: 0 0 12px;
+      color: var(--ink-3);
+      font-size: .95rem;
+      max-width: 760px;
+    }
+
+    .strip-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 190px;
+    }
+
+    .directory-layout {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .directory-side {
+      position: sticky;
+      top: 96px;
+      padding: 22px;
+    }
+
+    .directory-side h3 {
+      margin: 0 0 10px;
+      font-size: 1.55rem;
+      line-height: 1.08;
+    }
+
+    .directory-side p {
+      margin: 0 0 18px;
+      color: var(--ink-3);
+    }
+
+    .group-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .group-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.84);
+      border: 1px solid rgba(15,47,70,.08);
+    }
+
+    .group-item strong {
+      display: block;
+      color: var(--ink);
+      font-size: .96rem;
+    }
+
+    .group-item span {
+      color: var(--ink-3);
+      font-size: .82rem;
+    }
+
+    .directory-main {
+      display: grid;
+      gap: 14px;
+    }
+
+    .accordion {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(15,47,70,.08);
+      background: rgba(255,255,255,.92);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .accordion summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: 1.2fr .9fr .9fr .9fr auto;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .accordion summary strong {
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    .accordion summary span {
+      color: var(--ink-3);
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    .acc-tag {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(212,176,103,.14);
+      border: 1px solid rgba(212,176,103,.24);
+      font-size: .76rem;
+      font-weight: 700;
+      color: #6b531d;
+    }
+
+    .accordion[open] summary {
+      background: linear-gradient(180deg, rgba(87,184,201,.08), rgba(255,255,255,.50));
+      border-bottom: 1px solid rgba(15,47,70,.08);
+    }
+
+    .accordion-body {
+      padding: 18px 20px 20px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 18px;
+    }
+
+    .footer-note {
+      padding: 26px 0 72px;
+      text-align: center;
+      color: var(--ink-3);
+      font-size: .9rem;
+    }
+
+    .muted {
+      color: var(--ink-3);
+    }
+
+    .subtle {
+      color: var(--ink-2);
+    }
+
+    @media (max-width: 1120px) {
+      .hero-grid,
+      .editorial-card,
+      .directory-layout,
+      .accordion-body {
+        grid-template-columns: 1fr;
+      }
+
+      .strip-card {
+        grid-template-columns: 1fr;
+      }
+
+      .strip-actions {
+        min-width: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .grid-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .directory-side {
+        position: static;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0;
+      }
+
+      .quick-nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .grid-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .accordion summary {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .accordion summary span,
+      .accordion summary .acc-tag {
+        justify-self: start;
+      }
+
+      .hero-stat-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(calc(100% - 22px), var(--max));
+      }
+
+      .editorial-card,
+      .grid-card,
+      .strip-card,
+      .directory-side,
+      .accordion summary,
+      .accordion-body {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .placeholder-photo {
+        min-height: 220px;
+      }
+
+      .strip-card .placeholder-photo {
+        min-height: 190px;
+      }
+
+      .accordion summary {
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <strong>Seascape Resort & Marina</strong>
+        <span>Accommodations Presentation Review</span>
+      </div>
+      <nav class="quick-nav">
+        <a href="#option-1">Option 1</a>
+        <a href="#option-2">Option 2</a>
+        <a href="#option-3">Option 3</a>
+        <a href="#option-4">Option 4</a>
+        <a href="#option-5">Option 5</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Room Presentation Review</span>
+          <h1>Five fully different ways to present Seascape’s available rooms on one polished review page.</h1>
+          <p>
+            This page is built for stakeholder review. Each section below uses the same Seascape visual system, but presents the accommodations in a different format so the team can compare which direction feels strongest for conversion, clarity, and premium appeal.
+          </p>
+          <div class="hero-pills">
+            <span class="pill">12 room styles represented</span>
+            <span class="pill">Mobile-first hierarchy</span>
+            <span class="pill alt">Weighted by booking importance</span>
+            <span class="pill">Consistent Seascape styling</span>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://portal.freetobook.com/" target="_blank" rel="noopener">Review booking CTA direction</a>
+            <a class="btn btn-secondary" href="#option-1">Start with Option 1</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-stat-grid">
+            <div class="hero-stat">
+              <strong>5</strong>
+              <span>Distinct presentation systems on one page</span>
+            </div>
+            <div class="hero-stat">
+              <strong>12</strong>
+              <span>Accommodations represented from suites to bungalows</span>
+            </div>
+            <div class="hero-stat">
+              <strong>Priority</strong>
+              <span>Room name, view, sleeps, beds, kitchen level, CTA</span>
+            </div>
+            <div class="hero-stat">
+              <strong>Use</strong>
+              <span>Publish and share for easy internal review</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="option-1">
+      <div class="container">
+        <div class="option-label">Option 1. Premium Editorial Split Cards</div>
+        <div class="section-head">
+          <h2 class="section-title">Large, premium room storytelling with clean booking hierarchy.</h2>
+          <p class="section-text">
+            This format is strongest when you want each room to feel elevated, intentional, and emotionally positioned. It is ideal for a boutique-resort presentation style.
+          </p>
+          <div class="importance-key">
+            <span class="mini-pill">1. Room name</span>
+            <span class="mini-pill">2. View / setting</span>
+            <span class="mini-pill">3. Sleeps</span>
+            <span class="mini-pill">4. Bed setup</span>
+            <span class="mini-pill">5. Top features</span>
+            <span class="mini-pill">6. CTA</span>
+          </div>
+        </div>
+        <div class="editorial-stack" id="editorial-stack"></div>
+      </div>
+    </section>
+
+    <section class="section" id="option-2">
+      <div class="container">
+        <div class="option-label">Option 2. Filterable Inventory Grid</div>
+        <div class="section-head">
+          <h2 class="section-title">A cleaner catalog view for guests who want to scan choices fast.</h2>
+          <p class="section-text">
+            This direction is strong for direct comparison without becoming too technical. It gives a modern hotel-inventory feel while still looking boutique and premium.
+          </p>
+        </div>
+        <div class="filter-bar" id="filter-bar"></div>
+        <div class="grid-cards" id="grid-cards"></div>
+      </div>
+    </section>
+
+    <section class="section" id="option-3">
+      <div class="container">
+        <div class="option-label">Option 3. Decision-First Comparison Matrix</div>
+        <div class="section-head">
+          <h2 class="section-title">A stronger side-by-side comparison for practical decision-makers.</h2>
+          <p class="section-text">
+            This section is built for speed. It lets guests and stakeholders compare room types, occupancy, beds, views, kitchen level, and standout details in one scan.
+          </p>
+        </div>
+        <div class="compare-wrap">
+          <table class="compare" id="compare-table">
+            <thead>
+              <tr>
+                <th class="room-col">Room</th>
+                <th>Sleeps</th>
+                <th>Beds</th>
+                <th>View / Patio</th>
+                <th>Kitchen Level</th>
+                <th>Top Features</th>
+                <th>Rating</th>
+                <th>CTA</th>
+              </tr>
+            </thead>
+            <tbody id="compare-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="option-4">
+      <div class="container">
+        <div class="option-label">Option 4. Resort Collection Bands</div>
+        <div class="section-head">
+          <h2 class="section-title">A more lifestyle-driven way to organize rooms by experience.</h2>
+          <p class="section-text">
+            Instead of feeling like a hard inventory sheet, this version makes the accommodations feel like part of a broader resort story. It works well if Seascape wants a more emotional Florida Keys boutique feel.
+          </p>
+        </div>
+        <div class="category-tabs" id="category-tabs"></div>
+        <div class="strip-stack" id="strip-stack"></div>
+      </div>
+    </section>
+
+    <section class="section" id="option-5">
+      <div class="container">
+        <div class="option-label">Option 5. Booking-Focused Directory With Expandable Detail</div>
+        <div class="section-head">
+          <h2 class="section-title">A compact high-conversion directory for guests who want answers quickly.</h2>
+          <p class="section-text">
+            This system is strongest when stakeholders want a page that feels efficient, clear, and conversion-focused while still looking polished and high-end.
+          </p>
+        </div>
+        <div class="directory-layout">
+          <aside class="directory-side card">
+            <h3>What this format does best</h3>
+            <p>
+              It gets the guest from interest to action fast. The summary row shows the most important booking facts first. Expanded detail is available without overwhelming the page.
+            </p>
+            <div class="group-list" id="group-list"></div>
+            <p class="section-note">
+              Good fit for direct-booking traffic. Good fit for mobile. Good fit for “Which room is right for me?” behavior.
+            </p>
+          </aside>
+          <div class="directory-main" id="accordion-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container footer-note">
+      Review page prepared for internal comparison. All five sections use one shared Seascape visual system so the decision can focus on structure and presentation style.
+    </div>
+  </main>
+
+  <script>
+    const bookingUrl = "https://portal.freetobook.com/";
+    const bookingPhone = "tel:+13057436212";
+
+    const rooms = [
+      {
+        unit: 1,
+        name: "Starfish Suite",
+        category: "Suites",
+        rating: "5/5",
+        sleeps: 2,
+        beds: "1 Queen Bed",
+        view: "Patio",
+        features: ["Free WiFi", "Patio"],
+        kitchen: "Mini refreshment setup",
+        highlight: "A simple, comfortable suite for two with a private patio feel.",
+        amenities: ["AC", "Shower", "Coffeemaker", "Microwave", "Fridge", "Cable TV"],
+        imageLabel: "Suite / Patio"
+      },
+      {
+        unit: 2,
+        name: "Seaside Suite",
+        category: "Suites",
+        rating: "5/5",
+        sleeps: 2,
+        beds: "1 King Bed",
+        view: "Patio with peek-a-boo ocean feel",
+        features: ["Free WiFi", "Patio"],
+        kitchen: "Mini refreshment setup",
+        highlight: "King-bed suite with patio access and bright, coastal character.",
+        amenities: ["AC", "Shower", "Coffeemaker", "Microwave", "Fridge", "Cable TV"],
+        imageLabel: "King Suite"
+      },
+      {
+        unit: 3,
+        name: "Sea Breeze Suite",
+        category: "Suites",
+        rating: "5/5",
+        sleeps: 3,
+        beds: "1 King Bed + 1 Twin Futon",
+        view: "Patio with Atlantic peek",
+        features: ["Free WiFi", "Patio"],
+        kitchen: "Mini refreshment setup",
+        highlight: "A flexible corner suite for couples or small families needing one extra sleep surface.",
+        amenities: ["AC", "Shower", "Coffeemaker", "Fridge", "Cable TV"],
+        imageLabel: "Corner Suite"
+      },
+      {
+        unit: 4,
+        name: "Coconut Suite",
+        category: "Suites",
+        rating: "5/5",
+        sleeps: 2,
+        beds: "1 King Bed",
+        view: "Garden-side location",
+        features: ["Free WiFi"],
+        kitchen: "Mini refreshment setup",
+        highlight: "A calm king suite near the courtyard, pool path, and landscaped grounds.",
+        amenities: ["AC", "Shower/Tub", "Coffeemaker", "Microwave", "Fridge", "Cable TV"],
+        imageLabel: "Garden Suite"
+      },
+      {
+        unit: 5,
+        name: "Sunshine Suite",
+        category: "Suites",
+        rating: "5/5",
+        sleeps: 3,
+        beds: "1 King Bed + 1 Twin Futon",
+        view: "Easy resort-access location",
+        features: ["Free WiFi"],
+        kitchen: "Mini refreshment setup",
+        highlight: "A flexible suite that keeps a simple footprint while adding room for a third guest.",
+        amenities: ["AC", "Shower/Tub", "Coffeemaker", "Microwave", "Fridge", "Cable TV"],
+        imageLabel: "Flexible Suite"
+      },
+      {
+        unit: 6,
+        name: "Conch Suite",
+        category: "Suites",
+        rating: "4.9/5",
+        sleeps: 3,
+        beds: "1 King Bed + 1 Twin Futon",
+        view: "Suite-style layout",
+        features: ["Free WiFi", "Kitchenette"],
+        kitchen: "Kitchenette with hot plate",
+        highlight: "One of the strongest small-format options for guests who value extra in-room prep ability.",
+        amenities: ["AC", "Shower/Tub", "Coffeemaker", "Microwave", "Kitchenette", "Toaster", "Hot Plate", "Fridge"],
+        imageLabel: "Kitchenette Suite"
+      },
+      {
+        unit: 7,
+        name: "Seaview Suite",
+        category: "Ocean-View Suites",
+        rating: "5/5",
+        sleeps: 2,
+        beds: "1 King Bed",
+        view: "Direct Ocean View",
+        features: ["Direct Ocean View", "Free WiFi"],
+        kitchen: "Mini prep with hot plate",
+        highlight: "A strong premium option for couples who want a direct ocean-facing room without moving into a larger apartment category.",
+        amenities: ["AC", "Shower", "Coffeemaker", "Microwave", "Hot Plate", "Fridge", "Cable TV"],
+        imageLabel: "Direct Ocean View"
+      },
+      {
+        unit: 8,
+        name: "Hideaway Suite",
+        category: "Ocean-View Suites",
+        rating: "4.8/5",
+        sleeps: 2,
+        beds: "1 Queen Bed",
+        view: "Ocean View from Patio",
+        features: ["Ocean View Patio", "Free WiFi"],
+        kitchen: "Mini refreshment setup",
+        highlight: "A cozy option for two with outdoor ocean-view appeal and a more tucked-away personality.",
+        amenities: ["AC", "Shower/Tub", "Coffeemaker", "Fridge", "Cable TV"],
+        imageLabel: "Patio Ocean View"
+      },
+      {
+        unit: 9,
+        name: "Oasis Apartment",
+        category: "Apartments",
+        rating: "5/5",
+        sleeps: 4,
+        beds: "1 King Bed + 1 Queen Pull-Out Sofa",
+        view: "Apartment-style comfort",
+        features: ["Free WiFi", "Full Kitchen"],
+        kitchen: "Full kitchen",
+        highlight: "A stronger stay for longer visits or guests who want the comfort of a more residential layout.",
+        amenities: ["AC", "Shower/Tub", "K-Cup Coffeemaker", "Microwave", "Oven", "Fridge", "Cable TV"],
+        imageLabel: "Apartment Stay"
+      },
+      {
+        unit: 10,
+        name: "Atlantic Apartment",
+        category: "Apartments",
+        rating: "5/5",
+        sleeps: 6,
+        beds: "2 Queen Beds + 2 Twin Beds",
+        view: "Direct Ocean View",
+        features: ["Direct Ocean View", "Full Kitchen", "2 TVs"],
+        kitchen: "Full kitchen",
+        highlight: "The strongest large-group option with direct ocean view, more sleeping capacity, and the most practical family layout.",
+        amenities: ["AC", "Extra-Large Shower", "Half Bath", "K-Cup Coffeemaker", "Microwave", "Oven", "Fridge", "2 TVs"],
+        imageLabel: "Large Ocean Apartment"
+      },
+      {
+        unit: 11,
+        name: "Anglers Apartment",
+        category: "Apartments",
+        rating: "5/5",
+        sleeps: 5,
+        beds: "1 Queen Bed + 2 Double Beds",
+        view: "Ocean View from Master Bedroom",
+        features: ["Ocean View Master", "Eat-In Kitchenette", "Free WiFi"],
+        kitchen: "Eat-in kitchenette",
+        highlight: "A practical group stay for guests who want multiple beds and light in-room meal flexibility.",
+        amenities: ["AC", "Shower", "K-Cup Coffeemaker", "Hot Plate", "Microwave", "Fridge", "Cable TV"],
+        imageLabel: "Anglers Apartment"
+      },
+      {
+        unit: 12,
+        name: "Seaview Bungalow",
+        category: "Bungalows",
+        rating: "4.9/5",
+        sleeps: 4,
+        beds: "2 Queen Beds",
+        view: "Direct Ocean View",
+        features: ["Direct Ocean View", "Free WiFi"],
+        kitchen: "Mini refreshment setup",
+        highlight: "A strong bungalow choice with direct ocean view and a comfortable four-guest setup.",
+        amenities: ["AC", "Extra-Large Shower", "K-Cup Coffeemaker", "Microwave", "Fridge", "Cable TV"],
+        imageLabel: "Ocean Bungalow"
+      },
+      {
+        unit: 14,
+        name: "Seaview Bungalow",
+        category: "Bungalows",
+        rating: "4.9/5",
+        sleeps: 4,
+        beds: "2 Queen Beds",
+        view: "Direct Ocean View",
+        features: ["Direct Ocean View", "Spa Shower Panel", "Free WiFi"],
+        kitchen: "Mini refreshment setup",
+        highlight: "A direct-ocean-view bungalow with a slightly more spa-forward bath detail and easy family appeal.",
+        amenities: ["AC", "Spa Shower Panel", "K-Cup Coffeemaker", "Microwave", "Fridge", "Cable TV"],
+        imageLabel: "Spa Bungalow"
+      }
+    ];
+
+    const featuredEditorial = [7, 10, 6, 14, 2];
+
+    function roomSlug(room) {
+      return `${room.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-unit-${room.unit}`;
+    }
+
+    function topAmenityList(room, count = 5) {
+      return room.amenities.slice(0, count).map(item => `<span>${item}</span>`).join("");
+    }
+
+    function featurePills(room, count = 3) {
+      return room.features.slice(0, count).map(item => `<span class="mini-pill">${item}</span>`).join("");
+    }
+
+    function metrics(room) {
+      return `
+        <div class="metric-row">
+          <span class="metric">Sleeps ${room.sleeps}</span>
+          <span class="metric">${room.beds}</span>
+          <span class="metric">${room.view}</span>
+          <span class="metric">${room.kitchen}</span>
+        </div>
+      `;
+    }
+
+    function ctaRow(room) {
+      return `
+        <div class="btn-row">
+          <a class="btn btn-primary" href="${bookingUrl}" target="_blank" rel="noopener">Check Availability</a>
+          <a class="btn btn-secondary" href="${bookingPhone}">Call Best Rate</a>
+        </div>
+      `;
+    }
+
+    function renderEditorial() {
+      const target = document.getElementById("editorial-stack");
+      const selected = featuredEditorial.map(unit => rooms.find(r => r.unit === unit)).filter(Boolean);
+
+      target.innerHTML = selected.map((room, index) => `
+        <article class="card editorial-card ${index % 2 ? 'reverse' : ''}">
+          <div class="placeholder-photo">
+            <div class="photo-label">Unit ${room.unit} · ${room.imageLabel}</div>
+          </div>
+          <div class="editorial-copy">
+            <div class="room-badge-row">
+              <span class="mini-pill">${room.category}</span>
+              <span class="mini-pill">Unit ${room.unit}</span>
+              <span class="mini-pill">${room.rating} rating</span>
+              ${featurePills(room, 2)}
+            </div>
+            <h3 class="room-name">${room.name}</h3>
+            <p class="room-sub">${room.view}</p>
+            ${metrics(room)}
+            <p class="room-copy">${room.highlight}</p>
+            <div class="amenity-list">${topAmenityList(room, 6)}</div>
+            <div style="margin-top:18px">${ctaRow(room)}</div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderFilterBar(active = "All") {
+      const filters = ["All", "Suites", "Ocean-View Suites", "Apartments", "Bungalows", "Sleeps 4+", "Ocean View", "Kitchenette / Kitchen"];
+      const target = document.getElementById("filter-bar");
+
+      target.innerHTML = filters.map(label => `
+        <button class="chip-btn ${label === active ? 'active' : ''}" data-filter="${label}">
+          ${label}
+        </button>
+      `).join("");
+
+      target.querySelectorAll(".chip-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          renderFilterBar(btn.dataset.filter);
+          renderGrid(btn.dataset.filter);
+        });
+      });
+    }
+
+    function filterRooms(filter) {
+      if (filter === "All") return rooms;
+      if (filter === "Sleeps 4+") return rooms.filter(r => r.sleeps >= 4);
+      if (filter === "Ocean View") return rooms.filter(r => /ocean/i.test(r.view) || r.features.some(f => /ocean/i.test(f)));
+      if (filter === "Kitchenette / Kitchen") return rooms.filter(r => /kitchen/i.test(r.kitchen));
+      return rooms.filter(r => r.category === filter);
+    }
+
+    function renderGrid(filter = "All") {
+      const target = document.getElementById("grid-cards");
+      const list = filterRooms(filter);
+
+      target.innerHTML = list.map(room => `
+        <article class="card grid-card">
+          <div class="placeholder-photo">
+            <div class="photo-label">Unit ${room.unit} · ${room.imageLabel}</div>
+          </div>
+          <div class="grid-topline">
+            <div>
+              <div class="room-badge-row">
+                <span class="mini-pill">${room.category}</span>
+                <span class="mini-pill">Unit ${room.unit}</span>
+              </div>
+              <h3 class="room-name" style="font-size:1.25rem; margin-top:10px;">${room.name}</h3>
+            </div>
+            <div class="rating-box">${room.rating}</div>
+          </div>
+          <p class="room-sub">${room.view}</p>
+          ${metrics(room)}
+          <div class="amenity-list">${topAmenityList(room, 5)}</div>
+          <div class="btn-row" style="margin-top:auto;">
+            <a class="btn btn-primary" href="${bookingUrl}" target="_blank" rel="noopener">Book Direct</a>
+            <a class="btn btn-ghost" href="${bookingPhone}">Call</a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function kitchenLabel(room) {
+      if (/full kitchen/i.test(room.kitchen)) return "Full Kitchen";
+      if (/eat-in kitchenette/i.test(room.kitchen)) return "Eat-In Kitchenette";
+      if (/kitchenette/i.test(room.kitchen)) return "Kitchenette";
+      if (/hot plate/i.test(room.kitchen)) return "Light Prep";
+      return "Refreshment Setup";
+    }
+
+    function renderCompare() {
+      const target = document.getElementById("compare-body");
+      target.innerHTML = rooms.map(room => `
+        <tr>
+          <td class="room-col">
+            <div class="room-title">${room.name}</div>
+            <div class="room-cat">Unit ${room.unit} · ${room.category}</div>
+          </td>
+          <td>Sleeps ${room.sleeps}</td>
+          <td>${room.beds}</td>
+          <td>${room.view}</td>
+          <td>${kitchenLabel(room)}</td>
+          <td>${room.features.slice(0, 3).join(", ")}</td>
+          <td>${room.rating}</td>
+          <td><a class="btn btn-secondary" style="min-height:40px;padding:0 14px;font-size:.84rem;" href="${bookingUrl}" target="_blank" rel="noopener">Reserve</a></td>
+        </tr>
+      `).join("");
+    }
+
+    function renderCategoryTabs(active = "All Collections") {
+      const categories = ["All Collections", "Suites", "Ocean-View Suites", "Apartments", "Bungalows"];
+      const target = document.getElementById("category-tabs");
+
+      target.innerHTML = categories.map(label => `
+        <button class="chip-btn ${label === active ? 'active' : ''}" data-cat="${label}">
+          ${label}
+        </button>
+      `).join("");
+
+      target.querySelectorAll(".chip-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          renderCategoryTabs(btn.dataset.cat);
+          renderStripList(btn.dataset.cat);
+        });
+      });
+    }
+
+    function collectionFilter(label) {
+      if (label === "All Collections") return rooms;
+      return rooms.filter(r => r.category === label);
+    }
+
+    function renderStripList(active = "All Collections") {
+      const target = document.getElementById("strip-stack");
+      const list = collectionFilter(active);
+
+      target.innerHTML = list.map(room => `
+        <article class="card strip-card">
+          <div class="placeholder-photo">
+            <div class="photo-label">Unit ${room.unit} · ${room.imageLabel}</div>
+          </div>
+          <div class="strip-center">
+            <div class="room-badge-row">
+              <span class="mini-pill">${room.category}</span>
+              <span class="mini-pill">${room.rating}</span>
+              ${featurePills(room, 2)}
+            </div>
+            <h3>${room.name}</h3>
+            <p>${room.highlight}</p>
+            ${metrics(room)}
+            <div class="amenity-list">${topAmenityList(room, 6)}</div>
+          </div>
+          <div class="strip-actions">
+            <a class="btn btn-primary" href="${bookingUrl}" target="_blank" rel="noopener">Check Dates</a>
+            <a class="btn btn-secondary" href="${bookingPhone}">Call for Best Rate</a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderGroups() {
+      const groupTarget = document.getElementById("group-list");
+      const groups = [
+        { name: "Suites", count: rooms.filter(r => r.category === "Suites").length, note: "Flexible couples and small-family stays" },
+        { name: "Ocean-View Suites", count: rooms.filter(r => r.category === "Ocean-View Suites").length, note: "Higher view value for two" },
+        { name: "Apartments", count: rooms.filter(r => r.category === "Apartments").length, note: "Best for longer stays and groups" },
+        { name: "Bungalows", count: rooms.filter(r => r.category === "Bungalows").length, note: "Direct-ocean-view family appeal" }
+      ];
+
+      groupTarget.innerHTML = groups.map(group => `
+        <div class="group-item">
+          <div>
+            <strong>${group.name}</strong>
+            <span>${group.note}</span>
+          </div>
+          <span class="acc-tag">${group.count} units</span>
+        </div>
+      `).join("");
+    }
+
+    function renderAccordion() {
+      const target = document.getElementById("accordion-list");
+
+      target.innerHTML = rooms.map((room, index) => `
+        <details class="accordion" ${index === 0 ? 'open' : ''}>
+          <summary>
+            <strong>${room.name} <span class="muted">· Unit ${room.unit}</span></strong>
+            <span>Sleeps ${room.sleeps}</span>
+            <span>${room.beds}</span>
+            <span>${room.view}</span>
+            <span class="acc-tag">${room.rating}</span>
+          </summary>
+          <div class="accordion-body">
+            <div class="placeholder-photo">
+              <div class="photo-label">${room.imageLabel}</div>
+            </div>
+            <div>
+              <div class="room-badge-row" style="margin-bottom:12px;">
+                <span class="mini-pill">${room.category}</span>
+                ${featurePills(room, 3)}
+              </div>
+              <p class="room-copy">${room.highlight}</p>
+              ${metrics(room)}
+              <div class="amenity-list">${topAmenityList(room, 8)}</div>
+              <div style="margin-top:18px;" class="btn-row">
+                <a class="btn btn-primary" href="${bookingUrl}" target="_blank" rel="noopener">Book This Room Style</a>
+                <a class="btn btn-secondary" href="${bookingPhone}">Call Now</a>
+              </div>
+            </div>
+          </div>
+        </details>
+      `).join("");
+    }
+
+    renderEditorial();
+    renderFilterBar();
+    renderGrid();
+    renderCompare();
+    renderCategoryTabs();
+    renderStripList();
+    renderGroups();
+    renderAccordion();
+  </script>
+</body>
+</html>
