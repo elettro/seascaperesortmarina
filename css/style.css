@@ -963,10 +963,6 @@ a {
   color: rgba(255, 255, 255, 0.92);
 }
 
-.hero-audio-toggle--inline {
-  display: none;
-}
-
 .hero-highlights span {
   display: inline-flex;
   align-items: center;
@@ -1704,31 +1700,30 @@ a {
   }
 
   .video-shell > .hero-audio-toggle {
-    display: none !important;
-  }
-
-  .hero-trust-controls {
-    display: inline-flex !important;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .hero-audio-toggle--inline {
-    display: inline-grid !important;
-    position: static !important;
-    width: 36px;
-    height: 36px;
-    flex: 0 0 auto;
+    display: grid !important;
+    position: absolute !important;
+    right: calc(12px + env(safe-area-inset-right, 0px));
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    top: auto !important;
+    z-index: 6;
+    pointer-events: auto;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
+  .video-shell {
+    position: relative !important;
+  }
+
   .video-shell > .hero-audio-toggle {
     display: grid !important;
-    position: fixed;
+    position: absolute !important;
     right: calc(12px + env(safe-area-inset-right, 0px));
-    bottom: clamp(58px, 14svh, 108px);
-    z-index: 1015;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    top: auto !important;
+    z-index: 6;
     pointer-events: auto;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
@@ -1747,10 +1742,6 @@ a {
     z-index: 8;
   }
 
-  .hero-audio-toggle--inline {
-    display: none !important;
-  }
-
   .hero-trust-phone {
     position: relative;
     z-index: 7;
@@ -1762,7 +1753,7 @@ a {
 
 @media only screen and (max-width: 932px) and (orientation: landscape) {
   .video-shell > .hero-audio-toggle {
-    bottom: clamp(72px, 18svh, 132px);
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
   }
 }
 
@@ -1791,7 +1782,7 @@ a {
 
   .video-shell > .hero-audio-toggle {
     right: 18px;
-    bottom: clamp(58px, 7svh, 96px);
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
   }
 }
 
@@ -1848,10 +1839,6 @@ a {
     -webkit-tap-highlight-color: transparent;
   }
 
-  .hero-audio-toggle--inline {
-    display: none !important;
-  }
-
   /* Temporary mobile-portrait cleanup for the rounded artifact near the section seam. */
   .hero-highlights {
     display: none !important;
@@ -1894,12 +1881,22 @@ a {
     height: 34px;
   }
 
-  .hero-audio-toggle--inline {
-    display: none !important;
-  }
-
   .hero-trust-phone {
     margin-top: clamp(56px, 18svh, 140px);
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .video-shell {
+    position: relative !important;
+  }
+
+  .video-shell > .hero-audio-toggle {
+    position: absolute !important;
+    right: calc(12px + env(safe-area-inset-right, 0px));
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    top: auto !important;
+    z-index: 6 !important;
   }
 }
 
