@@ -1241,6 +1241,12 @@ a {
   }
 }
 
+@media only screen and (max-width: 950px) and (orientation: portrait) {
+  .home-page .hero-audio-toggle {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 950px) and (orientation: landscape) {
   html,
   body {
