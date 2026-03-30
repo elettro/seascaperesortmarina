@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seascape Resort &amp; Marina | Marathon, Florida Keys</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#c3c7cd",
+              "inverse-surface": "#31312d",
+              "on-primary-fixed": "#001d33",
+              "on-secondary-fixed-variant": "#194c61",
+              "on-tertiary-fixed": "#271900",
+              "on-secondary": "#ffffff",
+              "primary-container": "#16324a",
+              "tertiary-fixed-dim": "#e2c28f",
+              "secondary-fixed": "#c0e8ff",
+              "outline": "#73777e",
+              "on-tertiary-container": "#b09465",
+              "on-error": "#ffffff",
+              "inverse-primary": "#aec9e7",
+              "surface-container-lowest": "#ffffff",
+              "surface-tint": "#47617b",
+              "on-surface": "#1c1c18",
+              "on-secondary-container": "#37667d",
+              "surface-variant": "#e5e2dc",
+              "background": "#fcf9f3",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "surface": "#fcf9f3",
+              "surface-container-high": "#ebe8e2",
+              "on-tertiary-fixed-variant": "#59431b",
+              "primary-fixed": "#cee5ff",
+              "tertiary-container": "#402d07",
+              "secondary-container": "#b4e3fe",
+              "error-container": "#ffdad6",
+              "surface-dim": "#dcdad4",
+              "on-error-container": "#93000a",
+              "secondary-fixed-dim": "#9ecde6",
+              "primary": "#001d33",
+              "on-surface-variant": "#43474d",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#e5e2dc",
+              "inverse-on-surface": "#f3f0ea",
+              "surface-container-low": "#f6f3ed",
+              "surface-container": "#f0eee8",
+              "surface-bright": "#fcf9f3",
+              "tertiary-fixed": "#ffdea9",
+              "primary-fixed-dim": "#aec9e7",
+              "tertiary": "#271900",
+              "on-primary-fixed-variant": "#2f4962",
+              "secondary": "#35647a",
+              "on-primary-container": "#809ab7",
+              "on-secondary-fixed": "#001e2b",
+              "on-background": "#1c1c18"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+      }
+      .parallax-bg {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-[#fcf9f3]/70 dark:bg-[#001d33]/70 backdrop-blur-md shadow-[0_32px_64px_-15px_rgba(0,29,51,0.05)] transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center px-6 md:px-12 py-4 md:py-6 w-full max-w-[1920px] mx-auto">
+<div class="text-2xl font-headline uppercase tracking-tighter text-primary dark:text-surface font-bold">
+                Seascape Resort &amp; Marina
+            </div>
+<div class="hidden lg:flex items-center space-x-8">
+<a class="text-primary font-headline font-light tracking-wide opacity-80 hover:opacity-100 transition-all duration-500 underline-offset-8 border-b border-primary" href="#">Rooms</a>
+<a class="text-primary font-headline font-light tracking-wide opacity-80 hover:opacity-100 transition-all duration-500" href="#">Marina</a>
+<a class="text-primary font-headline font-light tracking-wide opacity-80 hover:opacity-100 transition-all duration-500" href="#">Amenities</a>
+<a class="text-primary font-headline font-light tracking-wide opacity-80 hover:opacity-100 transition-all duration-500" href="#">Excursions</a>
+<a class="text-primary font-headline font-light tracking-wide opacity-80 hover:opacity-100 transition-all duration-500" href="#">Group Stays</a>
+<a class="text-primary font-headline font-light tracking-wide opacity-80 hover:opacity-100 transition-all duration-500" href="#">Explore Keys</a>
+</div>
+<div class="flex items-center space-x-4">
+<a class="hidden md:flex items-center text-primary font-headline font-light tracking-wide" href="tel:3057436212">
+<span class="material-symbols-outlined mr-2" data-icon="call">call</span>
+                    (305) 743-6212
+                </a>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-label text-sm uppercase tracking-widest scale-100 active:scale-95 duration-300">
+                    Book Now
+                </button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-primary/30 absolute inset-0 z-10"></div>
+<img alt="Cinematic Resort View" class="w-full h-full object-cover" data-alt="cinematic aerial video still of a luxury waterfront resort with sparkling turquoise ocean water and private boat slips at golden hour" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADc6SR6ru72ztqvY2YtKj4eaDIxg0XS_0IOze2V5X92lBdItSSemoiKq2eEZz3LYyKdQftgU6gEozI1qcma5IUWeODEhmRB3GIuleXMx8O4pbqy8hn_FD2f8bAUUmsNtRt3Tj8ShxzMPdjh1BHkuc1K5ESyKrXpg-_xj44X8kYmxqGlqJvm-AoLI3P3u5tOWTkNBVzhmsTphvMMZ841AeA-OJs-aKKfd9hY0vneB1bPwYJe4WXiRRn-6wfM3IB87V4F6h-Mcq8NN8"/>
+</div>
+<div class="relative z-20 text-center px-6 max-w-5xl">
+<span class="font-label text-tertiary-fixed bg-tertiary/20 backdrop-blur-md px-4 py-1 rounded-full text-xs tracking-[0.2em] uppercase mb-8 inline-block">The Nautical Curator</span>
+<h1 class="font-headline text-5xl md:text-7xl lg:text-8xl text-surface leading-[1.1] mb-6 drop-shadow-lg">
+                Marina. Pool. Relaxation.<br/>All Steps Away.
+            </h1>
+<p class="font-body text-lg md:text-xl text-surface/90 max-w-2xl mx-auto mb-10 font-light tracking-wide">
+                A calm, private waterfront stay with the marina and pool just outside your room.
+            </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<button class="w-full md:w-auto bg-tertiary-fixed text-on-tertiary-fixed px-12 py-5 rounded-full font-label text-sm uppercase tracking-widest font-semibold hover:shadow-2xl transition-all duration-500">
+                    Check Availability
+                </button>
+<button class="w-full md:w-auto border border-surface text-surface px-12 py-5 rounded-full font-label text-sm uppercase tracking-widest hover:bg-surface hover:text-primary transition-all duration-500 glass-effect">
+                    Explore Rooms
+                </button>
+</div>
+<div class="mt-12 flex flex-col items-center space-y-2 text-surface/80 font-label text-xs uppercase tracking-[0.15em]">
+<p>Best Rates When You Book Direct</p>
+<div class="w-12 h-px bg-tertiary-fixed/50"></div>
+<p>(305) 743-6212</p>
+</div>
+</div>
+</section>
+<!-- Rooms Showcase -->
+<section class="py-32 px-6 md:px-12 bg-surface">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-2xl">
+<span class="font-label text-tertiary text-xs tracking-[0.2em] uppercase mb-4 block">Our Accommodations</span>
+<h2 class="font-headline text-4xl md:text-5xl lg:text-6xl text-primary leading-tight">Find Your Stay at Seascape</h2>
+<p class="mt-6 text-on-surface-variant text-lg font-light leading-relaxed">
+                        Choose the room style that fits your Florida Keys stay. Compare options and book direct for the best rates and exclusive coastal perks.
+                    </p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Room Card 1 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-700">
+<div class="relative overflow-hidden h-72">
+<img alt="Waterfront Suite" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="luxury waterfront hotel suite interior with soft natural light, white linen bedding, and a view of the ocean through large windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTaYHGFk3VJIAlbCTRw4pDtVcxRVftI-bUkAi5mm9LjJTESeRJbwiXtE1-HlDvVXjat_DEoCSKTFrOQ2EOPlyX9X8VmchSL3OwOAb3mL2VgJ74XF3f7emGGN0W57uY9-0g6z1hOS5eaW0R3E1lhnLrntPfTSwLqcqouIxtcGuVK7ZWb4-vmQxK9HPK_yQ4IL6zBFQ-IIqTTprvh1qsCgt5CQryw7gNZU7QaTrkpF_G4KpUqfeV1C1lLjXzgTpAvZnZ2Fzzg3l4v2M"/>
+<div class="absolute top-4 right-4 bg-secondary-fixed/90 text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Most Popular</div>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="font-headline text-2xl text-primary mb-2">Waterfront Suite</h3>
+<p class="text-on-surface-variant text-sm mb-6 font-light">Panoramic views of the marina and private balcony access.</p>
+<div class="flex flex-wrap gap-4 mb-8 text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+<span class="text-[10px] uppercase font-semibold">4 Guests</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="king_bed">king_bed</span>
+<span class="text-[10px] uppercase font-semibold">King</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="waves">waves</span>
+<span class="text-[10px] uppercase font-semibold">Harbor View</span>
+</div>
+</div>
+<div class="mt-auto pt-6 flex flex-col gap-3">
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-label text-xs uppercase tracking-widest hover:bg-primary-container transition-colors">Book Now</button>
+<button class="w-full border border-outline-variant text-primary py-3 rounded-full font-label text-xs uppercase tracking-widest hover:bg-surface-container-low transition-colors">See Selection</button>
+</div>
+</div>
+</div>
+<!-- Room Card 2 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-700">
+<div class="relative overflow-hidden h-72">
+<img alt="Poolside King" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="modern poolside hotel room with direct patio access, elegant wood furniture, and tropical plants in soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-_2Biz_ZTYC6l4NZ6C0ZS5CcRww5b888hf_FrZ1oaLaPumiK6Zw9iV5Q1UxtzC1ExIPbRxZ9bymPZ8cHnACPBnfo7ywcAESG2fkIvJAGONpzIj244tHwq-QBY20cQ4ZHUk10V1nAQr-hKp8sr5GaTgSgwBmotJirD6zSphWkqjEzR3l31URDaHVyvZ1wAJUDs2WxX3eUEQCQaNjzsA_o8wrnZQRTLsdCwPXln4OP_BMxit6RBY7lIH3k3ZBq1FiozD_4WEElNXVg"/>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="font-headline text-2xl text-primary mb-2">Poolside King</h3>
+<p class="text-on-surface-variant text-sm mb-6 font-light">Steps away from our resort pool with private terrace entry.</p>
+<div class="flex flex-wrap gap-4 mb-8 text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+<span class="text-[10px] uppercase font-semibold">2 Guests</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="king_bed">king_bed</span>
+<span class="text-[10px] uppercase font-semibold">King</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="pool">pool</span>
+<span class="text-[10px] uppercase font-semibold">Pool Access</span>
+</div>
+</div>
+<div class="mt-auto pt-6 flex flex-col gap-3">
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-label text-xs uppercase tracking-widest hover:bg-primary-container transition-colors">Book Now</button>
+<button class="w-full border border-outline-variant text-primary py-3 rounded-full font-label text-xs uppercase tracking-widest hover:bg-surface-container-low transition-colors">See Selection</button>
+</div>
+</div>
+</div>
+<!-- Room Card 3 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-700">
+<div class="relative overflow-hidden h-72">
+<img alt="Marina View Studio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="cozy coastal studio apartment with nautical decor, small kitchenette, and bright airy atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXQ7yA1Ro0oaW59C2X9tNNfX5x6mt_RsgP_h82ADkWC-VP-wF7KyI0vf6f5Ge8KQuXVn1PHvfsktkVwklbiwBCs6Xlp0MwJ8c2REt0Ky9_TSSX4NJ6I7zUCHYYHpPFLEwwgcaZkHHav_kKgzPoU-27o9NeFJg6qedFXkWrsGb1S2WJ5l4sCWn_FRCt2KFOrm_dzuj_lXG46C8YYSXIuXz6CSpO_Ucpl1lqmYcm_JN7QPeGfGNsq6-IaBeyytgTzafOE5DxJv5sdqU"/>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="font-headline text-2xl text-primary mb-2">Marina View Studio</h3>
+<p class="text-on-surface-variant text-sm mb-6 font-light">Perfect for long stays with a full kitchenette and desk space.</p>
+<div class="flex flex-wrap gap-4 mb-8 text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+<span class="text-[10px] uppercase font-semibold">2 Guests</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="countertops">countertops</span>
+<span class="text-[10px] uppercase font-semibold">Kitchenette</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="anchor">anchor</span>
+<span class="text-[10px] uppercase font-semibold">Dock Views</span>
+</div>
+</div>
+<div class="mt-auto pt-6 flex flex-col gap-3">
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-label text-xs uppercase tracking-widest hover:bg-primary-container transition-colors">Book Now</button>
+<button class="w-full border border-outline-variant text-primary py-3 rounded-full font-label text-xs uppercase tracking-widest hover:bg-surface-container-low transition-colors">See Selection</button>
+</div>
+</div>
+</div>
+<!-- Room Card 4 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-700">
+<div class="relative overflow-hidden h-72">
+<img alt="Dockside Villa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="spacious two-bedroom villa with maritime aesthetic, private porch overlooking boat slips at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3yELvga-wDP5g0cc1fJn-aEfB0d_Aos229ez_mEJjqYhgrQcSoYVRax0p_ceRqvlY2y09msIoMa2QEW1nkC0kQs9a2QOAim5KTh8Nj-WqZkaydLOHzlf2dVgL_XUdAGPNhpexsFbN1yLPsrvSSIQWKWiCtVaCHtbWAq6fqcEEWXduN8kwsIapT2ONpdyUQ954VI-BX1lAzoVQTs6qiVocu4BLSeFkbkCWM-LKEoOx2grJvMsLknwi5GUv6WcyJrcalNkHClIoVOM"/>
+</div>
+<div class="p-8 flex-grow flex flex-col">
+<h3 class="font-headline text-2xl text-primary mb-2">Dockside Villa</h3>
+<p class="text-on-surface-variant text-sm mb-6 font-light">A spacious 2-bedroom retreat for families and groups.</p>
+<div class="flex flex-wrap gap-4 mb-8 text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="group">group</span>
+<span class="text-[10px] uppercase font-semibold">6 Guests</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="apartment">apartment</span>
+<span class="text-[10px] uppercase font-semibold">2 BR / 2 BA</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="outdoor_grill">outdoor_grill</span>
+<span class="text-[10px] uppercase font-semibold">Private Patio</span>
+</div>
+</div>
+<div class="mt-auto pt-6 flex flex-col gap-3">
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-label text-xs uppercase tracking-widest hover:bg-primary-container transition-colors">Book Now</button>
+<button class="w-full border border-outline-variant text-primary py-3 rounded-full font-label text-xs uppercase tracking-widest hover:bg-surface-container-low transition-colors">See Selection</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Direct Booking Strip -->
+<section class="bg-surface-container-low py-12 border-y border-outline-variant/10">
+<div class="max-w-[1440px] mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex items-center gap-4 justify-center md:justify-start">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="sell">sell</span>
+<span class="font-label text-xs uppercase tracking-widest font-semibold text-primary">Best Rates Guaranteed</span>
+</div>
+<div class="flex items-center gap-4 justify-center md:justify-start">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="event_available">event_available</span>
+<span class="font-label text-xs uppercase tracking-widest font-semibold text-primary">Live Availability</span>
+</div>
+<div class="flex items-center gap-4 justify-center md:justify-start">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="verified">verified</span>
+<span class="font-label text-xs uppercase tracking-widest font-semibold text-primary">Official Site Booking</span>
+</div>
+<div class="flex items-center gap-4 justify-center md:justify-start">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="flash_on">flash_on</span>
+<span class="font-label text-xs uppercase tracking-widest font-semibold text-primary">Easy Reservations</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-32 px-6 md:px-12 bg-surface">
+<div class="max-w-[1200px] mx-auto text-center mb-20">
+<span class="font-label text-tertiary text-xs tracking-[0.2em] uppercase mb-4 block">The Seascape Way</span>
+<h2 class="font-headline text-4xl md:text-5xl lg:text-6xl text-primary mb-8">A quieter pace of Florida Keys living</h2>
+<div class="w-24 h-px bg-tertiary mx-auto mb-8 opacity-30"></div>
+</div>
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
+<div class="flex flex-col items-center">
+<div class="w-24 h-24 bg-surface-container-low rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="water">water</span>
+</div>
+<h3 class="font-headline text-2xl text-primary mb-4">Waterfront setting</h3>
+<p class="text-on-surface-variant font-light leading-relaxed">Nestled directly on the ocean, our grounds offer constant sea breezes and unhindered horizon views.</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-24 h-24 bg-surface-container-low rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="pool">pool</span>
+</div>
+<h3 class="font-headline text-2xl text-primary mb-4">Pool + relaxation</h3>
+<p class="text-on-surface-variant font-light leading-relaxed">Our heated saltwater pool is the centerpiece of the resort, surrounded by tropical flora and sun loungers.</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-24 h-24 bg-surface-container-low rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="sailing">sailing</span>
+</div>
+<h3 class="font-headline text-2xl text-primary mb-4">Marina lifestyle</h3>
+<p class="text-on-surface-variant font-light leading-relaxed">Walk right from your room to your vessel. Our full-service marina provides effortless ocean access.</p>
+</div>
+</div>
+</section>
+<!-- Parallax Marina -->
+<section class="relative h-[614px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0 parallax-bg" data-alt="stunning wide shot of a peaceful marina at sunset with boat masts silhouetted against a gradient orange and pink sky" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSQnU-AsOcKlB7ffEN-rgNK7Yk4B0B4dWBDFC8nPi4QPU4Ux3hu1nwY9mhCs1pv3234q5xXaN9pC6L7U9sNhd_v_tgBWha7RQUUpxJmFElIdhCYfaSm3AwTM_gyRYKxRfuwp_yJe1NPVZIKDBW3NZ0HciYKvDxf5I-DSAYOWlH5IgwvuS6l9bfDuRnaqzd3mRPnq5vM0VcOKiGl6z7-MBy46AWizWUe6PeHL6AXFI-kuTx2z5_GioKkmKA8lJU_2vnXLhcVTjFACE');">
+<div class="absolute inset-0 bg-primary/40 backdrop-blur-[2px]"></div>
+</div>
+<div class="relative z-10 text-center px-6">
+<h2 class="font-headline text-4xl md:text-6xl text-surface drop-shadow-lg max-w-4xl leading-tight">
+                Dockside calm in the heart of Marathon
+            </h2>
+</div>
+</section>
+<!-- Marina + Excursions Split -->
+<section class="grid grid-cols-1 lg:grid-cols-2">
+<div class="relative h-[600px] group overflow-hidden">
+<img alt="Marina Lifestyle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2000ms]" data-alt="close up of a gleaming luxury yacht docked at a modern marina with clear blue water and tropical palm trees in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALNJjFfA-eu9NK5PDyQqJ-ULMsks-GjnH_u9sAKABNEcEHo47naJ4I2J0g7URRchvzZZqbb_NZapG8GbzqbKMVd6vTRFHgpPkH9CqwYEfe7ziTCrjEFeuTN-o0Afwyq8zSkCwhI85Q4ydPIZi3mBDcj0IfoUV7JhkUDLNMr69po7dcR7s23m3rI1ek4QnkpUFO81ab2ExsmclOm2gOQ9nbivfXHgZVlmVbB3C-eYMk2qMTiO3bmBQwHywnDs9d8TVqDndbodKRO_4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent p-12 flex flex-col justify-end">
+<h3 class="font-headline text-3xl md:text-4xl text-surface mb-4">Marina Lifestyle</h3>
+<p class="text-surface/90 text-lg mb-8 max-w-md font-light">Direct dock access, shore power, and professional maritime service just outside your door.</p>
+<button class="w-fit bg-surface text-primary px-10 py-4 rounded-full font-label text-xs uppercase tracking-widest hover:bg-tertiary-fixed hover:text-on-tertiary-fixed transition-all">Explore Marina</button>
+</div>
+</div>
+<div class="relative h-[600px] group overflow-hidden">
+<img alt="Excursions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2000ms]" data-alt="underwater view of vibrant coral reef with tropical fish swimming in crystal clear turquoise Caribbean water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWIivCm7zdcgN-En7FeMx25FPJf0IKBMYcupHBS0tiy8fv2lo1Z6GT47UySqA8bE8NsS3clGHW4CysErcEgHQiD4Kdiz4CFsR_JXyP3Ee3IJPa0kVnF9B6AT5Z6SNqSsEGlPk2Jh_CN3elHEKb236kQ_4iu3Z_-ccDS4yApKoQzoCwnBoSsoeO_qjog7iAQUF1baboQMcrUDe_hVKsacZ0oLWt9tm1MuRW5CL_8iNmbXKhwffmmk5bxhXZzJ_n-BsP3KrvX869F0c"/>
+<div class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent p-12 flex flex-col justify-end">
+<h3 class="font-headline text-3xl md:text-4xl text-surface mb-4">Island Excursions</h3>
+<p class="text-surface/90 text-lg mb-8 max-w-md font-light">World-class fishing, reef snorkeling, and sunset cruises departing daily from our docks.</p>
+<button class="w-fit bg-surface text-primary px-10 py-4 rounded-full font-label text-xs uppercase tracking-widest hover:bg-tertiary-fixed hover:text-on-tertiary-fixed transition-all">View Excursions</button>
+</div>
+</div>
+</section>
+<!-- Amenities Grid -->
+<section class="py-32 px-6 md:px-12 bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto">
+<div class="text-center mb-20">
+<span class="font-label text-tertiary text-xs tracking-[0.2em] uppercase mb-4 block">Refined Comfort</span>
+<h2 class="font-headline text-4xl md:text-5xl text-primary">Everything You Need</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+<div class="bg-surface-container-lowest p-8 rounded-xl text-center flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4" data-icon="pool">pool</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-bold">Heated Pool</span>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl text-center flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4" data-icon="anchor">anchor</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-bold">Marina Access</span>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl text-center flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4" data-icon="visibility">visibility</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-bold">Ocean Views</span>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl text-center flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4" data-icon="deck">deck</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-bold">Outdoor Lounging</span>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl text-center flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4" data-icon="local_parking">local_parking</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-bold">Free Parking</span>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl text-center flex flex-col items-center shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4" data-icon="location_on">location_on</span>
+<span class="font-label text-[10px] uppercase tracking-widest font-bold">Island Hub</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Group Stays -->
+<section class="py-32 px-6 md:px-12 bg-surface overflow-hidden">
+<div class="max-w-[1440px] mx-auto flex flex-col lg:flex-row items-center gap-20">
+<div class="flex-1 space-y-8">
+<span class="font-label text-tertiary text-xs tracking-[0.2em] uppercase block">Shared Voyages</span>
+<h2 class="font-headline text-4xl md:text-5xl text-primary leading-tight">Bring Your Group to the Florida Keys</h2>
+<p class="text-on-surface-variant text-lg font-light leading-relaxed">
+                    From intimate weddings to full property buyouts, Seascape offers a unique, private setting for your next gathering. Experience the Keys as they were meant to be enjoyed—together.
+                </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 text-primary font-medium">
+<span class="w-1.5 h-1.5 bg-tertiary rounded-full"></span>
+                        Weddings &amp; Vow Renewals
+                    </li>
+<li class="flex items-center gap-4 text-primary font-medium">
+<span class="w-1.5 h-1.5 bg-tertiary rounded-full"></span>
+                        Full Property Buyouts
+                    </li>
+<li class="flex items-center gap-4 text-primary font-medium">
+<span class="w-1.5 h-1.5 bg-tertiary rounded-full"></span>
+                        Corporate Retreats &amp; Fishing Clubs
+                    </li>
+<li class="flex items-center gap-4 text-primary font-medium">
+<span class="w-1.5 h-1.5 bg-tertiary rounded-full"></span>
+                        Family Reunions
+                    </li>
+</ul>
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-label text-xs uppercase tracking-widest hover:shadow-xl transition-all inline-block mt-4">Explore Group Stays</button>
+</div>
+<div class="flex-1 relative">
+<div class="grid grid-cols-2 gap-4">
+<img alt="Keys Wedding" class="rounded-xl w-full h-80 object-cover mt-12" data-alt="elegant beach wedding setup at sunset with white chairs and floral arch overlooking the ocean" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMseWk0cKEmedtXBVqQhrDP7dkAjI4BQUZLvpH3cvyKV5AMVp1oR_YGjJ_8gyxXwlezZosnZ9QABBHt--EMJ-tGkefktOU6mGFUgZrMWer5gy34ensp1cpti7LCtfmBkZj7hkz_vfSaNk4mVA5WvCJHsWAPrpYHBDxpxtaIiXekhn8T9jYNX1KTsENqF2Z-y-Js5Qw4ZrBhCZMOKph1kH5ABS0RoZBdC95zPDhY-qJbP-_b4Tv6maJp92KtOSTwZNrDgxil7X_l44"/>
+<img alt="Group Dining" class="rounded-xl w-full h-80 object-cover" data-alt="group of friends laughing and dining outdoors at a long table with tropical cocktails and seafood platters" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1OnCDTtuksDtawkWte4-xQc3gBuLl2Y0uNCXYTTlhHOHbLAc3IENFLK2Eu3mGSwfg8Zx76yV7mZ06W5IgrGpH0OuP6vphYB7fLNfbO7qe6cvQyVKqUv2fnTU8NI6ByfmK-Wd7S0TISldEWFbvsoJvZZ7ZiUaytOxQuEzANGUjo0N-pGMEhbSqgrzP1R1iigsMPi10adls7w1ADMXZwSAK6vxmzwFX2shblbwnmdUd0Icb--HAD02W8fujo_H23Y-Jmq3xJvJozsI"/>
+</div>
+<div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-surface-container-low rounded-full opacity-50"></div>
+</div>
+</div>
+</section>
+<!-- Explore Keys Bento -->
+<section class="py-32 px-6 md:px-12 bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<span class="font-label text-tertiary text-xs tracking-[0.2em] uppercase mb-4 block">Local Knowledge</span>
+<h2 class="font-headline text-4xl md:text-5xl text-primary">Discover Marathon</h2>
+</div>
+<button class="text-primary font-label text-xs uppercase tracking-widest border-b border-primary/20 pb-2 hover:border-primary transition-all">View All Guides</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
+<div class="md:col-span-2 relative rounded-xl overflow-hidden group">
+<img alt="Things to do" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2s]" data-alt="vibrant ocean scene with kayak floating in crystal clear water near lush green mangroves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4IPOqH2VKno5uEBAX6d3_ijB6XIsnWYLI3gSEgQJ7A2x71gcyxl6oi3nRxj1NVRFLYBp4DZZKXgKjh0QVzF3xrqqz_qScDPv8mbCFAWtJHnNoTLrQs-dRqMbZLvb8mqpGPgb-H_kkZ5Zc3g4XnwYhl6uavFTZc4nMGVkwBbfW-OperSEqFWdg5kYhMlHsUR7h24PSE_1N5ENrqM6mK3lUFyp9RZNOn_3Fd9QqCrzVpyX5cOzJr8-6wkNx4KVMKxF72iw7hgocMz4"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all"></div>
+<div class="absolute bottom-10 left-10">
+<h3 class="font-headline text-3xl text-surface mb-2">Things To Do</h3>
+<p class="text-surface/80 font-light mb-6">From Turtle Hospital visits to Sombrero Reef snorkeling.</p>
+<span class="material-symbols-outlined text-surface text-4xl" data-icon="arrow_right_alt">arrow_right_alt</span>
+</div>
+</div>
+<div class="relative rounded-xl overflow-hidden group">
+<img alt="Where to Eat" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2s]" data-alt="plate of fresh grilled seafood and key lime pie on a wooden table at a waterfront restaurant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgTYfl_ItfWlsFfeaamtwJ1XbpgRkCBoHF5il7zwWa9FO80pukWMfTho_cwtaKP7_VMVvamljGI7XToAlxbA5axnaWuU8WEsFSucnaHLImlpwvzHnIh5dMvp3Cebhj9aqoVnCERFU76L9cA2ncqG5co0hN4WybRan8PT0AuAcE_krPNh3XAMgfn3UHlcq_Q-Bk_IV9T9EMqmMWd7mFJyb044U5jqIKkVHe2ifuKr5ibm0fYl9muNa_xwHAv-EMyhCr2vWkPH_EJOk"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all"></div>
+<div class="absolute bottom-10 left-10">
+<h3 class="font-headline text-3xl text-surface mb-2">Where To Eat</h3>
+<p class="text-surface/80 font-light mb-6">The best dock-and-dine spots.</p>
+<span class="material-symbols-outlined text-surface text-4xl" data-icon="arrow_right_alt">arrow_right_alt</span>
+</div>
+</div>
+<div class="md:col-span-3 relative rounded-xl overflow-hidden group h-64 md:h-auto">
+<img alt="Local Events" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-[2s]" data-alt="long shot of the iconic Seven Mile Bridge in the Florida Keys stretching over emerald green ocean water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy86Q15-4SCdAVJLr2C1-kcAqTXergGw0w2RwSbdShfwcABbgO9YD5nJsIxHRDO4dABbxgdElqyveW9jZu2i4khnmo3ZpKQDVwqNNbVuBdRxoK5GM2A9qvYsetmZU6cJzd3MJJ6icFsemPoCmBcNGh_tBdbvDmGsUUtiKvKuP-5QN9K3gMCAqr0fzpIbd7UDQJRRFwOc7UooIiZms5JwjWKYcC35v6v8t92vjSLr3hD5He64si5WMpWmXakFDanPTJ5OpcDRJ9JYw"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all"></div>
+<div class="absolute bottom-10 left-10">
+<h3 class="font-headline text-3xl text-surface mb-2">Local Events</h3>
+<p class="text-surface/80 font-light mb-6">Experience the rhythm of Marathon throughout the year.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Booking Section -->
+<section class="py-32 px-6 md:px-12 bg-surface">
+<div class="max-w-[1000px] mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline text-4xl md:text-5xl text-primary mb-4">Check Availability at Seascape</h2>
+<p class="text-on-surface-variant font-light">Best rates. Live availability. Easy booking.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-8 md:p-12 shadow-[0_32px_64px_-15px_rgba(0,29,51,0.1)]">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Check In</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-lg py-4 px-4 focus:ring-2 focus:ring-secondary text-primary font-medium" type="date"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Check Out</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-lg py-4 px-4 focus:ring-2 focus:ring-secondary text-primary font-medium" type="date"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Guests</label>
+<select class="w-full bg-surface-container-low border-none rounded-lg py-4 px-4 focus:ring-2 focus:ring-secondary text-primary font-medium">
+<option>1 Guest</option>
+<option selected="">2 Guests</option>
+<option>3 Guests</option>
+<option>4+ Guests</option>
+</select>
+</div>
+<div class="flex flex-col justify-end">
+<button class="w-full bg-tertiary-fixed text-on-tertiary-fixed py-4 rounded-full font-label text-xs uppercase tracking-widest font-bold hover:bg-tertiary-fixed-dim transition-all h-[56px]">
+                            Search
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="relative py-40 bg-primary overflow-hidden">
+<div class="absolute inset-0 opacity-20">
+<img alt="Final CTA Background" class="w-full h-full object-cover" data-alt="wide panoramic shot of the Florida Keys at dusk with deep blue ocean water and soft purple sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzNvs7d1WbLWnOdrQTrZPMV3NuYXDt8nDmcF6gp2gmEb0zZhEC32ow_Sw0S6TgJUFyv_XZ0JFgoWNlh9xYQFTryg4PPNVhel8Vlo9us5xmqpI9BQwgfV6k24YqVIOLshTMycAnbirk9P6mCApBsz9T5BG0Gfk3dDBKEm64TdNHmo3QUmuxn-4IdZDO41iBmVoTv0AW_7J4SmeFCWe-MNrmWCFNo8rlLrcADgT4HeOofyiWwBvwU4dOxY0WdndI3cJIvA639XFVC98"/>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+<h2 class="font-headline text-5xl md:text-7xl text-surface mb-8">Everything you need.<br/>All steps away.</h2>
+<button class="bg-surface text-primary px-16 py-6 rounded-full font-label text-sm uppercase tracking-[0.2em] font-bold hover:bg-tertiary-fixed hover:text-on-tertiary-fixed transition-all shadow-2xl">
+                Book Your Stay
+            </button>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-[#16324a] text-primary dark:text-surface">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 px-16 py-24 w-full max-w-[1920px] mx-auto">
+<div class="space-y-6">
+<div class="text-lg font-headline text-primary dark:text-surface">Seascape Resort &amp; Marina</div>
+<p class="text-sm font-body opacity-70 leading-relaxed">Experience authentic Florida Keys hospitality in the heart of Marathon. Private, serene, and steps from the water.</p>
+</div>
+<div class="space-y-6">
+<h4 class="font-label text-sm tracking-widest uppercase font-bold">Contact Us</h4>
+<ul class="space-y-4 text-sm font-body opacity-70">
+<li class="hover:text-tertiary transition-colors cursor-pointer">1275 76th Street Ocean, Marathon, FL 33050</li>
+<li class="hover:text-tertiary transition-colors cursor-pointer">(305) 743-6212</li>
+<li class="hover:text-tertiary transition-colors cursor-pointer">reservations@seascapemarina.com</li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-label text-sm tracking-widest uppercase font-bold">Quick Links</h4>
+<ul class="space-y-4 text-sm font-body opacity-70 uppercase tracking-widest">
+<li class="hover:text-tertiary underline-offset-4 underline cursor-pointer">Rooms</li>
+<li class="hover:text-tertiary underline-offset-4 underline cursor-pointer">Marina</li>
+<li class="hover:text-tertiary underline-offset-4 underline cursor-pointer">Blog</li>
+<li class="hover:text-tertiary underline-offset-4 underline cursor-pointer">Privacy Policy</li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-label text-sm tracking-widest uppercase font-bold">Social</h4>
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-tertiary transition-all" data-icon="photo_camera">photo_camera</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-tertiary transition-all" data-icon="facebook">social_leaderboard</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-tertiary transition-all" data-icon="public">public</span>
+</div>
+</div>
+</div>
+<div class="px-16 py-8 border-t border-primary/5 text-center font-label text-[10px] uppercase tracking-[0.2em] opacity-50">
+            © 2024 Seascape Resort &amp; Marina. Always Call Us Direct For Best Rates.
+        </div>
+</footer>
+</body></html>
