@@ -1,282 +1,282 @@
 (() => {
-  const mobileBreakpoint = 1024;
-  const menuToggle = document.querySelector('.mobile-menu-toggle');
-  const mobileMenu = document.querySelector('#mobile-menu');
-  const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+ const mobileBreakpoint = 1024;
+ const menuToggle = document.querySelector('.mobile-menu-toggle');
+ const mobileMenu = document.querySelector('#mobile-menu');
+ const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
 
-  if (!menuToggle || !mobileMenu) return;
+ if (!menuToggle || !mobileMenu) return;
 
-  const isMobileViewport = () => window.innerWidth <= mobileBreakpoint;
+ const isMobileViewport = () => window.innerWidth <= mobileBreakpoint;
 
-  const closeAllSubmenus = () => {
-    submenuToggles.forEach((toggle) => {
-      const submenuId = toggle.getAttribute('aria-controls');
-      const submenu = submenuId ? document.getElementById(submenuId) : null;
-      toggle.setAttribute('aria-expanded', 'false');
-      if (submenu) submenu.hidden = true;
-    });
-  };
+ const closeAllSubmenus = () => {
+ submenuToggles.forEach((toggle) => {
+ const submenuId = toggle.getAttribute('aria-controls');
+ const submenu = submenuId ? document.getElementById(submenuId) : null;
+ toggle.setAttribute('aria-expanded', 'false');
+ if (submenu) submenu.hidden = true;
+ });
+ };
 
-  const closeMobileMenu = () => {
-    menuToggle.setAttribute('aria-expanded', 'false');
-    menuToggle.setAttribute('aria-label', 'Open navigation');
-    mobileMenu.hidden = true;
-    closeAllSubmenus();
-  };
+ const closeMobileMenu = () => {
+ menuToggle.setAttribute('aria-expanded', 'false');
+ menuToggle.setAttribute('aria-label', 'Open navigation');
+ mobileMenu.hidden = true;
+ closeAllSubmenus();
+ };
 
-  const openMobileMenu = () => {
-    menuToggle.setAttribute('aria-expanded', 'true');
-    menuToggle.setAttribute('aria-label', 'Close navigation');
-    mobileMenu.hidden = false;
-  };
+ const openMobileMenu = () => {
+ menuToggle.setAttribute('aria-expanded', 'true');
+ menuToggle.setAttribute('aria-label', 'Close navigation');
+ mobileMenu.hidden = false;
+ };
 
-  closeMobileMenu();
+ closeMobileMenu();
 
-  menuToggle.addEventListener('click', () => {
-    if (!isMobileViewport()) return;
+ menuToggle.addEventListener('click', () => {
+ if (!isMobileViewport()) return;
 
-    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    if (isExpanded) {
-      closeMobileMenu();
-    } else {
-      openMobileMenu();
-    }
-  });
+ const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+ if (isExpanded) {
+ closeMobileMenu();
+ } else {
+ openMobileMenu();
+ }
+ });
 
-  submenuToggles.forEach((toggle) => {
-    toggle.addEventListener('click', () => {
-      if (!isMobileViewport()) return;
+ submenuToggles.forEach((toggle) => {
+ toggle.addEventListener('click', () => {
+ if (!isMobileViewport()) return;
 
-      const submenuId = toggle.getAttribute('aria-controls');
-      const submenu = submenuId ? document.getElementById(submenuId) : null;
-      if (!submenu) return;
+ const submenuId = toggle.getAttribute('aria-controls');
+ const submenu = submenuId ? document.getElementById(submenuId) : null;
+ if (!submenu) return;
 
-      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!isExpanded));
-      submenu.hidden = isExpanded;
-    });
-  });
+ const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+ toggle.setAttribute('aria-expanded', String(!isExpanded));
+ submenu.hidden = isExpanded;
+ });
+ });
 
-  mobileMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      if (!isMobileViewport()) return;
-      closeMobileMenu();
-    });
-  });
+ mobileMenu.querySelectorAll('a').forEach((link) => {
+ link.addEventListener('click', () => {
+ if (!isMobileViewport()) return;
+ closeMobileMenu();
+ });
+ });
 
-  window.addEventListener('resize', () => {
-    if (!isMobileViewport()) {
-      closeMobileMenu();
-    }
-  });
+ window.addEventListener('resize', () => {
+ if (!isMobileViewport()) {
+ closeMobileMenu();
+ }
+ });
 })();
 
 (() => {
-  const videoShell = document.querySelector('.video-shell');
-  const heroIframe = document.getElementById('hero-video-iframe');
-  const heroAudioToggles = document.querySelectorAll('.hero-audio-toggle');
+ const videoShell = document.querySelector('.video-shell');
+ const heroIframe = document.getElementById('hero-video-iframe');
+ const heroAudioToggles = document.querySelectorAll('.hero-audio-toggle');
 
-  if (!videoShell || !heroIframe) return;
+ if (!videoShell || !heroIframe) return;
 
-  const mobileOnlyBreakpoint = 1024;
+ const mobileOnlyBreakpoint = 1024;
 
-  const extractVideoId = (rawValue) => {
-    if (!rawValue) return '';
+ const extractVideoId = (rawValue) => {
+ if (!rawValue) return '';
 
-    const trimmedValue = rawValue.trim();
-    if (/^[a-zA-Z0-9_-]{11}$/.test(trimmedValue)) return trimmedValue;
+ const trimmedValue = rawValue.trim();
+ if (/^[a-zA-Z0-9_-]{11}$/.test(trimmedValue)) return trimmedValue;
 
-    try {
-      const parsedUrl = new URL(trimmedValue);
-      if (parsedUrl.hostname.includes('youtu.be')) {
-        return parsedUrl.pathname.replace('/', '').trim();
-      }
+ try {
+ const parsedUrl = new URL(trimmedValue);
+ if (parsedUrl.hostname.includes('youtu.be')) {
+ return parsedUrl.pathname.replace('/', '').trim();
+ }
 
-      if (parsedUrl.hostname.includes('youtube.com')) {
-        const watchId = parsedUrl.searchParams.get('v');
-        if (watchId) return watchId.trim();
+ if (parsedUrl.hostname.includes('youtube.com')) {
+ const watchId = parsedUrl.searchParams.get('v');
+ if (watchId) return watchId.trim();
 
-        const pathMatch = parsedUrl.pathname.match(/\/embed\/([a-zA-Z0-9_-]{11})/);
-        if (pathMatch) return pathMatch[1];
-      }
-    } catch (error) {
-      return '';
-    }
+ const pathMatch = parsedUrl.pathname.match(/\/embed\/([a-zA-Z0-9_-]{11})/);
+ if (pathMatch) return pathMatch[1];
+ }
+ } catch (error) {
+ return '';
+ }
 
-    return '';
-  };
+ return '';
+ };
 
-  const defaultVideoId = extractVideoId(videoShell.dataset.heroVideoId);
-  const mobilePortraitVideoId = extractVideoId(videoShell.dataset.mobilePortraitVideoId);
-  const mobileLandscapeVideoId = extractVideoId(videoShell.dataset.mobileLandscapeVideoId);
+ const defaultVideoId = extractVideoId(videoShell.dataset.heroVideoId);
+ const mobilePortraitVideoId = extractVideoId(videoShell.dataset.mobilePortraitVideoId);
+ const mobileLandscapeVideoId = extractVideoId(videoShell.dataset.mobileLandscapeVideoId);
 
-  const getEmbedOrigin = () => {
-    if (!window.location?.origin || window.location.origin === 'null') return '';
-    return `&origin=${encodeURIComponent(window.location.origin)}`;
-  };
+ const getEmbedOrigin = () => {
+ if (!window.location?.origin || window.location.origin === 'null') return '';
+ return `&origin=${encodeURIComponent(window.location.origin)}`;
+ };
 
-  const buildEmbedSrc = (videoId) =>
-    `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&modestbranding=1&rel=0&enablejsapi=1${getEmbedOrigin()}`;
+ const buildEmbedSrc = (videoId) =>
+ `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&modestbranding=1&rel=0&enablejsapi=1${getEmbedOrigin()}`;
 
-  const isMobileViewport = () => window.innerWidth <= mobileOnlyBreakpoint;
-  const isPortrait = () => window.matchMedia('(orientation: portrait)').matches;
+ const isMobileViewport = () => window.innerWidth <= mobileOnlyBreakpoint;
+ const isPortrait = () => window.matchMedia('(orientation: portrait)').matches;
 
-  const getTargetVideoId = () => {
-    if (!isMobileViewport()) return defaultVideoId;
+ const getTargetVideoId = () => {
+ if (!isMobileViewport()) return defaultVideoId;
 
-    if (isPortrait()) {
-      return mobilePortraitVideoId || mobileLandscapeVideoId || defaultVideoId;
-    }
+ if (isPortrait()) {
+ return mobilePortraitVideoId || mobileLandscapeVideoId || defaultVideoId;
+ }
 
-    return mobileLandscapeVideoId || mobilePortraitVideoId || defaultVideoId;
-  };
+ return mobileLandscapeVideoId || mobilePortraitVideoId || defaultVideoId;
+ };
 
-  let currentVideoId = '';
-  let resizeRafId = null;
-  let heroIsMuted = true;
-  let heroPlayer = null;
-  let heroPlayerReady = false;
-  let ytApiReadyPromise = null;
+ let currentVideoId = '';
+ let resizeRafId = null;
+ let heroIsMuted = true;
+ let heroPlayer = null;
+ let heroPlayerReady = false;
+ let ytApiReadyPromise = null;
 
-  const postPlayerCommand = (func, args = []) => {
-    if (!heroIframe.contentWindow) return;
+ const postPlayerCommand = (func, args = []) => {
+ if (!heroIframe.contentWindow) return;
 
-    heroIframe.contentWindow.postMessage(
-      JSON.stringify({
-        event: 'command',
-        func,
-        args
-      }),
-      '*'
-    );
-  };
+ heroIframe.contentWindow.postMessage(
+ JSON.stringify({
+ event: 'command',
+ func,
+ args
+ }),
+ '*'
+ );
+ };
 
-  const ensureYouTubeApiReady = () => {
-    if (window.YT?.Player) return Promise.resolve(window.YT);
-    if (ytApiReadyPromise) return ytApiReadyPromise;
+ const ensureYouTubeApiReady = () => {
+ if (window.YT?.Player) return Promise.resolve(window.YT);
+ if (ytApiReadyPromise) return ytApiReadyPromise;
 
-    ytApiReadyPromise = new Promise((resolve) => {
-      const previousOnReady = window.onYouTubeIframeAPIReady;
-      window.onYouTubeIframeAPIReady = () => {
-        if (typeof previousOnReady === 'function') previousOnReady();
-        resolve(window.YT);
-      };
+ ytApiReadyPromise = new Promise((resolve) => {
+ const previousOnReady = window.onYouTubeIframeAPIReady;
+ window.onYouTubeIframeAPIReady = () => {
+ if (typeof previousOnReady === 'function') previousOnReady();
+ resolve(window.YT);
+ };
 
-      const existingScript = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
-      if (!existingScript) {
-        const script = document.createElement('script');
-        script.src = 'https://www.youtube.com/iframe_api';
-        script.async = true;
-        document.head.appendChild(script);
-      }
-    });
+ const existingScript = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
+ if (!existingScript) {
+ const script = document.createElement('script');
+ script.src = 'https://www.youtube.com/iframe_api';
+ script.async = true;
+ document.head.appendChild(script);
+ }
+ });
 
-    return ytApiReadyPromise;
-  };
+ return ytApiReadyPromise;
+ };
 
-  const ensureHeroPlayer = () => {
-    if (heroPlayer) return Promise.resolve(heroPlayer);
+ const ensureHeroPlayer = () => {
+ if (heroPlayer) return Promise.resolve(heroPlayer);
 
-    return ensureYouTubeApiReady().then((YT) =>
-      new Promise((resolve) => {
-        heroPlayer = new YT.Player(heroIframe, {
-          events: {
-            onReady: () => {
-              heroPlayerReady = true;
-              resolve(heroPlayer);
-              applyHeroAudioState();
-            }
-          }
-        });
-      })
-    );
-  };
+ return ensureYouTubeApiReady().then((YT) =>
+ new Promise((resolve) => {
+ heroPlayer = new YT.Player(heroIframe, {
+ events: {
+ onReady: () => {
+ heroPlayerReady = true;
+ resolve(heroPlayer);
+ applyHeroAudioState();
+ }
+ }
+ });
+ })
+ );
+ };
 
-  const syncAudioToggleUi = () => {
-    if (!heroAudioToggles.length) return;
+ const syncAudioToggleUi = () => {
+ if (!heroAudioToggles.length) return;
 
-    heroAudioToggles.forEach((audioToggle) => {
-      audioToggle.setAttribute('aria-pressed', String(!heroIsMuted));
-      audioToggle.setAttribute(
-        'aria-label',
-        heroIsMuted ? 'Turn on video sound' : 'Turn off video sound'
-      );
-    });
-  };
+ heroAudioToggles.forEach((audioToggle) => {
+ audioToggle.setAttribute('aria-pressed', String(!heroIsMuted));
+ audioToggle.setAttribute(
+ 'aria-label',
+ heroIsMuted ? 'Turn on video sound' : 'Turn off video sound'
+ );
+ });
+ };
 
-  const applyHeroAudioState = () => {
-    if (heroPlayerReady && heroPlayer) {
-      if (heroIsMuted) {
-        heroPlayer.mute();
-      } else {
-        heroPlayer.unMute();
-        heroPlayer.setVolume(100);
-        heroPlayer.playVideo();
-      }
-      return;
-    }
+ const applyHeroAudioState = () => {
+ if (heroPlayerReady && heroPlayer) {
+ if (heroIsMuted) {
+ heroPlayer.mute();
+ } else {
+ heroPlayer.unMute();
+ heroPlayer.setVolume(100);
+ heroPlayer.playVideo();
+ }
+ return;
+ }
 
-    postPlayerCommand(heroIsMuted ? 'mute' : 'unMute');
-    if (!heroIsMuted) {
-      postPlayerCommand('setVolume', [100]);
-      postPlayerCommand('playVideo');
-    }
-  };
+ postPlayerCommand(heroIsMuted ? 'mute' : 'unMute');
+ if (!heroIsMuted) {
+ postPlayerCommand('setVolume', [100]);
+ postPlayerCommand('playVideo');
+ }
+ };
 
-  const updateHeroVideoSource = () => {
-    const targetVideoId = getTargetVideoId();
-    if (!targetVideoId || targetVideoId === currentVideoId) return;
+ const updateHeroVideoSource = () => {
+ const targetVideoId = getTargetVideoId();
+ if (!targetVideoId || targetVideoId === currentVideoId) return;
 
-    currentVideoId = targetVideoId;
-    heroPlayerReady = false;
-    heroIframe.src = buildEmbedSrc(targetVideoId);
-  };
+ currentVideoId = targetVideoId;
+ heroPlayerReady = false;
+ heroIframe.src = buildEmbedSrc(targetVideoId);
+ };
 
-  const scheduleUpdate = () => {
-    if (resizeRafId !== null) return;
+ const scheduleUpdate = () => {
+ if (resizeRafId !== null) return;
 
-    resizeRafId = window.requestAnimationFrame(() => {
-      resizeRafId = null;
-      updateHeroVideoSource();
-    });
-  };
+ resizeRafId = window.requestAnimationFrame(() => {
+ resizeRafId = null;
+ updateHeroVideoSource();
+ });
+ };
 
-  if (heroAudioToggles.length) {
-    syncAudioToggleUi();
-    let lastTouchToggleAt = 0;
+ if (heroAudioToggles.length) {
+ syncAudioToggleUi();
+ let lastTouchToggleAt = 0;
 
-    const toggleHeroAudio = (event) => {
-      if (event.type === 'click' && Date.now() - lastTouchToggleAt < 350) return;
-      if (event.type === 'touchend') {
-        lastTouchToggleAt = Date.now();
-      }
-      event.preventDefault();
-      event.stopPropagation();
-      heroIsMuted = !heroIsMuted;
-      syncAudioToggleUi();
-      applyHeroAudioState();
-    };
+ const toggleHeroAudio = (event) => {
+ if (event.type === 'click' && Date.now() - lastTouchToggleAt < 350) return;
+ if (event.type === 'touchend') {
+ lastTouchToggleAt = Date.now();
+ }
+ event.preventDefault();
+ event.stopPropagation();
+ heroIsMuted = !heroIsMuted;
+ syncAudioToggleUi();
+ applyHeroAudioState();
+ };
 
-    heroAudioToggles.forEach((audioToggle) => {
-      audioToggle.addEventListener('click', toggleHeroAudio);
-      audioToggle.addEventListener('touchend', toggleHeroAudio, { passive: false });
-    });
-  }
+ heroAudioToggles.forEach((audioToggle) => {
+ audioToggle.addEventListener('click', toggleHeroAudio);
+ audioToggle.addEventListener('touchend', toggleHeroAudio, { passive: false });
+ });
+ }
 
-  heroIframe.addEventListener('load', () => {
-    window.setTimeout(() => {
-      applyHeroAudioState();
-      ensureHeroPlayer().catch(() => {
-        // Fallback to postMessage controls when the API cannot initialize.
-      });
-    }, 220);
-  });
+ heroIframe.addEventListener('load', () => {
+ window.setTimeout(() => {
+ applyHeroAudioState();
+ ensureHeroPlayer().catch(() => {
+ // Fallback to postMessage controls when the API cannot initialize.
+ });
+ }, 220);
+ });
 
-  ensureHeroPlayer().catch(() => {
-    // Fallback to postMessage controls when the API cannot initialize.
-  });
+ ensureHeroPlayer().catch(() => {
+ // Fallback to postMessage controls when the API cannot initialize.
+ });
 
-  updateHeroVideoSource();
-  window.addEventListener('resize', scheduleUpdate);
-  window.addEventListener('orientationchange', scheduleUpdate);
+ updateHeroVideoSource();
+ window.addEventListener('resize', scheduleUpdate);
+ window.addEventListener('orientationchange', scheduleUpdate);
 })();
