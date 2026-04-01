@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seascape Resort & Marina | Marina</title>
+  <meta name="description" content="Discover the on-property marina experience at Seascape Resort & Marina in Marathon, Florida Keys." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div id="site-nav"></div>
+  <main>
 <section class="marina-page">
   <style>
     .marina-page {
@@ -15,6 +27,13 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background: linear-gradient(180deg, #f7fbfc 0%, #ffffff 32%, #f5efe4 100%);
+      --marina-nav-offset: 0px;
+      padding-top: var(--marina-nav-offset);
+    }
+
+    #site-nav {
+      position: relative;
+      z-index: 1200;
     }
 
     .marina-page * {
@@ -35,100 +54,6 @@
       margin: 0 auto;
     }
 
-
-    .site-header {
-      position: relative;
-      z-index: 20;
-      background: rgba(9, 32, 51, 0.64);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .utility-bar {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-      min-height: 42px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      color: rgba(255, 255, 255, 0.92);
-      font-size: 0.8rem;
-      line-height: 1.4;
-      padding: 7px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .utility-left,
-    .utility-right {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .utility-bar a {
-      color: #fff;
-      font-weight: 700;
-    }
-
-    .main-nav {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 10px 0;
-    }
-
-    .main-nav a {
-      color: #fff;
-      font-size: 0.92rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-left,
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .nav-logo {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      color: #fff;
-      line-height: 1;
-      letter-spacing: 0.08em;
-    }
-
-    .logo-main {
-      font-size: 1.45rem;
-      font-weight: 800;
-    }
-
-    .logo-sub {
-      margin-top: 4px;
-      font-size: 0.62rem;
-      font-weight: 700;
-      opacity: 0.92;
-    }
-
-    .book-now {
-      min-height: 42px;
-      padding: 0 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--gold), #e3c98f);
-      color: var(--navy-deep) !important;
-    }
 
     .marina-hero {
       position: relative;
@@ -788,31 +713,6 @@
       }
 
 
-      .utility-bar,
-      .main-nav {
-        width: min(1180px, calc(100% - 20px));
-      }
-
-      .utility-bar {
-        justify-content: center;
-      }
-
-      .utility-left .utility-address,
-      .utility-left .utility-mile-marker,
-      .utility-separator,
-      .nav-right,
-      .nav-left {
-        display: none;
-      }
-
-      .main-nav {
-        min-height: 64px;
-      }
-
-      .logo-main {
-        font-size: 1.22rem;
-      }
-
       .hero-title {
         font-size: clamp(2.35rem, 12vw, 3.7rem);
       }
@@ -841,40 +741,7 @@
   </style>
 
 
-  <div class="site-header">
-    <div class="utility-bar">
-      <div class="utility-left">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" class="utility-directions" target="_blank" rel="noopener">Get Directions</a>
-        <span class="utility-separator">|</span>
-        <span class="utility-address">1275 76th Street Ocean, Marathon, FL 33050</span>
-        <span class="utility-separator">|</span>
-        <span class="utility-mile-marker">Mile Marker: 50</span>
-      </div>
-      <div class="utility-right">
-        <a href="tel:+13057436212" class="utility-phone">(305) 743-6212</a>
-        <span class="best-rates">Always Call Us Direct For Best Rates</span>
-      </div>
-    </div>
 
-    <nav class="main-nav" aria-label="Main navigation">
-      <div class="nav-left">
-        <a href="/seascaperesortmarina/rooms/">Rooms</a>
-        <a href="/seascaperesortmarina/marina/">Marina</a>
-        <a href="/seascaperesortmarina/amenities/">Amenities</a>
-      </div>
-
-      <a href="/seascaperesortmarina/" class="nav-logo" aria-label="Seascape Resort &amp; Marina home">
-        <span class="logo-main">SEASCAPE</span>
-        <span class="logo-sub">RESORT &amp; MARINA</span>
-      </a>
-
-      <div class="nav-right">
-        <a href="/seascaperesortmarina/excursions/">Excursions</a>
-        <a href="/seascaperesortmarina/contact/">Contact</a>
-        <a href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" class="book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
-      </div>
-    </nav>
-  </div>
 
   <section class="marina-hero">
     <div class="hero-content">
@@ -885,8 +752,8 @@
           This is the rare Florida Keys stay where the marina is not off somewhere else. It is right here on the property. Boat parking, fishing pier access, pool time, sunset time, and room convenience all live in one easy waterfront setting.
         </p>
         <div class="hero-actions">
-          <a href="/contact/" class="btn-primary">Ask About Marina Availability</a>
-          <a href="/accommodations/" class="btn-secondary">View Accommodations</a>
+          <a href="/seascaperesortmarina/contact/" class="btn-primary">Ask About Marina Availability</a>
+          <a href="/seascaperesortmarina/rooms/" class="btn-secondary">View Accommodations</a>
         </div>
       </div>
 
@@ -1150,8 +1017,8 @@
         </div>
 
         <div class="cta-actions">
-          <a href="/contact/" class="btn-primary">Contact Seascape</a>
-          <a href="/amenities/" class="btn-secondary" style="color:var(--navy); border-color:rgba(15,47,70,0.12); background:rgba(15,47,70,0.04);">Explore Amenities</a>
+          <a href="/seascaperesortmarina/contact/" class="btn-primary">Contact Seascape</a>
+          <a href="/seascaperesortmarina/amenities/" class="btn-secondary" style="color:var(--navy); border-color:rgba(15,47,70,0.12); background:rgba(15,47,70,0.04);">Explore Amenities</a>
         </div>
       </div>
     </div>
@@ -1159,3 +1026,57 @@
 
   <div class="marina-footer-space"></div>
 </section>
+
+  </main>
+
+  <script>
+    function syncMarinaNavOffset() {
+      const siteNav = document.getElementById('site-nav');
+      if (!siteNav) return;
+
+      const siteHeader = siteNav.querySelector('.site-header');
+      if (!siteHeader) return;
+
+      const marinaPage = document.querySelector('.marina-page');
+      if (!marinaPage) return;
+
+      marinaPage.style.setProperty('--marina-nav-offset', `${siteHeader.offsetHeight}px`);
+    }
+
+    function loadSharedNavScript() {
+      if (document.querySelector('script[data-shared-nav-script="true"]')) return;
+
+      const script = document.createElement('script');
+      script.src = '../js/main.js';
+      script.defer = true;
+      script.dataset.sharedNavScript = 'true';
+      document.body.appendChild(script);
+    }
+
+    async function loadSharedNav() {
+      const target = document.getElementById('site-nav');
+      if (!target) return;
+
+      try {
+        const response = await fetch('../index.html');
+        if (!response.ok) throw new Error('Failed to load shared header');
+
+        const markup = await response.text();
+        const parser = new DOMParser();
+        const navDoc = parser.parseFromString(markup, 'text/html');
+        const siteHeader = navDoc.querySelector('.site-header');
+
+        target.innerHTML = siteHeader ? siteHeader.outerHTML : '';
+        syncMarinaNavOffset();
+        loadSharedNavScript();
+        window.addEventListener('resize', syncMarinaNavOffset);
+        window.addEventListener('load', syncMarinaNavOffset);
+      } catch (error) {
+        console.warn(error);
+      }
+    }
+
+    loadSharedNav();
+  </script>
+</body>
+</html>
