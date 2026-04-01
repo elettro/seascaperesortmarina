@@ -134,35 +134,34 @@
       left:0;
       right:0;
       z-index:1000;
-      padding:14px 0 0;
+      padding:0;
+      background:#0b2e43;
     }
 
     .top-strip{
       width:calc(100% - 68px);
-      margin:0 auto 10px;
-      border-radius:999px;
-      padding:10px 18px;
+      margin:0 auto;
+      padding:11px 0 9px;
       display:flex;
       justify-content:space-between;
       align-items:center;
       gap:12px;
       color:#fff;
-      background:rgba(7,27,39,.46);
-      border:1px solid rgba(255,255,255,.2);
-      backdrop-filter:blur(10px);
+      background:transparent;
       font-size:.82rem;
     }
 
     .top-strip a{color:#fff;font-weight:700}
     .top-strip-left,.top-strip-right{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .utility-phone-icon{font-size:.72rem;opacity:.9}
 
     .global-nav{
       width:calc(100% - 68px);
-      margin:0 auto;
+      margin:8px auto 0;
       background:rgba(255,255,255,.96);
-      border-radius:18px;
-      min-height:72px;
-      padding:0 22px;
+      border-radius:20px;
+      min-height:78px;
+      padding:0 28px;
       display:grid;
       grid-template-columns:1fr auto 1fr;
       align-items:center;
@@ -170,12 +169,51 @@
     }
 
     .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-    .nav-links a{font-size:.9rem;font-weight:700;color:var(--navy)}
+    .nav-links a,.nav-dropdown-toggle{font-size:1.82vh;font-weight:700;color:var(--navy)}
     .nav-right{justify-content:flex-end}
+    .nav-dropdown{position:relative}
+    .nav-dropdown-toggle{
+      border:0;
+      background:transparent;
+      font-family:inherit;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      cursor:pointer;
+      padding:0;
+    }
+    .nav-dropdown-toggle::after{
+      content:"\2304";
+      font-size:.68rem;
+      transform:translateY(-1px);
+    }
+    .nav-dropdown-menu{
+      position:absolute;
+      top:calc(100% + 14px);
+      left:0;
+      min-width:220px;
+      padding:10px;
+      background:#fff;
+      border-radius:14px;
+      box-shadow:0 16px 34px rgba(7,27,39,.16);
+      border:1px solid var(--line);
+      display:none;
+      z-index:20;
+    }
+    .nav-dropdown-menu a{
+      display:block;
+      font-size:.92rem;
+      border-radius:8px;
+      padding:8px 10px;
+      white-space:nowrap;
+    }
+    .nav-dropdown-menu a:hover{background:rgba(99,183,201,.12)}
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu{display:block}
     .nav-logo{display:flex;flex-direction:column;align-items:center;line-height:1;text-align:center;color:var(--navy)}
-    .nav-logo-main{font-weight:700;letter-spacing:.22em;font-size:1rem}
+    .nav-logo-main{font-weight:700;letter-spacing:.24em;font-size:2.8vh}
     .nav-logo-sub{font-size:.62rem;letter-spacing:.2em;margin-top:3px}
-    .book-now{padding:10px 15px;border-radius:999px;background:var(--navy);color:#fff !important}
+    .book-now{padding:14px 28px;border-radius:999px;background:var(--navy);color:#fff !important}
 
     .mobile-nav-row,.mobile-panel{display:none}
 
@@ -742,7 +780,7 @@
     @media (max-width: 980px){
       .top-strip{display:none}
       .global-nav{display:none}
-      .site-header{padding-top:12px}
+      .site-header{padding-top:12px;background:transparent}
       .mobile-nav-row{
         width:min(calc(100% - 24px), var(--max));
         margin:0 auto;
@@ -838,8 +876,11 @@
           <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" target="_blank" rel="noopener">Get Directions</a>
           <span>|</span>
           <span>1275 76th Street Ocean, Marathon, FL 33050</span>
+          <span>|</span>
+          <span>Mile Marker: 50</span>
         </div>
         <div class="top-strip-right">
+          <span class="utility-phone-icon" aria-hidden="true">☎</span>
           <a href="tel:+13057436212">(305) 743-6212</a>
           <span>Always Call Us Direct For Best Rates</span>
         </div>
@@ -851,14 +892,30 @@
           <a href="/seascaperesortmarina/marina/">Marina</a>
           <a href="/seascaperesortmarina/amenities/">Amenities</a>
           <a href="/seascaperesortmarina/excursions/">Excursions</a>
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Group Stays</button>
+            <div class="nav-dropdown-menu">
+              <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
+              <a href="/seascaperesortmarina/weddings/">Weddings</a>
+              <a href="/seascaperesortmarina/group-stays/family-reunions/">Family Reunions</a>
+              <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
+            </div>
+          </div>
         </div>
         <a class="nav-logo" href="/seascaperesortmarina/" aria-label="Seascape Resort & Marina home">
           <span class="nav-logo-main">SEASCAPE</span>
           <span class="nav-logo-sub">RESORT &amp; MARINA</span>
         </a>
         <div class="nav-links nav-right">
-          <a href="/seascaperesortmarina/full-property-buyouts/">Buyouts</a>
-          <a href="/seascaperesortmarina/weddings/">Weddings</a>
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Explore Keys</button>
+            <div class="nav-dropdown-menu">
+              <a href="/seascaperesortmarina/explore-keys/where-to-eat/">Where to Eat</a>
+              <a href="/seascaperesortmarina/explore-keys/things-to-do/">Things to Do</a>
+              <a href="/seascaperesortmarina/explore-keys/local-events/">Local Events</a>
+            </div>
+          </div>
+          <a href="/seascaperesortmarina/blog/">Blog</a>
           <a href="/seascaperesortmarina/contact/">Contact</a>
           <a class="book-now" href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" target="_blank" rel="noopener">Book Now</a>
         </div>
@@ -881,7 +938,12 @@
         <a href="/seascaperesortmarina/excursions/">Excursions</a>
         <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
         <a href="/seascaperesortmarina/weddings/">Weddings</a>
+        <a href="/seascaperesortmarina/group-stays/family-reunions/">Family Reunions</a>
         <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
+        <a href="/seascaperesortmarina/explore-keys/where-to-eat/">Where to Eat</a>
+        <a href="/seascaperesortmarina/explore-keys/things-to-do/">Things to Do</a>
+        <a href="/seascaperesortmarina/explore-keys/local-events/">Local Events</a>
+        <a href="/seascaperesortmarina/blog/">Blog</a>
         <a href="/seascaperesortmarina/contact/">Contact</a>
       </div>
     </header>
