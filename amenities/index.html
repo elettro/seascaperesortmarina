@@ -48,6 +48,26 @@
 
     .amenities-page {
       overflow: clip;
+      --amenities-nav-offset: 0px;
+    }
+
+    #site-nav {
+      position: relative;
+      z-index: 1200;
+    }
+
+    .amenities-page main {
+      padding-top: var(--amenities-nav-offset);
+    }
+
+    .amenities-page #site-nav .hero,
+    .amenities-page #site-nav .video-shell,
+    .amenities-page #site-nav .video-overlay,
+    .amenities-page #site-nav .hero-overlay,
+    .amenities-page #site-nav .hero-content,
+    .amenities-page #site-nav .intro-strip,
+    .amenities-page #site-nav main {
+      display: none !important;
     }
 
     .amenities-wrap {
@@ -1124,6 +1144,16 @@
   </div>
 
   <script>
+    function syncAmenitiesNavOffset() {
+      const siteNav = document.getElementById('site-nav');
+      if (!siteNav) return;
+
+      const siteHeader = siteNav.querySelector('.site-header');
+      if (!siteHeader) return;
+
+      document.documentElement.style.setProperty('--amenities-nav-offset', `${siteHeader.offsetHeight}px`);
+    }
+
     async function loadSharedPartial(targetId, path) {
       const target = document.getElementById(targetId);
       if (!target) return;
@@ -1131,7 +1161,22 @@
       try {
         const response = await fetch(path);
         if (!response.ok) throw new Error('Failed to load ' + path);
-        target.innerHTML = await response.text();
+
+        const markup = await response.text();
+
+        if (targetId === 'site-nav') {
+          const parser = new DOMParser();
+          const navDoc = parser.parseFromString(markup, 'text/html');
+          const siteHeader = navDoc.querySelector('.site-header');
+
+          target.innerHTML = siteHeader ? siteHeader.outerHTML : '';
+          syncAmenitiesNavOffset();
+          window.addEventListener('resize', syncAmenitiesNavOffset);
+          window.addEventListener('load', syncAmenitiesNavOffset);
+          return;
+        }
+
+        target.innerHTML = markup;
       } catch (error) {
         console.warn(error);
       }
