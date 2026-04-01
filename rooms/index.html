@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seascape Resort & Marina | Rooms</title>
   <meta name="description" content="Browse Seascape Resort & Marina accommodations including suites, ocean-view suites, apartments, and bungalows." />
+  <link rel="stylesheet" href="../css/style.css" />
   <style>
     :root{
       --bg:#edf4f7;
@@ -44,61 +45,17 @@
     a{text-decoration:none;color:inherit}
     .container{width:min(calc(100% - 32px), var(--max));margin:0 auto}
 
-    .global-nav-wrap{
-      position:sticky;
-      top:0;
-      z-index:40;
-      backdrop-filter:blur(10px);
-      background:rgba(247,251,252,.92);
-      border-bottom:1px solid rgba(15,47,70,.08);
+    .rooms-page{
+      --rooms-nav-offset:0px;
     }
 
-    .global-nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      min-height:64px;
-    }
-
-    .brand-link{
-      font-weight:800;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      font-size:.82rem;
-      color:var(--ink);
-      white-space:nowrap;
-    }
-
-    .global-nav-links{
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      gap:10px;
-    }
-
-    .global-nav-links a{
-      min-height:36px;
-      display:inline-flex;
-      align-items:center;
-      padding:0 14px;
-      border-radius:999px;
-      border:1px solid rgba(15,47,70,.12);
-      background:#fff;
-      font-size:.86rem;
-      font-weight:700;
-      color:var(--ink-2);
-    }
-
-    .global-nav-links a.is-active{
-      border-color:rgba(45,179,217,.34);
-      background:rgba(45,179,217,.14);
-      color:var(--ink);
+    #site-nav{
+      position:relative;
+      z-index:1200;
     }
 
     .page-hero{
-      padding:64px 0 34px;
+      padding:calc(var(--rooms-nav-offset) + 40px) 0 34px;
     }
 
     .eyebrow{
@@ -458,19 +415,6 @@
     }
 
     @media (max-width: 780px){
-      .global-nav{
-        min-height:56px;
-      }
-      .brand-link{
-        display:none;
-      }
-      .global-nav-links{
-        flex-wrap:nowrap;
-        overflow:auto;
-        width:100%;
-        padding-bottom:2px;
-      }
-      .page-hero{padding-top:46px}
       .rooms-grid{
         grid-template-columns:1fr;
       }
@@ -484,22 +428,9 @@
     }
   </style>
 </head>
-<body>
+<body class="rooms-page">
 
-  <div class="global-nav-wrap">
-    <div class="container global-nav">
-      <a class="brand-link" href="/seascaperesortmarina/">Seascape Resort & Marina</a>
-      <nav class="global-nav-links" aria-label="Global navigation">
-        <a href="/seascaperesortmarina/">Home</a>
-        <a href="/seascaperesortmarina/rooms/" class="is-active" aria-current="page">Rooms</a>
-        <a href="/seascaperesortmarina/amenities/">Amenities</a>
-        <a href="/seascaperesortmarina/excursions/">Excursions</a>
-        <a href="/seascaperesortmarina/weddings/">Weddings</a>
-        <a href="tel:+13057436212">Call</a>
-        <a href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" target="_blank" rel="noopener noreferrer">Book Now</a>
-      </nav>
-    </div>
-  </div>
+  <div id="site-nav"></div>
 
   <svg width="0" height="0" style="position:absolute;visibility:hidden">
     <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
@@ -1245,5 +1176,52 @@
       Seascape accommodations page populated from your uploaded room dataset.
     </div>
   </footer>
+
+  <script>
+    function syncRoomsNavOffset() {
+      const siteNav = document.getElementById('site-nav');
+      if (!siteNav) return;
+
+      const siteHeader = siteNav.querySelector('.site-header');
+      if (!siteHeader) return;
+
+      document.body.style.setProperty('--rooms-nav-offset', `${siteHeader.offsetHeight}px`);
+    }
+
+    function loadSharedNavScript() {
+      if (document.querySelector('script[data-shared-nav-script="true"]')) return;
+
+      const script = document.createElement('script');
+      script.src = '../js/main.js';
+      script.defer = true;
+      script.dataset.sharedNavScript = 'true';
+      document.body.appendChild(script);
+    }
+
+    async function loadSharedNav() {
+      const target = document.getElementById('site-nav');
+      if (!target) return;
+
+      try {
+        const response = await fetch('../index.html');
+        if (!response.ok) throw new Error('Failed to load shared header');
+
+        const markup = await response.text();
+        const parser = new DOMParser();
+        const navDoc = parser.parseFromString(markup, 'text/html');
+        const siteHeader = navDoc.querySelector('.site-header');
+
+        target.innerHTML = siteHeader ? siteHeader.outerHTML : '';
+        syncRoomsNavOffset();
+        loadSharedNavScript();
+        window.addEventListener('resize', syncRoomsNavOffset);
+        window.addEventListener('load', syncRoomsNavOffset);
+      } catch (error) {
+        console.warn(error);
+      }
+    }
+
+    loadSharedNav();
+  </script>
 </body>
 </html>
