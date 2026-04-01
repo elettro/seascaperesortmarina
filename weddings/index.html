@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weddings | Seascape Resort & Marina | Marathon, Florida Keys</title>
+  <meta
+    name="description"
+    content="Plan an intimate waterfront wedding at Seascape Resort & Marina in Marathon, Florida Keys. Perfect for micro weddings, destination wedding weekends, and full property buyouts."
+  />
+  <link rel="canonical" href="https://elettro.github.io/seascaperesortmarina/weddings/" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    .weddings-page {
+      --weddings-nav-offset: 0px;
+      --weddings-ink: #12344a;
+      --weddings-ink-soft: #2f5f78;
+      --weddings-accent: #d4b067;
+      --weddings-sea: #58b8c8;
+      --weddings-mist: #eff7f9;
+      --weddings-line: rgba(18, 52, 74, 0.12);
+      --weddings-shadow: 0 16px 40px rgba(10, 34, 49, 0.12);
+      color: var(--weddings-ink);
+      background: linear-gradient(180deg, #f9fbfc 0%, #ffffff 40%, #f6fafb 100%);
+    }
+
+    .weddings-page #site-nav {
+      position: relative;
+      z-index: 1200;
+    }
+
+    .weddings-page main {
+      padding-top: var(--weddings-nav-offset);
+    }
+
+    .weddings-page #site-nav .hero,
+    .weddings-page #site-nav .video-shell,
+    .weddings-page #site-nav .video-overlay,
+    .weddings-page #site-nav .hero-overlay,
+    .weddings-page #site-nav .hero-content,
+    .weddings-page #site-nav .intro-strip,
+    .weddings-page #site-nav main {
+      display: none !important;
+    }
+
+    .weddings-wrap {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .weddings-section {
+      padding: 72px 0;
+    }
+
+    .weddings-section h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.08;
+      color: var(--weddings-ink);
+    }
+
+    .weddings-section p {
+      margin: 0;
+      line-height: 1.7;
+      color: var(--weddings-ink-soft);
+    }
+
+    .weddings-eyebrow {
+      display: inline-flex;
+      min-height: 36px;
+      align-items: center;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.15);
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .weddings-hero {
+      color: #fff;
+      padding: 78px 0 66px;
+      background:
+        linear-gradient(120deg, rgba(8, 30, 42, 0.88), rgba(17, 66, 84, 0.73)),
+        url('../images/weddings-hero-placeholder.jpg') center / cover no-repeat;
+    }
+
+    .weddings-hero-grid {
+      display: grid;
+      gap: 26px;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: end;
+    }
+
+    .weddings-hero h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(2.3rem, 5vw, 4.5rem);
+      line-height: 0.94;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+
+    .weddings-hero p {
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 780px;
+    }
+
+    .weddings-pill-row,
+    .weddings-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .weddings-pill,
+    .weddings-chip {
+      display: inline-flex;
+      min-height: 38px;
+      align-items: center;
+      padding: 0 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.84rem;
+    }
+
+    .weddings-pill {
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    .weddings-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .weddings-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .weddings-btn-primary {
+      color: #112534;
+      background: linear-gradient(135deg, var(--weddings-accent), #ebd2a1);
+    }
+
+    .weddings-btn-secondary {
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .weddings-panel {
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--weddings-ink);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--weddings-shadow);
+    }
+
+    .weddings-panel h2 {
+      font-size: 1.45rem;
+      margin-bottom: 10px;
+    }
+
+    .weddings-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .weddings-grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .weddings-grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .weddings-card {
+      background: #fff;
+      border: 1px solid var(--weddings-line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(9, 34, 49, 0.06);
+    }
+
+    .weddings-card h3 {
+      margin: 0 0 10px;
+      color: var(--weddings-ink);
+      font-size: 1.2rem;
+    }
+
+    .weddings-card p {
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .weddings-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+      background: linear-gradient(135deg, rgba(88, 184, 200, 0.16), rgba(212, 176, 103, 0.2));
+    }
+
+    .weddings-list-grid {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .weddings-list-grid li {
+      padding: 13px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--weddings-line);
+      background: #fff;
+      font-weight: 600;
+      color: var(--weddings-ink);
+    }
+
+    .weddings-list-grid li::before {
+      content: '✓ ';
+      color: var(--weddings-sea);
+      font-weight: 800;
+    }
+
+    .weddings-split {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .weddings-buyout-list {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      color: var(--weddings-ink-soft);
+    }
+
+    .weddings-buyout-list li {
+      margin-bottom: 8px;
+      line-height: 1.55;
+    }
+
+    .weddings-chip {
+      background: #eaf6f8;
+      color: #0f4b61;
+      border: 1px solid rgba(88, 184, 200, 0.3);
+    }
+
+    .weddings-gallery {
+      border-radius: 24px;
+      border: 1px solid var(--weddings-line);
+      padding: 28px;
+      background:
+        linear-gradient(145deg, rgba(88, 184, 200, 0.08), rgba(212, 176, 103, 0.12)),
+        #fff;
+      text-align: center;
+    }
+
+    .weddings-gallery-frame {
+      margin-top: 18px;
+      min-height: 240px;
+      border-radius: 16px;
+      border: 2px dashed rgba(18, 52, 74, 0.25);
+      display: grid;
+      place-items: center;
+      color: #315f74;
+      background: rgba(255, 255, 255, 0.65);
+      padding: 16px;
+    }
+
+    .weddings-cta {
+      background: linear-gradient(135deg, #10354b, #174b63);
+      color: #fff;
+      border-radius: 22px;
+      padding: 42px 30px;
+      text-align: center;
+      box-shadow: var(--weddings-shadow);
+    }
+
+    .weddings-cta h2,
+    .weddings-cta p {
+      color: #fff;
+    }
+
+    .weddings-cta p {
+      max-width: 720px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .weddings-cta .weddings-actions {
+      justify-content: center;
+    }
+
+    @media (max-width: 1080px) {
+      .weddings-grid-4,
+      .weddings-list-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .weddings-grid-3,
+      .weddings-split,
+      .weddings-hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .weddings-section {
+        padding: 56px 0;
+      }
+
+      .weddings-grid-4,
+      .weddings-list-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .weddings-hero {
+        padding: 62px 0 52px;
+      }
+
+      .weddings-cta {
+        padding: 34px 22px;
+      }
+    }
+  </style>
+</head>
+<body class="weddings-page">
+  <div id="site-nav"></div>
+
+  <main>
+    <section class="weddings-hero weddings-section" aria-labelledby="weddings-hero-heading">
+      <div class="weddings-wrap weddings-hero-grid">
+        <div>
+          <p class="weddings-eyebrow">Weddings at Seascape</p>
+          <h1 id="weddings-hero-heading">Private waterfront weddings in the Florida Keys</h1>
+          <p>
+            Create a celebration that feels personal from start to finish—intimate ceremonies by the water,
+            multi-day wedding weekends, and full property experiences designed around your guests.
+          </p>
+          <div class="weddings-actions">
+            <a class="weddings-btn weddings-btn-primary" href="../contact/">Request Wedding Info</a>
+            <a class="weddings-btn weddings-btn-secondary" href="../rooms/">View Guest Rooms</a>
+          </div>
+          <div class="weddings-pill-row" aria-label="Wedding highlights">
+            <span class="weddings-pill">Waterfront Setting</span>
+            <span class="weddings-pill">Full Property Buyouts</span>
+            <span class="weddings-pill">Wedding Weekend Friendly</span>
+            <span class="weddings-pill">Marina Access</span>
+          </div>
+        </div>
+
+        <aside class="weddings-panel" aria-label="Wedding planning support">
+          <h2>Designed for intimate destination celebrations</h2>
+          <p>
+            From micro weddings to private group events, Seascape brings together boutique room inventory,
+            marina atmosphere, and relaxed Keys charm for a celebration that feels truly yours.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="weddings-section" aria-labelledby="weddings-intro-heading">
+      <div class="weddings-wrap">
+        <h2 id="weddings-intro-heading">A more personal way to celebrate in Marathon</h2>
+        <p>
+          Seascape Resort &amp; Marina is ideal for couples who want an upscale yet easygoing wedding experience.
+          The waterfront backdrop, walkable property flow, and comfortable on-site accommodations make it simple
+          to gather everyone together for meaningful moments across an entire wedding weekend.
+        </p>
+      </div>
+    </section>
+
+    <section class="weddings-section" aria-labelledby="weddings-highlights-heading">
+      <div class="weddings-wrap">
+        <h2 id="weddings-highlights-heading">Wedding highlights</h2>
+        <div class="weddings-grid weddings-grid-3">
+          <article class="weddings-card">
+            <div class="weddings-icon" aria-hidden="true">🌅</div>
+            <h3>Romantic Waterfront Backdrop</h3>
+            <p>Exchange vows in a scenic setting where ocean light, palm breezes, and marina views frame every photo.</p>
+          </article>
+          <article class="weddings-card">
+            <div class="weddings-icon" aria-hidden="true">🏨</div>
+            <h3>Stay Together On Property</h3>
+            <p>Keep your favorite people close with convenient on-site guest rooms and spaces that support shared experiences.</p>
+          </article>
+          <article class="weddings-card">
+            <div class="weddings-icon" aria-hidden="true">🌴</div>
+            <h3>Relaxed Florida Keys Energy</h3>
+            <p>Enjoy a refined but relaxed atmosphere that turns your celebration into a memorable destination getaway.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="weddings-section" aria-labelledby="weddings-event-types-heading">
+      <div class="weddings-wrap">
+        <h2 id="weddings-event-types-heading">Event types we welcome</h2>
+        <ul class="weddings-list-grid">
+          <li>Wedding Ceremonies</li>
+          <li>Micro Weddings</li>
+          <li>Elopements</li>
+          <li>Welcome Gatherings</li>
+          <li>Rehearsal Dinners</li>
+          <li>Farewell Brunches</li>
+          <li>Vow Renewals</li>
+          <li>Anniversary Celebrations</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="weddings-section" aria-labelledby="weddings-spaces-heading">
+      <div class="weddings-wrap">
+        <h2 id="weddings-spaces-heading">Wedding spaces and property flow</h2>
+        <div class="weddings-grid weddings-grid-3">
+          <article class="weddings-card">
+            <h3>Waterfront Ceremony Setting</h3>
+            <p>Plan a waterfront ceremony scene with tranquil views and natural Florida Keys beauty.</p>
+          </article>
+          <article class="weddings-card">
+            <h3>Poolside and Social Gathering Areas</h3>
+            <p>Host welcome drinks, post-ceremony mingling, or relaxed receptions in inviting outdoor spaces.</p>
+          </article>
+          <article class="weddings-card">
+            <h3>Marina and Dockside Photo Moments</h3>
+            <p>Capture memorable portraits along the docks with authentic marina character and warm island light.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="weddings-section" aria-labelledby="weddings-buyout-heading">
+      <div class="weddings-wrap weddings-split">
+        <div class="weddings-card">
+          <h2 id="weddings-buyout-heading">Make the entire resort part of your wedding story</h2>
+          <p>
+            Full property buyouts give your group a private-feeling home base where every event connects naturally
+            from arrival through farewell. It is an ideal fit for destination weddings that value privacy,
+            flow, and a stronger sense of togetherness.
+          </p>
+          <ul class="weddings-buyout-list">
+            <li>More privacy for your wedding group</li>
+            <li>Guests stay together on-site</li>
+            <li>Better flow for multi-day events</li>
+            <li>Stronger sense of a private celebration</li>
+          </ul>
+        </div>
+        <aside class="weddings-card" aria-label="Buyout event styles">
+          <h3>Perfect for</h3>
+          <div class="weddings-chip-row">
+            <span class="weddings-chip">Destination Weddings</span>
+            <span class="weddings-chip">Family Wedding Weekends</span>
+            <span class="weddings-chip">Micro Luxury Events</span>
+            <span class="weddings-chip">Private Group Celebrations</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="weddings-section" aria-labelledby="weddings-amenities-heading">
+      <div class="weddings-wrap">
+        <h2 id="weddings-amenities-heading">Wedding-friendly amenities</h2>
+        <div class="weddings-grid weddings-grid-4">
+          <article class="weddings-card"><h3>Free WiFi</h3><p>Reliable connectivity for guests and event coordination.</p></article>
+          <article class="weddings-card"><h3>Free On-Site Parking</h3><p>Easy access for local guests, vendors, and planners.</p></article>
+          <article class="weddings-card"><h3>Free Bicycle Use</h3><p>A fun way for guests to explore around Marathon during downtime.</p></article>
+          <article class="weddings-card"><h3>Outdoor Pool</h3><p>Perfect for welcome-day relaxation and casual social moments.</p></article>
+          <article class="weddings-card"><h3>Fishing Access</h3><p>Add authentic Keys experiences to your wedding weekend itinerary.</p></article>
+          <article class="weddings-card"><h3>Kayaking</h3><p>Offer guests easy, memorable water-based recreation on-site.</p></article>
+          <article class="weddings-card"><h3>BBQ Grills and Outdoor Areas</h3><p>Flexible spaces for informal gatherings and group meals.</p></article>
+          <article class="weddings-card"><h3>On-Site Marina</h3><p>A standout amenity that gives your celebration true waterfront character.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="weddings-section" aria-labelledby="weddings-weekend-heading">
+      <div class="weddings-wrap">
+        <h2 id="weddings-weekend-heading">A full wedding weekend in the Keys</h2>
+        <div class="weddings-grid weddings-grid-3">
+          <article class="weddings-card">
+            <h3>Welcome Night Gatherings</h3>
+            <p>Bring everyone together before the big day with low-key waterfront receptions and meaningful introductions.</p>
+          </article>
+          <article class="weddings-card">
+            <h3>Excursions and Marina Activities</h3>
+            <p>Plan optional water adventures and island activities to make the entire weekend unforgettable.</p>
+          </article>
+          <article class="weddings-card">
+            <h3>Farewell Morning Moments</h3>
+            <p>Close your celebration with a relaxed sendoff that gives guests one more shared memory.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="weddings-section" aria-labelledby="weddings-planning-heading">
+      <div class="weddings-wrap">
+        <h2 id="weddings-planning-heading">Planning information</h2>
+        <div class="weddings-grid weddings-grid-4">
+          <article class="weddings-card">
+            <h3>Guest Count and Layout</h3>
+            <p>We help shape an event flow and layout approach based on your celebration style and priorities.</p>
+          </article>
+          <article class="weddings-card">
+            <h3>Room Blocks and Buyouts</h3>
+            <p>Choose from room block options or full property buyouts to keep your wedding group together.</p>
+          </article>
+          <article class="weddings-card">
+            <h3>Vendor Coordination</h3>
+            <p>Collaborate with your preferred vendors while we support practical on-site timing and logistics.</p>
+          </article>
+          <article class="weddings-card">
+            <h3>Custom Event Style</h3>
+            <p>From simple and intimate to elevated and multi-day, your celebration can reflect your vision.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="weddings-section" aria-labelledby="weddings-gallery-heading">
+      <div class="weddings-wrap">
+        <div class="weddings-gallery">
+          <h2 id="weddings-gallery-heading">Wedding gallery</h2>
+          <p>Real Seascape wedding moments will be featured here soon to showcase ceremonies, portraits, and weekend celebrations.</p>
+          <!-- TODO: Replace this placeholder with actual Seascape wedding event photography when available. -->
+          <div class="weddings-gallery-frame" role="img" aria-label="Placeholder panel for future real wedding photography">
+            Future Real Wedding Photography Gallery Placement
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="weddings-section" aria-labelledby="weddings-cta-heading">
+      <div class="weddings-wrap">
+        <div class="weddings-cta">
+          <h2 id="weddings-cta-heading">Let’s start planning your Seascape wedding weekend</h2>
+          <p>
+            Share your vision and preferred dates, and our team will help you explore the right fit for intimate events,
+            destination weekends, and full property wedding experiences.
+          </p>
+          <div class="weddings-actions">
+            <a class="weddings-btn weddings-btn-primary" href="../contact/">Request Wedding Information</a>
+            <a class="weddings-btn weddings-btn-secondary" href="../group-stays/full-property-buyouts/">Explore Full Property Buyout</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    function syncWeddingsNavOffset() {
+      const siteNav = document.getElementById('site-nav');
+      if (!siteNav) return;
+
+      const siteHeader = siteNav.querySelector('.site-header');
+      if (!siteHeader) return;
+
+      const weddingsPage = document.querySelector('.weddings-page');
+      if (weddingsPage) {
+        weddingsPage.style.setProperty('--weddings-nav-offset', `${siteHeader.offsetHeight}px`);
+      }
+    }
+
+    function loadSharedNavScript() {
+      if (document.querySelector('script[data-shared-nav-script="true"]')) return;
+      const script = document.createElement('script');
+      script.src = '../js/main.js';
+      script.defer = true;
+      script.dataset.sharedNavScript = 'true';
+      document.body.appendChild(script);
+    }
+
+    async function loadSharedPartial(targetId, path) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      try {
+        const response = await fetch(path);
+        if (!response.ok) throw new Error(`Failed to load ${path}`);
+
+        const markup = await response.text();
+
+        if (targetId === 'site-nav') {
+          const parser = new DOMParser();
+          const navDoc = parser.parseFromString(markup, 'text/html');
+          const siteHeader = navDoc.querySelector('.site-header');
+          target.innerHTML = siteHeader ? siteHeader.outerHTML : '';
+          syncWeddingsNavOffset();
+          loadSharedNavScript();
+          window.addEventListener('resize', syncWeddingsNavOffset);
+          window.addEventListener('load', syncWeddingsNavOffset);
+          return;
+        }
+
+        target.innerHTML = markup;
+      } catch (error) {
+        console.warn(error);
+      }
+    }
+
+    loadSharedPartial('site-nav', '../index.html');
+    loadSharedPartial('site-footer', '../footer/index.html');
+  </script>
+</body>
+</html>
