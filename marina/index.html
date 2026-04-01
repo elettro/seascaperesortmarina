@@ -7,6 +7,10 @@
   <meta name="description" content="Discover the on-property marina experience at Seascape Resort & Marina in Marathon, Florida Keys." />
   <link rel="stylesheet" href="../css/style.css" />
   <style>
+    :root {
+      --nav-height: 84px;
+    }
+
     .marina-page {
       --navy: #0f2f46;
       --navy-deep: #092033;
@@ -22,7 +26,7 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background: linear-gradient(180deg, #f7fbfc 0%, #ffffff 32%, #f5efe4 100%);
-      --marina-nav-offset: 0px;
+      --nav-height: 84px;
       padding-top: 0;
     }
 
@@ -50,9 +54,11 @@
     }
 
 
-    .marina-hero {
+    .marina-page .marina-hero {
       position: relative;
-      min-height: 92vh;
+      margin-top: calc(var(--nav-height, 84px) * -1);
+      padding-top: 0;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       overflow: hidden;
@@ -72,12 +78,12 @@
       pointer-events: none;
     }
 
-    .marina-hero-content {
+    .marina-page .marina-hero-content {
       position: relative;
       z-index: 2;
       width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 100px 0 84px;
+      padding: calc(var(--nav-height, 84px) + 40px) 0 84px;
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 28px;
@@ -638,16 +644,16 @@
     }
 
     @media (max-width: 780px) {
-      .marina-hero {
+      .marina-page .marina-hero {
         min-height: auto;
       }
 
       .marina-page main {
-        padding-top: calc(var(--marina-nav-offset, 0px) + 10px);
+        padding-top: 0;
       }
 
-      .marina-hero-content {
-        padding: 32px 0 48px;
+      .marina-page .marina-hero-content {
+        padding: calc(var(--nav-height, 84px) + 24px) 0 48px;
         gap: 18px;
       }
 
@@ -708,6 +714,21 @@
 
       .cta-panel {
         padding: 26px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .marina-page {
+        --nav-height: 76px;
+      }
+
+      .marina-page .marina-hero {
+        margin-top: calc(var(--nav-height) * -1);
+        min-height: auto;
+      }
+
+      .marina-page .marina-hero-content {
+        padding-top: calc(var(--nav-height) + 20px);
       }
     }
 
@@ -787,8 +808,15 @@
       }
     }
 
-    #site-nav {
+    .marina-page #site-nav {
       position: relative;
+      z-index: 1000;
+    }
+
+    .marina-page #site-nav .site-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
       z-index: 1000;
     }
 
@@ -813,7 +841,7 @@
     }
 
     .marina-page main {
-      padding-top: var(--marina-nav-offset, 0px);
+      padding-top: 0;
     }
 
   </style>
@@ -1121,10 +1149,10 @@
       const marinaPage = document.querySelector('.marina-page');
       if (!marinaPage) return;
 
-      marinaPage.style.setProperty('--marina-nav-offset', `${siteHeader.offsetHeight}px`);
+      marinaPage.style.setProperty('--nav-height', `${siteHeader.offsetHeight}px`);
       const marinaShell = document.querySelector('.marina-page');
       if (marinaShell) {
-        marinaShell.style.setProperty('--marina-nav-offset', `${siteHeader.offsetHeight}px`);
+        marinaShell.style.setProperty('--nav-height', `${siteHeader.offsetHeight}px`);
       }
     }
 
