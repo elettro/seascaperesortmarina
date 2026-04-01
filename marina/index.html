@@ -867,6 +867,61 @@
       padding-top: 0;
     }
 
+    /* MARINA HERO OVERLAY POSITION FIX */
+    /* Keep background flush to top. Move only foreground overlay content down. */
+
+    .marina-page .marina-hero {
+      position: relative;
+      margin-top: calc(var(--nav-height, 84px) * -1);
+      padding-top: 0;
+      overflow: visible;
+    }
+
+    .marina-page .marina-hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: calc(var(--nav-height, 84px) + 110px);
+      padding-bottom: 180px;
+      align-items: start;
+    }
+
+    .marina-page .marina-hero-copy,
+    .marina-page .marina-hero-card {
+      align-self: start;
+    }
+
+    .marina-page .marina-eyebrow {
+      margin-top: 0;
+    }
+
+    @media (max-width: 1200px) {
+      .marina-page .marina-hero-content {
+        padding-top: calc(var(--nav-height, 84px) + 96px);
+      }
+    }
+
+    @media (max-width: 1040px) {
+      .marina-page .marina-hero-content {
+        padding-top: calc(var(--nav-height, 84px) + 84px);
+        padding-bottom: 120px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .marina-page {
+        --nav-height: 76px;
+      }
+
+      .marina-page .marina-hero {
+        margin-top: calc(var(--nav-height) * -1);
+      }
+
+      .marina-page .marina-hero-content {
+        padding-top: calc(var(--nav-height) + 52px);
+        padding-bottom: 28px;
+      }
+    }
+
   </style>
 </head>
 <body>
