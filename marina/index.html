@@ -646,6 +646,9 @@
     @media (max-width: 780px) {
       .marina-page .marina-hero {
         min-height: auto;
+        margin-top: 0;
+        padding-top: var(--nav-height, 84px);
+        overflow: visible;
       }
 
       .marina-page main {
@@ -653,7 +656,7 @@
       }
 
       .marina-page .marina-hero-content {
-        padding: calc(var(--nav-height, 84px) + 24px) 0 48px;
+        padding: 28px 0 36px;
         gap: 18px;
       }
 
@@ -673,7 +676,7 @@
         transform: none;
         width: min(1180px, calc(100% - 32px));
         margin: 0 auto;
-        padding-top: 12px;
+        padding: 10px 0 18px;
       }
 
       .content-section {
@@ -723,12 +726,11 @@
       }
 
       .marina-page .marina-hero {
-        margin-top: calc(var(--nav-height) * -1);
         min-height: auto;
       }
 
       .marina-page .marina-hero-content {
-        padding-top: calc(var(--nav-height) + 20px);
+        padding-top: 24px;
       }
     }
 
@@ -794,12 +796,13 @@
       }
 
       .floating-ribbon-inner {
-        padding: 16px;
+        padding: 14px;
+        border-radius: 20px;
       }
 
       .ribbon-item {
         border-bottom: 1px solid var(--line);
-        padding-bottom: 10px;
+        padding: 0 2px 12px;
       }
 
       .ribbon-item:last-child {
