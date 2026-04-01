@@ -738,11 +738,33 @@
         border-radius: 22px;
       }
     }
+
+    #site-nav {
+      position: relative;
+      z-index: 1000;
+    }
+
+    .marina-page #site-nav .hero,
+    .marina-page #site-nav .video-shell,
+    .marina-page #site-nav .video-overlay,
+    .marina-page #site-nav .hero-overlay,
+    .marina-page #site-nav .hero-content,
+    .marina-page #site-nav .intro-strip,
+    .marina-page #site-nav main {
+      display: none !important;
+    }
+
+    .marina-page main {
+      padding-top: var(--marina-nav-offset, 0px);
+    }
+
   </style>
+</head>
+<body>
+  <div class="site-shell marina-page">
+    <div id="site-nav"></div>
 
-
-
-
+    <main>
   <section class="marina-hero">
     <div class="hero-content">
       <div class="hero-copy">
@@ -1025,9 +1047,10 @@
   </section>
 
   <div class="marina-footer-space"></div>
-</section>
+    </main>
 
-  </main>
+    <div id="site-footer"></div>
+  </div>
 
   <script>
     function syncMarinaNavOffset() {
@@ -1041,6 +1064,10 @@
       if (!marinaPage) return;
 
       marinaPage.style.setProperty('--marina-nav-offset', `${siteHeader.offsetHeight}px`);
+      const marinaShell = document.querySelector('.marina-page');
+      if (marinaShell) {
+        marinaShell.style.setProperty('--marina-nav-offset', `${siteHeader.offsetHeight}px`);
+      }
     }
 
     function loadSharedNavScript() {
@@ -1053,30 +1080,37 @@
       document.body.appendChild(script);
     }
 
-    async function loadSharedNav() {
-      const target = document.getElementById('site-nav');
+    async function loadSharedPartial(targetId, path) {
+      const target = document.getElementById(targetId);
       if (!target) return;
 
       try {
-        const response = await fetch('../index.html');
-        if (!response.ok) throw new Error('Failed to load shared header');
+        const response = await fetch(path);
+        if (!response.ok) throw new Error('Failed to load ' + path);
 
         const markup = await response.text();
-        const parser = new DOMParser();
-        const navDoc = parser.parseFromString(markup, 'text/html');
-        const siteHeader = navDoc.querySelector('.site-header');
 
-        target.innerHTML = siteHeader ? siteHeader.outerHTML : '';
-        syncMarinaNavOffset();
-        loadSharedNavScript();
-        window.addEventListener('resize', syncMarinaNavOffset);
-        window.addEventListener('load', syncMarinaNavOffset);
+        if (targetId === 'site-nav') {
+          const parser = new DOMParser();
+          const navDoc = parser.parseFromString(markup, 'text/html');
+          const siteHeader = navDoc.querySelector('.site-header');
+
+          target.innerHTML = siteHeader ? siteHeader.outerHTML : '';
+          syncMarinaNavOffset();
+          loadSharedNavScript();
+          window.addEventListener('resize', syncMarinaNavOffset);
+          window.addEventListener('load', syncMarinaNavOffset);
+          return;
+        }
+
+        target.innerHTML = markup;
       } catch (error) {
         console.warn(error);
       }
     }
 
-    loadSharedNav();
+    loadSharedPartial('site-nav', '../index.html');
+    loadSharedPartial('site-footer', '../footer/index.html');
   </script>
 </body>
 </html>
