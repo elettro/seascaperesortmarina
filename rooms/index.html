@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seascape Rooms Menu Concepts</title>
-  <meta name="description" content="Five icon-forward room menu presentation concepts for Seascape Resort & Marina." />
+  <title>Seascape Resort & Marina | Rooms</title>
+  <meta name="description" content="Browse Seascape Resort & Marina accommodations including suites, ocean-view suites, apartments, and bungalows." />
   <style>
     :root{
       --bg:#edf4f7;
@@ -14,7 +14,6 @@
       --ink-2:#37586d;
       --ink-3:#668092;
       --line:rgba(15,47,70,.1);
-      --line-2:rgba(15,47,70,.16);
       --brand:#2db3d9;
       --brand-deep:#1d8faf;
       --sand:#caa35b;
@@ -25,7 +24,7 @@
       --radius-lg:22px;
       --radius-md:16px;
       --radius-sm:12px;
-      --max:1260px;
+      --max:1280px;
     }
 
     *{box-sizing:border-box}
@@ -42,10 +41,13 @@
     }
 
     img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
     .container{width:min(calc(100% - 32px), var(--max));margin:0 auto}
+
     .page-hero{
-      padding:62px 0 36px;
+      padding:64px 0 34px;
     }
+
     .eyebrow{
       display:inline-flex;
       align-items:center;
@@ -57,17 +59,19 @@
       color:var(--brand-deep);
       margin-bottom:12px;
     }
+
     h1{
       margin:0 0 14px;
-      font-size:clamp(2.1rem,4.6vw,4.2rem);
+      font-size:clamp(2.2rem,4.8vw,4.4rem);
       line-height:1.03;
-      max-width:950px;
+      max-width:980px;
     }
+
     .hero-copy{
       margin:0;
-      max-width:900px;
+      max-width:920px;
       color:var(--ink-3);
-      font-size:1.06rem;
+      font-size:1.05rem;
       line-height:1.65;
     }
 
@@ -77,6 +81,7 @@
       gap:10px;
       margin-top:24px;
     }
+
     .jump-links a{
       display:inline-flex;
       align-items:center;
@@ -85,16 +90,15 @@
       padding:0 16px;
       border-radius:999px;
       border:1px solid rgba(15,47,70,.1);
-      background:rgba(255,255,255,.8);
+      background:rgba(255,255,255,.82);
       box-shadow:var(--shadow-soft);
       color:var(--ink);
-      text-decoration:none;
       font-size:.92rem;
       font-weight:700;
     }
 
-    .concept{
-      padding:34px 0 72px;
+    .section{
+      padding:34px 0 70px;
       border-top:1px solid rgba(15,47,70,.08);
     }
 
@@ -106,17 +110,20 @@
       gap:18px;
       margin-bottom:24px;
     }
+
     .section-head h2{
       margin:0 0 8px;
       font-size:clamp(1.6rem,3vw,2.7rem);
       line-height:1.08;
     }
+
     .section-head p{
       margin:0;
-      max-width:780px;
+      max-width:820px;
       color:var(--ink-3);
     }
-    .concept-tag{
+
+    .section-tag{
       display:inline-flex;
       align-items:center;
       gap:8px;
@@ -143,20 +150,29 @@
       overflow:hidden;
       box-shadow:var(--shadow);
     }
+
     .room-image{
       position:relative;
       aspect-ratio:16/10;
-      background:
-        linear-gradient(180deg, rgba(15,47,70,.05), rgba(15,47,70,.12)),
-        url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80') center/cover;
+      background-size:cover;
+      background-position:center;
     }
+
+    .room-image::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(15,47,70,.12), rgba(15,47,70,.34));
+    }
+
     .room-image::after{
       content:"";
       position:absolute;
       inset:auto 0 0 0;
       height:44%;
-      background:linear-gradient(180deg, rgba(15,47,70,0) 0%, rgba(15,47,70,.38) 100%);
+      background:linear-gradient(180deg, rgba(15,47,70,0) 0%, rgba(15,47,70,.46) 100%);
     }
+
     .image-actions{
       position:absolute;
       inset:14px 14px auto 14px;
@@ -164,6 +180,7 @@
       justify-content:space-between;
       z-index:2;
     }
+
     .icon-chip,
     .arrow-chip{
       width:38px;
@@ -176,11 +193,20 @@
       backdrop-filter:blur(10px);
       color:#fff;
     }
-    .room-rating{
+
+    .room-badges{
       position:absolute;
       left:16px;
+      right:16px;
       bottom:16px;
       z-index:2;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .room-rating,
+    .room-feature-badge{
       display:inline-flex;
       align-items:center;
       gap:8px;
@@ -197,37 +223,75 @@
     .room-body{
       padding:20px 20px 22px;
     }
+
+    .unit-label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:30px;
+      padding:0 12px;
+      border-radius:999px;
+      background:rgba(15,47,70,.06);
+      border:1px solid rgba(15,47,70,.08);
+      color:var(--ink);
+      font-size:.76rem;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+
     .room-title{
       margin:0 0 6px;
-      font-size:1.58rem;
+      font-size:1.48rem;
       line-height:1.1;
       color:#062a66;
     }
+
     .room-sub{
       margin:0 0 18px;
       color:#173f7d;
-      font-size:.98rem;
+      font-size:.96rem;
       font-weight:700;
     }
 
     .spec-list{
       display:grid;
       gap:12px;
-      margin:0 0 20px;
-    }
-    .spec-item{
-      display:flex;
-      align-items:center;
-      gap:11px;
-      color:#0a2c67;
-      font-size:1rem;
+      margin:0 0 18px;
     }
 
-    .mini-icon{
-      width:18px;
-      height:18px;
-      color:#304d89;
-      flex:0 0 18px;
+    .spec-item{
+      display:flex;
+      align-items:flex-start;
+      gap:11px;
+      color:#0a2c67;
+      font-size:.97rem;
+    }
+
+    .amenity-pills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0 0 18px;
+    }
+
+    .amenity-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:34px;
+      padding:0 12px;
+      border-radius:999px;
+      background:#f4f8fa;
+      border:1px solid rgba(15,47,70,.08);
+      color:var(--ink);
+      font-size:.79rem;
+      font-weight:700;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
     }
 
     .cta-btn{
@@ -235,497 +299,91 @@
       align-items:center;
       justify-content:center;
       gap:10px;
-      min-height:52px;
-      width:100%;
+      min-height:50px;
       padding:0 18px;
-      border-radius:10px;
+      border-radius:12px;
       background:linear-gradient(135deg,var(--brand),#33a8d6);
       color:#fff;
-      text-decoration:none;
-      font-size:1rem;
+      font-size:.98rem;
       font-weight:700;
       box-shadow:0 12px 26px rgba(45,179,217,.28);
+      flex:1 1 220px;
     }
 
-    .amenity-band{
-      margin-top:18px;
-      background:#eef2f4;
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:22px;
-    }
-    .amenity-band h3{
-      margin:0 0 22px;
-      font-size:1.05rem;
-      color:#08285f;
-    }
-    .amenity-cats{
-      display:grid;
-      grid-template-columns:repeat(5,minmax(0,1fr));
-      gap:18px;
-    }
-    .amenity-col{
-      display:grid;
-      gap:10px;
-      align-content:start;
-    }
-    .amenity-col h4{
-      margin:0;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:1rem;
-      color:#1b3975;
-    }
-    .amenity-col ul{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:8px;
-      color:#526d8a;
-    }
-    .amenity-col li{
-      display:flex;
-      align-items:flex-start;
-      gap:8px;
-    }
-
-    /* Concept 2 */
-    .tiles-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:22px;
-    }
-    .tile-card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:26px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
-    .tile-top{
-      position:relative;
-      padding:18px;
-      background:
-        linear-gradient(180deg, rgba(15,47,70,.06), rgba(15,47,70,.16)),
-        url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80') center/cover;
-      min-height:255px;
-      display:flex;
-      align-items:flex-end;
-    }
-    .tile-overlay{
-      width:100%;
-      background:rgba(255,255,255,.92);
-      border:1px solid rgba(255,255,255,.7);
-      border-radius:20px;
-      padding:16px;
-      backdrop-filter:blur(12px);
-    }
-    .top-meta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:12px;
-    }
-    .meta-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:7px;
-      min-height:30px;
-      padding:0 12px;
-      border-radius:999px;
-      background:rgba(15,47,70,.06);
-      border:1px solid rgba(15,47,70,.08);
-      font-size:.75rem;
-      font-weight:700;
-      color:var(--ink);
-    }
-    .tile-title{
-      margin:0 0 8px;
-      font-size:1.38rem;
-      line-height:1.08;
-      color:var(--ink);
-    }
-    .tile-copy{
-      margin:0;
-      color:var(--ink-3);
-      font-size:.94rem;
-      line-height:1.55;
-    }
-    .tile-body{
-      padding:18px;
-      display:grid;
-      gap:14px;
-    }
-    .spec-pills{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .spec-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:9px;
-      min-height:38px;
-      padding:0 14px;
-      border-radius:999px;
-      background:#f4f8fa;
-      border:1px solid rgba(15,47,70,.08);
-      color:var(--ink);
-      font-size:.84rem;
-      font-weight:700;
-    }
-    .highlight-row{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:10px;
-    }
-    .highlight-box{
-      padding:14px 12px;
-      border-radius:18px;
-      border:1px solid rgba(15,47,70,.08);
-      background:linear-gradient(180deg,#fbfdfe,#f5fafb);
-      text-align:center;
-    }
-    .highlight-box strong{
-      display:block;
-      font-size:1.05rem;
-      margin-bottom:5px;
-    }
-    .highlight-box span{
-      display:block;
-      color:var(--ink-3);
-      font-size:.82rem;
-    }
-
-    /* Concept 3 */
-    .split-list{
-      display:grid;
-      grid-template-columns:380px 1fr;
-      gap:22px;
-    }
-    .room-nav{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:24px;
-      box-shadow:var(--shadow);
-      padding:14px;
-      display:grid;
-      gap:10px;
-      align-content:start;
-    }
-    .nav-item{
-      display:grid;
-      grid-template-columns:52px 1fr auto;
-      gap:12px;
-      align-items:center;
-      padding:12px;
-      border-radius:18px;
-      border:1px solid transparent;
-      background:#f6fafb;
-    }
-    .nav-item.active{
-      background:linear-gradient(135deg, rgba(45,179,217,.12), rgba(45,179,217,.06));
-      border-color:rgba(45,179,217,.22);
-    }
-    .thumb{
-      width:52px;
-      height:52px;
-      border-radius:14px;
-      background:
-        linear-gradient(180deg, rgba(15,47,70,.08), rgba(15,47,70,.18)),
-        url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80') center/cover;
-    }
-    .nav-copy strong{
-      display:block;
-      font-size:.96rem;
-      margin-bottom:4px;
-    }
-    .nav-copy span{
-      display:block;
-      color:var(--ink-3);
-      font-size:.82rem;
-    }
-    .nav-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      min-height:28px;
-      padding:0 10px;
-      border-radius:999px;
-      font-size:.72rem;
-      font-weight:700;
-      background:#fff;
-      border:1px solid rgba(15,47,70,.1);
-    }
-
-    .feature-panel{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:28px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
-    .feature-top{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      min-height:390px;
-    }
-    .feature-media{
-      position:relative;
-      background:
-        linear-gradient(180deg, rgba(15,47,70,.06), rgba(15,47,70,.2)),
-        url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80') center/cover;
-      min-height:100%;
-    }
-    .floating-stats{
-      position:absolute;
-      left:18px;
-      bottom:18px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .floating-stats .meta-pill{
-      background:rgba(255,255,255,.92);
-    }
-    .feature-copy{
-      padding:28px;
-      display:grid;
-      align-content:start;
-      gap:18px;
-      background:linear-gradient(180deg,#fff,#fbfdfe);
-    }
-    .feature-copy h3{
-      margin:0;
-      font-size:2rem;
-      line-height:1.05;
-      color:#062a66;
-    }
-    .feature-copy p{
-      margin:0;
-      color:var(--ink-3);
-      line-height:1.65;
-    }
-    .icon-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:12px;
-    }
-    .icon-grid .spec-pill{
-      min-height:46px;
-      justify-content:flex-start;
-      border-radius:16px;
-    }
-    .amenity-stack{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:12px;
-    }
-    .amenity-box{
-      padding:14px;
-      border-radius:18px;
-      background:#f5f9fa;
-      border:1px solid rgba(15,47,70,.08);
-    }
-    .amenity-box h4{
-      margin:0 0 10px;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      font-size:.96rem;
-    }
-    .amenity-box ul{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:grid;
-      gap:8px;
-      color:var(--ink-3);
-      font-size:.9rem;
-    }
-
-    /* Concept 4 */
-    .compare-shell{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:30px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-    .compare-header{
-      display:grid;
-      grid-template-columns:1.2fr repeat(3, minmax(0,1fr));
-      background:linear-gradient(180deg,#f9fcfd,#eef6f8);
-      border-bottom:1px solid var(--line);
-    }
-    .compare-header > div,
-    .compare-row > div{
-      padding:16px 18px;
-      border-right:1px solid rgba(15,47,70,.08);
-    }
-    .compare-header > div:last-child,
-    .compare-row > div:last-child{
-      border-right:none;
-    }
-    .compare-header .room-col{
-      font-weight:700;
-      color:var(--ink);
-    }
-    .compare-room-title{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-    .compare-room-title strong{
-      font-size:1rem;
-    }
-    .compare-room-title span{
-      font-size:.82rem;
-      color:var(--ink-3);
-    }
-    .compare-room-title .meta-pill{
-      width:max-content;
-      background:#fff;
-    }
-    .compare-row{
-      display:grid;
-      grid-template-columns:1.2fr repeat(3, minmax(0,1fr));
-      border-bottom:1px solid rgba(15,47,70,.08);
-      background:#fff;
-    }
-    .compare-row:nth-child(even){
-      background:#fcfeff;
-    }
-    .feature-name{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:700;
-      color:var(--ink);
-    }
-    .compare-cell{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      color:var(--ink-2);
-      font-size:.95rem;
-    }
-    .yes{
-      color:#1a7a48;
-      font-weight:700;
-    }
-
-    /* Concept 5 */
-    .stack-grid{
-      display:grid;
-      gap:20px;
-    }
-    .stack-card{
-      display:grid;
-      grid-template-columns:320px 1fr;
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:28px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
-    .stack-media{
-      position:relative;
-      min-height:100%;
-      background:
-        linear-gradient(180deg, rgba(15,47,70,.08), rgba(15,47,70,.24)),
-        url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80') center/cover;
-    }
-    .stack-badges{
-      position:absolute;
-      inset:16px 16px auto 16px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .stack-info{
-      padding:22px;
-      display:grid;
-      gap:18px;
-      align-content:start;
-    }
-    .stack-head{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:space-between;
-      gap:12px;
-      align-items:flex-start;
-    }
-    .stack-head h3{
-      margin:0 0 6px;
-      font-size:1.7rem;
-      line-height:1.08;
-      color:#062a66;
-    }
-    .stack-head p{
-      margin:0;
-      color:var(--ink-3);
-      max-width:690px;
-      line-height:1.6;
-    }
-    .quick-stats{
-      display:grid;
-      grid-template-columns:repeat(5,minmax(0,1fr));
-      gap:10px;
-    }
-    .quick-stat{
-      padding:12px;
-      border-radius:18px;
-      background:#f6fafb;
-      border:1px solid rgba(15,47,70,.08);
-      text-align:center;
-    }
-    .quick-stat svg{
-      width:18px;
-      height:18px;
-      margin:0 auto 8px;
-      display:block;
-      color:#264985;
-    }
-    .quick-stat strong{
-      display:block;
-      font-size:.94rem;
-      margin-bottom:4px;
-    }
-    .quick-stat span{
-      display:block;
-      color:var(--ink-3);
-      font-size:.8rem;
-      line-height:1.35;
-    }
-    .stack-amenities{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:12px;
-    }
-    .stack-amenities .amenity-box{
-      min-height:100%;
-    }
-    .stack-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-    .btn-secondary{
+    .cta-secondary{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      min-height:52px;
+      min-height:50px;
       padding:0 18px;
       border-radius:12px;
       background:#f6fafb;
       color:var(--ink);
-      text-decoration:none;
-      font-weight:700;
       border:1px solid rgba(15,47,70,.1);
+      font-size:.95rem;
+      font-weight:700;
+      flex:1 1 180px;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .info-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:24px;
+    }
+
+    .info-card h3{
+      margin:0 0 18px;
+      font-size:1.24rem;
+      line-height:1.15;
+      color:#062a66;
+    }
+
+    .feature-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .feature-row{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      padding:12px 0;
+      border-top:1px solid rgba(15,47,70,.08);
+    }
+
+    .feature-row:first-child{
+      border-top:none;
+      padding-top:0;
+    }
+
+    .feature-row strong{
+      display:block;
+      font-size:.96rem;
+      margin-bottom:4px;
+      color:var(--ink);
+    }
+
+    .feature-row span{
+      display:block;
+      color:var(--ink-3);
+      font-size:.92rem;
+      line-height:1.5;
+    }
+
+    .mini-icon{
+      width:18px;
+      height:18px;
+      color:#304d89;
+      flex:0 0 18px;
     }
 
     footer{
@@ -737,69 +395,25 @@
     svg{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
     @media (max-width: 1100px){
-      .rooms-grid,
-      .tiles-grid{
+      .rooms-grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
-      .amenity-cats{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-      }
-      .split-list{
+
+      .info-grid{
         grid-template-columns:1fr;
-      }
-      .feature-top{
-        grid-template-columns:1fr;
-      }
-      .stack-card{
-        grid-template-columns:1fr;
-      }
-      .stack-media{
-        min-height:260px;
-      }
-      .quick-stats{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-      }
-      .stack-amenities{
-        grid-template-columns:repeat(2,minmax(0,1fr));
       }
     }
 
     @media (max-width: 780px){
-      .page-hero{padding-top:44px}
-      .rooms-grid,
-      .tiles-grid{
+      .page-hero{padding-top:46px}
+      .rooms-grid{
         grid-template-columns:1fr;
-      }
-      .amenity-cats{
-        grid-template-columns:1fr 1fr;
-      }
-      .highlight-row,
-      .amenity-stack,
-      .icon-grid{
-        grid-template-columns:1fr;
-      }
-      .compare-shell{
-        overflow:auto;
-      }
-      .compare-header,
-      .compare-row{
-        min-width:900px;
-      }
-      .quick-stats{
-        grid-template-columns:repeat(2,minmax(0,1fr));
       }
     }
 
     @media (max-width: 560px){
       .container{width:min(calc(100% - 20px), var(--max))}
-      .amenity-cats,
-      .stack-amenities{
-        grid-template-columns:1fr;
-      }
-      .quick-stats{
-        grid-template-columns:1fr;
-      }
-      .stack-head{
+      .cta-row{
         flex-direction:column;
       }
     }
@@ -822,675 +436,725 @@
     <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.7 4.3L18 9l-4.3 1.7L12 15l-1.7-4.3L6 9l4.3-1.7L12 3z"/><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14z"/><path d="M5 15l.8 2.2L8 18l-2.2.8L5 21l-.8-2.2L2 18l2.2-.8L5 15z"/></symbol>
     <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></symbol>
     <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 7.7-7 9-3.5-1.3-7-4-7-9V6l7-3z"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.88.33 1.75.61 2.58a2 2 0 0 1-.45 2.11L8 9.68a16 16 0 0 0 6.32 6.32l1.27-1.27a2 2 0 0 1 2.11-.45c.83.28 1.7.49 2.58.61A2 2 0 0 1 22 16.92z"/></symbol>
     <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 6-2 6 2 6-2v14l-6 2-6-2-6 2V6z"/><path d="M9 4v14"/><path d="M15 6v14"/></symbol>
     <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 12c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M2 17c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-credit-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></symbol>
+    <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5 5 14 14"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M14 16H6l-1.5-5h15L18 16h-4z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><path d="M6 11l2-4h8l2 4"/></symbol>
+    <symbol id="i-anchor" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7v11"/><path d="M7 11H5a7 7 0 0 0 14 0h-2"/><path d="M8 9h8"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></symbol>
   </svg>
 
   <header class="page-hero">
     <div class="container">
       <div class="eyebrow">
         <svg class="mini-icon"><use href="#i-home"></use></svg>
-        Rooms Menu Page Concepts
+        Accommodations
       </div>
-      <h1>5 icon-forward room menu section options on one HTML page</h1>
+      <h1>Find your Seascape stay</h1>
       <p class="hero-copy">
-        Each direction keeps the room card content clear, leans harder into iconography, and gives the page a more modern resort presentation style. These are built as visual section concepts for the main rooms menu page with all units listed.
+        Browse suites, ocean-view suites, apartments, and bungalows. Every room includes icon-led scanning for sleeps, bedding, standout features, and core in-room amenities.
       </p>
 
       <div class="jump-links">
-        <a href="#concept-1"><svg class="mini-icon"><use href="#i-grid"></use></svg> Option 1</a>
-        <a href="#concept-2"><svg class="mini-icon"><use href="#i-sparkles"></use></svg> Option 2</a>
-        <a href="#concept-3"><svg class="mini-icon"><use href="#i-home"></use></svg> Option 3</a>
-        <a href="#concept-4"><svg class="mini-icon"><use href="#i-shield"></use></svg> Option 4</a>
-        <a href="#concept-5"><svg class="mini-icon"><use href="#i-wave"></use></svg> Option 5</a>
+        <a href="#suites"><svg class="mini-icon"><use href="#i-grid"></use></svg> Suites</a>
+        <a href="#ocean-views"><svg class="mini-icon"><use href="#i-wave"></use></svg> Ocean Views</a>
+        <a href="#apartments"><svg class="mini-icon"><use href="#i-home"></use></svg> Apartments</a>
+        <a href="#bungalows"><svg class="mini-icon"><use href="#i-sun"></use></svg> Bungalows</a>
+        <a href="#property-info"><svg class="mini-icon"><use href="#i-check"></use></svg> Amenities & Policies</a>
       </div>
     </div>
   </header>
 
   <main>
 
-    <section class="concept" id="concept-1">
+    <section class="section" id="suites">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Option 1. Enhanced card grid with larger icon-led scanning</h2>
-            <p>This keeps the familiar structure, then pushes icon clarity harder in the card body and the room amenities band below.</p>
+            <h2>Suites</h2>
+            <p>Compact coastal stays with strong couple appeal plus select layouts for a third guest.</p>
           </div>
-          <div class="concept-tag">
-            <svg class="mini-icon"><use href="#i-grid"></use></svg>
-            Closest to current layout
+          <div class="section-tag">
+            <svg class="mini-icon"><use href="#i-home"></use></svg>
+            6 suites
           </div>
         </div>
 
         <div class="rooms-grid">
+
           <article class="room-card">
-            <div class="room-image">
+            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80');">
               <div class="image-actions">
                 <span class="arrow-chip"><svg class="mini-icon"><use href="#i-arrow-left"></use></svg></span>
                 <span class="arrow-chip"><svg class="mini-icon"><use href="#i-arrow-right"></use></svg></span>
               </div>
-              <div class="room-rating">
-                <svg class="mini-icon"><use href="#i-star"></use></svg>
-                5/5 Guest Room Rating
+              <div class="room-badges">
+                <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5</span>
+                <span class="room-feature-badge"><svg class="mini-icon"><use href="#i-sun"></use></svg> Patio</span>
               </div>
             </div>
             <div class="room-body">
-              <h3 class="room-title">#1 Starfish Suite</h3>
-              <p class="room-sub">Premium couple stay</p>
+              <div class="unit-label"><svg class="mini-icon"><use href="#i-map"></use></svg> Unit 1</div>
+              <h3 class="room-title">Starfish Suite</h3>
+              <p class="room-sub">Classic couple suite</p>
 
               <div class="spec-list">
                 <div class="spec-item"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 2</div>
                 <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 1 Queen Bed</div>
                 <div class="spec-item"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</div>
-                <div class="spec-item"><svg class="mini-icon"><use href="#i-sun"></use></svg> Patio</div>
-                <div class="spec-item"><svg class="mini-icon"><use href="#i-check"></use></svg> Reserve Now, Pay Deposit</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-check"></use></svg> Patio</div>
               </div>
 
-              <a href="#" class="cta-btn">
-                <svg class="mini-icon"><use href="#i-clock"></use></svg>
-                Check Availability
-              </a>
+              <div class="amenity-pills">
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-bath"></use></svg> Shower</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-tv"></use></svg> Cable TV</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> Coffeemaker</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Microwave</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Fridge</span>
+              </div>
+
+              <div class="cta-row">
+                <a class="cta-btn" href="#"><svg class="mini-icon"><use href="#i-clock"></use></svg> Check Availability</a>
+                <a class="cta-secondary" href="#"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
+              </div>
             </div>
           </article>
 
           <article class="room-card">
-            <div class="room-image" style="background-image:linear-gradient(180deg, rgba(15,47,70,.05), rgba(15,47,70,.12)), url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80');">
+            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80');">
               <div class="image-actions">
                 <span class="icon-chip"><svg class="mini-icon"><use href="#i-star"></use></svg></span>
                 <span class="icon-chip"><svg class="mini-icon"><use href="#i-sparkles"></use></svg></span>
               </div>
-              <div class="room-rating">
-                <svg class="mini-icon"><use href="#i-wave"></use></svg>
-                Patio access
+              <div class="room-badges">
+                <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5</span>
+                <span class="room-feature-badge"><svg class="mini-icon"><use href="#i-sun"></use></svg> Patio</span>
               </div>
             </div>
             <div class="room-body">
-              <h3 class="room-title">#2 Sand Dollar Suite</h3>
-              <p class="room-sub">Quiet garden-facing room</p>
+              <div class="unit-label"><svg class="mini-icon"><use href="#i-map"></use></svg> Unit 2</div>
+              <h3 class="room-title">Seaside Suite</h3>
+              <p class="room-sub">King bed suite with patio</p>
 
               <div class="spec-list">
                 <div class="spec-item"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 2</div>
-                <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 1 Queen Bed</div>
-                <div class="spec-item"><svg class="mini-icon"><use href="#i-bath"></use></svg> Private Bath</div>
-                <div class="spec-item"><svg class="mini-icon"><use href="#i-tv"></use></svg> Cable TV</div>
-                <div class="spec-item"><svg class="mini-icon"><use href="#i-check"></use></svg> Book Direct</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 1 King Bed</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-check"></use></svg> Patio</div>
               </div>
 
-              <a href="#" class="cta-btn">
-                <svg class="mini-icon"><use href="#i-clock"></use></svg>
-                Check Availability
-              </a>
+              <div class="amenity-pills">
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-bath"></use></svg> Shower</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-tv"></use></svg> Cable TV</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> Coffeemaker</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Microwave</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Fridge</span>
+              </div>
+
+              <div class="cta-row">
+                <a class="cta-btn" href="#"><svg class="mini-icon"><use href="#i-clock"></use></svg> Check Availability</a>
+                <a class="cta-secondary" href="#"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
+              </div>
             </div>
           </article>
 
           <article class="room-card">
-            <div class="room-image" style="background-image:linear-gradient(180deg, rgba(15,47,70,.05), rgba(15,47,70,.12)), url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80');">
+            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80');">
               <div class="image-actions">
                 <span class="icon-chip"><svg class="mini-icon"><use href="#i-wave"></use></svg></span>
                 <span class="icon-chip"><svg class="mini-icon"><use href="#i-home"></use></svg></span>
               </div>
-              <div class="room-rating">
-                <svg class="mini-icon"><use href="#i-star"></use></svg>
-                Guest favorite
+              <div class="room-badges">
+                <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5</span>
+                <span class="room-feature-badge"><svg class="mini-icon"><use href="#i-sun"></use></svg> Patio</span>
               </div>
             </div>
             <div class="room-body">
-              <h3 class="room-title">#3 Coral Suite</h3>
-              <p class="room-sub">Simple, clean coastal style</p>
+              <div class="unit-label"><svg class="mini-icon"><use href="#i-map"></use></svg> Unit 3</div>
+              <h3 class="room-title">Sea Breeze Suite</h3>
+              <p class="room-sub">Flexible couple-plus-one layout</p>
+
+              <div class="spec-list">
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 3</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 1 King Bed + 1 Twin Futon</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-check"></use></svg> Patio</div>
+              </div>
+
+              <div class="amenity-pills">
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-bath"></use></svg> Shower</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-tv"></use></svg> Cable TV</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> Coffeemaker</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Fridge</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Iron on request</span>
+              </div>
+
+              <div class="cta-row">
+                <a class="cta-btn" href="#"><svg class="mini-icon"><use href="#i-clock"></use></svg> Check Availability</a>
+                <a class="cta-secondary" href="#"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80');">
+              <div class="image-actions">
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-home"></use></svg></span>
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-check"></use></svg></span>
+              </div>
+              <div class="room-badges">
+                <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5</span>
+                <span class="room-feature-badge"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</span>
+              </div>
+            </div>
+            <div class="room-body">
+              <div class="unit-label"><svg class="mini-icon"><use href="#i-map"></use></svg> Unit 4</div>
+              <h3 class="room-title">Coconut Suite</h3>
+              <p class="room-sub">King suite with tub combo</p>
+
+              <div class="spec-list">
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 2</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 1 King Bed</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bath"></use></svg> Shower/Tub Combo</div>
+              </div>
+
+              <div class="amenity-pills">
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-tv"></use></svg> Cable TV</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> Coffeemaker</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Microwave</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Fridge</span>
+              </div>
+
+              <div class="cta-row">
+                <a class="cta-btn" href="#"><svg class="mini-icon"><use href="#i-clock"></use></svg> Check Availability</a>
+                <a class="cta-secondary" href="#"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80');">
+              <div class="image-actions">
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-sun"></use></svg></span>
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-star"></use></svg></span>
+              </div>
+              <div class="room-badges">
+                <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5</span>
+                <span class="room-feature-badge"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</span>
+              </div>
+            </div>
+            <div class="room-body">
+              <div class="unit-label"><svg class="mini-icon"><use href="#i-map"></use></svg> Unit 5</div>
+              <h3 class="room-title">Sunshine Suite</h3>
+              <p class="room-sub">Bright suite for up to three</p>
+
+              <div class="spec-list">
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 3</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 1 King Bed + 1 Twin Futon</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bath"></use></svg> Shower/Tub Combo</div>
+              </div>
+
+              <div class="amenity-pills">
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-tv"></use></svg> Cable TV</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> Coffeemaker</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Microwave</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Fridge</span>
+              </div>
+
+              <div class="cta-row">
+                <a class="cta-btn" href="#"><svg class="mini-icon"><use href="#i-clock"></use></svg> Check Availability</a>
+                <a class="cta-secondary" href="#"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80');">
+              <div class="image-actions">
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-coffee"></use></svg></span>
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-home"></use></svg></span>
+              </div>
+              <div class="room-badges">
+                <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 4.9/5</span>
+                <span class="room-feature-badge"><svg class="mini-icon"><use href="#i-coffee"></use></svg> Kitchenette</span>
+              </div>
+            </div>
+            <div class="room-body">
+              <div class="unit-label"><svg class="mini-icon"><use href="#i-map"></use></svg> Unit 6</div>
+              <h3 class="room-title">Conch Suite</h3>
+              <p class="room-sub">Most equipped suite in the set</p>
+
+              <div class="spec-list">
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 3</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 1 King Bed + 1 Twin Futon</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bath"></use></svg> Shower/Tub Combo</div>
+              </div>
+
+              <div class="amenity-pills">
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> Kitchenette</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Skillet</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Toaster</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Hot Plate</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Fridge</span>
+              </div>
+
+              <div class="cta-row">
+                <a class="cta-btn" href="#"><svg class="mini-icon"><use href="#i-clock"></use></svg> Check Availability</a>
+                <a class="cta-secondary" href="#"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ocean-views">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Ocean-View Suites</h2>
+            <p>Higher view value for guests who want the water in the experience.</p>
+          </div>
+          <div class="section-tag">
+            <svg class="mini-icon"><use href="#i-wave"></use></svg>
+            2 ocean-view suites
+          </div>
+        </div>
+
+        <div class="rooms-grid">
+
+          <article class="room-card">
+            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80');">
+              <div class="image-actions">
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-wave"></use></svg></span>
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-star"></use></svg></span>
+              </div>
+              <div class="room-badges">
+                <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5</span>
+                <span class="room-feature-badge"><svg class="mini-icon"><use href="#i-wave"></use></svg> Direct Ocean View</span>
+              </div>
+            </div>
+            <div class="room-body">
+              <div class="unit-label"><svg class="mini-icon"><use href="#i-map"></use></svg> Unit 7</div>
+              <h3 class="room-title">Seaview Suite</h3>
+              <p class="room-sub">Waterfront-facing king suite</p>
+
+              <div class="spec-list">
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 2</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 1 King Bed</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-wave"></use></svg> Direct Ocean View</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</div>
+              </div>
+
+              <div class="amenity-pills">
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-bath"></use></svg> Shower</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> Coffeemaker</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Microwave</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Hot Plate</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Fridge</span>
+              </div>
+
+              <div class="cta-row">
+                <a class="cta-btn" href="#"><svg class="mini-icon"><use href="#i-clock"></use></svg> Check Availability</a>
+                <a class="cta-secondary" href="#"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80');">
+              <div class="image-actions">
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-wave"></use></svg></span>
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-sun"></use></svg></span>
+              </div>
+              <div class="room-badges">
+                <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 4.8/5</span>
+                <span class="room-feature-badge"><svg class="mini-icon"><use href="#i-sun"></use></svg> Ocean View from Patio</span>
+              </div>
+            </div>
+            <div class="room-body">
+              <div class="unit-label"><svg class="mini-icon"><use href="#i-map"></use></svg> Unit 8</div>
+              <h3 class="room-title">Hideaway Suite</h3>
+              <p class="room-sub">Patio-facing view suite</p>
 
               <div class="spec-list">
                 <div class="spec-item"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 2</div>
                 <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 1 Queen Bed</div>
-                <div class="spec-item"><svg class="mini-icon"><use href="#i-wifi"></use></svg> WiFi Included</div>
-                <div class="spec-item"><svg class="mini-icon"><use href="#i-coffee"></use></svg> Mini Fridge + Coffee</div>
-                <div class="spec-item"><svg class="mini-icon"><use href="#i-check"></use></svg> Deposit Accepted</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-wave"></use></svg> Ocean View from Patio</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bath"></use></svg> Shower/Tub Combo</div>
               </div>
 
-              <a href="#" class="cta-btn">
-                <svg class="mini-icon"><use href="#i-clock"></use></svg>
-                Check Availability
-              </a>
+              <div class="amenity-pills">
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-tv"></use></svg> Cable TV</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> Coffeemaker</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Fridge</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Iron on request</span>
+              </div>
+
+              <div class="cta-row">
+                <a class="cta-btn" href="#"><svg class="mini-icon"><use href="#i-clock"></use></svg> Check Availability</a>
+                <a class="cta-secondary" href="#"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
+              </div>
             </div>
           </article>
-        </div>
 
-        <div class="amenity-band">
-          <h3>Room Amenities</h3>
-          <div class="amenity-cats">
-            <div class="amenity-col">
-              <h4><svg class="mini-icon"><use href="#i-bed"></use></svg> Bedroom</h4>
-              <ul>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> Air conditioning</li>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> Linens</li>
-              </ul>
-            </div>
-            <div class="amenity-col">
-              <h4><svg class="mini-icon"><use href="#i-bath"></use></svg> Bathroom</h4>
-              <ul>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> Free toiletries</li>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> Hair dryer</li>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> Shower</li>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> Towels</li>
-              </ul>
-            </div>
-            <div class="amenity-col">
-              <h4><svg class="mini-icon"><use href="#i-tv"></use></svg> Entertainment</h4>
-              <ul>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> Cable channels</li>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> TV</li>
-              </ul>
-            </div>
-            <div class="amenity-col">
-              <h4><svg class="mini-icon"><use href="#i-coffee"></use></svg> Food & Drink</h4>
-              <ul>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> Coffeemaker</li>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> Microwave</li>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> Refrigerator</li>
-              </ul>
-            </div>
-            <div class="amenity-col">
-              <h4><svg class="mini-icon"><use href="#i-sparkles"></use></svg> More</h4>
-              <ul>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> Individually decorated</li>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> Individually furnished</li>
-                <li><svg class="mini-icon"><use href="#i-check"></use></svg> Iron on request</li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="concept" id="concept-2">
+    <section class="section" id="apartments">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Option 2. Premium overlay cards with icon pills</h2>
-            <p>This feels more upscale and boutique. Strong visual image area on top. Key details become rounded icon pills for faster room comparison.</p>
+            <h2>Apartments</h2>
+            <p>Best for longer stays, larger parties, and guests who want more kitchen utility.</p>
           </div>
-          <div class="concept-tag">
-            <svg class="mini-icon"><use href="#i-sparkles"></use></svg>
-            More boutique hotel feel
-          </div>
-        </div>
-
-        <div class="tiles-grid">
-          <article class="tile-card">
-            <div class="tile-top">
-              <div class="tile-overlay">
-                <div class="top-meta">
-                  <span class="meta-pill"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5 Rated</span>
-                  <span class="meta-pill"><svg class="mini-icon"><use href="#i-wave"></use></svg> Coastal style</span>
-                </div>
-                <h3 class="tile-title">Starfish Suite</h3>
-                <p class="tile-copy">A polished compact suite for couples who want a clean room card with fast visual scanning.</p>
-              </div>
-            </div>
-            <div class="tile-body">
-              <div class="spec-pills">
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 2</span>
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-bed"></use></svg> Queen Bed</span>
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</span>
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-sun"></use></svg> Patio</span>
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Pay Deposit</span>
-              </div>
-              <div class="highlight-row">
-                <div class="highlight-box">
-                  <strong><svg class="mini-icon"><use href="#i-bath"></use></svg></strong>
-                  <span>Private bath</span>
-                </div>
-                <div class="highlight-box">
-                  <strong><svg class="mini-icon"><use href="#i-tv"></use></svg></strong>
-                  <span>Cable TV</span>
-                </div>
-                <div class="highlight-box">
-                  <strong><svg class="mini-icon"><use href="#i-coffee"></use></svg></strong>
-                  <span>Fridge + coffee</span>
-                </div>
-              </div>
-              <a href="#" class="cta-btn">Check Availability</a>
-            </div>
-          </article>
-
-          <article class="tile-card">
-            <div class="tile-top" style="background-image:linear-gradient(180deg, rgba(15,47,70,.06), rgba(15,47,70,.16)), url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80');">
-              <div class="tile-overlay">
-                <div class="top-meta">
-                  <span class="meta-pill"><svg class="mini-icon"><use href="#i-home"></use></svg> Suite</span>
-                  <span class="meta-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Direct booking</span>
-                </div>
-                <h3 class="tile-title">Sand Dollar Suite</h3>
-                <p class="tile-copy">A slightly softer room presentation style with strong clarity and more premium-looking content blocks.</p>
-              </div>
-            </div>
-            <div class="tile-body">
-              <div class="spec-pills">
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 2</span>
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-bed"></use></svg> Queen Bed</span>
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-bath"></use></svg> Full Bath</span>
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-tv"></use></svg> Cable TV</span>
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Fast WiFi</span>
-              </div>
-              <div class="highlight-row">
-                <div class="highlight-box">
-                  <strong><svg class="mini-icon"><use href="#i-wave"></use></svg></strong>
-                  <span>Relaxed vibe</span>
-                </div>
-                <div class="highlight-box">
-                  <strong><svg class="mini-icon"><use href="#i-sun"></use></svg></strong>
-                  <span>Outdoor access</span>
-                </div>
-                <div class="highlight-box">
-                  <strong><svg class="mini-icon"><use href="#i-check"></use></svg></strong>
-                  <span>Deposit option</span>
-                </div>
-              </div>
-              <a href="#" class="cta-btn">Check Availability</a>
-            </div>
-          </article>
-
-          <article class="tile-card">
-            <div class="tile-top" style="background-image:linear-gradient(180deg, rgba(15,47,70,.06), rgba(15,47,70,.16)), url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80');">
-              <div class="tile-overlay">
-                <div class="top-meta">
-                  <span class="meta-pill"><svg class="mini-icon"><use href="#i-star"></use></svg> Guest favorite</span>
-                  <span class="meta-pill"><svg class="mini-icon"><use href="#i-sparkles"></use></svg> Fresh feel</span>
-                </div>
-                <h3 class="tile-title">Coral Suite</h3>
-                <p class="tile-copy">A polished room tile built for strong visual hierarchy and quick booking action on mobile or desktop.</p>
-              </div>
-            </div>
-            <div class="tile-body">
-              <div class="spec-pills">
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 2</span>
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-bed"></use></svg> Queen Bed</span>
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> Kitchenette Lite</span>
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-wifi"></use></svg> WiFi</span>
-                <span class="spec-pill"><svg class="mini-icon"><use href="#i-sun"></use></svg> Patio</span>
-              </div>
-              <div class="highlight-row">
-                <div class="highlight-box">
-                  <strong><svg class="mini-icon"><use href="#i-tv"></use></svg></strong>
-                  <span>TV</span>
-                </div>
-                <div class="highlight-box">
-                  <strong><svg class="mini-icon"><use href="#i-bath"></use></svg></strong>
-                  <span>Shower</span>
-                </div>
-                <div class="highlight-box">
-                  <strong><svg class="mini-icon"><use href="#i-check"></use></svg></strong>
-                  <span>Book direct</span>
-                </div>
-              </div>
-              <a href="#" class="cta-btn">Check Availability</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="concept" id="concept-3">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Option 3. Left-side room selector with large feature panel</h2>
-            <p>This gives the page a more interactive showroom feel. It works well if you want people to browse room types before clicking into the full popup or detail view.</p>
-          </div>
-          <div class="concept-tag">
+          <div class="section-tag">
             <svg class="mini-icon"><use href="#i-home"></use></svg>
-            Best for storytelling
+            3 apartments
           </div>
         </div>
 
-        <div class="split-list">
-          <aside class="room-nav">
-            <div class="nav-item active">
-              <div class="thumb"></div>
-              <div class="nav-copy">
-                <strong>Starfish Suite</strong>
-                <span>Queen bed. Patio. Sleeps 2.</span>
+        <div class="rooms-grid">
+
+          <article class="room-card">
+            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80');">
+              <div class="image-actions">
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-home"></use></svg></span>
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-coffee"></use></svg></span>
               </div>
-              <span class="nav-badge"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5</span>
+              <div class="room-badges">
+                <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5</span>
+                <span class="room-feature-badge"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</span>
+              </div>
             </div>
+            <div class="room-body">
+              <div class="unit-label"><svg class="mini-icon"><use href="#i-map"></use></svg> Unit 9</div>
+              <h3 class="room-title">Oasis Apartment</h3>
+              <p class="room-sub">Apartment for up to four</p>
 
-            <div class="nav-item">
-              <div class="thumb" style="background-image:linear-gradient(180deg, rgba(15,47,70,.08), rgba(15,47,70,.18)), url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80');"></div>
-              <div class="nav-copy">
-                <strong>Sand Dollar Suite</strong>
-                <span>Quiet layout. Fast scan card.</span>
+              <div class="spec-list">
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 4</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 1 King Bed + 1 Queen Pull-Out Sofa</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-home"></use></svg> Full Kitchen</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bath"></use></svg> Shower/Tub Combo</div>
               </div>
-              <span class="nav-badge"><svg class="mini-icon"><use href="#i-wave"></use></svg> Patio</span>
-            </div>
 
-            <div class="nav-item">
-              <div class="thumb"></div>
-              <div class="nav-copy">
-                <strong>Coral Suite</strong>
-                <span>Simple couple stay option.</span>
+              <div class="amenity-pills">
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> K-cup Coffeemaker</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Microwave</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Oven</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Fridge</span>
               </div>
-              <span class="nav-badge"><svg class="mini-icon"><use href="#i-check"></use></svg> Direct</span>
-            </div>
 
-            <div class="nav-item">
-              <div class="thumb"></div>
-              <div class="nav-copy">
-                <strong>Pelican Suite</strong>
-                <span>Another compact room style.</span>
-              </div>
-              <span class="nav-badge"><svg class="mini-icon"><use href="#i-users"></use></svg> 2 Guests</span>
-            </div>
-          </aside>
-
-          <article class="feature-panel">
-            <div class="feature-top">
-              <div class="feature-media">
-                <div class="floating-stats">
-                  <span class="meta-pill"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 2</span>
-                  <span class="meta-pill"><svg class="mini-icon"><use href="#i-bed"></use></svg> 1 Queen Bed</span>
-                  <span class="meta-pill"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5 Rated</span>
-                </div>
-              </div>
-              <div class="feature-copy">
-                <h3>#1 Starfish Suite</h3>
-                <p>
-                  This version turns the room menu into a featured browsing experience. The left column lists all room options with quick badges. The right panel lets one selected room feel more premium and descriptive.
-                </p>
-
-                <div class="icon-grid">
-                  <span class="spec-pill"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</span>
-                  <span class="spec-pill"><svg class="mini-icon"><use href="#i-sun"></use></svg> Patio</span>
-                  <span class="spec-pill"><svg class="mini-icon"><use href="#i-tv"></use></svg> Cable TV</span>
-                  <span class="spec-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Reserve Now, Pay Deposit</span>
-                </div>
-
-                <div class="amenity-stack">
-                  <div class="amenity-box">
-                    <h4><svg class="mini-icon"><use href="#i-bed"></use></svg> Bedroom</h4>
-                    <ul>
-                      <li>Air conditioning</li>
-                      <li>Linens</li>
-                    </ul>
-                  </div>
-                  <div class="amenity-box">
-                    <h4><svg class="mini-icon"><use href="#i-bath"></use></svg> Bathroom</h4>
-                    <ul>
-                      <li>Shower</li>
-                      <li>Towels</li>
-                    </ul>
-                  </div>
-                  <div class="amenity-box">
-                    <h4><svg class="mini-icon"><use href="#i-coffee"></use></svg> Food & Drink</h4>
-                    <ul>
-                      <li>Coffeemaker</li>
-                      <li>Refrigerator</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="stack-actions">
-                  <a href="#" class="cta-btn">Check Availability</a>
-                  <a href="#" class="btn-secondary"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call Front Desk</a>
-                </div>
+              <div class="cta-row">
+                <a class="cta-btn" href="#"><svg class="mini-icon"><use href="#i-clock"></use></svg> Check Availability</a>
+                <a class="cta-secondary" href="#"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
               </div>
             </div>
           </article>
+
+          <article class="room-card">
+            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80');">
+              <div class="image-actions">
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-wave"></use></svg></span>
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-home"></use></svg></span>
+              </div>
+              <div class="room-badges">
+                <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5</span>
+                <span class="room-feature-badge"><svg class="mini-icon"><use href="#i-wave"></use></svg> Direct Ocean View</span>
+              </div>
+            </div>
+            <div class="room-body">
+              <div class="unit-label"><svg class="mini-icon"><use href="#i-map"></use></svg> Unit 10</div>
+              <h3 class="room-title">Atlantic Apartment</h3>
+              <p class="room-sub">Largest apartment layout</p>
+
+              <div class="spec-list">
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 6</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 2 Queen Beds + 2 Twin Beds</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-wave"></use></svg> Direct Ocean View</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-home"></use></svg> Full Kitchen</div>
+              </div>
+
+              <div class="amenity-pills">
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-bath"></use></svg> Large Shower + Half Bath</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-tv"></use></svg> 2 TVs</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> K-cup Coffeemaker</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Oven</span>
+              </div>
+
+              <div class="cta-row">
+                <a class="cta-btn" href="#"><svg class="mini-icon"><use href="#i-clock"></use></svg> Check Availability</a>
+                <a class="cta-secondary" href="#"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-card">
+            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80');">
+              <div class="image-actions">
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-wave"></use></svg></span>
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-coffee"></use></svg></span>
+              </div>
+              <div class="room-badges">
+                <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5</span>
+                <span class="room-feature-badge"><svg class="mini-icon"><use href="#i-wave"></use></svg> Ocean View from Master Bedroom</span>
+              </div>
+            </div>
+            <div class="room-body">
+              <div class="unit-label"><svg class="mini-icon"><use href="#i-map"></use></svg> Unit 11</div>
+              <h3 class="room-title">Anglers Apartment</h3>
+              <p class="room-sub">Fishing-friendly apartment feel</p>
+
+              <div class="spec-list">
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 5</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 1 Queen Bed + 2 Double Beds</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-wave"></use></svg> Ocean View from Master Bedroom</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-coffee"></use></svg> Eat-in Kitchenette</div>
+              </div>
+
+              <div class="amenity-pills">
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> K-cup Coffeemaker</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Hot Plate</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Microwave</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Fridge</span>
+              </div>
+
+              <div class="cta-row">
+                <a class="cta-btn" href="#"><svg class="mini-icon"><use href="#i-clock"></use></svg> Check Availability</a>
+                <a class="cta-secondary" href="#"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <section class="concept" id="concept-4">
+    <section class="section" id="bungalows">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Option 4. Comparison table section with icons in every row</h2>
-            <p>This works well for guests who want to compare room types fast. Good if you want the rooms page to feel more practical and conversion-oriented.</p>
+            <h2>Bungalows</h2>
+            <p>Ocean-view bungalow layouts with bigger-room energy and strong family appeal.</p>
           </div>
-          <div class="concept-tag">
-            <svg class="mini-icon"><use href="#i-shield"></use></svg>
-            Best for comparison shoppers
+          <div class="section-tag">
+            <svg class="mini-icon"><use href="#i-sun"></use></svg>
+            2 bungalows
           </div>
         </div>
 
-        <div class="compare-shell">
-          <div class="compare-header">
-            <div class="room-col">Feature</div>
-            <div class="room-col">
-              <div class="compare-room-title">
-                <strong>Starfish Suite</strong>
-                <span>Couples room</span>
-                <span class="meta-pill"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5</span>
+        <div class="rooms-grid">
+
+          <article class="room-card">
+            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80');">
+              <div class="image-actions">
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-wave"></use></svg></span>
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-sun"></use></svg></span>
+              </div>
+              <div class="room-badges">
+                <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 4.9/5</span>
+                <span class="room-feature-badge"><svg class="mini-icon"><use href="#i-wave"></use></svg> Direct Ocean View</span>
               </div>
             </div>
-            <div class="room-col">
-              <div class="compare-room-title">
-                <strong>Sand Dollar Suite</strong>
-                <span>Quiet suite</span>
-                <span class="meta-pill"><svg class="mini-icon"><use href="#i-wave"></use></svg> Patio</span>
+            <div class="room-body">
+              <div class="unit-label"><svg class="mini-icon"><use href="#i-map"></use></svg> Unit 12</div>
+              <h3 class="room-title">Seaview Bungalow</h3>
+              <p class="room-sub">Ocean-view two-queen bungalow</p>
+
+              <div class="spec-list">
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 4</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 2 Queen Beds</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-wave"></use></svg> Direct Ocean View</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bath"></use></svg> Extra-Large Shower</div>
+              </div>
+
+              <div class="amenity-pills">
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> K-cup Coffeemaker</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Microwave</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Fridge</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-tv"></use></svg> Cable TV</span>
+              </div>
+
+              <div class="cta-row">
+                <a class="cta-btn" href="#"><svg class="mini-icon"><use href="#i-clock"></use></svg> Check Availability</a>
+                <a class="cta-secondary" href="#"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
               </div>
             </div>
-            <div class="room-col">
-              <div class="compare-room-title">
-                <strong>Coral Suite</strong>
-                <span>Compact option</span>
-                <span class="meta-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Direct Booking</span>
+          </article>
+
+          <article class="room-card">
+            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80');">
+              <div class="image-actions">
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-wave"></use></svg></span>
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-sparkles"></use></svg></span>
+              </div>
+              <div class="room-badges">
+                <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 4.9/5</span>
+                <span class="room-feature-badge"><svg class="mini-icon"><use href="#i-wave"></use></svg> Direct Ocean View</span>
               </div>
             </div>
-          </div>
+            <div class="room-body">
+              <div class="unit-label"><svg class="mini-icon"><use href="#i-map"></use></svg> Unit 14</div>
+              <h3 class="room-title">Seaview Bungalow</h3>
+              <p class="room-sub">Ocean-view bungalow with spa shower panel</p>
 
-          <div class="compare-row">
-            <div class="feature-name"><svg class="mini-icon"><use href="#i-users"></use></svg> Guest Capacity</div>
-            <div class="compare-cell">Sleeps 2</div>
-            <div class="compare-cell">Sleeps 2</div>
-            <div class="compare-cell">Sleeps 2</div>
-          </div>
+              <div class="spec-list">
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 4</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-bed"></use></svg> 2 Queen Beds</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-wave"></use></svg> Direct Ocean View</div>
+                <div class="spec-item"><svg class="mini-icon"><use href="#i-sparkles"></use></svg> Spa Shower Panel</div>
+              </div>
 
-          <div class="compare-row">
-            <div class="feature-name"><svg class="mini-icon"><use href="#i-bed"></use></svg> Bedding</div>
-            <div class="compare-cell">1 Queen Bed</div>
-            <div class="compare-cell">1 Queen Bed</div>
-            <div class="compare-cell">1 Queen Bed</div>
-          </div>
+              <div class="amenity-pills">
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-coffee"></use></svg> K-cup Coffeemaker</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Microwave</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Fridge</span>
+                <span class="amenity-pill"><svg class="mini-icon"><use href="#i-tv"></use></svg> Cable TV</span>
+              </div>
 
-          <div class="compare-row">
-            <div class="feature-name"><svg class="mini-icon"><use href="#i-wifi"></use></svg> Internet</div>
-            <div class="compare-cell yes"><svg class="mini-icon"><use href="#i-check"></use></svg> Free WiFi</div>
-            <div class="compare-cell yes"><svg class="mini-icon"><use href="#i-check"></use></svg> Free WiFi</div>
-            <div class="compare-cell yes"><svg class="mini-icon"><use href="#i-check"></use></svg> Free WiFi</div>
-          </div>
+              <div class="cta-row">
+                <a class="cta-btn" href="#"><svg class="mini-icon"><use href="#i-clock"></use></svg> Check Availability</a>
+                <a class="cta-secondary" href="#"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
+              </div>
+            </div>
+          </article>
 
-          <div class="compare-row">
-            <div class="feature-name"><svg class="mini-icon"><use href="#i-sun"></use></svg> Outdoor Access</div>
-            <div class="compare-cell yes"><svg class="mini-icon"><use href="#i-check"></use></svg> Patio</div>
-            <div class="compare-cell yes"><svg class="mini-icon"><use href="#i-check"></use></svg> Patio</div>
-            <div class="compare-cell">Varies by unit</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="feature-name"><svg class="mini-icon"><use href="#i-tv"></use></svg> Entertainment</div>
-            <div class="compare-cell">Cable TV</div>
-            <div class="compare-cell">Cable TV</div>
-            <div class="compare-cell">TV</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="feature-name"><svg class="mini-icon"><use href="#i-coffee"></use></svg> Food & Drink</div>
-            <div class="compare-cell">Coffee + Fridge</div>
-            <div class="compare-cell">Coffee + Microwave</div>
-            <div class="compare-cell">Coffee + Fridge</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="feature-name"><svg class="mini-icon"><use href="#i-check"></use></svg> Booking Terms</div>
-            <div class="compare-cell">Reserve now, pay deposit</div>
-            <div class="compare-cell">Reserve now, pay deposit</div>
-            <div class="compare-cell">Reserve direct</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="feature-name"><svg class="mini-icon"><use href="#i-clock"></use></svg> Action</div>
-            <div class="compare-cell"><a href="#" class="btn-secondary">Check Availability</a></div>
-            <div class="compare-cell"><a href="#" class="btn-secondary">Check Availability</a></div>
-            <div class="compare-cell"><a href="#" class="btn-secondary">Check Availability</a></div>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="concept" id="concept-5">
+    <section class="section" id="property-info">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Option 5. Horizontal stacked room cards with dense icon sections</h2>
-            <p>This gives every room more breathing room. It is strong for desktop and still collapses well on mobile. Good if you want each room row to feel fuller and more premium.</p>
+            <h2>Property amenities and policies</h2>
+            <p>General stay information to support faster booking decisions.</p>
           </div>
-          <div class="concept-tag">
-            <svg class="mini-icon"><use href="#i-wave"></use></svg>
-            Strong desktop presentation
+          <div class="section-tag">
+            <svg class="mini-icon"><use href="#i-check"></use></svg>
+            Guest essentials
           </div>
         </div>
 
-        <div class="stack-grid">
-          <article class="stack-card">
-            <div class="stack-media">
-              <div class="stack-badges">
-                <span class="meta-pill"><svg class="mini-icon"><use href="#i-star"></use></svg> 5/5 Guest Rating</span>
-                <span class="meta-pill"><svg class="mini-icon"><use href="#i-home"></use></svg> Suite</span>
-              </div>
-            </div>
-            <div class="stack-info">
-              <div class="stack-head">
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Property amenities</h3>
+
+            <div class="feature-list">
+              <div class="feature-row">
+                <svg class="mini-icon"><use href="#i-wifi"></use></svg>
                 <div>
-                  <h3>#1 Starfish Suite</h3>
-                  <p>
-                    A horizontal room row layout with quick stats, amenity categories, and stronger icon organization. This makes each room feel more detailed before the user opens the popup gallery.
-                  </p>
-                </div>
-                <span class="meta-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Reserve Now, Pay Deposit</span>
-              </div>
-
-              <div class="quick-stats">
-                <div class="quick-stat">
-                  <svg><use href="#i-users"></use></svg>
-                  <strong>Sleeps 2</strong>
-                  <span>Couples stay</span>
-                </div>
-                <div class="quick-stat">
-                  <svg><use href="#i-bed"></use></svg>
-                  <strong>1 Queen Bed</strong>
-                  <span>Main bedding</span>
-                </div>
-                <div class="quick-stat">
-                  <svg><use href="#i-wifi"></use></svg>
-                  <strong>Free WiFi</strong>
-                  <span>Included</span>
-                </div>
-                <div class="quick-stat">
-                  <svg><use href="#i-sun"></use></svg>
-                  <strong>Patio</strong>
-                  <span>Outdoor access</span>
-                </div>
-                <div class="quick-stat">
-                  <svg><use href="#i-tv"></use></svg>
-                  <strong>Cable TV</strong>
-                  <span>In-room entertainment</span>
+                  <strong>Internet</strong>
+                  <span>Free WiFi in all rooms plus select common areas</span>
                 </div>
               </div>
 
-              <div class="stack-amenities">
-                <div class="amenity-box">
-                  <h4><svg class="mini-icon"><use href="#i-bed"></use></svg> Bedroom</h4>
-                  <ul>
-                    <li>Air conditioning</li>
-                    <li>Linens</li>
-                  </ul>
-                </div>
-                <div class="amenity-box">
-                  <h4><svg class="mini-icon"><use href="#i-bath"></use></svg> Bathroom</h4>
-                  <ul>
-                    <li>Shower</li>
-                    <li>Free toiletries</li>
-                  </ul>
-                </div>
-                <div class="amenity-box">
-                  <h4><svg class="mini-icon"><use href="#i-coffee"></use></svg> Food & Drink</h4>
-                  <ul>
-                    <li>Coffeemaker</li>
-                    <li>Microwave</li>
-                  </ul>
-                </div>
-                <div class="amenity-box">
-                  <h4><svg class="mini-icon"><use href="#i-sparkles"></use></svg> Extra</h4>
-                  <ul>
-                    <li>Individually furnished</li>
-                    <li>Iron on request</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="stack-actions">
-                <a href="#" class="cta-btn">Check Availability</a>
-                <a href="#" class="btn-secondary"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
-                <a href="#" class="btn-secondary"><svg class="mini-icon"><use href="#i-map"></use></svg> View Room Details</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="stack-card">
-            <div class="stack-media" style="background-image:linear-gradient(180deg, rgba(15,47,70,.08), rgba(15,47,70,.24)), url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80');">
-              <div class="stack-badges">
-                <span class="meta-pill"><svg class="mini-icon"><use href="#i-wave"></use></svg> Patio</span>
-                <span class="meta-pill"><svg class="mini-icon"><use href="#i-check"></use></svg> Direct Booking</span>
-              </div>
-            </div>
-            <div class="stack-info">
-              <div class="stack-head">
+              <div class="feature-row">
+                <svg class="mini-icon"><use href="#i-car"></use></svg>
                 <div>
-                  <h3>#2 Sand Dollar Suite</h3>
-                  <p>
-                    Same structure, different room. This format scales well across a full room list because each row keeps a stable information rhythm.
-                  </p>
-                </div>
-                <span class="meta-pill"><svg class="mini-icon"><use href="#i-star"></use></svg> Popular Choice</span>
-              </div>
-
-              <div class="quick-stats">
-                <div class="quick-stat">
-                  <svg><use href="#i-users"></use></svg>
-                  <strong>Sleeps 2</strong>
-                  <span>Couple-focused</span>
-                </div>
-                <div class="quick-stat">
-                  <svg><use href="#i-bed"></use></svg>
-                  <strong>Queen Bed</strong>
-                  <span>One bed layout</span>
-                </div>
-                <div class="quick-stat">
-                  <svg><use href="#i-bath"></use></svg>
-                  <strong>Private Bath</strong>
-                  <span>Shower included</span>
-                </div>
-                <div class="quick-stat">
-                  <svg><use href="#i-wifi"></use></svg>
-                  <strong>WiFi</strong>
-                  <span>Included</span>
-                </div>
-                <div class="quick-stat">
-                  <svg><use href="#i-coffee"></use></svg>
-                  <strong>Fridge + Coffee</strong>
-                  <span>Convenience setup</span>
+                  <strong>Parking</strong>
+                  <span>Free, ample on-site parking</span>
                 </div>
               </div>
 
-              <div class="stack-actions">
-                <a href="#" class="cta-btn">Check Availability</a>
-                <a href="#" class="btn-secondary"><svg class="mini-icon"><use href="#i-phone"></use></svg> Call to Book</a>
+              <div class="feature-row">
+                <svg class="mini-icon"><use href="#i-activity"></use></svg>
+                <div>
+                  <strong>Activities</strong>
+                  <span>Fishing, free bicycle rentals, kayaking, outdoor pool</span>
+                </div>
+              </div>
+
+              <div class="feature-row">
+                <svg class="mini-icon"><use href="#i-anchor"></use></svg>
+                <div>
+                  <strong>Outdoors</strong>
+                  <span>BBQ grills, marina on-site, picnic area, private waterfront location, terrace</span>
+                </div>
+              </div>
+
+              <div class="feature-row">
+                <svg class="mini-icon"><use href="#i-ban"></use></svg>
+                <div>
+                  <strong>Smoking</strong>
+                  <span>All non-smoking rooms. Outdoor smoking areas available</span>
+                </div>
               </div>
             </div>
-          </article>
+          </div>
+
+          <div class="info-card">
+            <h3>Policies</h3>
+
+            <div class="feature-list">
+              <div class="feature-row">
+                <svg class="mini-icon"><use href="#i-clock"></use></svg>
+                <div>
+                  <strong>Check-in</strong>
+                  <span>3 PM to 8 PM. Late check-in subject to availability. Minimum age 21</span>
+                </div>
+              </div>
+
+              <div class="feature-row">
+                <svg class="mini-icon"><use href="#i-clock"></use></svg>
+                <div>
+                  <strong>Check-out</strong>
+                  <span>11:00 AM</span>
+                </div>
+              </div>
+
+              <div class="feature-row">
+                <svg class="mini-icon"><use href="#i-phone"></use></svg>
+                <div>
+                  <strong>Late arrivals</strong>
+                  <span>Contact property if arriving after 7 PM</span>
+                </div>
+              </div>
+
+              <div class="feature-row">
+                <svg class="mini-icon"><use href="#i-ban"></use></svg>
+                <div>
+                  <strong>Pets</strong>
+                  <span>Not allowed</span>
+                </div>
+              </div>
+
+              <div class="feature-row">
+                <svg class="mini-icon"><use href="#i-users"></use></svg>
+                <div>
+                  <strong>Children</strong>
+                  <span>Welcome. Rollaway beds and cribs not available. Local crib rentals linked</span>
+                </div>
+              </div>
+
+              <div class="feature-row">
+                <svg class="mini-icon"><use href="#i-credit-card"></use></svg>
+                <div>
+                  <strong>Payment</strong>
+                  <span>Visa, Mastercard, Amex, Discover</span>
+                </div>
+              </div>
+
+              <div class="feature-row">
+                <svg class="mini-icon"><use href="#i-check"></use></svg>
+                <div>
+                  <strong>Cleaning</strong>
+                  <span>Disinfectant used. High-touch surfaces sanitized. Linens washed at 60°C / 140°F+</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -1498,7 +1162,7 @@
 
   <footer>
     <div class="container">
-      Seascape Resort & Marina. Rooms menu presentation concepts with stronger icon usage throughout.
+      Seascape accommodations page populated from your uploaded room dataset.
     </div>
   </footer>
 </body>
