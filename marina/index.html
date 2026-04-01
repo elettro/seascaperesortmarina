@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seascape Marina | Marathon, Florida Keys</title>
-  <meta
-    name="description"
-    content="Discover Seascape Resort & Marina in Marathon, Florida Keys with an on-property marina lifestyle, dockside atmosphere, and easy access to the water."
-  />
-  <link rel="canonical" href="https://elettro.github.io/seascaperesortmarina/marina/" />
+  <title>Seascape Resort & Marina | Marina</title>
+  <meta name="description" content="Discover the on-property marina experience at Seascape Resort & Marina in Marathon, Florida Keys." />
   <link rel="stylesheet" href="../css/style.css" />
-
-<style>
+</head>
+<body>
+  <div id="site-nav"></div>
+  <main>
+<section class="marina-page">
+  <style>
     .marina-page {
       --navy: #0f2f46;
       --navy-deep: #092033;
@@ -27,6 +27,13 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background: linear-gradient(180deg, #f7fbfc 0%, #ffffff 32%, #f5efe4 100%);
+      --marina-nav-offset: 0px;
+      padding-top: var(--marina-nav-offset);
+    }
+
+    #site-nav {
+      position: relative;
+      z-index: 1200;
     }
 
     .marina-page * {
@@ -46,6 +53,7 @@
       width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
     }
+
 
     .marina-hero {
       position: relative;
@@ -766,8 +774,8 @@
           This is the rare Florida Keys stay where the marina is not off somewhere else. It is right here on the property. Boat parking, fishing pier access, pool time, sunset time, and room convenience all live in one easy waterfront setting.
         </p>
         <div class="hero-actions">
-          <a href="/contact/" class="btn-primary">Ask About Marina Availability</a>
-          <a href="/accommodations/" class="btn-secondary">View Accommodations</a>
+          <a href="/seascaperesortmarina/contact/" class="btn-primary">Ask About Marina Availability</a>
+          <a href="/seascaperesortmarina/rooms/" class="btn-secondary">View Accommodations</a>
         </div>
       </div>
 
@@ -1031,8 +1039,8 @@
         </div>
 
         <div class="cta-actions">
-          <a href="/contact/" class="btn-primary">Contact Seascape</a>
-          <a href="/amenities/" class="btn-secondary" style="color:var(--navy); border-color:rgba(15,47,70,0.12); background:rgba(15,47,70,0.04);">Explore Amenities</a>
+          <a href="/seascaperesortmarina/contact/" class="btn-primary">Contact Seascape</a>
+          <a href="/seascaperesortmarina/amenities/" class="btn-secondary" style="color:var(--navy); border-color:rgba(15,47,70,0.12); background:rgba(15,47,70,0.04);">Explore Amenities</a>
         </div>
       </div>
     </div>
@@ -1052,6 +1060,10 @@
       const siteHeader = siteNav.querySelector('.site-header');
       if (!siteHeader) return;
 
+      const marinaPage = document.querySelector('.marina-page');
+      if (!marinaPage) return;
+
+      marinaPage.style.setProperty('--marina-nav-offset', `${siteHeader.offsetHeight}px`);
       const marinaShell = document.querySelector('.marina-page');
       if (marinaShell) {
         marinaShell.style.setProperty('--marina-nav-offset', `${siteHeader.offsetHeight}px`);
