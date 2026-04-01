@@ -33,7 +33,7 @@
       margin: 0;
       background: linear-gradient(180deg, #f3f9fc 0, #f8fcfe 320px, #fff 100%);
       color: var(--contact-text);
-      --contact-nav-offset: 0px;
+      --contact-nav-offset: clamp(60px, 12vw, 112px);
     }
 
     #site-nav {
@@ -126,6 +126,8 @@
       letter-spacing: -0.02em;
       color: #12384d;
       max-width: 16ch;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .contact-hero p {
@@ -219,6 +221,8 @@
       color: var(--contact-navy);
       font-weight: 600;
       text-underline-offset: 3px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .contact-directions-btn {
@@ -418,6 +422,18 @@
 
       .contact-map iframe {
         min-height: 300px;
+      }
+
+      .contact-wrap {
+        width: calc(100% - 22px);
+      }
+
+      .contact-hero p,
+      .contact-card p,
+      .contact-reasons li span:last-child,
+      .check-row span {
+        overflow-wrap: anywhere;
+        word-break: break-word;
       }
     }
   </style>

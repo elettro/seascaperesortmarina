@@ -409,14 +409,16 @@ a {
  font-size: 15px;
  font-weight: 700;
  line-height: 1.1;
- white-space: nowrap;
+ white-space: normal;
+ overflow-wrap: anywhere;
 }
 
 .mobile-phone-note {
  font-size: 10px;
  line-height: 1.1;
  letter-spacing: 0.03em;
- white-space: nowrap;
+ white-space: normal;
+ overflow-wrap: anywhere;
  opacity: 0.82;
 }
 
@@ -559,6 +561,7 @@ a {
  gap: 10px;
  min-height: 60px;
  width: 100%;
+ overflow: visible;
  }
 
  .mobile-logo {
