@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Seascape Resort & Marina | Marathon, Florida Keys</title>
+  <meta
+    name="description"
+    content="Contact Seascape Resort & Marina in Marathon, Florida Keys for direct booking support, marina questions, group stays, and trip planning assistance."
+  />
+  <link rel="canonical" href="https://elettro.github.io/seascaperesortmarina/contact/" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    /* CONTACT PAGE CSS BLOCK */
+    :root {
+      --contact-navy: #12384d;
+      --contact-navy-deep: #0d2738;
+      --contact-teal: #56b2c2;
+      --contact-sand: #f7f1e6;
+      --contact-bg: #f7fbfd;
+      --contact-text: #26495d;
+      --contact-muted: #65808f;
+      --contact-border: rgba(18, 56, 77, 0.14);
+      --contact-shadow: 0 18px 44px rgba(13, 39, 56, 0.12);
+      --contact-wrap: 1180px;
+      --contact-radius-xl: 28px;
+      --contact-radius-lg: 20px;
+      --contact-radius-md: 14px;
+    }
+
+    .contact-page {
+      margin: 0;
+      background: linear-gradient(180deg, #0f2f44 0, #173f55 220px, var(--contact-bg) 420px, #fff 100%);
+      color: var(--contact-text);
+      --contact-nav-offset: 0px;
+    }
+
+    #site-nav {
+      position: relative;
+      z-index: 1000;
+    }
+
+    .contact-page #site-nav .site-header {
+      background: linear-gradient(180deg, rgba(8, 29, 42, 0.95), rgba(13, 39, 56, 0.9));
+      padding-bottom: 12px;
+    }
+
+    .contact-page #site-nav .hero,
+    .contact-page #site-nav .video-shell,
+    .contact-page #site-nav .video-overlay,
+    .contact-page #site-nav .hero-overlay,
+    .contact-page #site-nav .hero-content,
+    .contact-page #site-nav .intro-strip,
+    .contact-page #site-nav main {
+      display: none !important;
+    }
+
+    .contact-page main {
+      padding-top: var(--contact-nav-offset);
+    }
+
+    .contact-wrap {
+      width: min(var(--contact-wrap), calc(100% - 30px));
+      margin: 0 auto;
+    }
+
+    .contact-hero {
+      padding: 74px 0 56px;
+      color: #fff;
+    }
+
+    .contact-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .contact-kicker {
+      display: inline-block;
+      margin: 0 0 12px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .contact-hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4.8vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .contact-hero p {
+      margin: 0 0 26px;
+      max-width: 700px;
+      font-size: 1.03rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-btn {
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .contact-btn-primary {
+      background: linear-gradient(135deg, #dfbf86, #efdcba);
+      color: #173a4f;
+      box-shadow: 0 14px 28px rgba(223, 191, 134, 0.25);
+    }
+
+    .contact-btn-secondary {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .contact-info-card {
+      border-radius: var(--contact-radius-xl);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      box-shadow: var(--contact-shadow);
+      padding: 24px;
+      color: var(--contact-text);
+    }
+
+    .contact-info-card h2 {
+      margin: 0 0 16px;
+      font-size: 1.45rem;
+      color: var(--contact-navy);
+    }
+
+    .contact-detail-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-detail-list li {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 8px 0;
+      border-top: 1px solid var(--contact-border);
+    }
+
+    .contact-detail-list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .contact-detail-list strong {
+      color: var(--contact-navy);
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.95rem;
+    }
+
+    .contact-detail-list a {
+      color: var(--contact-navy);
+      font-weight: 600;
+      text-underline-offset: 3px;
+    }
+
+    .contact-directions-btn {
+      margin-top: 14px;
+      width: 100%;
+      justify-content: center;
+      min-height: 50px;
+      border-radius: 14px;
+      border: 1px solid var(--contact-border);
+      background: var(--contact-sand);
+      color: var(--contact-navy-deep);
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-main-grid {
+      padding: 14px 0 20px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: #fff;
+      border: 1px solid var(--contact-border);
+      box-shadow: 0 12px 30px rgba(18, 56, 77, 0.08);
+      border-radius: var(--contact-radius-lg);
+      padding: 24px;
+    }
+
+    .contact-card h2 {
+      margin: 0 0 8px;
+      color: var(--contact-navy);
+      font-size: 1.5rem;
+    }
+
+    .contact-card p {
+      margin: 0 0 18px;
+      color: var(--contact-muted);
+      line-height: 1.6;
+    }
+
+    .contact-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .form-group {
+      display: grid;
+      gap: 6px;
+    }
+
+    .form-group-full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--contact-navy);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 46px;
+      border-radius: 12px;
+      border: 1px solid var(--contact-border);
+      padding: 10px 12px;
+      font: inherit;
+      color: var(--contact-text);
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--contact-muted);
+      margin-top: 4px;
+    }
+
+    .check-row input {
+      width: 18px;
+      height: 18px;
+      min-height: 18px;
+      margin-top: 2px;
+    }
+
+    .contact-submit {
+      margin-top: 12px;
+      border: 0;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .contact-reasons ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-reasons li {
+      border: 1px solid var(--contact-border);
+      border-radius: var(--contact-radius-md);
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--contact-text);
+    }
+
+    .contact-map {
+      padding: 32px 0 0;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      min-height: 360px;
+      border: 0;
+      border-radius: var(--contact-radius-lg);
+      box-shadow: 0 14px 34px rgba(18, 56, 77, 0.14);
+    }
+
+    .contact-bottom-cta {
+      margin: 46px 0 70px;
+      border-radius: var(--contact-radius-xl);
+      background: linear-gradient(135deg, var(--contact-navy-deep), var(--contact-navy));
+      color: #fff;
+      padding: 30px;
+      display: grid;
+      gap: 14px;
+      text-align: center;
+      box-shadow: var(--contact-shadow);
+    }
+
+    .contact-bottom-cta h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+    }
+
+    .contact-bottom-cta p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+    }
+
+    .contact-bottom-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1040px) {
+      .contact-hero-grid,
+      .contact-main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .contact-hero {
+        padding: 56px 0 42px;
+      }
+
+      .contact-form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card,
+      .contact-info-card,
+      .contact-bottom-cta {
+        padding: 18px;
+      }
+
+      .contact-btn,
+      .contact-directions-btn {
+        width: 100%;
+      }
+
+      .contact-map iframe {
+        min-height: 300px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Seascape Resort & Marina",
+      "url": "https://elettro.github.io/seascaperesortmarina/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1275 76th St., Ocean",
+        "addressLocality": "Marathon",
+        "addressRegion": "FL",
+        "postalCode": "33050",
+        "addressCountry": "US"
+      },
+      "telephone": "(305) 743-6212",
+      "email": "info@seascaperesortandmarina.com",
+      "openingHours": "Mo-Su 08:00-20:00"
+    }
+  </script>
+</head>
+<body class="contact-page">
+  <div id="site-nav"></div>
+
+  <main>
+    <section class="contact-hero" aria-labelledby="contact-hero-heading">
+      <div class="contact-wrap contact-hero-grid">
+        <div>
+          <p class="contact-kicker">Direct Contact & Trip Planning</p>
+          <h1 id="contact-hero-heading">Get fast answers for booking, marina planning, and your Keys getaway.</h1>
+          <p>
+            Connect directly with Seascape Resort & Marina for live availability, tailored stay guidance,
+            and local support to make your Marathon trip easy from first call to arrival.
+          </p>
+          <div class="contact-actions">
+            <a href="tel:+13057436212" class="contact-btn contact-btn-primary" data-track="contact_call_primary">Call (305) 743-6212</a>
+            <a href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" class="contact-btn contact-btn-secondary" target="_blank" rel="noopener noreferrer" data-track="contact_check_availability">Check Availability</a>
+          </div>
+        </div>
+
+        <aside class="contact-info-card" aria-label="Seascape contact details">
+          <h2>Seascape Resort &amp; Marina</h2>
+          <ul class="contact-detail-list">
+            <li>
+              <span aria-hidden="true">📍</span>
+              <div>
+                <strong>Address</strong>
+                <span>1275 76th St., Ocean<br />Marathon, FL 33050</span>
+              </div>
+            </li>
+            <li>
+              <span aria-hidden="true">📞</span>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:+13057436212" data-track="contact_call_secondary">(305) 743-6212</a>
+              </div>
+            </li>
+            <li>
+              <span aria-hidden="true">✉️</span>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:info@seascaperesortandmarina.com" data-track="contact_email_click">info@seascaperesortandmarina.com</a>
+              </div>
+            </li>
+            <li>
+              <span aria-hidden="true">🕘</span>
+              <div>
+                <strong>Office Hours</strong>
+                <span>8:00 AM to 8:00 PM</span>
+              </div>
+            </li>
+          </ul>
+          <a
+            class="contact-directions-btn"
+            href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+St.,+Ocean,+Marathon,+FL+33050"
+            target="_blank"
+            rel="noopener"
+            data-track="contact_directions_click"
+          >
+            Get Directions
+          </a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="contact-wrap contact-main-grid" aria-label="Contact form and direct booking support">
+      <article class="contact-card">
+        <h2>Send a quick inquiry</h2>
+        <p>Tell us about your stay plans and we’ll follow up with availability, rates, and next steps.</p>
+
+        <form action="#" method="post" data-track="contact_form_submit">
+          <div class="contact-form-grid">
+            <div class="form-group">
+              <label for="first-name">First name</label>
+              <input id="first-name" name="first_name" autocomplete="given-name" required />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last name</label>
+              <input id="last-name" name="last_name" autocomplete="family-name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+            </div>
+            <div class="form-group">
+              <label for="arrival-date">Arrival date</label>
+              <input id="arrival-date" name="arrival_date" type="date" />
+            </div>
+            <div class="form-group">
+              <label for="departure-date">Departure date</label>
+              <input id="departure-date" name="departure_date" type="date" />
+            </div>
+            <div class="form-group">
+              <label for="guests">Guests</label>
+              <input id="guests" name="guests" type="number" min="1" inputmode="numeric" />
+            </div>
+            <div class="form-group">
+              <label for="inquiry-type">Inquiry type</label>
+              <select id="inquiry-type" name="inquiry_type">
+                <option value="">Select one</option>
+                <option>Availability & rates</option>
+                <option>Marina & boat parking</option>
+                <option>Group stay</option>
+                <option>Wedding or event</option>
+                <option>Arrival planning</option>
+              </select>
+            </div>
+            <div class="form-group form-group-full">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Share dates, room needs, boat details, or anything else we can help with."></textarea>
+            </div>
+            <div class="form-group form-group-full">
+              <label class="check-row" for="privacy-check">
+                <input id="privacy-check" name="privacy_consent" type="checkbox" required />
+                <span>I agree to be contacted regarding this inquiry and understand my information will be used to respond to my request.</span>
+              </label>
+            </div>
+            <div class="form-group form-group-full">
+              <label class="check-row" for="marketing-check">
+                <input id="marketing-check" name="marketing_opt_in" type="checkbox" />
+                <span>Yes, send occasional Seascape updates and special offers (optional).</span>
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="contact-btn contact-btn-primary contact-submit">Submit Inquiry</button>
+        </form>
+      </article>
+
+      <aside class="contact-card contact-reasons" aria-labelledby="contact-direct-heading">
+        <h2 id="contact-direct-heading">Why contact us direct</h2>
+        <p>Our team can quickly match you with the best room, dock support, and local planning help.</p>
+        <ul>
+          <li><span aria-hidden="true">✓</span><span>Live answers for availability questions and the best direct booking options.</span></li>
+          <li><span aria-hidden="true">✓</span><span>Marina and boat parking guidance before you arrive.</span></li>
+          <li><span aria-hidden="true">✓</span><span>Group stay coordination for reunions, fishing trips, and multi-room travel.</span></li>
+          <li><span aria-hidden="true">✓</span><span>Wedding or event inquiries with personalized planning support.</span></li>
+          <li><span aria-hidden="true">✓</span><span>Arrival details, local recommendations, and trip planning assistance.</span></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="contact-wrap contact-map" aria-labelledby="map-heading">
+      <h2 id="map-heading">Find Seascape Resort &amp; Marina</h2>
+      <p>Conveniently located in Marathon, FL with easy access for both resort guests and boaters.</p>
+      <iframe
+        title="Map to Seascape Resort & Marina"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=1275%2076th%20St.,%20Ocean,%20Marathon,%20FL%2033050&z=15&output=embed"
+      ></iframe>
+    </section>
+
+    <section class="contact-wrap">
+      <div class="contact-bottom-cta">
+        <h2>Ready to plan your Seascape stay?</h2>
+        <p>Call now for immediate booking support, or email us and we’ll reply with personalized next steps.</p>
+        <div class="contact-bottom-actions">
+          <a href="tel:+13057436212" class="contact-btn contact-btn-primary" data-track="contact_call_primary">Call (305) 743-6212</a>
+          <a href="mailto:info@seascaperesortandmarina.com" class="contact-btn contact-btn-secondary" data-track="contact_email_click">Email Seascape</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function syncContactNavOffset() {
+      const siteNav = document.getElementById('site-nav');
+      if (!siteNav) return;
+      const siteHeader = siteNav.querySelector('.site-header');
+      if (!siteHeader) return;
+      const page = document.querySelector('.contact-page');
+      if (page) page.style.setProperty('--contact-nav-offset', `${siteHeader.offsetHeight}px`);
+    }
+
+    function loadSharedNavScript() {
+      if (document.querySelector('script[data-shared-nav-script="true"]')) return;
+      const script = document.createElement('script');
+      script.src = '../js/main.js';
+      script.defer = true;
+      script.dataset.sharedNavScript = 'true';
+      document.body.appendChild(script);
+    }
+
+    async function loadSharedPartial(targetId, path) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      try {
+        const response = await fetch(path);
+        if (!response.ok) throw new Error(`Failed to load ${path}`);
+
+        const markup = await response.text();
+        const parser = new DOMParser();
+        const pageDoc = parser.parseFromString(markup, 'text/html');
+        const siteHeader = pageDoc.querySelector('.site-header');
+
+        target.innerHTML = siteHeader ? siteHeader.outerHTML : '';
+        syncContactNavOffset();
+        loadSharedNavScript();
+        window.addEventListener('resize', syncContactNavOffset);
+        window.addEventListener('load', syncContactNavOffset);
+      } catch (error) {
+        console.warn(error);
+      }
+    }
+
+    loadSharedPartial('site-nav', '../index.html');
+  </script>
+</body>
+</html>
