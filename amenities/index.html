@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amenities | Seascape Resort & Marina</title>
+  <meta
+    name="description"
+    content="Explore the amenities at Seascape Resort & Marina in Marathon, Florida Keys, including marina access, waterfront relaxation, complimentary kayaks, poolside lounging, WiFi, free parking, and more."
+  />
+  <style>
+    :root {
+      --navy: #12344a;
+      --navy-deep: #0b2637;
+      --teal: #58b8c8;
+      --teal-soft: #dff4f7;
+      --sand: #f5efe4;
+      --gold: #d4b067;
+      --white: #ffffff;
+      --text: #27485a;
+      --muted: #64808f;
+      --line: rgba(18, 52, 74, 0.12);
+      --shadow: 0 18px 48px rgba(11, 38, 55, 0.12);
+      --radius-xl: 26px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --wrap: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(88, 184, 200, 0.16), transparent 24%),
+        radial-gradient(circle at top right, rgba(212, 176, 103, 0.12), transparent 22%),
+        linear-gradient(180deg, #f8fcfd 0%, #f4f8f9 28%, #ffffff 100%);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrap {
+      width: min(var(--wrap), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 92px 0 70px;
+      background:
+        linear-gradient(135deg, rgba(11, 38, 55, 0.94), rgba(18, 52, 74, 0.90)),
+        linear-gradient(180deg, rgba(88, 184, 200, 0.08), rgba(212, 176, 103, 0.04));
+      color: var(--white);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      opacity: 0.45;
+      filter: blur(8px);
+    }
+
+    .hero::before {
+      width: 340px;
+      height: 340px;
+      right: -80px;
+      top: -80px;
+      background: radial-gradient(circle, rgba(88, 184, 200, 0.38), transparent 70%);
+    }
+
+    .hero::after {
+      width: 280px;
+      height: 280px;
+      left: -60px;
+      bottom: -80px;
+      background: radial-gradient(circle, rgba(212, 176, 103, 0.22), transparent 70%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #d7f6fb;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.5rem, 4.8vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-lead {
+      max-width: 720px;
+      margin: 0 0 24px;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 15px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), #e7c98f);
+      color: var(--navy-deep);
+      box-shadow: 0 10px 24px rgba(212, 176, 103, 0.26);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.10);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 22px;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.92)),
+        linear-gradient(135deg, rgba(88,184,200,0.12), rgba(212,176,103,0.10));
+      border: 1px solid rgba(255,255,255,0.28);
+      box-shadow: var(--shadow);
+      color: var(--text);
+    }
+
+    .hero-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .hero-card-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .hero-card h2 {
+      margin: 8px 0 0;
+      font-size: 1.55rem;
+      line-height: 1.1;
+      color: var(--navy);
+    }
+
+    .rating-badge {
+      flex: 0 0 auto;
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--navy), #194866);
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(18, 52, 74, 0.18);
+      text-align: center;
+    }
+
+    .rating-badge strong {
+      display: block;
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+
+    .rating-badge span {
+      display: block;
+      font-size: 0.7rem;
+      margin-top: 4px;
+      opacity: 0.84;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .snapshot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .snapshot-item {
+      display: flex;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(18, 52, 74, 0.04);
+      border: 1px solid rgba(18, 52, 74, 0.06);
+    }
+
+    .snapshot-item h3 {
+      margin: 0 0 4px;
+      font-size: 0.98rem;
+      color: var(--navy);
+    }
+
+    .snapshot-item p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .icon-bubble {
+      flex: 0 0 42px;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--teal-soft), #f6fbfc);
+      color: var(--navy);
+      border: 1px solid rgba(88, 184, 200, 0.22);
+    }
+
+    .section {
+      padding: 78px 0;
+    }
+
+    .section-header {
+      max-width: 850px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .section-header .eyebrow-light {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--teal);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+    }
+
+    .section-header h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.04;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      max-width: 760px;
+    }
+
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .amenity-card {
+      position: relative;
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.95)),
+        linear-gradient(135deg, rgba(88,184,200,0.06), rgba(212,176,103,0.06));
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 36px rgba(18, 52, 74, 0.08);
+      overflow: hidden;
+    }
+
+    .amenity-card::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      right: -60px;
+      top: -60px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(88, 184, 200, 0.12), transparent 68%);
+      pointer-events: none;
+    }
+
+    .amenity-head {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .amenity-icon {
+      flex: 0 0 62px;
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--navy), #1e506d);
+      color: var(--white);
+      box-shadow: 0 14px 24px rgba(18, 52, 74, 0.18);
+    }
+
+    .amenity-card h3 {
+      margin: 4px 0 8px;
+      font-size: 1.4rem;
+      line-height: 1.1;
+      color: var(--navy);
+    }
+
+    .amenity-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .amenity-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .amenity-list li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 11px 0;
+      border-top: 1px solid rgba(18, 52, 74, 0.08);
+      color: var(--text);
+      font-size: 0.97rem;
+    }
+
+    .amenity-list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(88, 184, 200, 0.16);
+      color: var(--navy);
+      margin-top: 1px;
+    }
+
+    .feature-band {
+      padding: 34px 0;
+    }
+
+    .feature-panel {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      padding: 24px;
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(18,52,74,0.96), rgba(15,47,70,0.92)),
+        linear-gradient(180deg, rgba(88,184,200,0.10), rgba(212,176,103,0.08));
+      box-shadow: var(--shadow);
+    }
+
+    .feature-item {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--white);
+    }
+
+    .feature-item .mini-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.10);
+      margin-bottom: 14px;
+    }
+
+    .feature-item h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      color: #ffffff;
+    }
+
+    .feature-item p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.55;
+    }
+
+    .experience {
+      padding-top: 30px;
+    }
+
+    .experience-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      align-items: stretch;
+      padding: 28px;
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(245,239,228,0.82), rgba(255,255,255,0.98)),
+        linear-gradient(135deg, rgba(88,184,200,0.08), rgba(212,176,103,0.08));
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 42px rgba(18, 52, 74, 0.08);
+    }
+
+    .experience-left {
+      padding: 8px;
+    }
+
+    .experience-left h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.04;
+      color: var(--navy);
+    }
+
+    .experience-left p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    .experience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .experience-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(18, 52, 74, 0.06);
+      border: 1px solid rgba(18, 52, 74, 0.08);
+      color: var(--navy);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .experience-right {
+      display: grid;
+      gap: 14px;
+    }
+
+    .experience-point {
+      display: flex;
+      gap: 14px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(18, 52, 74, 0.08);
+    }
+
+    .experience-point h3 {
+      margin: 0 0 5px;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+
+    .experience-point p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .cta-section {
+      padding-top: 34px;
+      padding-bottom: 90px;
+    }
+
+    .cta-card {
+      text-align: center;
+      padding: 42px 24px;
+      border-radius: 30px;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(18,52,74,0.98), rgba(11,38,55,0.96)),
+        radial-gradient(circle at 30% 20%, rgba(88,184,200,0.16), transparent 30%),
+        radial-gradient(circle at 78% 40%, rgba(212,176,103,0.16), transparent 24%);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-card h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.02;
+    }
+
+    .cta-card p {
+      max-width: 740px;
+      margin: 0 auto 24px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .cta-card .hero-pills {
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+
+    footer {
+      padding: 28px 0 46px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .amenity-icon svg,
+    .mini-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .experience-card,
+      .amenities-grid,
+      .feature-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-panel {
+        gap: 14px;
+      }
+
+      .hero {
+        padding-top: 72px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        padding: 58px 0;
+      }
+
+      .hero {
+        padding: 60px 0 52px;
+      }
+
+      .hero-card,
+      .amenity-card,
+      .experience-card,
+      .cta-card {
+        border-radius: 22px;
+      }
+
+      .snapshot-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .amenity-card {
+        padding: 22px 18px;
+      }
+
+      .feature-panel {
+        padding: 18px;
+      }
+
+      .experience-card {
+        padding: 20px;
+      }
+
+      .cta-card {
+        padding: 34px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Seascape Resort & Marina</div>
+        <h1>Amenities built around the Florida Keys lifestyle.</h1>
+        <p class="hero-lead">
+          Stay on the water in Marathon and enjoy the amenities that matter most. Marina access. Complimentary kayaks. Relaxed outdoor spaces. Poolside downtime. Fast, simple comfort. Everything is designed to keep your stay easy, scenic, and connected to the Keys.
+        </p>
+
+        <div class="hero-pills">
+          <span class="hero-pill">
+            <span aria-hidden="true">✓</span>
+            Waterfront stay
+          </span>
+          <span class="hero-pill">
+            <span aria-hidden="true">✓</span>
+            Marina access
+          </span>
+          <span class="hero-pill">
+            <span aria-hidden="true">✓</span>
+            Complimentary kayaks
+          </span>
+          <span class="hero-pill">
+            <span aria-hidden="true">✓</span>
+            Free WiFi
+          </span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#amenities" class="btn btn-primary">Explore Amenities</a>
+          <a href="#stay" class="btn btn-secondary">Why Guests Stay Here</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <div>
+            <div class="hero-card-kicker">Amenity Snapshot</div>
+            <h2>Designed for boaters, couples, families, and laid-back Keys getaways.</h2>
+          </div>
+          <div class="rating-badge">
+            <div>
+              <strong>Keys</strong>
+              <span>Style</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="snapshot-grid">
+          <div class="snapshot-item">
+            <div class="icon-bubble">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 18c3-2 5-2 8 0s5 2 10 0"></path>
+                <path d="M6 14V7l4 2 4-4 4 2v7"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Marina on-site</h3>
+              <p>Direct boating access and a true waterfront setting.</p>
+            </div>
+          </div>
+
+          <div class="snapshot-item">
+            <div class="icon-bubble">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 16c1.5-3 4.5-4 7-4s5.5 1 7 4"></path>
+                <path d="M7 16v2"></path>
+                <path d="M17 16v2"></path>
+                <path d="M12 6v6"></path>
+                <path d="M9 8c1-1 2-1.5 3-1.5S14 7 15 8"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Outdoor pool</h3>
+              <p>Comfortable downtime after a day on the water.</p>
+            </div>
+          </div>
+
+          <div class="snapshot-item">
+            <div class="icon-bubble">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 12c3 0 4-2 6-2s3 2 6 2 3-2 6-2"></path>
+                <path d="M8 10l3-5"></path>
+                <path d="M11 5l2 3"></path>
+                <path d="M10 14l2 5"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Complimentary kayaks</h3>
+              <p>Easy access to quiet exploration around the water.</p>
+            </div>
+          </div>
+
+          <div class="snapshot-item">
+            <div class="icon-bubble">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 17h16"></path>
+                <path d="M7 17V7"></path>
+                <path d="M12 17V4"></path>
+                <path d="M17 17v-8"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Free parking + WiFi</h3>
+              <p>Simple arrival. Easy access. Comfortable stay.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-band">
+    <div class="wrap">
+      <div class="feature-panel">
+        <div class="feature-item">
+          <div class="mini-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2 12h20"></path>
+              <path d="M6 8h12"></path>
+              <path d="M8 16h8"></path>
+            </svg>
+          </div>
+          <h3>Waterfront atmosphere</h3>
+          <p>A setting that feels like the Keys the moment you arrive.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="mini-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+              <path d="M7 10h3"></path>
+              <path d="M7 14h6"></path>
+            </svg>
+          </div>
+          <h3>Direct and simple</h3>
+          <p>Comfort-focused amenities without unnecessary clutter.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="mini-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 18c2-2 4-3 8-3s6 1 8 3"></path>
+              <circle cx="12" cy="8" r="3"></circle>
+            </svg>
+          </div>
+          <h3>Group-friendly feel</h3>
+          <p>Great for couples, families, fishing trips, and small groups.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="mini-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3v18"></path>
+              <path d="M5 10c2-1 3-2 7-2s5 1 7 2"></path>
+            </svg>
+          </div>
+          <h3>Strong marina positioning</h3>
+          <p>Your boating and waterfront advantage should lead the story.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="amenities">
+    <div class="wrap">
+      <div class="section-header">
+        <div class="eyebrow-light">Amenities</div>
+        <h2>Everything guests need. Presented like a resort, not a checklist.</h2>
+        <p>
+          This amenity page is written to sell the stay. Each section supports what guests want most in the Florida Keys: water access, comfort, outdoor living, easy logistics, and a relaxed experience from arrival to checkout.
+        </p>
+      </div>
+
+      <div class="amenities-grid">
+
+        <article class="amenity-card">
+          <div class="amenity-head">
+            <div class="amenity-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 18c3-2 5-2 8 0s5 2 10 0"></path>
+                <path d="M6 14V7l4 2 4-4 4 2v7"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Waterfront & Marina Lifestyle</h3>
+              <p>
+                Stay directly on the water and settle into a true Florida Keys marina setting. The property is built around open views, direct water access, and the calm pace people come here to find.
+              </p>
+            </div>
+          </div>
+
+          <ul class="amenity-list">
+            <li><span class="check">✓</span><span>Private waterfront location with open water views</span></li>
+            <li><span class="check">✓</span><span>On-site marina that keeps the boating lifestyle front and center</span></li>
+            <li><span class="check">✓</span><span>Guest dockage opportunities and direct access to the water</span></li>
+            <li><span class="check">✓</span><span>Dockside relaxation areas for sunrise, sunset, and quiet down time</span></li>
+            <li><span class="check">✓</span><span>A laid-back setting that feels connected to the Keys from the moment you arrive</span></li>
+          </ul>
+        </article>
+
+        <article class="amenity-card">
+          <div class="amenity-head">
+            <div class="amenity-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 12c3 0 4-2 6-2s3 2 6 2 3-2 6-2"></path>
+                <path d="M8 10l3-5"></path>
+                <path d="M11 5l2 3"></path>
+                <path d="M10 14l2 5"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Water Activities & Ocean Access</h3>
+              <p>
+                This is not only a place to sleep. It is a place to get outside, get on the water, and enjoy the natural side of Marathon without overcomplication.
+              </p>
+            </div>
+          </div>
+
+          <ul class="amenity-list">
+            <li><span class="check">✓</span><span>Complimentary kayaks for easy exploration around the property</span></li>
+            <li><span class="check">✓</span><span>Fishing opportunities on-site or nearby for casual and serious anglers</span></li>
+            <li><span class="check">✓</span><span>Close access to snorkeling, boating, and guided excursion experiences</span></li>
+            <li><span class="check">✓</span><span>Free bicycle rentals for easy property and area exploration</span></li>
+            <li><span class="check">✓</span><span>A natural fit for guests planning fishing trips, boating days, or relaxed waterfront adventures</span></li>
+          </ul>
+        </article>
+
+        <article class="amenity-card">
+          <div class="amenity-head">
+            <div class="amenity-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 16c1.5-3 4.5-4 7-4s5.5 1 7 4"></path>
+                <path d="M7 16v2"></path>
+                <path d="M17 16v2"></path>
+                <path d="M12 6v6"></path>
+                <path d="M9 8c1-1 2-1.5 3-1.5S14 7 15 8"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Pool & Relaxation Areas</h3>
+              <p>
+                The property is set up for slow afternoons, casual resets, and the kind of outdoor downtime guests expect from a Florida Keys stay.
+              </p>
+            </div>
+          </div>
+
+          <ul class="amenity-list">
+            <li><span class="check">✓</span><span>Outdoor pool designed for easy, unhurried relaxation</span></li>
+            <li><span class="check">✓</span><span>Comfortable lounge seating for post-excursion or all-day poolside use</span></li>
+            <li><span class="check">✓</span><span>Open-air waterfront areas that create a more scenic place to unwind</span></li>
+            <li><span class="check">✓</span><span>Terrace spaces that support a more elevated outdoor experience</span></li>
+            <li><span class="check">✓</span><span>A peaceful, lower-density feel that keeps the property easy and calm</span></li>
+          </ul>
+        </article>
+
+        <article class="amenity-card">
+          <div class="amenity-head">
+            <div class="amenity-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 19V9"></path>
+                <path d="M18 19V9"></path>
+                <path d="M4 9h16"></path>
+                <path d="M8 9V6h8v3"></path>
+                <path d="M9 13h6"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Outdoor Spaces & Gathering Areas</h3>
+              <p>
+                The outdoor layout supports family time, small groups, and simple social moments without losing the calm mood of the property.
+              </p>
+            </div>
+          </div>
+
+          <ul class="amenity-list">
+            <li><span class="check">✓</span><span>BBQ grills for easy outdoor meals and longer stays</span></li>
+            <li><span class="check">✓</span><span>Picnic areas that create casual gathering space throughout the property</span></li>
+            <li><span class="check">✓</span><span>Outdoor seating areas designed for conversation, coffee, and sunset time</span></li>
+            <li><span class="check">✓</span><span>A natural fit for couples, families, and guests traveling together</span></li>
+            <li><span class="check">✓</span><span>Open-air spaces that give the resort a more lived-in, welcoming feel</span></li>
+          </ul>
+        </article>
+
+        <article class="amenity-card">
+          <div class="amenity-head">
+            <div class="amenity-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="7" width="18" height="11" rx="2"></rect>
+                <path d="M7 18v2"></path>
+                <path d="M17 18v2"></path>
+                <path d="M8 11h8"></path>
+                <path d="M8 14h5"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>In-Room Comforts</h3>
+              <p>
+                Guests want comfort that feels easy and practical. This section should reassure them that the essentials are covered cleanly and clearly.
+              </p>
+            </div>
+          </div>
+
+          <ul class="amenity-list">
+            <li><span class="check">✓</span><span>Free WiFi in all rooms for work, streaming, and trip planning</span></li>
+            <li><span class="check">✓</span><span>Air conditioning for reliable comfort in the Florida Keys climate</span></li>
+            <li><span class="check">✓</span><span>Television for easy in-room downtime</span></li>
+            <li><span class="check">✓</span><span>Mini refrigerator, coffee maker, and microwave for added convenience</span></li>
+            <li><span class="check">✓</span><span>Select room layouts and outdoor areas that support a more relaxed stay</span></li>
+          </ul>
+        </article>
+
+        <article class="amenity-card">
+          <div class="amenity-head">
+            <div class="amenity-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 17h16"></path>
+                <path d="M7 17V7"></path>
+                <path d="M12 17V4"></path>
+                <path d="M17 17v-8"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Guest Services & Convenience</h3>
+              <p>
+                Small conveniences often decide bookings. Keep this section direct and confidence-building so guests know arrival and stay logistics will feel easy.
+              </p>
+            </div>
+          </div>
+
+          <ul class="amenity-list">
+            <li><span class="check">✓</span><span>Ample free on-site parking for easy arrival and departure</span></li>
+            <li><span class="check">✓</span><span>Free WiFi in select common areas in addition to guest rooms</span></li>
+            <li><span class="check">✓</span><span>All non-smoking guest rooms for a cleaner stay experience</span></li>
+            <li><span class="check">✓</span><span>Designated outdoor smoking areas for convenience without disrupting guest rooms</span></li>
+            <li><span class="check">✓</span><span>A smooth, no-fuss property setup that supports direct-booking travelers</span></li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section experience" id="stay">
+    <div class="wrap">
+      <div class="experience-card">
+        <div class="experience-left">
+          <div class="eyebrow-light">The Experience</div>
+          <h2>Why this amenity story converts better.</h2>
+          <p>
+            Guests do not book because a property has WiFi and parking. They book because the place feels right. This page reframes your amenities into a stronger resort story: waterfront living, marina access, relaxed outdoor time, practical comforts, and the Florida Keys experience people came for in the first place.
+          </p>
+
+          <div class="experience-tags">
+            <span class="experience-tag">Boating stays</span>
+            <span class="experience-tag">Fishing trips</span>
+            <span class="experience-tag">Couples escapes</span>
+            <span class="experience-tag">Family stays</span>
+            <span class="experience-tag">Group bookings</span>
+          </div>
+        </div>
+
+        <div class="experience-right">
+          <div class="experience-point">
+            <div class="icon-bubble">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3v18"></path>
+                <path d="M5 10c2-1 3-2 7-2s5 1 7 2"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Lead with marina value</h3>
+              <p>Your marina and waterfront positioning are stronger than a generic hotel pitch. They deserve to lead the story.</p>
+            </div>
+          </div>
+
+          <div class="experience-point">
+            <div class="icon-bubble">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 18h16"></path>
+                <path d="M6 14l4-4 3 3 5-6"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Sell the feeling</h3>
+              <p>Outdoor calm, water access, and an easy-going Keys mood create more desire than a flat amenity list.</p>
+            </div>
+          </div>
+
+          <div class="experience-point">
+            <div class="icon-bubble">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="M7 9h10"></path>
+                <path d="M7 13h6"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Improve scanability</h3>
+              <p>Icons, grouped sections, and strong headlines help guests process value faster on both mobile and desktop.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="wrap">
+      <div class="cta-card">
+        <h2>Stay on the water. Keep it simple. Enjoy the Keys.</h2>
+        <p>
+          Seascape Resort & Marina combines marina access, relaxed outdoor living, and practical stay essentials in one waterfront setting in Marathon. This is the kind of amenity story that helps direct bookers feel confident fast.
+        </p>
+
+        <div class="hero-pills">
+          <span class="hero-pill">Waterfront location</span>
+          <span class="hero-pill">Marina on-site</span>
+          <span class="hero-pill">Kayaks + bikes</span>
+          <span class="hero-pill">Pool + terrace</span>
+        </div>
+
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="#" class="btn btn-primary">Book Your Stay</a>
+          <a href="#" class="btn btn-secondary">View Accommodations</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Seascape Resort & Marina. Amenities page concept built for a premium, conversion-focused waterfront presentation.
+  </footer>
+
+</body>
+</html>
