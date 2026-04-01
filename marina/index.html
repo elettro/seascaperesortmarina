@@ -58,10 +58,10 @@
       position: relative;
       margin-top: calc(var(--nav-height, 84px) * -1);
       padding-top: 0;
-      min-height: 100vh;
+      min-height: clamp(820px, 100vh, 1080px);
       display: flex;
-      align-items: center;
-      overflow: hidden;
+      align-items: flex-start;
+      overflow: visible;
       background:
         linear-gradient(180deg, rgba(9,32,51,0.18) 0%, rgba(9,32,51,0.34) 40%, rgba(9,32,51,0.62) 100%),
         url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1800&q=80') center center / cover no-repeat;
@@ -83,11 +83,11 @@
       z-index: 2;
       width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
-      padding: calc(var(--nav-height, 84px) + 40px) 0 84px;
+      padding: calc(var(--nav-height, 84px) + 72px) 0 180px;
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 28px;
-      align-items: end;
+      align-items: start;
     }
 
     .marina-hero-copy {
@@ -247,13 +247,14 @@
     .floating-ribbon {
       position: absolute;
       left: 50%;
-      bottom: -32px;
+      bottom: 28px;
       transform: translateX(-50%);
       width: min(1120px, calc(100% - 32px));
       z-index: 3;
     }
 
     .floating-ribbon-inner {
+      box-sizing: border-box;
       background: rgba(255,255,255,0.94);
       border: 1px solid rgba(15,47,70,0.08);
       border-radius: 24px;
@@ -618,6 +619,20 @@
     }
 
     @media (max-width: 1040px) {
+      .marina-page .marina-hero {
+        min-height: auto;
+        padding-bottom: 32px;
+      }
+
+      .marina-page .marina-hero-content {
+        padding-top: calc(var(--nav-height, 84px) + 56px);
+        padding-bottom: 120px;
+      }
+
+      .marina-page .floating-ribbon {
+        bottom: 18px;
+      }
+
       .marina-hero-content,
       .split,
       .fish-showcase,
@@ -646,8 +661,9 @@
     @media (max-width: 780px) {
       .marina-page .marina-hero {
         min-height: auto;
-        margin-top: 0;
-        padding-top: var(--nav-height, 84px);
+        margin-top: calc(var(--nav-height, 84px) * -1);
+        padding-top: 0;
+        padding-bottom: 20px;
         overflow: visible;
       }
 
@@ -656,7 +672,7 @@
       }
 
       .marina-page .marina-hero-content {
-        padding: 28px 0 36px;
+        padding: calc(var(--nav-height, 84px) + 40px) 0 28px;
         gap: 18px;
       }
 
@@ -674,7 +690,7 @@
         left: auto;
         bottom: auto;
         transform: none;
-        width: min(1180px, calc(100% - 32px));
+        width: calc(100% - 20px);
         margin: 0 auto;
         padding: 10px 0 18px;
       }
@@ -727,10 +743,14 @@
 
       .marina-page .marina-hero {
         min-height: auto;
+        margin-top: calc(var(--nav-height) * -1);
+        padding-bottom: 20px;
       }
 
       .marina-page .marina-hero-content {
-        padding-top: 24px;
+        padding-top: calc(var(--nav-height) + 40px);
+        padding-bottom: 28px;
+        gap: 20px;
       }
     }
 
