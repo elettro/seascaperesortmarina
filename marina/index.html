@@ -35,6 +35,101 @@
       margin: 0 auto;
     }
 
+
+    .site-header {
+      position: relative;
+      z-index: 20;
+      background: rgba(9, 32, 51, 0.64);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .utility-bar {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.8rem;
+      line-height: 1.4;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .utility-left,
+    .utility-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .utility-bar a {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .main-nav {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 0;
+    }
+
+    .main-nav a {
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-left,
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-logo {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: 0.08em;
+    }
+
+    .logo-main {
+      font-size: 1.45rem;
+      font-weight: 800;
+    }
+
+    .logo-sub {
+      margin-top: 4px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      opacity: 0.92;
+    }
+
+    .book-now {
+      min-height: 42px;
+      padding: 0 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), #e3c98f);
+      color: var(--navy-deep) !important;
+    }
+
     .marina-hero {
       position: relative;
       min-height: 92vh;
@@ -692,6 +787,32 @@
         width: min(1180px, calc(100% - 20px));
       }
 
+
+      .utility-bar,
+      .main-nav {
+        width: min(1180px, calc(100% - 20px));
+      }
+
+      .utility-bar {
+        justify-content: center;
+      }
+
+      .utility-left .utility-address,
+      .utility-left .utility-mile-marker,
+      .utility-separator,
+      .nav-right,
+      .nav-left {
+        display: none;
+      }
+
+      .main-nav {
+        min-height: 64px;
+      }
+
+      .logo-main {
+        font-size: 1.22rem;
+      }
+
       .hero-title {
         font-size: clamp(2.35rem, 12vw, 3.7rem);
       }
@@ -718,6 +839,42 @@
       }
     }
   </style>
+
+
+  <div class="site-header">
+    <div class="utility-bar">
+      <div class="utility-left">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" class="utility-directions" target="_blank" rel="noopener">Get Directions</a>
+        <span class="utility-separator">|</span>
+        <span class="utility-address">1275 76th Street Ocean, Marathon, FL 33050</span>
+        <span class="utility-separator">|</span>
+        <span class="utility-mile-marker">Mile Marker: 50</span>
+      </div>
+      <div class="utility-right">
+        <a href="tel:+13057436212" class="utility-phone">(305) 743-6212</a>
+        <span class="best-rates">Always Call Us Direct For Best Rates</span>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="/seascaperesortmarina/rooms/">Rooms</a>
+        <a href="/seascaperesortmarina/marina/">Marina</a>
+        <a href="/seascaperesortmarina/amenities/">Amenities</a>
+      </div>
+
+      <a href="/seascaperesortmarina/" class="nav-logo" aria-label="Seascape Resort &amp; Marina home">
+        <span class="logo-main">SEASCAPE</span>
+        <span class="logo-sub">RESORT &amp; MARINA</span>
+      </a>
+
+      <div class="nav-right">
+        <a href="/seascaperesortmarina/excursions/">Excursions</a>
+        <a href="/seascaperesortmarina/contact/">Contact</a>
+        <a href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" class="book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
+      </div>
+    </nav>
+  </div>
 
   <section class="marina-hero">
     <div class="hero-content">
