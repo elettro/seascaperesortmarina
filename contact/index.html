@@ -31,7 +31,7 @@
 
     .contact-page {
       margin: 0;
-      background: linear-gradient(180deg, #0f2f44 0, #173f55 220px, var(--contact-bg) 420px, #fff 100%);
+      background: linear-gradient(180deg, #f3f9fc 0, #f8fcfe 320px, #fff 100%);
       color: var(--contact-text);
       --contact-nav-offset: 0px;
     }
@@ -95,61 +95,63 @@
     }
 
     .contact-hero {
-      padding: 74px 0 56px;
-      color: #fff;
+      padding: 108px 0 84px;
+      color: var(--contact-text);
     }
 
     .contact-hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
-      align-items: stretch;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 30px;
+      align-items: start;
     }
 
     .contact-kicker {
       display: inline-block;
-      margin: 0 0 12px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      background: rgba(255, 255, 255, 0.12);
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
+      margin: 0 0 14px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      font-size: 0.77rem;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       font-weight: 700;
+      color: #4f7385;
     }
 
     .contact-hero h1 {
-      margin: 0 0 14px;
-      font-size: clamp(2rem, 4.8vw, 4rem);
-      line-height: 1;
-      letter-spacing: -0.03em;
+      margin: 0 0 18px;
+      font-size: clamp(2.05rem, 4.6vw, 3.4rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #12384d;
+      max-width: 16ch;
     }
 
     .contact-hero p {
-      margin: 0 0 26px;
-      max-width: 700px;
-      font-size: 1.03rem;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.88);
+      margin: 0 0 30px;
+      max-width: 64ch;
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: var(--contact-muted);
     }
 
     .contact-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
 
     .contact-btn {
-      min-height: 52px;
-      padding: 0 22px;
+      min-height: 50px;
+      padding: 0 20px;
       border-radius: 999px;
       font-weight: 700;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
     }
 
     .contact-btn:hover {
@@ -157,23 +159,24 @@
     }
 
     .contact-btn-primary {
-      background: linear-gradient(135deg, #dfbf86, #efdcba);
-      color: #173a4f;
-      box-shadow: 0 14px 28px rgba(223, 191, 134, 0.25);
+      background: #12384d;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(18, 56, 77, 0.16);
     }
 
     .contact-btn-secondary {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.11);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #12384d;
+      background: #fff;
+      border: 1px solid rgba(18, 56, 77, 0.22);
+      box-shadow: 0 6px 16px rgba(18, 56, 77, 0.08);
     }
 
     .contact-info-card {
       border-radius: var(--contact-radius-xl);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
-      border: 1px solid rgba(255, 255, 255, 0.32);
-      box-shadow: var(--contact-shadow);
-      padding: 24px;
+      background: linear-gradient(180deg, #ffffff, #fbfdff);
+      border: 1px solid rgba(18, 56, 77, 0.12);
+      box-shadow: 0 12px 26px rgba(13, 39, 56, 0.08);
+      padding: 26px;
       color: var(--contact-text);
     }
 
@@ -395,7 +398,7 @@
 
     @media (max-width: 700px) {
       .contact-hero {
-        padding: 56px 0 42px;
+        padding: 68px 0 50px;
       }
 
       .contact-form-grid {
@@ -446,15 +449,15 @@
     <section class="contact-hero" aria-labelledby="contact-hero-heading">
       <div class="contact-wrap contact-hero-grid">
         <div>
-          <p class="contact-kicker">Direct Contact & Trip Planning</p>
-          <h1 id="contact-hero-heading">Get fast answers for booking, marina planning, and your Keys getaway.</h1>
+          <p class="contact-kicker">Contact Information</p>
+          <h1 id="contact-hero-heading">Everything you need to reach Seascape.</h1>
           <p>
-            Connect directly with Seascape Resort & Marina for live availability, tailored stay guidance,
-            and local support to make your Marathon trip easy from first call to arrival.
+            Use this page for direct contact details, location guidance, availability questions, marina planning, and
+            stay support. If you prefer, call us directly for the fastest help.
           </p>
           <div class="contact-actions">
             <a href="tel:+13057436212" class="contact-btn contact-btn-primary" data-track="contact_call_primary">Call (305) 743-6212</a>
-            <a href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" class="contact-btn contact-btn-secondary" target="_blank" rel="noopener noreferrer" data-track="contact_check_availability">Check Availability</a>
+            <a href="#contact-form" class="contact-btn contact-btn-secondary" data-track="contact_check_availability">Send an Inquiry</a>
           </div>
         </div>
 
@@ -504,7 +507,7 @@
     </section>
 
     <section class="contact-wrap contact-main-grid" aria-label="Contact form and direct booking support">
-      <article class="contact-card">
+      <article class="contact-card" id="contact-form">
         <h2>Send a quick inquiry</h2>
         <p>Tell us about your stay plans and we’ll follow up with availability, rates, and next steps.</p>
 
