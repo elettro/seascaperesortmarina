@@ -6,11 +6,6 @@
   <title>Seascape Resort & Marina | Marina</title>
   <meta name="description" content="Discover the on-property marina experience at Seascape Resort & Marina in Marathon, Florida Keys." />
   <link rel="stylesheet" href="../css/style.css" />
-</head>
-<body>
-  <div id="site-nav"></div>
-  <main>
-<section class="marina-page">
   <style>
     .marina-page {
       --navy: #0f2f46;
@@ -28,7 +23,7 @@
       color: var(--text);
       background: linear-gradient(180deg, #f7fbfc 0%, #ffffff 32%, #f5efe4 100%);
       --marina-nav-offset: 0px;
-      padding-top: var(--marina-nav-offset);
+      padding-top: 0;
     }
 
     #site-nav {
@@ -77,7 +72,7 @@
       pointer-events: none;
     }
 
-    .hero-content {
+    .marina-hero-content {
       position: relative;
       z-index: 2;
       width: min(1180px, calc(100% - 32px));
@@ -89,11 +84,11 @@
       align-items: end;
     }
 
-    .hero-copy {
+    .marina-hero-copy {
       max-width: 720px;
     }
 
-    .eyebrow {
+    .marina-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -110,7 +105,7 @@
       margin-bottom: 20px;
     }
 
-    .hero-title {
+    .marina-hero-title {
       margin: 0 0 18px;
       color: #ffffff;
       font-size: clamp(2.7rem, 6vw, 5.6rem);
@@ -120,7 +115,7 @@
       text-shadow: 0 10px 30px rgba(0,0,0,0.18);
     }
 
-    .hero-text {
+    .marina-hero-text {
       margin: 0 0 24px;
       color: rgba(255,255,255,0.92);
       font-size: 1.1rem;
@@ -129,7 +124,7 @@
       text-shadow: 0 4px 18px rgba(0,0,0,0.18);
     }
 
-    .hero-actions {
+    .marina-hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
@@ -170,7 +165,7 @@
       background: rgba(255,255,255,0.14);
     }
 
-    .hero-card {
+    .marina-hero-card {
       position: relative;
       z-index: 2;
       justify-self: end;
@@ -183,7 +178,7 @@
       padding: 22px;
     }
 
-    .hero-card-top {
+    .marina-hero-card-top {
       display: grid;
       grid-template-columns: 72px 1fr;
       gap: 14px;
@@ -191,7 +186,7 @@
       margin-bottom: 14px;
     }
 
-    .hero-card-icon {
+    .marina-hero-card-icon {
       width: 72px;
       height: 72px;
       border-radius: 22px;
@@ -201,42 +196,42 @@
       font-size: 30px;
     }
 
-    .hero-card h3 {
+    .marina-hero-card h3 {
       margin: 0 0 5px;
       color: var(--navy);
       font-size: 1.3rem;
       line-height: 1.1;
     }
 
-    .hero-card p {
+    .marina-hero-card p {
       margin: 0;
       color: var(--text-soft);
       line-height: 1.6;
       font-size: 0.95rem;
     }
 
-    .hero-mini-grid {
+    .marina-hero-mini-grid {
       margin-top: 18px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
 
-    .hero-mini {
+    .marina-hero-mini {
       border-radius: 18px;
       border: 1px solid var(--line);
       background: #ffffff;
       padding: 14px;
     }
 
-    .hero-mini strong {
+    .marina-hero-mini strong {
       display: block;
       margin-bottom: 4px;
       color: var(--navy);
       font-size: 1rem;
     }
 
-    .hero-mini span {
+    .marina-hero-mini span {
       display: block;
       color: var(--text-soft);
       font-size: 0.88rem;
@@ -617,14 +612,14 @@
     }
 
     @media (max-width: 1040px) {
-      .hero-content,
+      .marina-hero-content,
       .split,
       .fish-showcase,
       .cta-panel {
         grid-template-columns: 1fr;
       }
 
-      .hero-card {
+      .marina-hero-card {
         justify-self: start;
       }
 
@@ -647,11 +642,21 @@
         min-height: auto;
       }
 
-      .hero-content {
-        padding: 88px 0 110px;
+      .marina-page main {
+        padding-top: calc(var(--marina-nav-offset, 0px) + 10px);
       }
 
-      .hero-card {
+      .marina-hero-content {
+        padding: 32px 0 48px;
+        gap: 18px;
+      }
+
+      .marina-eyebrow {
+        margin-bottom: 14px;
+        letter-spacing: 0.12em;
+      }
+
+      .marina-hero-card {
         width: 100%;
       }
 
@@ -661,7 +666,8 @@
         bottom: auto;
         transform: none;
         width: min(1180px, calc(100% - 32px));
-        margin: -38px auto 0;
+        margin: 0 auto;
+        padding-top: 12px;
       }
 
       .content-section {
@@ -705,26 +711,54 @@
       }
     }
 
+    @media (max-width: 780px) and (orientation: portrait) {
+      .marina-hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .marina-hero-title {
+        font-size: clamp(2rem, 11vw, 3.2rem);
+      }
+    }
+
     @media (max-width: 560px) {
       .marina-shell,
-      .hero-content,
+      .marina-hero-content,
       .floating-ribbon {
         width: min(1180px, calc(100% - 20px));
       }
 
 
-      .hero-title {
+      .marina-hero-title {
         font-size: clamp(2.35rem, 12vw, 3.7rem);
+        line-height: 1.03;
       }
 
-      .hero-text,
+      .marina-hero-copy {
+        max-width: none;
+      }
+
+      .marina-eyebrow {
+        white-space: normal;
+      }
+
+      .marina-hero-text,
       .section-text,
       .band-inner p,
       .cta-panel p {
         font-size: 0.98rem;
       }
 
-      .hero-mini-grid {
+      .marina-hero-actions {
+        flex-direction: column;
+      }
+
+      .marina-hero-actions .btn-primary,
+      .marina-hero-actions .btn-secondary {
+        width: 100%;
+      }
+
+      .marina-hero-mini-grid {
         grid-template-columns: 1fr;
       }
 
@@ -733,9 +767,23 @@
       }
 
       .soft-card,
-      .hero-card,
+      .marina-hero-card,
       .cta-panel {
         border-radius: 22px;
+      }
+
+      .floating-ribbon-inner {
+        padding: 16px;
+      }
+
+      .ribbon-item {
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 10px;
+      }
+
+      .ribbon-item:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
       }
     }
 
@@ -758,7 +806,7 @@
     .marina-page #site-nav .video-shell,
     .marina-page #site-nav .video-overlay,
     .marina-page #site-nav .hero-overlay,
-    .marina-page #site-nav .hero-content,
+    .marina-page #site-nav .marina-hero-content,
     .marina-page #site-nav .intro-strip,
     .marina-page #site-nav main {
       display: none !important;
@@ -776,42 +824,42 @@
 
     <main>
   <section class="marina-hero">
-    <div class="hero-content">
-      <div class="hero-copy">
-        <div class="eyebrow">Seascape Marina</div>
-        <h1 class="hero-title">Dock your boat. Walk to the pool. Be back in your room in minutes.</h1>
-        <p class="hero-text">
+    <div class="marina-hero-content">
+      <div class="marina-hero-copy">
+        <div class="marina-eyebrow">Seascape Marina</div>
+        <h1 class="marina-hero-title">Dock your boat. Walk to the pool. Be back in your room in minutes.</h1>
+        <p class="marina-hero-text">
           This is the rare Florida Keys stay where the marina is not off somewhere else. It is right here on the property. Boat parking, fishing pier access, pool time, sunset time, and room convenience all live in one easy waterfront setting.
         </p>
-        <div class="hero-actions">
+        <div class="marina-hero-actions">
           <a href="/seascaperesortmarina/contact/" class="btn-primary">Ask About Marina Availability</a>
           <a href="/seascaperesortmarina/rooms/" class="btn-secondary">View Accommodations</a>
         </div>
       </div>
 
-      <div class="hero-card">
-        <div class="hero-card-top">
-          <div class="hero-card-icon">⚓</div>
+      <div class="marina-hero-card">
+        <div class="marina-hero-card-top">
+          <div class="marina-hero-card-icon">⚓</div>
           <div>
             <h3>Your day starts steps from the water</h3>
             <p>No loading up the truck and driving back and forth. Stay close to your boat, your gear, the pool, and your room.</p>
           </div>
         </div>
 
-        <div class="hero-mini-grid">
-          <div class="hero-mini">
+        <div class="marina-hero-mini-grid">
+          <div class="marina-hero-mini">
             <strong>On-property marina feel</strong>
             <span>A more connected stay for anglers, boaters, and families.</span>
           </div>
-          <div class="hero-mini">
+          <div class="marina-hero-mini">
             <strong>Sunset-friendly dock</strong>
             <span>Relax at the pier after a day on the water.</span>
           </div>
-          <div class="hero-mini">
+          <div class="marina-hero-mini">
             <strong>Easy ocean access</strong>
             <span>Oceanside position with quick boating convenience.</span>
           </div>
-          <div class="hero-mini">
+          <div class="marina-hero-mini">
             <strong>Better flow to your trip</strong>
             <span>Less hassle. More time actually enjoying the Keys.</span>
           </div>
