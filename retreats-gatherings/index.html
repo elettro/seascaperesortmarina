@@ -215,7 +215,8 @@
     .nav-logo-sub{font-size:.62rem;letter-spacing:.2em;margin-top:3px}
     .book-now{padding:14px 28px;border-radius:999px;background:var(--navy);color:#fff !important}
 
-    .mobile-nav-row,.mobile-panel{display:none}
+    .mobile-header-row,
+    .mobile-menu-panel{display:none}
 
     .hero{
       position:relative;
@@ -781,7 +782,7 @@
       .top-strip{display:none}
       .global-nav{display:none}
       .site-header{padding-top:12px;background:transparent}
-      .mobile-nav-row{
+      .mobile-header-row{
         width:min(calc(100% - 24px), var(--max));
         margin:0 auto;
         min-height:66px;
@@ -794,11 +795,21 @@
         justify-content:space-between;
         gap:12px;
       }
-      .mobile-logo{color:var(--navy)}
-      .mobile-logo .nav-logo-main{font-size:.9rem}
-      .mobile-toggle{border:0;background:transparent;width:40px;height:40px;display:grid;place-items:center;cursor:pointer}
-      .mobile-toggle span{display:block;width:22px;height:2px;background:var(--navy);margin:3px 0}
-      .mobile-panel{
+      .mobile-logo{display:flex;flex-direction:column;color:var(--navy);line-height:1}
+      .mobile-logo .nav-logo-main{font-size:.9rem;letter-spacing:.2em}
+      .mobile-logo .nav-logo-sub{font-size:.55rem;letter-spacing:.14em;margin-top:3px}
+      .mobile-phone-block{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-end;
+        color:var(--navy);
+        font-weight:700;
+      }
+      .mobile-phone-number{font-size:.88rem}
+      .mobile-phone-note{font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+      .mobile-menu-toggle{border:0;background:transparent;width:40px;height:40px;display:grid;place-items:center;cursor:pointer}
+      .mobile-menu-toggle span{display:block;width:22px;height:2px;background:var(--navy);margin:3px 0}
+      .mobile-menu-panel{
         width:min(calc(100% - 24px), var(--max));
         margin:8px auto 0;
         background:#fff;
@@ -806,9 +817,30 @@
         padding:10px;
         box-shadow:0 12px 28px rgba(7,27,39,.15);
       }
-      .mobile-panel.open{display:grid;gap:4px}
-      .mobile-panel a{padding:10px 8px;border-radius:10px;color:var(--navy);font-weight:700;font-size:.92rem}
-      .mobile-panel a:hover{background:rgba(99,183,201,.12)}
+      .mobile-menu-panel.open{display:grid;gap:4px}
+      .mobile-menu-panel > a,
+      .mobile-submenu-toggle{
+        padding:10px 8px;
+        border-radius:10px;
+        color:var(--navy);
+        font-weight:700;
+        font-size:.92rem;
+      }
+      .mobile-menu-panel > a:hover,
+      .mobile-submenu-toggle:hover{background:rgba(99,183,201,.12)}
+      .mobile-submenu-group{display:grid;gap:4px}
+      .mobile-submenu-toggle{
+        border:0;
+        text-align:left;
+        background:transparent;
+        font-family:inherit;
+        cursor:pointer;
+      }
+      .mobile-submenu-toggle::after{content:"+";float:right}
+      .mobile-submenu-toggle[aria-expanded="true"]::after{content:"−"}
+      .mobile-submenu{display:grid;gap:4px;padding:2px 0 6px 10px}
+      .mobile-submenu a{padding:8px;border-radius:8px;color:var(--navy);font-size:.88rem}
+      .mobile-submenu a:hover{background:rgba(99,183,201,.12)}
     }
 
     @media (max-width: 1100px){
@@ -921,30 +953,52 @@
         </div>
       </nav>
 
-      <div class="mobile-nav-row">
-        <a class="mobile-logo nav-logo" href="/seascaperesortmarina/" aria-label="Seascape Resort & Marina home">
+      <div class="mobile-header-row">
+        <a class="mobile-logo" href="/seascaperesortmarina/" aria-label="Seascape Resort & Marina home">
           <span class="nav-logo-main">SEASCAPE</span>
           <span class="nav-logo-sub">RESORT &amp; MARINA</span>
         </a>
-        <a href="tel:+13057436212" style="font-weight:700;color:var(--navy);">(305) 743-6212</a>
-        <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav-panel" aria-label="Toggle menu">
+        <a href="tel:+13057436212" class="mobile-phone-block">
+          <span class="mobile-phone-number">(305) 743-6212</span>
+          <span class="mobile-phone-note">Call Us For Best Rates</span>
+        </a>
+        <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation">
           <span></span><span></span><span></span>
         </button>
       </div>
-      <div class="mobile-panel" id="mobile-nav-panel" hidden>
+      <div class="mobile-menu-panel" id="mobile-menu" hidden>
         <a href="/seascaperesortmarina/rooms/">Rooms</a>
         <a href="/seascaperesortmarina/marina/">Marina</a>
         <a href="/seascaperesortmarina/amenities/">Amenities</a>
         <a href="/seascaperesortmarina/excursions/">Excursions</a>
-        <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
-        <a href="/seascaperesortmarina/weddings/">Weddings</a>
-        <a href="/seascaperesortmarina/family-reunions/">Family Reunions</a>
-        <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
-        <a href="/seascaperesortmarina/explore-keys/where-to-eat/">Where to Eat</a>
-        <a href="/seascaperesortmarina/explore-keys/things-to-do/">Things to Do</a>
-        <a href="/seascaperesortmarina/explore-keys/local-events/">Local Events</a>
+
+        <div class="mobile-submenu-group">
+          <button class="mobile-submenu-toggle" type="button" aria-expanded="false" aria-controls="mobile-group-stays-submenu">
+            Group Stays
+          </button>
+          <div class="mobile-submenu" id="mobile-group-stays-submenu" hidden>
+            <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
+            <a href="/seascaperesortmarina/weddings/">Weddings</a>
+            <a href="/seascaperesortmarina/family-reunions/">Family Reunions</a>
+            <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
+          </div>
+        </div>
+
+        <div class="mobile-submenu-group">
+          <button class="mobile-submenu-toggle" type="button" aria-expanded="false" aria-controls="mobile-explore-keys-submenu">
+            Explore Keys
+          </button>
+          <div class="mobile-submenu" id="mobile-explore-keys-submenu" hidden>
+            <a href="/seascaperesortmarina/explore-keys/where-to-eat/">Where to Eat</a>
+            <a href="/seascaperesortmarina/explore-keys/things-to-do/">Things to Do</a>
+            <a href="/seascaperesortmarina/explore-keys/local-events/">Local Events</a>
+          </div>
+        </div>
+
         <a href="/seascaperesortmarina/blog/">Blog</a>
         <a href="/seascaperesortmarina/contact/">Contact</a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" target="_blank" rel="noopener">Get Directions</a>
+        <a href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6">Book Now</a>
       </div>
     </header>
 
@@ -1372,8 +1426,8 @@
   </div>
 
   <script>
-    const toggle = document.querySelector('.mobile-toggle');
-    const panel = document.getElementById('mobile-nav-panel');
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const panel = document.getElementById('mobile-menu');
     if (toggle && panel) {
       toggle.addEventListener('click', () => {
         const isOpen = toggle.getAttribute('aria-expanded') === 'true';
@@ -1382,6 +1436,18 @@
         panel.classList.toggle('open', !isOpen);
       });
     }
+
+    const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+    submenuToggles.forEach((button) => {
+      button.addEventListener('click', () => {
+        const targetId = button.getAttribute('aria-controls');
+        const submenu = targetId ? document.getElementById(targetId) : null;
+        if (!submenu) return;
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!isExpanded));
+        submenu.hidden = isExpanded;
+      });
+    });
   </script>
 </body>
 </html>
