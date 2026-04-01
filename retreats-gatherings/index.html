@@ -8,6 +8,7 @@
     name="description"
     content="Host a calm, waterfront retreat at Seascape Resort & Marina in Marathon, Florida. Ideal for leadership retreats, wellness escapes, creative offsites, reunions, and focused group gatherings."
   />
+  <link rel="stylesheet" href="../css/style.css" />
   <style>
     :root{
       --navy:#0e3043;
@@ -128,97 +129,7 @@
 
 
 
-    .site-header{
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      z-index:1000;
-      padding:0;
-      background:transparent;
-    }
-
-    .top-strip{
-      width:calc(100% - 68px);
-      margin:0 auto;
-      padding:11px 0 9px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      color:#fff;
-      background:transparent;
-      font-size:.82rem;
-    }
-
-    .top-strip a{color:#fff;font-weight:700}
-    .top-strip-left,.top-strip-right{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    .utility-phone-icon{font-size:.72rem;opacity:.9}
-
-    .global-nav{
-      width:calc(100% - 68px);
-      margin:8px auto 0;
-      background:rgba(255,255,255,.96);
-      border-radius:20px;
-      min-height:78px;
-      padding:0 28px;
-      display:grid;
-      grid-template-columns:1fr auto 1fr;
-      align-items:center;
-      box-shadow:0 12px 34px rgba(7,27,39,.18);
-    }
-
-    .nav-links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-    .nav-links a,.nav-dropdown-toggle{font-size:1.82vh;font-weight:700;color:var(--navy)}
-    .nav-right{justify-content:flex-end}
-    .nav-dropdown{position:relative}
-    .nav-dropdown-toggle{
-      border:0;
-      background:transparent;
-      font-family:inherit;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      cursor:pointer;
-      padding:0;
-    }
-    .nav-dropdown-toggle::after{
-      content:"\2304";
-      font-size:.68rem;
-      transform:translateY(-1px);
-    }
-    .nav-dropdown-menu{
-      position:absolute;
-      top:calc(100% + 14px);
-      left:0;
-      min-width:220px;
-      padding:10px;
-      background:#fff;
-      border-radius:14px;
-      box-shadow:0 16px 34px rgba(7,27,39,.16);
-      border:1px solid var(--line);
-      display:none;
-      z-index:20;
-    }
-    .nav-dropdown-menu a{
-      display:block;
-      font-size:.92rem;
-      border-radius:8px;
-      padding:8px 10px;
-      white-space:nowrap;
-    }
-    .nav-dropdown-menu a:hover{background:rgba(99,183,201,.12)}
-    .nav-dropdown:hover .nav-dropdown-menu,
-    .nav-dropdown:focus-within .nav-dropdown-menu{display:block}
-    .nav-logo{display:flex;flex-direction:column;align-items:center;line-height:1;text-align:center;color:var(--navy)}
-    .nav-logo-main{font-weight:700;letter-spacing:.24em;font-size:2.8vh}
-    .nav-logo-sub{font-size:.62rem;letter-spacing:.2em;margin-top:3px}
-    .book-now{padding:14px 28px;border-radius:999px;background:var(--navy);color:#fff !important}
-
-    .mobile-header-row,
-    .mobile-menu-panel{display:none}
-
-    .hero{
+    .retreat-hero{
       position:relative;
       min-height:100svh;
       display:flex;
@@ -229,7 +140,7 @@
         url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
     }
 
-    .hero::before{
+    .retreat-hero::before{
       content:"";
       position:absolute;
       inset:0;
@@ -239,7 +150,7 @@
       z-index:-1;
     }
 
-    .hero .container{
+    .retreat-hero .container{
       padding-top:220px;
       padding-bottom:88px;
     }
@@ -256,14 +167,14 @@
       max-width:760px;
     }
 
-    .hero-title{
+    .retreat-hero-title{
       margin:0 0 18px;
       font-size:clamp(2.8rem, 7vw, 6.1rem);
       line-height:.95;
       letter-spacing:-.03em;
     }
 
-    .hero-text{
+    .retreat-hero-text{
       margin:0;
       max-width:650px;
       font-size:1.12rem;
@@ -778,71 +689,6 @@
 
 
 
-    @media (max-width: 980px){
-      .top-strip{display:none}
-      .global-nav{display:none}
-      .site-header{padding-top:12px;background:transparent}
-      .mobile-header-row{
-        width:min(calc(100% - 24px), var(--max));
-        margin:0 auto;
-        min-height:66px;
-        padding:0 16px;
-        border-radius:16px;
-        background:rgba(255,255,255,.96);
-        box-shadow:0 12px 30px rgba(7,27,39,.18);
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:12px;
-      }
-      .mobile-logo{display:flex;flex-direction:column;color:var(--navy);line-height:1}
-      .mobile-logo .nav-logo-main{font-size:.9rem;letter-spacing:.2em}
-      .mobile-logo .nav-logo-sub{font-size:.55rem;letter-spacing:.14em;margin-top:3px}
-      .mobile-phone-block{
-        display:flex;
-        flex-direction:column;
-        align-items:flex-end;
-        color:var(--navy);
-        font-weight:700;
-      }
-      .mobile-phone-number{font-size:.88rem}
-      .mobile-phone-note{font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-      .mobile-menu-toggle{border:0;background:transparent;width:40px;height:40px;display:grid;place-items:center;cursor:pointer}
-      .mobile-menu-toggle span{display:block;width:22px;height:2px;background:var(--navy);margin:3px 0}
-      .mobile-menu-panel{
-        width:min(calc(100% - 24px), var(--max));
-        margin:8px auto 0;
-        background:#fff;
-        border-radius:14px;
-        padding:10px;
-        box-shadow:0 12px 28px rgba(7,27,39,.15);
-      }
-      .mobile-menu-panel.open{display:grid;gap:4px}
-      .mobile-menu-panel > a,
-      .mobile-submenu-toggle{
-        padding:10px 8px;
-        border-radius:10px;
-        color:var(--navy);
-        font-weight:700;
-        font-size:.92rem;
-      }
-      .mobile-menu-panel > a:hover,
-      .mobile-submenu-toggle:hover{background:rgba(99,183,201,.12)}
-      .mobile-submenu-group{display:grid;gap:4px}
-      .mobile-submenu-toggle{
-        border:0;
-        text-align:left;
-        background:transparent;
-        font-family:inherit;
-        cursor:pointer;
-      }
-      .mobile-submenu-toggle::after{content:"+";float:right}
-      .mobile-submenu-toggle[aria-expanded="true"]::after{content:"−"}
-      .mobile-submenu{display:grid;gap:4px;padding:2px 0 6px 10px}
-      .mobile-submenu a{padding:8px;border-radius:8px;color:var(--navy);font-size:.88rem}
-      .mobile-submenu a:hover{background:rgba(99,183,201,.12)}
-    }
-
     @media (max-width: 1100px){
       .hero-grid,
       .pause-grid,
@@ -863,9 +709,9 @@
 
     @media (max-width: 760px){
       .section{padding:72px 0}
-      .hero{min-height:auto}
-      .hero .container{padding-top:122px; padding-bottom:74px}
-      .hero-title{font-size:clamp(2.3rem, 11vw, 4rem)}
+      .retreat-hero{min-height:auto}
+      .retreat-hero .container{padding-top:122px; padding-bottom:74px}
+      .retreat-hero-title{font-size:clamp(2.3rem, 11vw, 4rem)}
       .calm-grid,
       .feature-grid,
       .retreat-grid,
@@ -902,28 +748,31 @@
 <body>
   <div class="page-wrap">
 
-    <header class="site-header">
-      <div class="top-strip">
-        <div class="top-strip-left">
-          <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" target="_blank" rel="noopener">Get Directions</a>
-          <span>|</span>
-          <span>1275 76th Street Ocean, Marathon, FL 33050</span>
-          <span>|</span>
-          <span>Mile Marker: 50</span>
+    <div class="site-header">
+      <div class="utility-bar">
+        <div class="utility-left">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" class="utility-directions" target="_blank" rel="noopener">Get Directions</a>
+          <span class="utility-separator">|</span>
+          <span class="utility-address">1275 76th Street Ocean, Marathon, FL 33050</span>
+          <span class="utility-separator">|</span>
+          <span class="utility-mile-marker">Mile Marker: 50</span>
         </div>
-        <div class="top-strip-right">
-          <span class="utility-phone-icon" aria-hidden="true">☎</span>
-          <a href="tel:+13057436212">(305) 743-6212</a>
-          <span>Always Call Us Direct For Best Rates</span>
+
+        <div class="utility-right">
+          <a href="tel:+13057436212" class="utility-phone">
+            <span class="phone-icon" aria-hidden="true">☎</span>
+            <span class="phone-number">(305) 743-6212</span>
+          </a>
+          <span class="best-rates">Always Call Us Direct For Best Rates</span>
         </div>
       </div>
 
-      <nav class="global-nav" aria-label="Global navigation">
-        <div class="nav-links">
+      <nav class="main-nav" aria-label="Main navigation">
+        <div class="nav-left">
           <a href="/seascaperesortmarina/rooms/">Rooms</a>
           <a href="/seascaperesortmarina/marina/">Marina</a>
           <a href="/seascaperesortmarina/amenities/">Amenities</a>
-          <a href="/seascaperesortmarina/excursions/">Excursions</a>
+          <a href="/seascaperesortmarina/excursions/" class="tablet-landscape-only-excursions">Excursions</a>
           <div class="nav-dropdown">
             <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Group Stays</button>
             <div class="nav-dropdown-menu">
@@ -934,11 +783,13 @@
             </div>
           </div>
         </div>
-        <a class="nav-logo" href="/seascaperesortmarina/" aria-label="Seascape Resort & Marina home">
-          <span class="nav-logo-main">SEASCAPE</span>
-          <span class="nav-logo-sub">RESORT &amp; MARINA</span>
+
+        <a href="/seascaperesortmarina/" class="nav-logo" aria-label="Seascape Resort & Marina home">
+          <span class="logo-main">SEASCAPE</span>
+          <span class="logo-sub">RESORT &amp; MARINA</span>
         </a>
-        <div class="nav-links nav-right">
+
+        <div class="nav-right">
           <div class="nav-dropdown">
             <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Explore Keys</button>
             <div class="nav-dropdown-menu">
@@ -947,68 +798,84 @@
               <a href="/seascaperesortmarina/explore-keys/local-events/">Local Events</a>
             </div>
           </div>
+
           <a href="/seascaperesortmarina/blog/">Blog</a>
           <a href="/seascaperesortmarina/contact/">Contact</a>
-          <a class="book-now" href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" target="_blank" rel="noopener">Book Now</a>
+          <a href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" class="book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
+        </div>
+
+        <div class="mobile-header-row">
+          <a href="/seascaperesortmarina/" class="mobile-logo" aria-label="Seascape Resort & Marina home">
+            <span class="logo-main">SEASCAPE</span>
+            <span class="logo-sub">RESORT &amp; MARINA</span>
+          </a>
+
+          <a href="tel:+13057436212" class="mobile-phone-block">
+            <span class="mobile-phone-number">(305) 743-6212</span>
+            <span class="mobile-phone-note">Call Us For Best Rates</span>
+          </a>
+
+          <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <div class="mobile-menu-panel" id="mobile-menu" hidden>
+          <a href="/seascaperesortmarina/rooms/">Rooms</a>
+          <a href="/seascaperesortmarina/marina/">Marina</a>
+          <a href="/seascaperesortmarina/amenities/">Amenities</a>
+          <a href="/seascaperesortmarina/excursions/">Excursions</a>
+
+          <div class="mobile-submenu-group">
+            <button
+              class="mobile-submenu-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-group-stays-submenu"
+            >
+              Group Stays
+            </button>
+            <div class="mobile-submenu" id="mobile-group-stays-submenu" hidden>
+              <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
+              <a href="/seascaperesortmarina/weddings/">Weddings</a>
+              <a href="/seascaperesortmarina/family-reunions/">Family Reunions</a>
+              <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
+            </div>
+          </div>
+
+          <div class="mobile-submenu-group">
+            <button
+              class="mobile-submenu-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-explore-keys-submenu"
+            >
+              Explore Keys
+            </button>
+            <div class="mobile-submenu" id="mobile-explore-keys-submenu" hidden>
+              <a href="/seascaperesortmarina/explore-keys/where-to-eat/">Where to Eat</a>
+              <a href="/seascaperesortmarina/explore-keys/things-to-do/">Things to Do</a>
+              <a href="/seascaperesortmarina/explore-keys/local-events/">Local Events</a>
+            </div>
+          </div>
+
+          <a href="/seascaperesortmarina/blog/">Blog</a>
+          <a href="/seascaperesortmarina/contact/">Contact</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" target="_blank" rel="noopener">Get Directions</a>
+          <a href="/seascaperesortmarina/book-now/" class="mobile-book-now">Book Now</a>
         </div>
       </nav>
+    </div>
 
-      <div class="mobile-header-row">
-        <a class="mobile-logo" href="/seascaperesortmarina/" aria-label="Seascape Resort & Marina home">
-          <span class="nav-logo-main">SEASCAPE</span>
-          <span class="nav-logo-sub">RESORT &amp; MARINA</span>
-        </a>
-        <a href="tel:+13057436212" class="mobile-phone-block">
-          <span class="mobile-phone-number">(305) 743-6212</span>
-          <span class="mobile-phone-note">Call Us For Best Rates</span>
-        </a>
-        <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-      <div class="mobile-menu-panel" id="mobile-menu" hidden>
-        <a href="/seascaperesortmarina/rooms/">Rooms</a>
-        <a href="/seascaperesortmarina/marina/">Marina</a>
-        <a href="/seascaperesortmarina/amenities/">Amenities</a>
-        <a href="/seascaperesortmarina/excursions/">Excursions</a>
-
-        <div class="mobile-submenu-group">
-          <button class="mobile-submenu-toggle" type="button" aria-expanded="false" aria-controls="mobile-group-stays-submenu">
-            Group Stays
-          </button>
-          <div class="mobile-submenu" id="mobile-group-stays-submenu" hidden>
-            <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
-            <a href="/seascaperesortmarina/weddings/">Weddings</a>
-            <a href="/seascaperesortmarina/family-reunions/">Family Reunions</a>
-            <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
-          </div>
-        </div>
-
-        <div class="mobile-submenu-group">
-          <button class="mobile-submenu-toggle" type="button" aria-expanded="false" aria-controls="mobile-explore-keys-submenu">
-            Explore Keys
-          </button>
-          <div class="mobile-submenu" id="mobile-explore-keys-submenu" hidden>
-            <a href="/seascaperesortmarina/explore-keys/where-to-eat/">Where to Eat</a>
-            <a href="/seascaperesortmarina/explore-keys/things-to-do/">Things to Do</a>
-            <a href="/seascaperesortmarina/explore-keys/local-events/">Local Events</a>
-          </div>
-        </div>
-
-        <a href="/seascaperesortmarina/blog/">Blog</a>
-        <a href="/seascaperesortmarina/contact/">Contact</a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" target="_blank" rel="noopener">Get Directions</a>
-        <a href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6">Book Now</a>
-      </div>
-    </header>
-
-    <section class="hero">
+    <section class="retreat-hero">
       <div class="container">
         <div class="hero-grid">
           <div class="hero-copy">
             <div class="eyebrow" style="color:#9be1ec;">Retreats & Gatherings</div>
-            <h1 class="hero-title">Give your group room to breathe, think, reset, and reconnect.</h1>
-            <p class="hero-text">
+            <h1 class="retreat-hero-title">Give your group room to breathe, think, reset, and reconnect.</h1>
+            <p class="retreat-hero-text">
               Seascape Resort & Marina creates the kind of waterfront setting where people naturally slow down.
               Fewer distractions. Better conversations. A calmer rhythm for leadership retreats, wellness escapes,
               creative offsites, reunions, and intimate group gatherings in the Florida Keys.
@@ -1425,29 +1292,7 @@
 
   </div>
 
-  <script>
-    const toggle = document.querySelector('.mobile-menu-toggle');
-    const panel = document.getElementById('mobile-menu');
-    if (toggle && panel) {
-      toggle.addEventListener('click', () => {
-        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!isOpen));
-        panel.hidden = isOpen;
-        panel.classList.toggle('open', !isOpen);
-      });
-    }
+  <script src="../js/main.js"></script>
 
-    const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
-    submenuToggles.forEach((button) => {
-      button.addEventListener('click', () => {
-        const targetId = button.getAttribute('aria-controls');
-        const submenu = targetId ? document.getElementById(targetId) : null;
-        if (!submenu) return;
-        const isExpanded = button.getAttribute('aria-expanded') === 'true';
-        button.setAttribute('aria-expanded', String(!isExpanded));
-        submenu.hidden = isExpanded;
-      });
-    });
-  </script>
 </body>
 </html>
