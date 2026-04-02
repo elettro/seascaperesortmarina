@@ -280,3 +280,41 @@
  window.addEventListener('resize', scheduleUpdate);
  window.addEventListener('orientationchange', scheduleUpdate);
 })();
+
+(() => {
+ const footerAlreadyPresent = document.querySelector('.site-global-footer');
+ if (footerAlreadyPresent) return;
+
+ const existingTarget = document.getElementById('site-footer');
+ const target = existingTarget || document.createElement('div');
+ if (!existingTarget) {
+ target.id = 'site-footer';
+ document.body.appendChild(target);
+ }
+
+ const resolveDefaultFooterPath = () => {
+ const pathSegments = window.location.pathname.split('/').filter(Boolean);
+ const repoSegmentIndex = pathSegments.indexOf('seascaperesortmarina');
+ if (repoSegmentIndex === -1) return 'footer/index.html';
+
+ const depthFromRepoRoot = pathSegments.length - repoSegmentIndex - 1;
+ const relativePrefix = depthFromRepoRoot > 0 ? '../'.repeat(depthFromRepoRoot) : '';
+ return `${relativePrefix}footer/index.html`;
+ };
+
+ const footerPath = target.dataset.footerPath || resolveDefaultFooterPath();
+
+ fetch(footerPath)
+ .then((response) => {
+ if (!response.ok) throw new Error(`Failed to load ${footerPath}`);
+ return response.text();
+ })
+ .then((markup) => {
+ target.innerHTML = markup;
+ const yearNode = target.querySelector('#footer-current-year');
+ if (yearNode) yearNode.textContent = String(new Date().getFullYear());
+ })
+ .catch((error) => {
+ console.warn(error);
+ });
+})();

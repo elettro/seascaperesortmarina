@@ -481,43 +481,24 @@
 
 </main>
 
-<!-- FOOTER -->
-<footer>
- <div class="foot-inner">
- <div class="foot-brand">
- <a href="/seascaperesortmarina/index.html" class="foot-brand-link" aria-label="Go to Seascape homepage">
- <div class="foot-brand-name">Seascape Resort &amp; Marina</div>
- <div class="foot-brand-sub">Marathon · Florida Keys</div>
- </a>
- <p>Five acres of Atlantic oceanfront in the Heart of the Keys. Twelve island-inspired rooms, private marina, pool, kayaks, paddleboards, and exclusive excursions with Capt. Kevin Johnsen.</p>
- </div>
- <div class="foot-col">
- <h4>Excursions</h4>
- <ul>
- <li><a href="#excursions">Reef Fishing</a></li>
- <li><a href="#excursions">Snorkeling</a></li>
- <li><a href="#excursions">Lobstering</a></li>
- <li><a href="#excursions">Offshore Trolling</a></li>
- <li><a href="#diving">Diving Videos</a></li>
- </ul>
- </div>
- <div class="foot-col">
- <h4>Resort</h4>
- <ul>
- <li><a href="https://www.seascaperesortandmarina.com/" target="_blank" rel="noopener">Rooms &amp; Rates</a></li>
- <li><a href="https://www.seascaperesortandmarina.com/accommodations/" target="_blank" rel="noopener">Accommodations</a></li>
- <li><a href="tel:+13057436212">Book Direct · Best Rate</a></li>
- <li><a href="https://floridakeysreeladventures.com" target="_blank" rel="noopener">FKRA Website</a></li>
- </ul>
- </div>
- </div>
- <div class="foot-bottom">
- <p>© 2026 Seascape Resort &amp; Marina · 1275 76th Street Ocean, Marathon FL 33050 · <a href="tel:+13057436212">(305) 743-6212</a></p>
- <p>Excursions by <a href="https://floridakeysreeladventures.com" target="_blank" rel="noopener">Florida Keys Reel Adventures</a> · Capt. Kevin Johnsen · USCG Licensed</p>
- </div>
-</footer>
+<div id="site-footer" data-footer-path="../footer/index.html"></div>
 
 <script>
+(async () => {
+ const target = document.getElementById('site-footer');
+ if (!target) return;
+ try {
+  const response = await fetch(target.dataset.footerPath || '../footer/index.html');
+  if (!response.ok) throw new Error('Failed to load shared footer');
+  target.innerHTML = await response.text();
+  const yearNode = target.querySelector('#footer-current-year');
+  if (yearNode) yearNode.textContent = String(new Date().getFullYear());
+ } catch (error) {
+  console.warn(error);
+ }
+})();
+
+
 
 // ── FORCE TOP-OF-PAGE LOAD (REMOVE EXCURSION HASH) ──
 if (window.location.hash === '#excursion' || window.location.hash === '#excursions') {
