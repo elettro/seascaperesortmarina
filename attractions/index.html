@@ -14,6 +14,7 @@
     href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap"
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="../css/style.css" />
 
   <style>
     :root {
@@ -67,159 +68,9 @@
       width: min(var(--container), calc(100% - 32px));
       margin: 0 auto;
     }
-
-    /* Global header */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(15, 47, 70, 0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .site-header-inner {
-      min-height: 84px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .brand-mark {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(255,255,255,.2) 30%, transparent 32%),
-        linear-gradient(135deg, var(--teal) 0%, #84d7e3 100%);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.3);
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      inset: 12px 10px 16px 10px;
-      border-radius: 50% 50% 58% 42% / 60% 55% 45% 40%;
-      border: 2px solid rgba(15, 47, 70, 0.32);
-    }
-
-    .brand-text {
-      min-width: 0;
-    }
-
-    .brand-title {
-      margin: 0;
-      font-family: "Lora", serif;
-      font-size: 1.15rem;
-      font-weight: 500;
-      line-height: 1.1;
-      color: #fff;
-      white-space: nowrap;
-    }
-
-    .brand-subtitle {
-      margin-top: 3px;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.68);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .site-nav {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-      margin-left: auto;
-    }
-
-    .site-nav a {
-      font-size: 0.94rem;
-      font-weight: 700;
-      color: rgba(255,255,255,.9);
-      transition: color .2s ease, opacity .2s ease;
-    }
-
-    .site-nav a:hover,
-    .site-nav a.active {
-      color: var(--teal);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 22px;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: .2s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--teal);
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(87,184,201,.25);
-    }
-
-    .btn-primary:hover {
-      background: var(--teal-deep);
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.22);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,.08);
-    }
-
-    .menu-toggle {
-      display: none;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.15);
-      background: rgba(255,255,255,.06);
-      color: white;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    .menu-toggle svg {
-      width: 22px;
-      height: 22px;
-    }
-
     /* Hero */
-    .page-hero {
+    .attractions-page .page-hero {
+      margin-top: 126px;
       position: relative;
       overflow: hidden;
       background:
@@ -227,7 +78,7 @@
       color: #fff;
     }
 
-    .page-hero::before {
+    .attractions-page .page-hero::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -238,7 +89,7 @@
       pointer-events: none;
     }
 
-    .page-hero-inner {
+    .attractions-page .page-hero-inner {
       position: relative;
       z-index: 1;
       padding: 88px 0 86px;
@@ -295,6 +146,13 @@
       color: white;
       font-size: 0.84rem;
       font-weight: 700;
+    }
+
+
+    @media (max-width: 1024px) {
+      .attractions-page .page-hero {
+        margin-top: 84px;
+      }
     }
 
     /* Intro strip */
@@ -650,68 +508,6 @@
       gap: 12px;
       flex-wrap: wrap;
     }
-
-    /* Footer */
-    .site-footer {
-      background: linear-gradient(180deg, #102f45 0%, #0c2637 100%);
-      color: rgba(255,255,255,.86);
-      margin-top: 80px;
-      border-top: 1px solid rgba(255,255,255,.08);
-    }
-
-    .footer-top {
-      padding: 56px 0 36px;
-      display: grid;
-      grid-template-columns: 1.1fr .75fr .75fr .85fr;
-      gap: 28px;
-    }
-
-    .footer-brand .brand-title {
-      font-size: 1.28rem;
-    }
-
-    .footer-copy {
-      margin-top: 14px;
-      color: rgba(255,255,255,.72);
-      font-size: 0.95rem;
-      max-width: 420px;
-    }
-
-    .footer-col h3 {
-      margin: 0 0 14px;
-      font-size: 0.84rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--teal);
-    }
-
-    .footer-links {
-      display: grid;
-      gap: 10px;
-    }
-
-    .footer-links a,
-    .footer-links span {
-      color: rgba(255,255,255,.8);
-      font-size: 0.95rem;
-    }
-
-    .footer-links a:hover {
-      color: white;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding: 18px 0 26px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 14px;
-      color: rgba(255,255,255,.6);
-      font-size: 0.84rem;
-    }
-
     /* Reveal */
     .fade-up {
       opacity: 0;
@@ -730,51 +526,16 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .footer-top {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
     }
 
     @media (max-width: 960px) {
-      .site-nav,
-      .header-actions {
-        display: none;
-      }
-
-      .menu-toggle {
-        display: inline-flex;
-      }
-
-      .site-header.is-open .site-header-inner {
-        align-items: flex-start;
-        padding-top: 18px;
-        padding-bottom: 18px;
-        flex-wrap: wrap;
-      }
-
-      .site-header.is-open .site-nav {
-        width: 100%;
-        display: grid;
-        gap: 14px;
-        margin: 12px 0 0;
-        padding: 18px 0 6px;
-        border-top: 1px solid rgba(255,255,255,.08);
-      }
-
-      .site-header.is-open .header-actions {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 10px;
-      }
-
       .intro-card {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 720px) {
-      .page-hero-inner {
+      .attractions-page .page-hero-inner {
         padding: 72px 0 68px;
       }
 
@@ -804,58 +565,122 @@
         padding: 38px 20px;
       }
 
-      .footer-top {
-        grid-template-columns: 1fr;
-        padding: 42px 0 30px;
-      }
 
-      .site-header-inner {
-        min-height: 74px;
-      }
-
-      .brand-title {
-        font-size: 1rem;
-      }
-
-      .brand-subtitle {
-        font-size: 0.64rem;
-      }
     }
   </style>
 </head>
-<body>
+<body class="attractions-page">
 
-  <header class="site-header" id="siteHeader">
-    <div class="container site-header-inner">
-      <a href="/" class="brand" aria-label="Seascape Resort & Marina home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-text">
-          <span class="brand-title">Seascape Resort &amp; Marina</span>
-          <span class="brand-subtitle">Marathon, Florida Keys</span>
-        </span>
-      </a>
+  <header>
+    <div class="site-header">
+      <div class="utility-bar">
+        <div class="utility-left">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" class="utility-directions" target="_blank" rel="noopener">Get Directions</a>
+          <span class="utility-separator">|</span>
+          <span class="utility-address">1275 76th Street Ocean, Marathon, FL 33050</span>
+          <span class="utility-separator">|</span>
+          <span class="utility-mile-marker">Mile Marker: 50</span>
+        </div>
 
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="/">Home</a>
-        <a href="/rooms/">Rooms</a>
-        <a href="/amenities/">Amenities</a>
-        <a href="/marina/">Marina</a>
-        <a href="/attractions/" class="active">Attractions</a>
-        <a href="/contact/">Contact</a>
-      </nav>
-
-      <div class="header-actions">
-        <a class="btn btn-secondary" href="tel:+13057436212">Call Now</a>
-        <a class="btn btn-primary" href="https://www.seascaperesortandmarina.com" target="_blank" rel="noopener">Book Direct</a>
+        <div class="utility-right">
+          <a href="tel:+13057436212" class="utility-phone">
+            <span class="phone-icon" aria-hidden="true">☎</span>
+            <span class="phone-number">(305) 743-6212</span>
+          </a>
+          <span class="best-rates">Always Call Us Direct For Best Rates</span>
+        </div>
       </div>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-          <path d="M4 7h16"></path>
-          <path d="M4 12h16"></path>
-          <path d="M4 17h16"></path>
-        </svg>
-      </button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <div class="nav-left">
+          <a href="/seascaperesortmarina/rooms/">Rooms</a>
+          <a href="/seascaperesortmarina/marina/">Marina</a>
+          <a href="/seascaperesortmarina/amenities/">Amenities</a>
+          <a href="/seascaperesortmarina/excursions/" class="tablet-landscape-only-excursions">Excursions</a>
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Group Stays</button>
+            <div class="nav-dropdown-menu">
+              <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
+              <a href="/seascaperesortmarina/weddings/">Weddings</a>
+              <a href="/seascaperesortmarina/family-reunions/">Family Reunions</a>
+              <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/seascaperesortmarina/" class="nav-logo" aria-label="Seascape Resort & Marina home">
+          <span class="logo-main">SEASCAPE</span>
+          <span class="logo-sub">RESORT &amp; MARINA</span>
+        </a>
+
+        <div class="nav-right">
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Explore Keys</button>
+            <div class="nav-dropdown-menu">
+              <a href="/seascaperesortmarina/explore-keys/where-to-eat/">Where to Eat</a>
+              <a href="/seascaperesortmarina/explore-keys/things-to-do/">Things to Do</a>
+              <a href="/seascaperesortmarina/explore-keys/local-events/">Local Events</a>
+            </div>
+          </div>
+
+          <a href="/seascaperesortmarina/blog/">Blog</a>
+          <a href="/seascaperesortmarina/contact/">Contact</a>
+          <a href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" class="book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
+        </div>
+
+        <div class="mobile-header-row">
+          <a href="/seascaperesortmarina/" class="mobile-logo" aria-label="Seascape Resort & Marina home">
+            <span class="logo-main">SEASCAPE</span>
+            <span class="logo-sub">RESORT &amp; MARINA</span>
+          </a>
+
+          <a href="tel:+13057436212" class="mobile-phone-block">
+            <span class="mobile-phone-number">(305) 743-6212</span>
+            <span class="mobile-phone-note">Call Us For Best Rates</span>
+          </a>
+
+          <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <div class="mobile-menu-panel" id="mobile-menu" hidden>
+          <a href="/seascaperesortmarina/rooms/">Rooms</a>
+          <a href="/seascaperesortmarina/marina/">Marina</a>
+          <a href="/seascaperesortmarina/amenities/">Amenities</a>
+          <a href="/seascaperesortmarina/excursions/">Excursions</a>
+
+          <div class="mobile-submenu-group">
+            <button class="mobile-submenu-toggle" type="button" aria-expanded="false" aria-controls="mobile-group-stays-submenu">
+              Group Stays
+            </button>
+            <div class="mobile-submenu" id="mobile-group-stays-submenu" hidden>
+              <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
+              <a href="/seascaperesortmarina/weddings/">Weddings</a>
+              <a href="/seascaperesortmarina/family-reunions/">Family Reunions</a>
+              <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
+            </div>
+          </div>
+
+          <div class="mobile-submenu-group">
+            <button class="mobile-submenu-toggle" type="button" aria-expanded="false" aria-controls="mobile-explore-keys-submenu">
+              Explore Keys
+            </button>
+            <div class="mobile-submenu" id="mobile-explore-keys-submenu" hidden>
+              <a href="/seascaperesortmarina/explore-keys/where-to-eat/">Where to Eat</a>
+              <a href="/seascaperesortmarina/explore-keys/things-to-do/">Things to Do</a>
+              <a href="/seascaperesortmarina/explore-keys/local-events/">Local Events</a>
+            </div>
+          </div>
+
+          <a href="/seascaperesortmarina/blog/">Blog</a>
+          <a href="/seascaperesortmarina/contact/">Contact</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" target="_blank" rel="noopener">Get Directions</a>
+          <a href="/seascaperesortmarina/book-now/" class="mobile-book-now">Book Now</a>
+        </div>
+      </nav>
     </div>
   </header>
 
@@ -1637,56 +1462,7 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-top">
-      <div class="footer-brand">
-        <a href="/" class="brand" aria-label="Seascape Resort & Marina home">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span class="brand-text">
-            <span class="brand-title">Seascape Resort &amp; Marina</span>
-            <span class="brand-subtitle">Marathon, Florida Keys</span>
-          </span>
-        </a>
-        <p class="footer-copy">
-          Waterfront lodging in Marathon with a relaxed Keys feel, central location, and easy access to local attractions, marina life, dining, and direct booking.
-        </p>
-      </div>
-
-      <div class="footer-col">
-        <h3>Explore</h3>
-        <div class="footer-links">
-          <a href="/">Home</a>
-          <a href="/rooms/">Rooms</a>
-          <a href="/amenities/">Amenities</a>
-          <a href="/marina/">Marina</a>
-          <a href="/attractions/">Attractions</a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h3>Guest Info</h3>
-        <div class="footer-links">
-          <a href="/contact/">Contact</a>
-          <a href="tel:+13057436212">(305) 743-6212</a>
-          <span>Marathon, Florida Keys</span>
-          <a href="https://www.seascaperesortandmarina.com" target="_blank" rel="noopener">Official Booking</a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h3>Book Direct</h3>
-        <div class="footer-links">
-          <span>Reserve direct for current availability and best booking flow.</span>
-          <a class="btn btn-primary" href="https://www.seascaperesortandmarina.com" target="_blank" rel="noopener" style="width: fit-content; margin-top: 8px;">Book Your Stay</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <div>© Seascape Resort &amp; Marina. All rights reserved.</div>
-      <div>Marathon, Florida Keys</div>
-    </div>
-  </footer>
+  <div id="site-footer" data-footer-path="../footer/index.html"></div>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
@@ -1698,16 +1474,7 @@
     }, { threshold: 0.08 });
 
     document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
-
-    const header = document.getElementById("siteHeader");
-    const menuToggle = document.getElementById("menuToggle");
-
-    if (menuToggle && header) {
-      menuToggle.addEventListener("click", () => {
-        const isOpen = header.classList.toggle("is-open");
-        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      });
-    }
   </script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
