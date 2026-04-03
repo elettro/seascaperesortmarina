@@ -754,7 +754,27 @@
           return;
         }
 
-        target.innerHTML = markup;
+        const parser = new DOMParser();
+        const footerDoc = parser.parseFromString(markup, 'text/html');
+        const footerScripts = [...footerDoc.querySelectorAll('script')];
+        footerScripts.forEach((script) => script.remove());
+
+        target.innerHTML = footerDoc.body.innerHTML;
+
+        footerScripts.forEach((oldScript) => {
+          if (oldScript.src && document.querySelector(`script[src="${oldScript.src}"]`)) return;
+
+          const newScript = document.createElement('script');
+          [...oldScript.attributes].forEach((attribute) => {
+            newScript.setAttribute(attribute.name, attribute.value);
+          });
+
+          if (!oldScript.src) {
+            newScript.textContent = oldScript.textContent;
+          }
+
+          target.appendChild(newScript);
+        });
       } catch (error) {
         console.warn(error);
       }

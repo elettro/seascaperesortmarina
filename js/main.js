@@ -296,6 +296,30 @@
  const footerAlreadyPresent = document.querySelector('.site-global-footer');
  if (footerAlreadyPresent) return;
 
+ const injectMarkupWithExecutableScripts = (target, markup) => {
+ const parser = new DOMParser();
+ const doc = parser.parseFromString(markup, 'text/html');
+ const scripts = [...doc.querySelectorAll('script')];
+
+ scripts.forEach((script) => script.remove());
+ target.innerHTML = doc.body.innerHTML;
+
+ scripts.forEach((oldScript) => {
+ if (oldScript.src && document.querySelector(`script[src="${oldScript.src}"]`)) return;
+
+ const newScript = document.createElement('script');
+ [...oldScript.attributes].forEach((attribute) => {
+ newScript.setAttribute(attribute.name, attribute.value);
+ });
+
+ if (!oldScript.src) {
+ newScript.textContent = oldScript.textContent;
+ }
+
+ target.appendChild(newScript);
+ });
+ };
+
  const existingTarget = document.getElementById('site-footer');
  const target = existingTarget || document.createElement('div');
  if (!existingTarget) {
@@ -321,7 +345,7 @@
  return response.text();
  })
  .then((markup) => {
- target.innerHTML = markup;
+ injectMarkupWithExecutableScripts(target, markup);
  const yearNode = target.querySelector('#footer-current-year');
  if (yearNode) yearNode.textContent = String(new Date().getFullYear());
  })

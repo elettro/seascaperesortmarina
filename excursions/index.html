@@ -490,7 +490,28 @@
  try {
   const response = await fetch(target.dataset.footerPath || '../footer/index.html');
   if (!response.ok) throw new Error('Failed to load shared footer');
-  target.innerHTML = await response.text();
+  const markup = await response.text();
+  const parser = new DOMParser();
+  const footerDoc = parser.parseFromString(markup, 'text/html');
+  const footerScripts = [...footerDoc.querySelectorAll('script')];
+  footerScripts.forEach((script) => script.remove());
+
+  target.innerHTML = footerDoc.body.innerHTML;
+
+  footerScripts.forEach((oldScript) => {
+   if (oldScript.src && document.querySelector(`script[src="${oldScript.src}"]`)) return;
+
+   const newScript = document.createElement('script');
+   [...oldScript.attributes].forEach((attribute) => {
+    newScript.setAttribute(attribute.name, attribute.value);
+   });
+
+   if (!oldScript.src) {
+    newScript.textContent = oldScript.textContent;
+   }
+
+   target.appendChild(newScript);
+  });
   const yearNode = target.querySelector('#footer-current-year');
   if (yearNode) yearNode.textContent = String(new Date().getFullYear());
  } catch (error) {
