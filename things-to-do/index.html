@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Things To Do | Seascape Resort & Marina | Marathon, FL</title>
+  <meta
+    name="description"
+    content="Explore beaches, wildlife centers, fishing, parks, museums, and memorable local experiences near Seascape Resort & Marina in Marathon, Florida Keys."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../css/style.css" />
+
+  <style>
+    :root {
+      --teal: #57b8c9;
+      --teal-deep: #0a8b9e;
+      --navy: #0f2f46;
+      --navy-2: #143c57;
+      --gold: #d4b067;
+      --gold-soft: #f3e7cc;
+      --sand: #f7f3ea;
+      --sky: #eff8fb;
+      --white: #ffffff;
+      --offwhite: #fbfdfe;
+      --text: #213746;
+      --text-soft: #5f7482;
+      --border: #dbe9ef;
+      --shadow: 0 18px 48px rgba(15, 47, 70, 0.1);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --container: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Raleway", sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .things-page .main-nav {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .things-page .page-hero {
+      margin-top: 126px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(15,47,70,0.98) 0%, rgba(20,60,87,0.96) 42%, rgba(10,139,158,0.92) 100%);
+      color: #fff;
+    }
+
+    .things-page .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 14% 24%, rgba(255,255,255,.12), transparent 20%),
+        radial-gradient(circle at 84% 22%, rgba(212,176,103,.16), transparent 22%),
+        radial-gradient(circle at 50% 100%, rgba(255,255,255,.08), transparent 30%);
+      pointer-events: none;
+    }
+
+    .things-page .page-hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 88px 0 86px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.72);
+    }
+
+    .page-hero h1 {
+      margin: 0;
+      font-family: "Lora", serif;
+      font-weight: 500;
+      font-size: clamp(2.3rem, 5.2vw, 4.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .page-hero h1 em {
+      font-style: italic;
+      color: #b8edf3;
+    }
+
+    .page-hero p {
+      max-width: 780px;
+      margin: 18px auto 0;
+      font-size: 1.06rem;
+      color: rgba(255,255,255,.84);
+    }
+
+    .hero-pills {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.15);
+      color: white;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .intro-strip {
+      background: linear-gradient(180deg, var(--sky) 0%, rgba(255,255,255,0) 100%);
+      padding: 28px 0 0;
+    }
+
+    .intro-card {
+      background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(247,251,252,.98));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-top: -44px;
+      position: relative;
+      z-index: 2;
+      padding: 24px 24px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .intro-card h2 {
+      margin: 0 0 10px;
+      font-family: "Lora", serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.15;
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .intro-card p {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 1rem;
+    }
+
+    .intro-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .intro-stat {
+      background: var(--offwhite);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px 14px;
+      text-align: center;
+    }
+
+    .intro-stat strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .intro-stat span {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-soft);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    main {
+      padding: 42px 0 84px;
+      background:
+        linear-gradient(180deg, rgba(239,248,251,.65) 0%, rgba(255,255,255,0) 18%),
+        #fff;
+    }
+
+    .section {
+      margin-top: 38px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .section-label {
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal-deep);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: "Lora", serif;
+      font-weight: 500;
+      font-size: clamp(1.7rem, 3vw, 2.55rem);
+      line-height: 1.14;
+      color: var(--navy);
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--teal-deep);
+    }
+
+    .section-copy {
+      margin-top: 12px;
+      max-width: 760px;
+      color: var(--text-soft);
+      font-size: 1rem;
+    }
+
+    .section-count {
+      flex-shrink: 0;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--text-soft);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(250,252,253,.98));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(15,47,70,.06);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(15,47,70,.12);
+      border-color: rgba(87,184,201,.45);
+    }
+
+    .card-strip { height: 5px; }
+
+    .strip-charter  { background: linear-gradient(90deg, var(--teal), #7bd6e2); }
+    .strip-wildlife { background: linear-gradient(90deg, #5abf77, #8fd0a0); }
+    .strip-beach    { background: linear-gradient(90deg, #efbf5e, #f5d58d); }
+    .strip-culture  { background: linear-gradient(90deg, #8a62c8, #b696e1); }
+    .strip-new      { background: linear-gradient(90deg, #2d9b52, #66c17e); }
+
+    .card-body {
+      padding: 22px 22px 18px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      flex-shrink: 0;
+      background: rgba(87,184,201,.14);
+    }
+
+    .card-icon.wildlife { background: rgba(90,191,119,.13); }
+    .card-icon.beach    { background: rgba(239,191,94,.16); }
+    .card-icon.culture  { background: rgba(138,98,200,.13); }
+    .card-icon.new      { background: rgba(45,155,82,.14); }
+
+    .badges {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .badge-new {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: #2d9b52;
+      color: white;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .badge-dist {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-soft);
+      text-align: right;
+    }
+
+    .card-name {
+      margin: 0 0 10px;
+      font-family: "Lora", serif;
+      font-size: 1.28rem;
+      line-height: 1.2;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .card-desc {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 0.97rem;
+      flex-grow: 1;
+    }
+
+    .card-footer {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .card-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--navy);
+      font-size: 0.9rem;
+      font-weight: 700;
+      min-width: 0;
+    }
+
+    .card-phone svg {
+      width: 16px;
+      height: 16px;
+      color: var(--teal-deep);
+      flex-shrink: 0;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--teal-deep);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card-link.muted {
+      color: var(--text-soft);
+      cursor: default;
+    }
+
+    .mini-split-nav {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .mini-split-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(247,251,252,.98));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 10px 24px rgba(15,47,70,.06);
+    }
+
+    .mini-split-card h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-family: "Lora", serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    .mini-split-card p {
+      margin: 0 0 14px;
+      color: var(--text-soft);
+      font-size: 0.96rem;
+    }
+
+    .cta-section {
+      margin-top: 58px;
+    }
+
+    .cta-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(15,47,70,.98) 0%, rgba(20,60,87,.96) 50%, rgba(10,139,158,.9) 100%);
+      box-shadow: 0 26px 54px rgba(15,47,70,.18);
+      padding: 48px 34px;
+      color: white;
+      text-align: center;
+    }
+
+    .cta-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(255,255,255,.1), transparent 24%),
+        radial-gradient(circle at 86% 24%, rgba(212,176,103,.18), transparent 24%);
+      pointer-events: none;
+    }
+
+    .cta-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-card .eyebrow {
+      color: rgba(255,255,255,.72);
+      margin-bottom: 12px;
+    }
+
+    .cta-card h2 {
+      margin: 0;
+      font-family: "Lora", serif;
+      font-weight: 500;
+      font-size: clamp(1.9rem, 3.6vw, 3rem);
+      line-height: 1.12;
+    }
+
+    .cta-card h2 em {
+      font-style: italic;
+      color: #b8edf3;
+    }
+
+    .cta-card p {
+      max-width: 760px;
+      margin: 14px auto 0;
+      color: rgba(255,255,255,.82);
+      font-size: 1rem;
+    }
+
+    .cta-actions {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .fade-up.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1120px) {
+      .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 1024px) {
+      .things-page .page-hero { margin-top: 84px; }
+    }
+
+    @media (max-width: 960px) {
+      .intro-card { grid-template-columns: 1fr; }
+      .mini-split-nav { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .things-page .page-hero-inner { padding: 72px 0 68px; }
+      .intro-card { margin-top: -32px; padding: 22px 18px; }
+      .intro-stat-grid { grid-template-columns: 1fr; }
+      .section-head { flex-direction: column; align-items: flex-start; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .card-body { padding: 20px 18px 16px; }
+      .cta-card { padding: 38px 20px; }
+    }
+  </style>
+</head>
+<body class="things-page">
+
+  <header>
+    <div class="site-header">
+      <div class="utility-bar">
+        <div class="utility-left">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" class="utility-directions" target="_blank" rel="noopener">Get Directions</a>
+          <span class="utility-separator">|</span>
+          <span class="utility-address">1275 76th Street Ocean, Marathon, FL 33050</span>
+          <span class="utility-separator">|</span>
+          <span class="utility-mile-marker">Mile Marker: 50</span>
+        </div>
+
+        <div class="utility-right">
+          <a href="tel:+13057436212" class="utility-phone">
+            <span class="phone-icon" aria-hidden="true">☎</span>
+            <span class="phone-number">(305) 743-6212</span>
+          </a>
+          <span class="best-rates">Always Call Us Direct For Best Rates</span>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <div class="nav-left">
+          <a href="/seascaperesortmarina/rooms/">Rooms</a>
+          <a href="/seascaperesortmarina/marina/">Marina</a>
+          <a href="/seascaperesortmarina/amenities/">Amenities</a>
+          <a href="/seascaperesortmarina/excursions/" class="tablet-landscape-only-excursions">Excursions</a>
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Group Stays</button>
+            <div class="nav-dropdown-menu">
+              <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
+              <a href="/seascaperesortmarina/weddings/">Weddings</a>
+              <a href="/seascaperesortmarina/family-reunions/">Family Reunions</a>
+              <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/seascaperesortmarina/" class="nav-logo" aria-label="Seascape Resort & Marina home">
+          <span class="logo-main">SEASCAPE</span>
+          <span class="logo-sub">RESORT &amp; MARINA</span>
+        </a>
+
+        <div class="nav-right">
+          <div class="nav-dropdown">
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Explore Keys</button>
+            <div class="nav-dropdown-menu">
+              <a href="/seascaperesortmarina/explore-keys/where-to-eat/">Where to Eat</a>
+              <a href="/seascaperesortmarina/explore-keys/things-to-do/">Things to Do</a>
+              <a href="/seascaperesortmarina/explore-keys/local-events/">Local Events</a>
+            </div>
+          </div>
+
+          <a href="/seascaperesortmarina/blog/">Blog</a>
+          <a href="/seascaperesortmarina/contact/">Contact</a>
+          <a href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" class="book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
+        </div>
+
+        <div class="mobile-header-row">
+          <a href="/seascaperesortmarina/" class="mobile-logo" aria-label="Seascape Resort & Marina home">
+            <span class="logo-main">SEASCAPE</span>
+            <span class="logo-sub">RESORT &amp; MARINA</span>
+          </a>
+
+          <a href="tel:+13057436212" class="mobile-phone-block">
+            <span class="mobile-phone-number">(305) 743-6212</span>
+            <span class="mobile-phone-note">Call Us For Best Rates</span>
+          </a>
+
+          <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <div class="mobile-menu-panel" id="mobile-menu" hidden>
+          <a href="/seascaperesortmarina/rooms/">Rooms</a>
+          <a href="/seascaperesortmarina/marina/">Marina</a>
+          <a href="/seascaperesortmarina/amenities/">Amenities</a>
+          <a href="/seascaperesortmarina/excursions/">Excursions</a>
+
+          <div class="mobile-submenu-group">
+            <button class="mobile-submenu-toggle" type="button" aria-expanded="false" aria-controls="mobile-group-stays-submenu">
+              Group Stays
+            </button>
+            <div class="mobile-submenu" id="mobile-group-stays-submenu" hidden>
+              <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
+              <a href="/seascaperesortmarina/weddings/">Weddings</a>
+              <a href="/seascaperesortmarina/family-reunions/">Family Reunions</a>
+              <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
+            </div>
+          </div>
+
+          <div class="mobile-submenu-group">
+            <button class="mobile-submenu-toggle" type="button" aria-expanded="false" aria-controls="mobile-explore-keys-submenu">
+              Explore Keys
+            </button>
+            <div class="mobile-submenu" id="mobile-explore-keys-submenu" hidden>
+              <a href="/seascaperesortmarina/explore-keys/where-to-eat/">Where to Eat</a>
+              <a href="/seascaperesortmarina/explore-keys/things-to-do/">Things to Do</a>
+              <a href="/seascaperesortmarina/explore-keys/local-events/">Local Events</a>
+            </div>
+          </div>
+
+          <a href="/seascaperesortmarina/blog/">Blog</a>
+          <a href="/seascaperesortmarina/contact/">Contact</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" target="_blank" rel="noopener">Get Directions</a>
+          <a href="/seascaperesortmarina/book-now/" class="mobile-book-now">Book Now</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <div class="eyebrow">Explore Marathon From Seascape</div>
+      <h1>Things <em>To Do</em> Near Seascape</h1>
+      <p>
+        Stay at Mile Marker 50 and put yourself close to the Florida Keys experiences guests come here for. Beaches. Wildlife. Fishing. Historic spots. Scenic drives. Easy day planning.
+      </p>
+      <div class="hero-pills">
+        <a class="hero-pill" href="#attractions">Top Experiences</a>
+        <a class="hero-pill" href="#nearby-guide">Plan Your Day</a>
+        <a class="hero-pill" href="../where-to-eat/">Where To Eat</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro-strip">
+    <div class="container">
+      <div class="intro-card fade-up">
+        <div>
+          <h2>Your Marathon adventure starts close to the resort</h2>
+          <p>
+            This page gives guests a cleaner way to browse the best local experiences near Seascape Resort &amp; Marina. Wildlife encounters. beaches. fishing charters. parks. museums. all easy to scan on desktop and mobile.
+          </p>
+        </div>
+        <div class="intro-stat-grid">
+          <div class="intro-stat">
+            <strong>13</strong>
+            <span>Top Stops</span>
+          </div>
+          <div class="intro-stat">
+            <strong>MM 50</strong>
+            <span>Central Base</span>
+          </div>
+          <div class="intro-stat">
+            <strong>Easy</strong>
+            <span>Day Planning</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+
+      <section class="section" id="attractions">
+        <div class="section-head fade-up">
+          <div>
+            <div class="section-label">Things To Do Nearby</div>
+            <h2 class="section-title">Local <em>Experiences</em></h2>
+            <div class="section-copy">
+              Beaches, marine life, nature preserves, historic landmarks, and memorable Florida Keys activities within easy reach of Seascape Resort &amp; Marina.
+            </div>
+          </div>
+          <div class="section-count">13 Nearby Experiences</div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card fade-up">
+            <div class="card-strip strip-wildlife"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon wildlife">🐢</div>
+                <div class="badges"><span class="badge-dist">3 mi away</span></div>
+              </div>
+              <h3 class="card-name">Turtle Hospital</h3>
+              <p class="card-desc">The world's only state-certified veterinary hospital for sea turtles. Take a behind-the-scenes tour and meet rescued turtles being rehabilitated for release.</p>
+              <div class="card-footer">
+                <a href="tel:3057432552" class="card-phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (305) 743-2552
+                </a>
+                <a href="https://www.turtlehospital.org" class="card-link" target="_blank" rel="noopener">Website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-strip strip-charter"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon">🎣</div>
+                <div class="badges"><span class="badge-dist">2 mi away</span></div>
+              </div>
+              <h3 class="card-name">Florida Keys Reel Adventures</h3>
+              <p class="card-desc">Guided fishing charters specializing in backcountry, flats, and nearshore fishing in the beautiful waters surrounding Marathon Key.</p>
+              <div class="card-footer">
+                <a href="tel:3054810589" class="card-phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (305) 481-0589
+                </a>
+                <a href="https://www.floridakeysreeladventures.com" class="card-link" target="_blank" rel="noopener">Website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-strip strip-wildlife"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon wildlife">🦈</div>
+                <div class="badges"><span class="badge-dist">2.3 mi away</span></div>
+              </div>
+              <h3 class="card-name">Florida Keys Aquarium Encounters</h3>
+              <p class="card-desc">An interactive marine experience where you can snorkel with fish, hand-feed stingrays, and get up close with nurse sharks and tropical sea life.</p>
+              <div class="card-footer">
+                <a href="tel:3054073262" class="card-phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (305) 407-3262
+                </a>
+                <a href="https://www.floridakeysaquariumencounters.com" class="card-link" target="_blank" rel="noopener">Website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-strip strip-beach"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon beach">🏖</div>
+                <div class="badges"><span class="badge-dist">3.4 mi away</span></div>
+              </div>
+              <h3 class="card-name">Sombrero Beach</h3>
+              <p class="card-desc">One of the best free public beaches in the Florida Keys. Calm Atlantic waters, picnic pavilions, volleyball courts, and a playground make it perfect for families.</p>
+              <div class="card-footer">
+                <a href="tel:3052892690" class="card-phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (305) 289-2690
+                </a>
+                <a href="https://www.ci.marathon.fl.us" class="card-link" target="_blank" rel="noopener">Website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-strip strip-wildlife"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon wildlife">🐬</div>
+                <div class="badges"><span class="badge-dist">6 mi away</span></div>
+              </div>
+              <h3 class="card-name">Dolphin Research Center</h3>
+              <p class="card-desc">A non-profit education and research facility on the Gulf side where you can swim with dolphins and learn about marine mammal behavior and conservation.</p>
+              <div class="card-footer">
+                <a href="tel:3052891121" class="card-phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (305) 289-1121
+                </a>
+                <a href="https://www.dolphins.org" class="card-link" target="_blank" rel="noopener">Website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-strip strip-culture"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon culture">🦜</div>
+                <div class="badges">
+                  <span class="badge-new">Updated</span>
+                  <span class="badge-dist">6 mi away</span>
+                </div>
+              </div>
+              <h3 class="card-name">Crane Point Museum &amp; Wild Bird Center</h3>
+              <p class="card-desc">A 63-acre nature preserve with trails, a natural history museum, and the expanded Marathon Wild Bird Center featuring rehabilitation enclosures and care for rescued native birds.</p>
+              <div class="card-footer">
+                <a href="tel:3057439100" class="card-phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (305) 743-9100
+                </a>
+                <a href="https://www.cranepoint.net" class="card-link" target="_blank" rel="noopener">Website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-strip strip-beach"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon beach">🌿</div>
+                <div class="badges"><span class="badge-dist">6 mi away</span></div>
+              </div>
+              <h3 class="card-name">Curry Hammock State Park</h3>
+              <p class="card-desc">One of the largest uninhabited parcels of land in the Keys. Pristine shoreline, kayaking, windsurfing, birding, and protected hardwood hammocks.</p>
+              <div class="card-footer">
+                <a href="tel:3052892690" class="card-phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (305) 289-2690
+                </a>
+                <a href="https://www.floridastateparks.org/curryhammock" class="card-link" target="_blank" rel="noopener">Website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-strip strip-culture"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon culture">🌉</div>
+                <div class="badges"><span class="badge-dist">3.2 mi away</span></div>
+              </div>
+              <h3 class="card-name">Pigeon Key</h3>
+              <p class="card-desc">A historic island beneath the Old Seven Mile Bridge. Explore the original worker camp from the Flagler railroad era and snorkel the surrounding waters.</p>
+              <div class="card-footer">
+                <a href="tel:3057435999" class="card-phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (305) 743-5999
+                </a>
+                <a href="https://www.pigeonkey.net" class="card-link" target="_blank" rel="noopener">Website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-strip strip-beach"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon beach">🏝</div>
+                <div class="badges"><span class="badge-dist">14.6 mi away</span></div>
+              </div>
+              <h3 class="card-name">Bahia Honda State Park</h3>
+              <p class="card-desc">Home to some of the most beautiful beaches in the Florida Keys. Great for snorkeling, kayaking, nature walks, and views of the historic rail bridge.</p>
+              <div class="card-footer">
+                <a href="tel:3052892690" class="card-phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (305) 289-2690
+                </a>
+                <a href="https://www.floridastateparks.org/bahiahonda" class="card-link" target="_blank" rel="noopener">Website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-strip strip-charter"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon">🚁</div>
+                <div class="badges"><span class="badge-dist">5 mi away</span></div>
+              </div>
+              <h3 class="card-name">Ultimate HeliTours</h3>
+              <p class="card-desc">See the Keys from above with helicopter tours over the reef, bridges, flats, and sandbars. A striking add-on for guests wanting a different perspective.</p>
+              <div class="card-footer">
+                <a href="tel:8885354354" class="card-phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (888) 535-4354
+                </a>
+                <a href="https://www.ultimatehelitours.com" class="card-link" target="_blank" rel="noopener">Website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-strip strip-wildlife"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon wildlife">🐟</div>
+                <div class="badges"><span class="badge-dist">26 mi away</span></div>
+              </div>
+              <h3 class="card-name">Robbie's — Feed the Tarpon</h3>
+              <p class="card-desc">An iconic Islamorada stop where guests can hand-feed giant tarpon from the dock. Also includes shops, watersports, and a lively Keys atmosphere.</p>
+              <div class="card-footer">
+                <a href="tel:3056648070" class="card-phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (305) 664-8070
+                </a>
+                <a href="https://www.robbies.com" class="card-link" target="_blank" rel="noopener">Website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-strip strip-wildlife"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon wildlife">🐊</div>
+                <div class="badges"><span class="badge-dist">33.6 mi away</span></div>
+              </div>
+              <h3 class="card-name">Theater of the Sea</h3>
+              <p class="card-desc">One of the oldest marine parks in the world. Swim with dolphins, see sea lions, and enjoy a lush tropical setting in nearby Islamorada.</p>
+              <div class="card-footer">
+                <a href="tel:3056642431" class="card-phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (305) 664-2431
+                </a>
+                <a href="https://www.theaterofthesea.com" class="card-link" target="_blank" rel="noopener">Website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-strip strip-culture"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon culture">🎨</div>
+                <div class="badges"><span class="badge-dist">2 mi away</span></div>
+              </div>
+              <h3 class="card-name">The Art Studio</h3>
+              <p class="card-desc">A local gallery and working studio showcasing Keys artists, original paintings, photography, and handcrafted pieces inspired by the Florida Keys.</p>
+              <div class="card-footer">
+                <a href="tel:3052899013" class="card-phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4A2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  (305) 289-9013
+                </a>
+                <span class="card-link muted">Local Favorite</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <div class="card-strip strip-new"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-icon new">🔬</div>
+                <div class="badges">
+                  <span class="badge-new">New</span>
+                  <span class="badge-dist">26 mi away</span>
+                </div>
+              </div>
+              <h3 class="card-name">The Protect Center Exploratorium</h3>
+              <p class="card-desc">An interactive museum experience in Islamorada with aquariums and hands-on exhibits focused on marine mammal rescue, veterinary science, and Keys ecology.</p>
+              <div class="card-footer">
+                <span class="card-phone">82748 Overseas Hwy, Islamorada</span>
+                <a href="https://www.theprotectcenter.org" class="card-link" target="_blank" rel="noopener">Website</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="nearby-guide">
+        <div class="section-head fade-up">
+          <div>
+            <div class="section-label">Plan Your Stay</div>
+            <h2 class="section-title">Choose your <em>next stop</em></h2>
+            <div class="section-copy">
+              Use Seascape as your easy home base. Head out for wildlife and sightseeing during the day, then shift into dinner mode nearby without a long drive.
+            </div>
+          </div>
+        </div>
+
+        <div class="mini-split-nav fade-up">
+          <div class="mini-split-card">
+            <h3>Looking for restaurants nearby?</h3>
+            <p>
+              Browse seafood spots, breakfast favorites, waterfront dining, casual family places, and a few stronger dinner options close to the resort.
+            </p>
+            <a class="btn btn-primary" href="../where-to-eat/">View Where To Eat</a>
+          </div>
+
+          <div class="mini-split-card">
+            <h3>Need help planning the stay?</h3>
+            <p>
+              Call direct for best rates and let Seascape be your central launch point for beaches, boating, parks, museums, and local Keys experiences.
+            </p>
+            <a class="btn btn-secondary" href="tel:+13057436212">Call (305) 743-6212</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="cta-card fade-up">
+          <div class="eyebrow">Stay at the Center of Marathon</div>
+          <h2>Make Seascape your <em>home base</em></h2>
+          <p>
+            From beach time and wildlife encounters to scenic Keys drives and unforgettable water days, Seascape Resort &amp; Marina puts guests close to what they came here to experience.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="https://www.seascaperesortandmarina.com" target="_blank" rel="noopener">Book Direct</a>
+            <a class="btn btn-secondary" href="tel:+13057436212">Call (305) 743-6212</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div id="site-footer" data-footer-path="../../footer/index.html"></div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+  </script>
+  <script src="../../js/main.js"></script>
+</body>
+</html>
