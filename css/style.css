@@ -2340,6 +2340,11 @@ a {
 }
 
 @media (max-width: 767px) and (orientation: portrait) {
+ .footer-booking-cta {
+ font-size: 0.82rem;
+ white-space: nowrap;
+ }
+
  .footer-last-minute-label,
  .footer-last-minute-callout a {
  display: block;
