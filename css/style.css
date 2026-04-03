@@ -2139,6 +2139,7 @@ a {
 .footer-last-minute-callout a {
  color: #fff;
  font-weight: 700;
+ white-space: nowrap;
 }
 
 .site-global-footer__grid {
@@ -2305,5 +2306,12 @@ a {
  .site-global-footer__legal {
  flex-direction: column;
  align-items: flex-start;
+ }
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+ .footer-last-minute-label,
+ .footer-last-minute-callout a {
+ display: block;
  }
 }
