@@ -63,8 +63,8 @@ iframe:focus-visible,
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-thumb{background:var(--aqua);border-radius:3px}
 
-/* ── NAV ── */
-nav{
+/* ── LEGACY EXCURSIONS NAV (RETAINED FOR FALLBACK MARKUP ONLY) ── */
+.excursions-page nav[aria-label="Primary"]{
  position:fixed;top:0;left:0;right:0;z-index:200;
  display:flex;align-items:center;justify-content:space-between;
  padding:1rem 2.5rem;
@@ -72,22 +72,22 @@ nav{
  backdrop-filter:blur(8px);
  border-bottom:1px solid var(--line);
 }
-.site-logo-link{
+.excursions-page nav[aria-label="Primary"] .site-logo-link{
  text-decoration:none;
  color:inherit;
  display:inline-block;
 }
-.site-logo-link:hover{
+.excursions-page nav[aria-label="Primary"] .site-logo-link:hover{
  opacity:.9;
 }
-.nav-brand{text-decoration:none;display:inline-block}
-.nav-logo-top{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--white)}
-.nav-logo-sub{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-top:.1rem}
-.nav-links{display:flex;align-items:center;gap:1.5rem}
-.nav-links a{text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:color .2s}
-.nav-links a:hover{color:var(--white)}
-.nav-btn{background:var(--brass)!important;color:var(--white)!important;padding:.5rem 1.3rem;border-radius:50px;font-weight:600!important}
-.nav-btn:hover{background:var(--marine)!important}
+.excursions-page nav[aria-label="Primary"] .nav-brand{text-decoration:none;display:inline-block}
+.excursions-page nav[aria-label="Primary"] .nav-logo-top{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--white)}
+.excursions-page nav[aria-label="Primary"] .nav-logo-sub{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-top:.1rem}
+.excursions-page nav[aria-label="Primary"] .nav-links{display:flex;align-items:center;gap:1.5rem}
+.excursions-page nav[aria-label="Primary"] .nav-links a{text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+.excursions-page nav[aria-label="Primary"] .nav-links a:hover{color:var(--white)}
+.excursions-page nav[aria-label="Primary"] .nav-btn{background:var(--brass)!important;color:var(--white)!important;padding:.5rem 1.3rem;border-radius:50px;font-weight:600!important}
+.excursions-page nav[aria-label="Primary"] .nav-btn:hover{background:var(--marine)!important}
 
 /* ── HERO ── */
 .hero{
@@ -724,9 +724,9 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
  display:none !important;
  }
 
- .book-now,
- .btn-book,
- .header-cta{
+ .excursions-page nav[aria-label="Primary"] .book-now,
+ .excursions-page nav[aria-label="Primary"] .btn-book,
+ .excursions-page nav[aria-label="Primary"] .header-cta{
  display:flex !important;
  align-items:center !important;
  justify-content:center !important;
@@ -736,7 +736,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
  min-width:140px;
  }
 
- .nav-btn{
+ .excursions-page nav[aria-label="Primary"] .nav-btn{
  display:flex !important;
  align-items:center !important;
  justify-content:center !important;
@@ -755,7 +755,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
  button span,
  .button-primary span,
  .btn-primary span,
- .nav-btn span{
+ .excursions-page nav[aria-label="Primary"] .nav-btn span{
  width:100%;
  text-align:center;
  }
@@ -763,32 +763,32 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
  button,
  .button-primary,
  .btn-primary,
- .nav-btn{
+ .excursions-page nav[aria-label="Primary"] .nav-btn{
  line-height:normal !important;
  white-space:nowrap;
  }
 }
 
 @media (max-width:767px){
- nav{
+ .excursions-page nav[aria-label="Primary"]{
  padding:.7rem 1rem;
  align-items:center;
  gap:.75rem;
  }
 
- .nav-brand{
+ .excursions-page nav[aria-label="Primary"] .nav-brand{
  flex:1 1 auto;
  min-width:0;
  }
 
- .nav-logo-top{
+ .excursions-page nav[aria-label="Primary"] .nav-logo-top{
  font-size:1rem;
  line-height:1.1;
  white-space:nowrap;
  margin:0 0 2px;
  }
 
- .nav-logo-sub{
+ .excursions-page nav[aria-label="Primary"] .nav-logo-sub{
  font-size:.56rem;
  line-height:1.05;
  letter-spacing:.18em;
@@ -796,7 +796,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
  white-space:nowrap;
  }
 
- .nav-links{
+ .excursions-page nav[aria-label="Primary"] .nav-links{
  display:flex;
  align-items:center;
  justify-content:flex-end;
@@ -804,7 +804,7 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
  flex:0 0 auto;
  }
 
- .nav-links .nav-btn{
+ .excursions-page nav[aria-label="Primary"] .nav-links .nav-btn{
  display:inline-flex !important;
  align-items:center;
  justify-content:center;
@@ -819,14 +819,14 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
  flex:0 0 auto;
  }
 
- .nav-links .nav-btn span{
+ .excursions-page nav[aria-label="Primary"] .nav-links .nav-btn span{
  display:block;
  width:100%;
  }
 
- .book-now,
- .btn-book,
- .header-cta{
+ .excursions-page nav[aria-label="Primary"] .book-now,
+ .excursions-page nav[aria-label="Primary"] .btn-book,
+ .excursions-page nav[aria-label="Primary"] .header-cta{
  padding-left:26px !important;
  padding-right:26px !important;
  display:inline-flex !important;
@@ -835,13 +835,13 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
  text-align:center;
  }
 
- .book-now span,
- .btn-book span{
+ .excursions-page nav[aria-label="Primary"] .book-now span,
+ .excursions-page nav[aria-label="Primary"] .btn-book span{
  white-space:nowrap;
  }
 
- .book-now,
- .btn-book{
+ .excursions-page nav[aria-label="Primary"] .book-now,
+ .excursions-page nav[aria-label="Primary"] .btn-book{
  width:auto !important;
  min-width:unset !important;
  }
@@ -945,8 +945,8 @@ footer{background:#020b10;border-top:1px solid rgba(18,168,157,.12);padding:2.8r
 
 
 @media(max-width:920px){
- nav{padding:.9rem 1.4rem}
- .nav-links a:not(.nav-btn){display:none}
+ .excursions-page nav[aria-label="Primary"]{padding:.9rem 1.4rem}
+ .excursions-page nav[aria-label="Primary"] .nav-links a:not(.nav-btn){display:none}
  .stats{grid-template-columns:1fr 1fr}
  .stat:nth-child(2){border-right:none}
  .captain-grid{grid-template-columns:1fr}
