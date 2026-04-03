@@ -35,21 +35,42 @@
   </div>
 </section>
 <script>
-  function ml_webform_success_39378101() {
-    var jqueryRef = window.ml_jQuery || window.jQuery;
-    if (jqueryRef) {
-      jqueryRef('.ml-subscribe-form-39378101 .row-success').show();
-      jqueryRef('.ml-subscribe-form-39378101 .row-form').hide();
-      return;
+  (function () {
+    var signupSelector = '.ml-subscribe-form-39378101';
+
+    function renderSignupSuccess() {
+      var jqueryRef = window.ml_jQuery || window.jQuery;
+      if (jqueryRef) {
+        jqueryRef(signupSelector + ' .row-success').show();
+        jqueryRef(signupSelector + ' .row-form').hide();
+        return;
+      }
+
+      document.querySelectorAll(signupSelector + ' .row-success').forEach(function (node) {
+        node.style.display = 'block';
+      });
+      document.querySelectorAll(signupSelector + ' .row-form').forEach(function (node) {
+        node.style.display = 'none';
+      });
     }
 
-    document.querySelectorAll('.ml-subscribe-form-39378101 .row-success').forEach(function (node) {
-      node.style.display = '';
+    window.ml_webform_success_39378101 = renderSignupSuccess;
+
+    var signupForm = document.querySelector(signupSelector + ' form');
+    if (!signupForm) return;
+
+    signupForm.addEventListener('submit', function () {
+      window.setTimeout(function () {
+        var successVisible = Array.from(document.querySelectorAll(signupSelector + ' .row-success')).some(function (node) {
+          return node.offsetParent !== null;
+        });
+
+        if (!successVisible) {
+          renderSignupSuccess();
+        }
+      }, 1600);
     });
-    document.querySelectorAll('.ml-subscribe-form-39378101 .row-form').forEach(function (node) {
-      node.style.display = 'none';
-    });
-  }
+  })();
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
 <script>
