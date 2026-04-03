@@ -2080,13 +2080,24 @@ a {
  align-items: center;
 }
 
+.signup-strip__form-wrap {
+ width: 100%;
+ max-width: 430px;
+}
+
+.signup-strip__form .row-form {
+ display: flex;
+ gap: 10px;
+ align-items: center;
+}
+
 .signup-strip__form input {
  min-height: 54px;
  width: clamp(220px, 26vw, 320px);
  padding: 0 16px;
  border-radius: 999px;
  border: 1px solid var(--line);
- background: var(--white);
+ background: #f1f2f4;
  color: var(--text);
  font-size: 0.95rem;
 }
@@ -2099,6 +2110,17 @@ a {
 .signup-strip__form .btn {
  border: 0;
  cursor: pointer;
+}
+
+.signup-strip__form .loading {
+ display: none;
+}
+
+.signup-strip__form .row-success p {
+ margin: 0;
+ color: var(--navy);
+ font-size: 0.95rem;
+ line-height: 1.5;
 }
 
 .site-global-footer {
@@ -2279,6 +2301,14 @@ a {
  }
 
  .signup-strip__form {
+ width: 100%;
+ }
+
+ .signup-strip__form-wrap {
+ max-width: none;
+ }
+
+ .signup-strip__form .row-form {
  flex-direction: column;
  align-items: stretch;
  }
