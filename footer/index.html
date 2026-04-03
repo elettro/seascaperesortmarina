@@ -4,14 +4,48 @@
       <h2 id="signup-strip-heading">Stay updated on availability and special opportunities</h2>
       <p>Guests change plans and dates open up. Join our list to receive occasional updates on availability, announcements, and select offers from Seascape Resort &amp; Marina.</p>
     </div>
-    <form class="signup-strip__form" action="#" method="post">
-      <!-- Integrate this form action with your email platform endpoint. -->
-      <label for="seascape-signup-email" class="visually-hidden">Email address</label>
-      <input id="seascape-signup-email" name="email" type="email" autocomplete="email" required placeholder="Email address" aria-label="Email address" />
-      <button type="submit" class="btn btn-primary">Join</button>
-    </form>
+    <div class="signup-strip__form-wrap ml-subscribe-form ml-subscribe-form-39378101">
+      <form
+        class="signup-strip__form ml-block-form"
+        action="https://assets.mailerlite.com/jsonp/2240972/forms/183666751009982015/subscribe"
+        data-code=""
+        method="post"
+        target="_blank"
+      >
+        <div class="row-form">
+          <label for="seascape-signup-email" class="visually-hidden">Email address</label>
+          <input
+            id="seascape-signup-email"
+            name="fields[email]"
+            type="email"
+            autocomplete="email"
+            required
+            placeholder="Email address"
+            aria-label="Email address"
+          />
+          <button type="submit" class="btn btn-primary">Join</button>
+          <button disabled="disabled" style="display: none;" type="button" class="loading btn btn-primary">Join</button>
+          <input type="hidden" name="ml-submit" value="1" />
+          <input type="hidden" name="anticsrf" value="true" />
+        </div>
+        <div class="row-success" style="display: none;" aria-live="polite">
+          <p>Thank you for joining. You are now subscribed for Seascape updates.</p>
+        </div>
+      </form>
+    </div>
   </div>
 </section>
+<script>
+  function ml_webform_success_39378101() {
+    var $ = ml_jQuery || jQuery;
+    $('.ml-subscribe-form-39378101 .row-success').show();
+    $('.ml-subscribe-form-39378101 .row-form').hide();
+  }
+</script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+<script>
+  fetch('https://assets.mailerlite.com/jsonp/2240972/forms/183666751009982015/takel')
+</script>
 
 <footer class="site-global-footer" aria-labelledby="footer-brand-name">
   <div class="site-global-footer__top">
