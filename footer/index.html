@@ -36,9 +36,19 @@
 </section>
 <script>
   function ml_webform_success_39378101() {
-    var $ = ml_jQuery || jQuery;
-    $('.ml-subscribe-form-39378101 .row-success').show();
-    $('.ml-subscribe-form-39378101 .row-form').hide();
+    var jqueryRef = window.ml_jQuery || window.jQuery;
+    if (jqueryRef) {
+      jqueryRef('.ml-subscribe-form-39378101 .row-success').show();
+      jqueryRef('.ml-subscribe-form-39378101 .row-form').hide();
+      return;
+    }
+
+    document.querySelectorAll('.ml-subscribe-form-39378101 .row-success').forEach(function (node) {
+      node.style.display = '';
+    });
+    document.querySelectorAll('.ml-subscribe-form-39378101 .row-form').forEach(function (node) {
+      node.style.display = 'none';
+    });
   }
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
