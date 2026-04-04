@@ -1,998 +1,998 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seascape Marina & Atlantic Bay | Elettro Production Plan</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <style>
-    :root {
-      --turquoise: #2EC4C7;
-      --seafoam: #9FE0D0;
-      --sand: #F3E7D3;
-      --coral: #FF7F6E;
-      --driftwood: #8B8A86;
-      --deep: #163B43;
-      --deep-2: #224C53;
-      --white: #ffffff;
-      --offwhite: #fbf8f2;
-      --line: rgba(22, 59, 67, 0.12);
-      --shadow: 0 18px 50px rgba(22, 59, 67, 0.10);
-      --radius-xl: 26px;
-      --radius-lg: 18px;
-      --radius-md: 14px;
-      --max: 1240px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: var(--deep);
-      background:
-        radial-gradient(circle at top right, rgba(46,196,199,0.12), transparent 28%),
-        radial-gradient(circle at left 20%, rgba(255,127,110,0.10), transparent 22%),
-        linear-gradient(180deg, #f8fcfc 0%, #f7f4ee 50%, #fbfaf7 100%);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .wrap {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-      background: rgba(255,255,255,0.78);
-      border-bottom: 1px solid rgba(22, 59, 67, 0.08);
-    }
-
-    .topbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 14px 0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .brand-badge {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: var(--white);
-      background: linear-gradient(135deg, var(--turquoise), var(--deep-2));
-      box-shadow: var(--shadow);
-    }
-
-    .hero {
-      padding: 72px 0 34px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 26px;
-      align-items: stretch;
-    }
-
-    .hero-card,
-    .stats-card,
-    .section-card,
-    .mini-card,
-    .timeline-card,
-    .tip-card,
-    .cta-card {
-      background: rgba(255,255,255,0.9);
-      border: 1px solid rgba(22, 59, 67, 0.08);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius-xl);
-    }
-
-    .hero-card {
-      padding: 44px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -80px -110px auto;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(46,196,199,0.18), rgba(46,196,199,0));
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(46,196,199,0.12);
-      color: var(--deep-2);
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    h1 {
-      margin: 18px 0 14px;
-      font-size: clamp(34px, 5vw, 62px);
-      line-height: 1.02;
-      letter-spacing: -0.05em;
-    }
-
-    .hero-sub {
-      font-size: 18px;
-      max-width: 760px;
-      color: rgba(22, 59, 67, 0.84);
-      margin: 0 0 24px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 26px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--turquoise), #25a8ab);
-      color: var(--white);
-      box-shadow: 0 12px 24px rgba(46,196,199,0.28);
-    }
-
-    .btn-secondary {
-      background: rgba(243,231,211,0.75);
-      color: var(--deep);
-      border: 1px solid rgba(22, 59, 67, 0.08);
-    }
-
-    .stats-card {
-      padding: 28px;
-      display: grid;
-      gap: 16px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(159,224,208,0.16));
-    }
-
-    .stat-pill {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(22,59,67,0.08);
-      background: rgba(255,255,255,0.84);
-    }
-
-    .stat-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      color: var(--white);
-      background: linear-gradient(135deg, var(--coral), #ff9c72);
-      flex: 0 0 auto;
-    }
-
-    .stat-pill strong {
-      display: block;
-      font-size: 17px;
-      line-height: 1.2;
-      margin-bottom: 4px;
-    }
-
-    .section {
-      padding: 18px 0 10px;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: end;
-      margin: 0 0 20px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(28px, 3vw, 40px);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-    }
-
-    .section-head p {
-      margin: 0;
-      max-width: 700px;
-      color: rgba(22,59,67,0.78);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .section-card {
-      padding: 26px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 5px;
-      background: linear-gradient(90deg, var(--turquoise), var(--seafoam), rgba(255,127,110,0.9));
-    }
-
-    .card-top {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 16px;
-    }
-
-    .card-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      color: var(--white);
-      background: linear-gradient(135deg, var(--deep-2), var(--turquoise));
-      font-size: 20px;
-      flex: 0 0 auto;
-    }
-
-    .card-top h3 {
-      margin: 0;
-      font-size: 22px;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--deep-2);
-      background: rgba(159,224,208,0.18);
-      border-radius: 999px;
-      padding: 8px 12px;
-      margin-bottom: 16px;
-    }
-
-    .section-card p {
-      margin: 0 0 16px;
-      color: rgba(22,59,67,0.82);
-    }
-
-    ul.clean {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    ul.clean li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 11px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    ul.clean li:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    ul.clean i {
-      color: var(--turquoise);
-      margin-top: 3px;
-      flex: 0 0 16px;
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .mini-card {
-      padding: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(243,231,211,0.55));
-    }
-
-    .mini-card h4 {
-      margin: 14px 0 10px;
-      font-size: 20px;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-    }
-
-    .mini-card p {
-      margin: 0;
-      color: rgba(22,59,67,0.78);
-    }
-
-    .mini-card .card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--coral), #ff9f8e);
-    }
-
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .timeline-card {
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(159,224,208,0.14));
-    }
-
-    .timeline-num {
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--coral);
-      margin-bottom: 14px;
-    }
-
-    .timeline-card h4 {
-      margin: 0 0 10px;
-      font-size: 20px;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-    }
-
-    .timeline-card p {
-      margin: 0;
-      color: rgba(22,59,67,0.78);
-    }
-
-    .tip-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .tip-card {
-      padding: 26px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(243,231,211,0.60));
-    }
-
-    .tip-card h3 {
-      margin: 0 0 10px;
-      font-size: 22px;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-    }
-
-    .tip-card p {
-      margin: 0 0 14px;
-      color: rgba(22,59,67,0.8);
-    }
-
-    .cta {
-      padding: 18px 0 80px;
-    }
-
-    .cta-card {
-      padding: 34px;
-      background: linear-gradient(135deg, rgba(22,59,67,0.98), rgba(34,76,83,0.95));
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-card::before,
-    .cta-card::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(46,196,199,0.22), transparent 68%);
-    }
-
-    .cta-card::before {
-      width: 260px;
-      height: 260px;
-      right: -100px;
-      top: -100px;
-    }
-
-    .cta-card::after {
-      width: 220px;
-      height: 220px;
-      left: -80px;
-      bottom: -80px;
-    }
-
-    .cta-card h2 {
-      margin: 0 0 12px;
-      font-size: clamp(28px, 3vw, 42px);
-      line-height: 1.03;
-      letter-spacing: -0.04em;
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-card p,
-    .cta-card ul {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-card p {
-      max-width: 920px;
-      margin: 0 0 18px;
-      color: rgba(255,255,255,0.86);
-    }
-
-    .cta-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .cta-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 16px;
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 16px;
-      background: rgba(255,255,255,0.06);
-      font-weight: 600;
-    }
-
-    .muted {
-      color: rgba(22,59,67,0.72);
-    }
-
-    @media (max-width: 1080px) {
-      .hero-grid,
-      .cards,
-      .mini-grid,
-      .timeline,
-      .tip-row,
-      .cta-list {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head {
-        display: grid;
-        gap: 10px;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .hero { padding-top: 42px; }
-
-      .hero-card,
-      .stats-card,
-      .section-card,
-      .mini-card,
-      .timeline-card,
-      .tip-card,
-      .cta-card {
-        border-radius: 20px;
-      }
-
-      .hero-card { padding: 28px 22px; }
-
-      .stats-card,
-      .section-card,
-      .mini-card,
-      .timeline-card,
-      .tip-card,
-      .cta-card {
-        padding: 22px;
-      }
-
-      .topbar-inner { padding: 12px 0; }
-    }
-  </style>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Seascape Marina & Atlantic Bay | Elettro Production Plan</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+ <style>
+ :root {
+ --turquoise: #2EC4C7;
+ --seafoam: #9FE0D0;
+ --sand: #F3E7D3;
+ --coral: #FF7F6E;
+ --driftwood: #8B8A86;
+ --deep: #163B43;
+ --deep-2: #224C53;
+ --white: #ffffff;
+ --offwhite: #fbf8f2;
+ --line: rgba(22, 59, 67, 0.12);
+ --shadow: 0 18px 50px rgba(22, 59, 67, 0.10);
+ --radius-xl: 26px;
+ --radius-lg: 18px;
+ --radius-md: 14px;
+ --max: 1240px;
+ }
+
+ * { box-sizing: border-box; }
+
+ html { scroll-behavior: smooth; }
+
+ body {
+ margin: 0;
+ font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+ color: var(--deep);
+ background:
+ radial-gradient(circle at top right, rgba(46,196,199,0.12), transparent 28%),
+ radial-gradient(circle at left 20%, rgba(255,127,110,0.10), transparent 22%),
+ linear-gradient(180deg, #f8fcfc 0%, #f7f4ee 50%, #fbfaf7 100%);
+ line-height: 1.6;
+ }
+
+ a {
+ color: inherit;
+ text-decoration: none;
+ }
+
+ .wrap {
+ width: min(calc(100% - 32px), var(--max));
+ margin: 0 auto;
+ }
+
+ .topbar {
+ position: sticky;
+ top: 0;
+ z-index: 50;
+ backdrop-filter: blur(14px);
+ background: rgba(255,255,255,0.78);
+ border-bottom: 1px solid rgba(22, 59, 67, 0.08);
+ }
+
+ .topbar-inner {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 18px;
+ padding: 14px 0;
+ }
+
+ .brand {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ font-weight: 800;
+ letter-spacing: -0.03em;
+ }
+
+ .brand-badge {
+ width: 42px;
+ height: 42px;
+ border-radius: 50%;
+ display: grid;
+ place-items: center;
+ color: var(--white);
+ background: linear-gradient(135deg, var(--turquoise), var(--deep-2));
+ box-shadow: var(--shadow);
+ }
+
+ .hero {
+ padding: 72px 0 34px;
+ }
+
+ .hero-grid {
+ display: grid;
+ grid-template-columns: 1.15fr 0.85fr;
+ gap: 26px;
+ align-items: stretch;
+ }
+
+ .hero-card,
+ .stats-card,
+ .section-card,
+ .mini-card,
+ .timeline-card,
+ .tip-card,
+ .cta-card {
+ background: rgba(255,255,255,0.9);
+ border: 1px solid rgba(22, 59, 67, 0.08);
+ box-shadow: var(--shadow);
+ border-radius: var(--radius-xl);
+ }
+
+ .hero-card {
+ padding: 44px;
+ position: relative;
+ overflow: hidden;
+ }
+
+ .hero-card::after {
+ content: "";
+ position: absolute;
+ inset: auto -80px -110px auto;
+ width: 260px;
+ height: 260px;
+ border-radius: 50%;
+ background: radial-gradient(circle, rgba(46,196,199,0.18), rgba(46,196,199,0));
+ }
+
+ .eyebrow {
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ padding: 8px 14px;
+ border-radius: 999px;
+ background: rgba(46,196,199,0.12);
+ color: var(--deep-2);
+ font-size: 13px;
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 0.08em;
+ }
+
+ h1 {
+ margin: 18px 0 14px;
+ font-size: clamp(34px, 5vw, 62px);
+ line-height: 1.02;
+ letter-spacing: -0.05em;
+ }
+
+ .hero-sub {
+ font-size: 18px;
+ max-width: 760px;
+ color: rgba(22, 59, 67, 0.84);
+ margin: 0 0 24px;
+ }
+
+ .hero-actions {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 12px;
+ margin-top: 26px;
+ }
+
+ .btn {
+ display: inline-flex;
+ align-items: center;
+ gap: 10px;
+ padding: 14px 18px;
+ border-radius: 999px;
+ font-weight: 700;
+ transition: transform 0.18s ease, box-shadow 0.18s ease;
+ }
+
+ .btn:hover { transform: translateY(-1px); }
+
+ .btn-primary {
+ background: linear-gradient(135deg, var(--turquoise), #25a8ab);
+ color: var(--white);
+ box-shadow: 0 12px 24px rgba(46,196,199,0.28);
+ }
+
+ .btn-secondary {
+ background: rgba(243,231,211,0.75);
+ color: var(--deep);
+ border: 1px solid rgba(22, 59, 67, 0.08);
+ }
+
+ .stats-card {
+ padding: 28px;
+ display: grid;
+ gap: 16px;
+ background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(159,224,208,0.16));
+ }
+
+ .stat-pill {
+ display: flex;
+ align-items: center;
+ gap: 14px;
+ padding: 16px;
+ border-radius: var(--radius-lg);
+ border: 1px solid rgba(22,59,67,0.08);
+ background: rgba(255,255,255,0.84);
+ }
+
+ .stat-icon {
+ width: 48px;
+ height: 48px;
+ border-radius: 14px;
+ display: grid;
+ place-items: center;
+ color: var(--white);
+ background: linear-gradient(135deg, var(--coral), #ff9c72);
+ flex: 0 0 auto;
+ }
+
+ .stat-pill strong {
+ display: block;
+ font-size: 17px;
+ line-height: 1.2;
+ margin-bottom: 4px;
+ }
+
+ .section {
+ padding: 18px 0 10px;
+ }
+
+ .section-head {
+ display: flex;
+ justify-content: space-between;
+ gap: 20px;
+ align-items: end;
+ margin: 0 0 20px;
+ }
+
+ .section-head h2 {
+ margin: 0;
+ font-size: clamp(28px, 3vw, 40px);
+ line-height: 1.05;
+ letter-spacing: -0.04em;
+ }
+
+ .section-head p {
+ margin: 0;
+ max-width: 700px;
+ color: rgba(22,59,67,0.78);
+ }
+
+ .cards {
+ display: grid;
+ grid-template-columns: repeat(2, minmax(0, 1fr));
+ gap: 18px;
+ }
+
+ .section-card {
+ padding: 26px;
+ position: relative;
+ overflow: hidden;
+ }
+
+ .section-card::before {
+ content: "";
+ position: absolute;
+ inset: 0 0 auto 0;
+ height: 5px;
+ background: linear-gradient(90deg, var(--turquoise), var(--seafoam), rgba(255,127,110,0.9));
+ }
+
+ .card-top {
+ display: flex;
+ align-items: center;
+ gap: 14px;
+ margin-bottom: 16px;
+ }
+
+ .card-icon {
+ width: 52px;
+ height: 52px;
+ border-radius: 16px;
+ display: grid;
+ place-items: center;
+ color: var(--white);
+ background: linear-gradient(135deg, var(--deep-2), var(--turquoise));
+ font-size: 20px;
+ flex: 0 0 auto;
+ }
+
+ .card-top h3 {
+ margin: 0;
+ font-size: 22px;
+ line-height: 1.1;
+ letter-spacing: -0.03em;
+ }
+
+ .tag {
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ font-size: 12px;
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 0.08em;
+ color: var(--deep-2);
+ background: rgba(159,224,208,0.18);
+ border-radius: 999px;
+ padding: 8px 12px;
+ margin-bottom: 16px;
+ }
+
+ .section-card p {
+ margin: 0 0 16px;
+ color: rgba(22,59,67,0.82);
+ }
+
+ ul.clean {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ display: grid;
+ gap: 10px;
+ }
+
+ ul.clean li {
+ display: flex;
+ align-items: flex-start;
+ gap: 12px;
+ padding: 11px 0;
+ border-bottom: 1px solid var(--line);
+ }
+
+ ul.clean li:last-child {
+ border-bottom: 0;
+ padding-bottom: 0;
+ }
+
+ ul.clean i {
+ color: var(--turquoise);
+ margin-top: 3px;
+ flex: 0 0 16px;
+ }
+
+ .mini-grid {
+ display: grid;
+ grid-template-columns: repeat(3, minmax(0, 1fr));
+ gap: 18px;
+ margin-top: 18px;
+ }
+
+ .mini-card {
+ padding: 22px;
+ background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(243,231,211,0.55));
+ }
+
+ .mini-card h4 {
+ margin: 14px 0 10px;
+ font-size: 20px;
+ line-height: 1.1;
+ letter-spacing: -0.03em;
+ }
+
+ .mini-card p {
+ margin: 0;
+ color: rgba(22,59,67,0.78);
+ }
+
+ .mini-card .card-icon {
+ width: 48px;
+ height: 48px;
+ border-radius: 14px;
+ background: linear-gradient(135deg, var(--coral), #ff9f8e);
+ }
+
+ .timeline {
+ display: grid;
+ grid-template-columns: repeat(4, minmax(0, 1fr));
+ gap: 18px;
+ }
+
+ .timeline-card {
+ padding: 24px;
+ position: relative;
+ overflow: hidden;
+ background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(159,224,208,0.14));
+ }
+
+ .timeline-num {
+ font-size: 13px;
+ font-weight: 800;
+ letter-spacing: 0.1em;
+ text-transform: uppercase;
+ color: var(--coral);
+ margin-bottom: 14px;
+ }
+
+ .timeline-card h4 {
+ margin: 0 0 10px;
+ font-size: 20px;
+ line-height: 1.1;
+ letter-spacing: -0.03em;
+ }
+
+ .timeline-card p {
+ margin: 0;
+ color: rgba(22,59,67,0.78);
+ }
+
+ .tip-row {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 18px;
+ }
+
+ .tip-card {
+ padding: 26px;
+ background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(243,231,211,0.60));
+ }
+
+ .tip-card h3 {
+ margin: 0 0 10px;
+ font-size: 22px;
+ line-height: 1.1;
+ letter-spacing: -0.03em;
+ }
+
+ .tip-card p {
+ margin: 0 0 14px;
+ color: rgba(22,59,67,0.8);
+ }
+
+ .cta {
+ padding: 18px 0 80px;
+ }
+
+ .cta-card {
+ padding: 34px;
+ background: linear-gradient(135deg, rgba(22,59,67,0.98), rgba(34,76,83,0.95));
+ color: var(--white);
+ position: relative;
+ overflow: hidden;
+ }
+
+ .cta-card::before,
+ .cta-card::after {
+ content: "";
+ position: absolute;
+ border-radius: 50%;
+ background: radial-gradient(circle, rgba(46,196,199,0.22), transparent 68%);
+ }
+
+ .cta-card::before {
+ width: 260px;
+ height: 260px;
+ right: -100px;
+ top: -100px;
+ }
+
+ .cta-card::after {
+ width: 220px;
+ height: 220px;
+ left: -80px;
+ bottom: -80px;
+ }
+
+ .cta-card h2 {
+ margin: 0 0 12px;
+ font-size: clamp(28px, 3vw, 42px);
+ line-height: 1.03;
+ letter-spacing: -0.04em;
+ position: relative;
+ z-index: 1;
+ }
+
+ .cta-card p,
+ .cta-card ul {
+ position: relative;
+ z-index: 1;
+ }
+
+ .cta-card p {
+ max-width: 920px;
+ margin: 0 0 18px;
+ color: rgba(255,255,255,0.86);
+ }
+
+ .cta-list {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ display: grid;
+ grid-template-columns: repeat(4, minmax(0, 1fr));
+ gap: 14px;
+ }
+
+ .cta-list li {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ padding: 14px 16px;
+ border: 1px solid rgba(255,255,255,0.10);
+ border-radius: 16px;
+ background: rgba(255,255,255,0.06);
+ font-weight: 600;
+ }
+
+ .muted {
+ color: rgba(22,59,67,0.72);
+ }
+
+ @media (max-width: 1080px) {
+ .hero-grid,
+ .cards,
+ .mini-grid,
+ .timeline,
+ .tip-row,
+ .cta-list {
+ grid-template-columns: 1fr;
+ }
+
+ .section-head {
+ display: grid;
+ gap: 10px;
+ }
+ }
+
+ @media (max-width: 720px) {
+ .hero { padding-top: 42px; }
+
+ .hero-card,
+ .stats-card,
+ .section-card,
+ .mini-card,
+ .timeline-card,
+ .tip-card,
+ .cta-card {
+ border-radius: 20px;
+ }
+
+ .hero-card { padding: 28px 22px; }
+
+ .stats-card,
+ .section-card,
+ .mini-card,
+ .timeline-card,
+ .tip-card,
+ .cta-card {
+ padding: 22px;
+ }
+
+ .topbar-inner { padding: 12px 0; }
+ }
+ </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <div class="brand">
-        <div class="brand-badge"><i class="fa-solid fa-water"></i></div>
-        <div>
-          <div>Seascape Marina &amp; Atlantic Bay</div>
-          <div class="muted" style="font-size:13px; font-weight:600;">Elettro Production &amp; Growth Plan</div>
-        </div>
-      </div>
-      <a class="btn btn-secondary" href="#plan"><i class="fa-solid fa-compass"></i> View Plan</a>
-    </div>
-  </header>
+ <header class="topbar">
+ <div class="wrap topbar-inner">
+ <div class="brand">
+ <div class="brand-badge"><i class="fa-solid fa-water"></i></div>
+ <div>
+ <div>Seascape Marina &amp; Atlantic Bay</div>
+ <div class="muted" style="font-size:13px; font-weight:600;">Elettro Production &amp; Growth Plan</div>
+ </div>
+ </div>
+ <a class="btn btn-secondary" href="#plan"><i class="fa-solid fa-compass"></i> View Plan</a>
+ </div>
+ </header>
 
-  <main>
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-card">
-          <div class="eyebrow"><i class="fa-solid fa-sun"></i> Ocean and Sand direction</div>
-          <h1>Production-first growth plan for Seascape Marina and Atlantic Bay.</h1>
-          <p class="hero-sub">
-            This version is centered on what Elettro and Dean will actively produce and build. Website production. Search and AI readiness. Tracking systems. Email capture. Video content. YouTube growth. merch. QR monetization. private label coffee. Keys music. excursions. wedding funnels. and long-term membership ideas.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#plan"><i class="fa-solid fa-arrow-down"></i> Full Plan</a>
-            <a class="btn btn-secondary" href="#weddings"><i class="fa-solid fa-heart"></i> Weddings</a>
-            <a class="btn btn-secondary" href="#membership"><i class="fa-solid fa-key"></i> Membership</a>
-          </div>
-        </div>
+ <main>
+ <section class="hero">
+ <div class="wrap hero-grid">
+ <div class="hero-card">
+ <div class="eyebrow"><i class="fa-solid fa-sun"></i> Ocean and Sand direction</div>
+ <h1>Production-first growth plan for Seascape Marina and Atlantic Bay.</h1>
+ <p class="hero-sub">
+ This version is centered on what Elettro and Dean will actively produce and build. Website production. Search and AI readiness. Tracking systems. Email capture. Video content. YouTube growth. merch. QR monetization. private label coffee. Keys music. excursions. wedding funnels. and long-term membership ideas.
+ </p>
+ <div class="hero-actions">
+ <a class="btn btn-primary" href="#plan"><i class="fa-solid fa-arrow-down"></i> Full Plan</a>
+ <a class="btn btn-secondary" href="#weddings"><i class="fa-solid fa-heart"></i> Weddings</a>
+ <a class="btn btn-secondary" href="#membership"><i class="fa-solid fa-key"></i> Membership</a>
+ </div>
+ </div>
 
-        <aside class="stats-card">
-          <div class="stat-pill">
-            <div class="stat-icon"><i class="fa-solid fa-code"></i></div>
-            <div>
-              <strong>Website production first</strong>
-              <div class="muted">Bring both properties up to code with modern HTML/CSS, SEO structure, AI readiness, and accessibility.</div>
-            </div>
-          </div>
-          <div class="stat-pill">
-            <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
-            <div>
-              <strong>Tracking and growth systems</strong>
-              <div class="muted">Connect Search Console, Google Ads, call tracking, email collection, and future CRM improvements.</div>
-            </div>
-          </div>
-          <div class="stat-pill">
-            <div class="stat-icon"><i class="fa-solid fa-video"></i></div>
-            <div>
-              <strong>Content Dean can produce</strong>
-              <div class="muted">YouTube, short-form video, music, merch, coffee branding, wedding funnels, and excursion sales tools.</div>
-            </div>
-          </div>
-          <div class="stat-pill">
-            <div class="stat-icon"><i class="fa-solid fa-bag-shopping"></i></div>
-            <div>
-              <strong>Monetize the guest stay</strong>
-              <div class="muted">Use QR sheets, online shop, pre-order experiences, and future membership concepts to grow value per guest.</div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
+ <aside class="stats-card">
+ <div class="stat-pill">
+ <div class="stat-icon"><i class="fa-solid fa-code"></i></div>
+ <div>
+ <strong>Website production first</strong>
+ <div class="muted">Bring both properties up to code with modern HTML/CSS, SEO structure, AI readiness, and accessibility.</div>
+ </div>
+ </div>
+ <div class="stat-pill">
+ <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
+ <div>
+ <strong>Tracking and growth systems</strong>
+ <div class="muted">Connect Search Console, Google Ads, call tracking, email collection, and future CRM improvements.</div>
+ </div>
+ </div>
+ <div class="stat-pill">
+ <div class="stat-icon"><i class="fa-solid fa-video"></i></div>
+ <div>
+ <strong>Content Dean can produce</strong>
+ <div class="muted">YouTube, short-form video, music, merch, coffee branding, wedding funnels, and excursion sales tools.</div>
+ </div>
+ </div>
+ <div class="stat-pill">
+ <div class="stat-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+ <div>
+ <strong>Monetize the guest stay</strong>
+ <div class="muted">Use QR sheets, online shop, pre-order experiences, and future membership concepts to grow value per guest.</div>
+ </div>
+ </div>
+ </aside>
+ </div>
+ </section>
 
-    <section class="section" id="plan">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow"><i class="fa-solid fa-layer-group"></i> Execution order</div>
-            <h2>What Elettro and Dean bring to the table.</h2>
-          </div>
-          <p>
-            This page is less about pricing experiments and more about the specific production, marketing, automation, creative, and revenue-support work that can be built for Seascape Marina and Atlantic Bay.
-          </p>
-        </div>
+ <section class="section" id="plan">
+ <div class="wrap">
+ <div class="section-head">
+ <div>
+ <div class="eyebrow"><i class="fa-solid fa-layer-group"></i> Execution order</div>
+ <h2>What Elettro and Dean bring to the table.</h2>
+ </div>
+ <p>
+ This page is less about pricing experiments and more about the specific production, marketing, automation, creative, and revenue-support work that can be built for Seascape Marina and Atlantic Bay.
+ </p>
+ </div>
 
-        <div class="cards">
-          <article class="section-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-globe"></i> Foundation Layer</div>
-                <h3>1. Website Production</h3>
-              </div>
-            </div>
-            <p>Get the website up to code with the latest and greatest, built with custom HTML and CSS through AI-assisted production and cleaned up for a stronger modern presentation.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Build or refine a custom site with a clean luxury Keys feel instead of a standard template look.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Set up and optimize relevant integrations between the website, Google Search Console, Google Ads, Google Business Profile, and analytics systems.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Create cleaner funnel paths for rooms, excursions, weddings, and full-property inquiries.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Use AI production to accelerate content blocks, layouts, sections, and future landing pages.</span></li>
-            </ul>
-          </article>
+ <div class="cards">
+ <article class="section-card">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-globe"></i> Foundation Layer</div>
+ <h3>1. Website Production</h3>
+ </div>
+ </div>
+ <p>Get the website up to code with the latest and greatest, built with custom HTML and CSS through AI-assisted production and cleaned up for a stronger modern presentation.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Build or refine a custom site with a clean luxury Keys feel instead of a standard template look.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Set up and optimize relevant integrations between the website, Google Search Console, Google Ads, Google Business Profile, and analytics systems.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Create cleaner funnel paths for rooms, excursions, weddings, and full-property inquiries.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Use AI production to accelerate content blocks, layouts, sections, and future landing pages.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-universal-access"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-magnifying-glass"></i> Search + AI + Access</div>
-                <h3>2. Optimize for Search, AI, and Handicapped Folks</h3>
-              </div>
-            </div>
-            <p>Make the site more visible, more readable, and more usable. This is a core production service, not an afterthought.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Improve page structure, headings, metadata, internal linking, and local search targeting.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Optimize for AI search with better semantic structure, answer-based content, FAQs, and schema support.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Improve readability, contrast, alt text, button labels, and general accessibility support.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Build a stronger technical base for future ranking and future AI visibility.</span></li>
-            </ul>
-          </article>
+ <article class="section-card">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-universal-access"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-magnifying-glass"></i> Search + AI + Access</div>
+ <h3>2. Optimize for Search, AI, and Handicapped Folks</h3>
+ </div>
+ </div>
+ <p>Make the site more visible, more readable, and more usable. This is a core production service, not an afterthought.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Improve page structure, headings, metadata, internal linking, and local search targeting.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Optimize for AI search with better semantic structure, answer-based content, FAQs, and schema support.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Improve readability, contrast, alt text, button labels, and general accessibility support.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Build a stronger technical base for future ranking and future AI visibility.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-plug"></i> Phase Two</div>
-                <h3>3. Add Smart Integrations After the Basics Are Live</h3>
-              </div>
-            </div>
-            <p>Once the main website, search, tracking, and content systems are in place, the properties are in a much stronger position to expand into higher-value integrations in a practical way.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Start with manually curated local events and local recommendations.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>As AI makes advanced development faster and more affordable, add richer guest-facing tools and smarter automation in measured steps.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Use stronger data and cleaner systems to unlock more practical opportunities with platforms like TripAdvisor over time.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Expand carefully so the site grows in capability without getting bloated, always building on the foundation first.</span></li>
-            </ul>
-          </article>
+ <article class="section-card">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-plug"></i> Phase Two</div>
+ <h3>3. Add Smart Integrations After the Basics Are Live</h3>
+ </div>
+ </div>
+ <p>Once the main website, search, tracking, and content systems are in place, the properties are in a much stronger position to expand into higher-value integrations in a practical way.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Start with manually curated local events and local recommendations.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>As AI makes advanced development faster and more affordable, add richer guest-facing tools and smarter automation in measured steps.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Use stronger data and cleaner systems to unlock more practical opportunities with platforms like TripAdvisor over time.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Expand carefully so the site grows in capability without getting bloated, always building on the foundation first.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-phone-volume"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-chart-column"></i> Tracking</div>
-                <h3>4. Phone Tracking, Call Tracking, Email Tracking, and CRM Upgrades</h3>
-              </div>
-            </div>
-            <p>Get visibility into what is producing inquiries and where stronger systems may be needed over time.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Track calls and call sources so the property knows what content and campaigns are driving action.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Track email collection and lead sources more intentionally.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Review current CRM or inquiry handling and recommend light upgrades if needed.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Build a cleaner reporting trail across website, calls, forms, and future campaigns.</span></li>
-            </ul>
-          </article>
+ <article class="section-card">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-phone-volume"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-chart-column"></i> Tracking</div>
+ <h3>4. Phone Tracking, Call Tracking, Email Tracking, and CRM Upgrades</h3>
+ </div>
+ </div>
+ <p>Get visibility into what is producing inquiries and where stronger systems may be needed over time.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Track calls and call sources so the property knows what content and campaigns are driving action.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Track email collection and lead sources more intentionally.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Review current CRM or inquiry handling and recommend light upgrades if needed.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Build a cleaner reporting trail across website, calls, forms, and future campaigns.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-bolt"></i> Occupancy Support</div>
-                <h3>5. Email Marketing for Last-Minute Open Rooms</h3>
-              </div>
-            </div>
-            <p>Organize and proactively collect emails so the properties can directly promote short-notice openings and staycation opportunities.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Build an email capture system into the website and other guest touchpoints.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Create campaigns for last-minute room openings and South Florida drive-down staycations.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Use email as a practical occupancy tool, not only a newsletter.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Keep building the owned audience instead of depending only on third-party booking channels.</span></li>
-            </ul>
-          </article>
+ <article class="section-card">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-bolt"></i> Occupancy Support</div>
+ <h3>5. Email Marketing for Last-Minute Open Rooms</h3>
+ </div>
+ </div>
+ <p>Organize and proactively collect emails so the properties can directly promote short-notice openings and staycation opportunities.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Build an email capture system into the website and other guest touchpoints.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Create campaigns for last-minute room openings and South Florida drive-down staycations.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Use email as a practical occupancy tool, not only a newsletter.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Keep building the owned audience instead of depending only on third-party booking channels.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-video"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-youtube"></i> Content Production</div>
-                <h3>6. YouTube and Video Content Marketing</h3>
-              </div>
-            </div>
-            <p>Produce visual marketing content that sells the properties, the Keys lifestyle, the excursions, and the atmosphere.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Create YouTube videos and shorts around rooms, marina life, sunsets, fishing, snorkeling, and destination energy.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Support YouTube growth with selective ad spend if desired.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Repurpose clips across Instagram, Facebook, TikTok, and YouTube Shorts.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Use content production as both a branding engine and a search engine asset.</span></li>
-            </ul>
-          </article>
+ <article class="section-card">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-video"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-youtube"></i> Content Production</div>
+ <h3>6. YouTube and Video Content Marketing</h3>
+ </div>
+ </div>
+ <p>Produce visual marketing content that sells the properties, the Keys lifestyle, the excursions, and the atmosphere.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Create YouTube videos and shorts around rooms, marina life, sunsets, fishing, snorkeling, and destination energy.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Support YouTube growth with selective ad spend if desired.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Repurpose clips across Instagram, Facebook, TikTok, and YouTube Shorts.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Use content production as both a branding engine and a search engine asset.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-shirt"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-store"></i> Merchandising</div>
-                <h3>7. Print-on-Demand Clothing and Merchandise</h3>
-              </div>
-            </div>
-            <p>Offer Seascape and Atlantic Bay merchandise through Stashbox.ai with low overhead and strong flexibility.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Create Seascape merch and Atlantic Bay merch for online sale.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Use QR codes and website links to push guests into the shop.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Use apparel and accessories as both brand extension and guest souvenir products.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Keep inventory light through print-on-demand production.</span></li>
-            </ul>
-          </article>
+ <article class="section-card">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-shirt"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-store"></i> Merchandising</div>
+ <h3>7. Print-on-Demand Clothing and Merchandise</h3>
+ </div>
+ </div>
+ <p>Offer Seascape and Atlantic Bay merchandise through Stashbox.ai with low overhead and strong flexibility.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Create Seascape merch and Atlantic Bay merch for online sale.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Use QR codes and website links to push guests into the shop.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Use apparel and accessories as both brand extension and guest souvenir products.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Keep inventory light through print-on-demand production.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-qrcode"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-door-closed"></i> In-Room Sales</div>
-                <h3>8. In-Room QR Code Sheets</h3>
-              </div>
-            </div>
-            <p>Use one-sheet QR sales and information pages in a high-attention location. Guests stare at the back-of-door area every day.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Design clean one-sheets for merch, coffee, excursions, future stays, and useful property info.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Use QR codes for Captain Kevin and relevant excursion partners.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Keep them visually strong and easy to scan from a distance.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Turn a dead space into an active sales and service surface.</span></li>
-            </ul>
-          </article>
+ <article class="section-card">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-qrcode"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-door-closed"></i> In-Room Sales</div>
+ <h3>8. In-Room QR Code Sheets</h3>
+ </div>
+ </div>
+ <p>Use one-sheet QR sales and information pages in a high-attention location. Guests stare at the back-of-door area every day.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Design clean one-sheets for merch, coffee, excursions, future stays, and useful property info.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Use QR codes for Captain Kevin and relevant excursion partners.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Keep them visually strong and easy to scan from a distance.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Turn a dead space into an active sales and service surface.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-seedling"></i> Product Opportunity</div>
-                <h3>9. Private Label Coffee from Don Pablo Coffee</h3>
-              </div>
-            </div>
-            <p>You already have a working relationship with Don Pablo Coffee in Miami and can bring world-class private label coffee to the properties and the online shop.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Create Seascape and Atlantic Bay branded coffee products.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Evaluate how coffee is currently offered to room guests and build around that system, including possible K-cups or other room-ready formats.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Sell it in rooms, online, and through QR code pathways.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Use it as a strong physical product tied directly to the guest experience.</span></li>
-            </ul>
-          </article>
+ <article class="section-card">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-seedling"></i> Product Opportunity</div>
+ <h3>9. Private Label Coffee from Don Pablo Coffee</h3>
+ </div>
+ </div>
+ <p>You already have a working relationship with Don Pablo Coffee in Miami and can bring world-class private label coffee to the properties and the online shop.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Create Seascape and Atlantic Bay branded coffee products.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Evaluate how coffee is currently offered to room guests and build around that system, including possible K-cups or other room-ready formats.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Sell it in rooms, online, and through QR code pathways.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Use it as a strong physical product tied directly to the guest experience.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-music"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-wave-square"></i> Brand Differentiator</div>
-                <h3>10. Keys Music, Playlists, and Music SEO</h3>
-              </div>
-            </div>
-            <p>Dean can produce Keys music that sets the tone on the website, expands brand presence across streaming platforms, and gives the resorts an identity most competitors do not have.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Create original chill Keys music tied to Seascape, Atlantic Bay, Marathon, Tavernier, excursions, and waterfront life.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Distribute it across 25+ major music sites for additional search and branding exposure.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Use playlists on the website to set tone and mood without overpowering the booking experience.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Guide listeners from the artist ecosystem back toward the brand and the websites.</span></li>
-            </ul>
-          </article>
+ <article class="section-card">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-music"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-wave-square"></i> Brand Differentiator</div>
+ <h3>10. Keys Music, Playlists, and Music SEO</h3>
+ </div>
+ </div>
+ <p>Dean can produce Keys music that sets the tone on the website, expands brand presence across streaming platforms, and gives the resorts an identity most competitors do not have.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Create original chill Keys music tied to Seascape, Atlantic Bay, Marathon, Tavernier, excursions, and waterfront life.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Distribute it across 25+ major music sites for additional search and branding exposure.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Use playlists on the website to set tone and mood without overpowering the booking experience.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Guide listeners from the artist ecosystem back toward the brand and the websites.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-users"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-camera-retro"></i> Reach Expansion</div>
-                <h3>11. Influencer Collaboration Opportunities</h3>
-              </div>
-            </div>
-            <p>There are influencer relationships available that can be used to create additional visibility, content, and social proof for the properties.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Host strategic stays and create content partnerships.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Focus on travel, lifestyle, ocean, music, and experience-driven creators.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Use influencers as part of content creation, not only reach.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Align the right influencer with the right property vibe.</span></li>
-            </ul>
-          </article>
+ <article class="section-card">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-camera-retro"></i> Reach Expansion</div>
+ <h3>11. Influencer Collaboration Opportunities</h3>
+ </div>
+ </div>
+ <p>There are influencer relationships available that can be used to create additional visibility, content, and social proof for the properties.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Host strategic stays and create content partnerships.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Focus on travel, lifestyle, ocean, music, and experience-driven creators.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Use influencers as part of content creation, not only reach.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Align the right influencer with the right property vibe.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-headphones"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-star"></i> Unique Upsell</div>
-                <h3>12. Guest Pre-Order Entertainment</h3>
-              </div>
-            </div>
-            <p>Let guests pre-order entertainment in a simple way, similar to how a mini-bar concept presents optional add-ons, except for curated live experiences.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Offer future-scheduled options like a DJ, a band, or poolside live entertainment.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Make the request process easy through the website, inquiry forms, or in-room QR paths.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Position it as a premium customization option rather than a last-minute operational burden.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Create a memorable differentiator most small hotels do not offer.</span></li>
-            </ul>
-          </article>
+ <article class="section-card">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-headphones"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-star"></i> Unique Upsell</div>
+ <h3>12. Guest Pre-Order Entertainment</h3>
+ </div>
+ </div>
+ <p>Let guests pre-order entertainment in a simple way, similar to how a mini-bar concept presents optional add-ons, except for curated live experiences.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Offer future-scheduled options like a DJ, a band, or poolside live entertainment.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Make the request process easy through the website, inquiry forms, or in-room QR paths.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Position it as a premium customization option rather than a last-minute operational burden.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Create a memorable differentiator most small hotels do not offer.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-fish"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-anchor"></i> Experience Layer</div>
-                <h3>13. Organize Excursions with Captain Kevin and Others</h3>
-              </div>
-            </div>
-            <p>Excursions are part of the guest value, part of the content engine, and part of the upsell system.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Feature Captain Kevin prominently while evaluating other relevant partners.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Create clear pages, QR links, and inquiry paths for fishing and snorkeling bookings.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Bundle excursions into room-driven packages over time.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Use excursions as recurring content fuel for video and social growth.</span></li>
-            </ul>
-          </article>
+ <article class="section-card">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-fish"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-anchor"></i> Experience Layer</div>
+ <h3>13. Organize Excursions with Captain Kevin and Others</h3>
+ </div>
+ </div>
+ <p>Excursions are part of the guest value, part of the content engine, and part of the upsell system.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Feature Captain Kevin prominently while evaluating other relevant partners.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Create clear pages, QR links, and inquiry paths for fishing and snorkeling bookings.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Bundle excursions into room-driven packages over time.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Use excursions as recurring content fuel for video and social growth.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card" id="weddings">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-heart"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-rings-wedding"></i> High-Value Funnel</div>
-                <h3>14. Wedding Packages and Full Property Lockout Presentation</h3>
-              </div>
-            </div>
-            <p>Improve the representation of weddings on location and build a stronger presentation funnel around intimate Keys weddings and full-group buyouts.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Create stronger wedding presentation pages, visuals, and messaging for both properties.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Organize wedding package options from intimate events to larger multi-day stays.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Present a full property lockout offer where one group can take over the entire property.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Build a dedicated inquiry funnel around private resort experiences, wedding weekends, and group events.</span></li>
-            </ul>
-          </article>
+ <article class="section-card" id="weddings">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-heart"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-rings-wedding"></i> High-Value Funnel</div>
+ <h3>14. Wedding Packages and Full Property Lockout Presentation</h3>
+ </div>
+ </div>
+ <p>Improve the representation of weddings on location and build a stronger presentation funnel around intimate Keys weddings and full-group buyouts.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Create stronger wedding presentation pages, visuals, and messaging for both properties.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Organize wedding package options from intimate events to larger multi-day stays.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Present a full property lockout offer where one group can take over the entire property.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Build a dedicated inquiry funnel around private resort experiences, wedding weekends, and group events.</span></li>
+ </ul>
+ </article>
 
-          <article class="section-card" id="membership">
-            <div class="card-top">
-              <div class="card-icon"><i class="fa-solid fa-key"></i></div>
-              <div>
-                <div class="tag"><i class="fa-solid fa-crown"></i> Long-Term Thought</div>
-                <h3>15. Private Country Club Style Membership Concept</h3>
-              </div>
-            </div>
-            <p>This remains an early thought, but there may be a future opportunity for a high-deposit, high-annual-fee membership model built around preferred access and repeat use.</p>
-            <ul class="clean">
-              <li><i class="fa-solid fa-check"></i><span>Explore a private club style concept instead of a traditional timeshare approach.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Position it around preferred access, status, and recurring relationships.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Use it as a future recurring revenue layer if it aligns with owner goals and inventory realities.</span></li>
-              <li><i class="fa-solid fa-check"></i><span>Protect owner control while testing whether a membership lane makes sense for small boutique properties.</span></li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
+ <article class="section-card" id="membership">
+ <div class="card-top">
+ <div class="card-icon"><i class="fa-solid fa-key"></i></div>
+ <div>
+ <div class="tag"><i class="fa-solid fa-crown"></i> Long-Term Thought</div>
+ <h3>15. Private Country Club Style Membership Concept</h3>
+ </div>
+ </div>
+ <p>This remains an early thought, but there may be a future opportunity for a high-deposit, high-annual-fee membership model built around preferred access and repeat use.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Explore a private club style concept instead of a traditional timeshare approach.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Position it around preferred access, status, and recurring relationships.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Use it as a future recurring revenue layer if it aligns with owner goals and inventory realities.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Protect owner control while testing whether a membership lane makes sense for small boutique properties.</span></li>
+ </ul>
+ </article>
+ </div>
+ </div>
+ </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow"><i class="fa-solid fa-gauge-high"></i> Key focus</div>
-            <h2>Where Elettro creates the most value.</h2>
-          </div>
-          <p>These are the primary production lanes that support both growth and long-term brand differentiation.</p>
-        </div>
+ <section class="section">
+ <div class="wrap">
+ <div class="section-head">
+ <div>
+ <div class="eyebrow"><i class="fa-solid fa-gauge-high"></i> Key focus</div>
+ <h2>Where Elettro creates the most value.</h2>
+ </div>
+ <p>These are the primary production lanes that support both growth and long-term brand differentiation.</p>
+ </div>
 
-        <div class="mini-grid">
-          <div class="mini-card">
-            <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
-            <h4>Build the digital foundation</h4>
-            <p>Modern website production, search readiness, AI optimization, accessibility, and systems integration come first.</p>
-          </div>
-          <div class="mini-card">
-            <div class="card-icon"><i class="fa-solid fa-clapperboard"></i></div>
-            <h4>Produce the content engine</h4>
-            <p>Video, YouTube, social clips, music, wedding visuals, excursion footage, and lifestyle storytelling build brand momentum.</p>
-          </div>
-          <div class="mini-card">
-            <div class="card-icon"><i class="fa-solid fa-store"></i></div>
-            <h4>Monetize more touchpoints</h4>
-            <p>Use merch, coffee, QR sheets, excursions, entertainment add-ons, and future membership concepts to widen guest value.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+ <div class="mini-grid">
+ <div class="mini-card">
+ <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
+ <h4>Build the digital foundation</h4>
+ <p>Modern website production, search readiness, AI optimization, accessibility, and systems integration come first.</p>
+ </div>
+ <div class="mini-card">
+ <div class="card-icon"><i class="fa-solid fa-clapperboard"></i></div>
+ <h4>Produce the content engine</h4>
+ <p>Video, YouTube, social clips, music, wedding visuals, excursion footage, and lifestyle storytelling build brand momentum.</p>
+ </div>
+ <div class="mini-card">
+ <div class="card-icon"><i class="fa-solid fa-store"></i></div>
+ <h4>Monetize more touchpoints</h4>
+ <p>Use merch, coffee, QR sheets, excursions, entertainment add-ons, and future membership concepts to widen guest value.</p>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow"><i class="fa-solid fa-route"></i> Rollout</div>
-            <h2>Suggested sequence of execution.</h2>
-          </div>
-          <p>Start with the foundation first. Then expand into content, tracking, monetization, and progressively more advanced travel-tech and AI-powered integrations.</p>
-        </div>
+ <section class="section">
+ <div class="wrap">
+ <div class="section-head">
+ <div>
+ <div class="eyebrow"><i class="fa-solid fa-route"></i> Rollout</div>
+ <h2>Suggested sequence of execution.</h2>
+ </div>
+ <p>Start with the foundation first. Then expand into content, tracking, monetization, and progressively more advanced travel-tech and AI-powered integrations.</p>
+ </div>
 
-        <div class="timeline">
-          <div class="timeline-card">
-            <div class="timeline-num">Phase 01</div>
-            <h4>Website and core systems</h4>
-            <p>Refine site structure, improve search readiness, improve accessibility, and connect the essential Google and tracking systems.</p>
-          </div>
-          <div class="timeline-card">
-            <div class="timeline-num">Phase 02</div>
-            <h4>Capture and content</h4>
-            <p>Improve email collection, launch better call and lead tracking, and produce stronger video and YouTube content.</p>
-          </div>
-          <div class="timeline-card">
-            <div class="timeline-num">Phase 03</div>
-            <h4>Monetize and differentiate</h4>
-            <p>Add merch, QR sheets, private label coffee, Keys music, excursions, and guest pre-order entertainment pathways.</p>
-          </div>
-          <div class="timeline-card">
-            <div class="timeline-num">Phase 04</div>
-            <h4>Expand advanced opportunities</h4>
-            <p>Dial in wedding and group funnels, then layer in higher-level integrations and smarter third-party platform opportunities such as advanced TripAdvisor workflows.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+ <div class="timeline">
+ <div class="timeline-card">
+ <div class="timeline-num">Phase 01</div>
+ <h4>Website and core systems</h4>
+ <p>Refine site structure, improve search readiness, improve accessibility, and connect the essential Google and tracking systems.</p>
+ </div>
+ <div class="timeline-card">
+ <div class="timeline-num">Phase 02</div>
+ <h4>Capture and content</h4>
+ <p>Improve email collection, launch better call and lead tracking, and produce stronger video and YouTube content.</p>
+ </div>
+ <div class="timeline-card">
+ <div class="timeline-num">Phase 03</div>
+ <h4>Monetize and differentiate</h4>
+ <p>Add merch, QR sheets, private label coffee, Keys music, excursions, and guest pre-order entertainment pathways.</p>
+ </div>
+ <div class="timeline-card">
+ <div class="timeline-num">Phase 04</div>
+ <h4>Expand advanced opportunities</h4>
+ <p>Dial in wedding and group funnels, then layer in higher-level integrations and smarter third-party platform opportunities such as advanced TripAdvisor workflows.</p>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <section class="section">
-      <div class="wrap tip-row">
-        <div class="tip-card">
-          <div class="eyebrow"><i class="fa-solid fa-lightbulb"></i> Strategic lens</div>
-          <h3>This is not only hotel marketing.</h3>
-          <p>This is a combined production, branding, content, search, and monetization system. The real value is not only traffic. It is turning the properties into stronger digital brands now, while creating a realistic path to more sophisticated integrations as the foundation matures.</p>
-          <ul class="clean">
-            <li><i class="fa-solid fa-check"></i><span>Better website foundation.</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Better visibility and measurement.</span></li>
-            <li><i class="fa-solid fa-check"></i><span>More products, funnels, experiences, and future-ready integration opportunities tied to the stay.</span></li>
-          </ul>
-        </div>
+ <section class="section">
+ <div class="wrap tip-row">
+ <div class="tip-card">
+ <div class="eyebrow"><i class="fa-solid fa-lightbulb"></i> Strategic lens</div>
+ <h3>This is not only hotel marketing.</h3>
+ <p>This is a combined production, branding, content, search, and monetization system. The real value is not only traffic. It is turning the properties into stronger digital brands now, while creating a realistic path to more sophisticated integrations as the foundation matures.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Better website foundation.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Better visibility and measurement.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>More products, funnels, experiences, and future-ready integration opportunities tied to the stay.</span></li>
+ </ul>
+ </div>
 
-        <div class="tip-card">
-          <div class="eyebrow"><i class="fa-solid fa-circle-info"></i> Property fit</div>
-          <h3>Why this fits Seascape and Atlantic Bay.</h3>
-          <p>These are boutique waterfront properties. That means the visual identity, music identity, excursion identity, and wedding identity matter more than they would at a generic larger hotel. Smaller can feel more private, more curated, and more memorable.</p>
-          <ul class="clean">
-            <li><i class="fa-solid fa-check"></i><span>Seascape can lean into marina energy and adventure.</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Atlantic Bay can lean into calm Keys relaxation and intimate stays.</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Both can benefit from shared systems and shared production support.</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
+ <div class="tip-card">
+ <div class="eyebrow"><i class="fa-solid fa-circle-info"></i> Property fit</div>
+ <h3>Why this fits Seascape and Atlantic Bay.</h3>
+ <p>These are boutique waterfront properties. That means the visual identity, music identity, excursion identity, and wedding identity matter more than they would at a generic larger hotel. Smaller can feel more private, more curated, and more memorable.</p>
+ <ul class="clean">
+ <li><i class="fa-solid fa-check"></i><span>Seascape can lean into marina energy and adventure.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Atlantic Bay can lean into calm Keys relaxation and intimate stays.</span></li>
+ <li><i class="fa-solid fa-check"></i><span>Both can benefit from shared systems and shared production support.</span></li>
+ </ul>
+ </div>
+ </div>
+ </section>
 
-    <section class="cta">
-      <div class="wrap">
-        <div class="cta-card">
-          <div class="eyebrow" style="background: rgba(46,196,199,0.16); color: #d9ffff;"><i class="fa-solid fa-anchor"></i> Positioning summary</div>
-          <h2>Elettro helps bring the website, the systems, the media, and the monetization together.</h2>
-          <p>
-            The biggest opportunity is not one isolated tactic. It is the combination of stronger website production, smarter search and AI readiness, cleaner tracking, better email collection, stronger visual content, products like merch and coffee, better excursion funnels, and higher-value offers like weddings and private group lockouts.
-          </p>
-          <ul class="cta-list">
-            <li><i class="fa-solid fa-code"></i> Website production</li>
-            <li><i class="fa-solid fa-video"></i> Media and YouTube</li>
-            <li><i class="fa-solid fa-qrcode"></i> On-property QR sales</li>
-            <li><i class="fa-solid fa-heart"></i> Weddings and buyouts</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </main>
+ <section class="cta">
+ <div class="wrap">
+ <div class="cta-card">
+ <div class="eyebrow" style="background: rgba(46,196,199,0.16); color: #d9ffff;"><i class="fa-solid fa-anchor"></i> Positioning summary</div>
+ <h2>Elettro helps bring the website, the systems, the media, and the monetization together.</h2>
+ <p>
+ The biggest opportunity is not one isolated tactic. It is the combination of stronger website production, smarter search and AI readiness, cleaner tracking, better email collection, stronger visual content, products like merch and coffee, better excursion funnels, and higher-value offers like weddings and private group lockouts.
+ </p>
+ <ul class="cta-list">
+ <li><i class="fa-solid fa-code"></i> Website production</li>
+ <li><i class="fa-solid fa-video"></i> Media and YouTube</li>
+ <li><i class="fa-solid fa-qrcode"></i> On-property QR sales</li>
+ <li><i class="fa-solid fa-heart"></i> Weddings and buyouts</li>
+ </ul>
+ </div>
+ </div>
+ </section>
+ </main>
 </body>
 </html>

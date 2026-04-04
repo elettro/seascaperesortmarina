@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Seascape Room Popup Concepts | Starfish Suite</title>
+ <meta name="description" content="Five presentation concepts for the Starfish Suite room detail popup at Seascape Resort & Marina." />
+ <style>
+ .srp-preview-page,
+ .srp-preview-page * {
+ box-sizing: border-box;
+ }
+
+ .srp-preview-page {
+ --srp-ink: #0f2f46;
+ --srp-ink-2: #35586c;
+ --srp-ink-3: #678392;
+ --srp-brand: #57b8c9;
+ --srp-brand-deep: #248ca0;
+ --srp-sand: #d4b067;
+ --srp-sand-deep: #bc9346;
+ --srp-bg: #eef6f8;
+ --srp-surface: rgba(255,255,255,.92);
+ --srp-surface-2: rgba(255,255,255,.82);
+ --srp-line: rgba(15,47,70,.10);
+ --srp-line-strong: rgba(15,47,70,.16);
+ --srp-shadow: 0 16px 46px rgba(15,47,70,.12);
+ --srp-shadow-soft: 0 10px 26px rgba(15,47,70,.08);
+ --srp-radius-xl: 28px;
+ --srp-radius-lg: 22px;
+ --srp-radius-md: 16px;
+ --srp-radius-sm: 12px;
+ --srp-max: 1320px;
+ margin: 0;
+ padding: 0;
+ color: var(--srp-ink);
+ font-family: inherit;
+ background:
+ radial-gradient(circle at 0% 0%, rgba(87,184,201,.12), transparent 26%),
+ radial-gradient(circle at 100% 0%, rgba(212,176,103,.10), transparent 22%),
+ linear-gradient(180deg, #edf7f9 0%, #f7fbfc 22%, #ffffff 100%);
+ line-height: 1.55;
+ }
+
+ .srp-container {
+ width: min(calc(100% - 28px), var(--srp-max));
+ margin: 0 auto;
+ }
+
+ .srp-top {
+ padding: 34px 0 14px;
+ }
+
+ .srp-top h1 {
+ margin: 0 0 10px;
+ font-size: clamp(2rem, 4vw, 3.4rem);
+ line-height: .96;
+ color: var(--srp-ink);
+ }
+
+ .srp-top p {
+ margin: 0;
+ max-width: 920px;
+ color: var(--srp-ink-3);
+ font-size: 1.02rem;
+ }
+
+ .srp-jump {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 8px;
+ margin: 18px 0 0;
+ }
+
+ .srp-jump a {
+ display: inline-flex;
+ align-items: center;
+ min-height: 38px;
+ padding: 0 14px;
+ border-radius: 999px;
+ border: 1px solid var(--srp-line);
+ background: rgba(255,255,255,.78);
+ color: var(--srp-ink-2);
+ text-decoration: none;
+ font-size: .82rem;
+ font-weight: 700;
+ }
+
+ .srp-section {
+ padding: 44px 0 68px;
+ border-top: 1px solid rgba(15,47,70,.06);
+ }
+
+ .srp-section-head {
+ margin-bottom: 22px;
+ }
+
+ .srp-kicker {
+ display: inline-flex;
+ align-items: center;
+ min-height: 34px;
+ padding: 0 14px;
+ border-radius: 999px;
+ border: 1px solid rgba(87,184,201,.20);
+ background: rgba(87,184,201,.12);
+ color: var(--srp-brand-deep);
+ font-size: .78rem;
+ font-weight: 700;
+ letter-spacing: .12em;
+ text-transform: uppercase;
+ margin-bottom: 12px;
+ }
+
+ .srp-section-head h2 {
+ margin: 0 0 8px;
+ font-size: clamp(1.6rem, 3vw, 2.5rem);
+ line-height: 1.02;
+ }
+
+ .srp-section-head p {
+ margin: 0;
+ max-width: 860px;
+ color: var(--srp-ink-3);
+ font-size: 1rem;
+ }
+
+ .srp-modal {
+ position: relative;
+ background:
+ linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.94)),
+ linear-gradient(135deg, rgba(87,184,201,.08), rgba(212,176,103,.08));
+ border: 1px solid var(--srp-line);
+ border-radius: 30px;
+ box-shadow: var(--srp-shadow);
+ overflow: hidden;
+ }
+
+ .srp-modal-shell {
+ padding: 24px;
+ }
+
+ .srp-closebar {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ padding: 0 0 18px;
+ border-bottom: 1px solid rgba(15,47,70,.08);
+ margin-bottom: 18px;
+ }
+
+ .srp-x {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ width: 42px;
+ height: 42px;
+ border-radius: 999px;
+ background: rgba(15,47,70,.06);
+ border: 1px solid rgba(15,47,70,.08);
+ color: var(--srp-ink);
+ font-size: 1.2rem;
+ font-weight: 700;
+ flex: 0 0 auto;
+ }
+
+ .srp-closebar strong {
+ font-size: 1rem;
+ color: var(--srp-ink);
+ }
+
+ .srp-photo {
+ position: relative;
+ overflow: hidden;
+ border-radius: 20px;
+ min-height: 340px;
+ background: #d8e8eb;
+ }
+
+ .srp-photo img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ display: block;
+ }
+
+ .srp-photo-label {
+ position: absolute;
+ left: 14px;
+ bottom: 14px;
+ display: inline-flex;
+ align-items: center;
+ min-height: 34px;
+ padding: 0 12px;
+ border-radius: 999px;
+ background: rgba(255,255,255,.88);
+ border: 1px solid rgba(15,47,70,.08);
+ color: var(--srp-ink);
+ font-size: .78rem;
+ font-weight: 700;
+ }
+
+ .srp-title {
+ margin: 0 0 10px;
+ font-size: clamp(1.5rem, 2vw, 2.1rem);
+ line-height: 1.04;
+ color: var(--srp-ink);
+ }
+
+ .srp-sub {
+ margin: 0 0 14px;
+ color: var(--srp-ink-3);
+ font-size: .96rem;
+ }
+
+ .srp-badges,
+ .srp-metrics,
+ .srp-amenities-inline,
+ .srp-like-list {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 8px;
+ }
+
+ .srp-badge,
+ .srp-metric,
+ .srp-like {
+ display: inline-flex;
+ align-items: center;
+ min-height: 34px;
+ padding: 0 12px;
+ border-radius: 999px;
+ font-size: .82rem;
+ font-weight: 700;
+ }
+
+ .srp-badge {
+ background: rgba(87,184,201,.10);
+ border: 1px solid rgba(87,184,201,.18);
+ color: var(--srp-ink);
+ }
+
+ .srp-metric {
+ background: rgba(15,47,70,.05);
+ border: 1px solid rgba(15,47,70,.08);
+ color: var(--srp-ink-2);
+ }
+
+ .srp-like {
+ background: rgba(212,176,103,.14);
+ border: 1px solid rgba(212,176,103,.24);
+ color: #6b531d;
+ }
+
+ .srp-copy {
+ margin: 14px 0 0;
+ color: var(--srp-ink-2);
+ font-size: .97rem;
+ }
+
+ .srp-rating {
+ margin-top: 14px;
+ font-size: 1.45rem;
+ line-height: 1;
+ font-weight: 800;
+ color: var(--srp-ink);
+ }
+
+ .srp-rating small {
+ display: block;
+ margin-top: 8px;
+ font-size: .88rem;
+ font-weight: 700;
+ color: var(--srp-ink-3);
+ }
+
+ .srp-actions {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 12px;
+ margin-top: 18px;
+ }
+
+ .srp-btn {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ min-height: 48px;
+ padding: 0 20px;
+ border-radius: 999px;
+ border: 1px solid transparent;
+ font-size: .95rem;
+ font-weight: 700;
+ text-decoration: none;
+ transition: transform .18s ease;
+ }
+
+ .srp-btn:hover {
+ transform: translateY(-1px);
+ }
+
+ .srp-btn-primary {
+ background: linear-gradient(135deg, var(--srp-brand), var(--srp-brand-deep));
+ color: #fff;
+ box-shadow: 0 10px 24px rgba(36,140,160,.20);
+ }
+
+ .srp-btn-secondary {
+ background: rgba(255,255,255,.86);
+ color: var(--srp-ink);
+ border-color: rgba(15,47,70,.12);
+ }
+
+ .srp-amenity-card,
+ .srp-mini-card {
+ background: rgba(255,255,255,.84);
+ border: 1px solid rgba(15,47,70,.08);
+ border-radius: 18px;
+ box-shadow: var(--srp-shadow-soft);
+ }
+
+ .srp-amenity-card {
+ padding: 18px;
+ }
+
+ .srp-amenity-card h4 {
+ margin: 0 0 10px;
+ font-size: 1rem;
+ line-height: 1.1;
+ color: var(--srp-ink);
+ }
+
+ .srp-amenity-card ul {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ display: grid;
+ gap: 8px;
+ }
+
+ .srp-amenity-card li {
+ color: var(--srp-ink-2);
+ font-size: .92rem;
+ }
+
+ .srp-grid-2 {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 20px;
+ }
+
+ .srp-grid-3 {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ gap: 16px;
+ }
+
+ .srp-grid-5 {
+ display: grid;
+ grid-template-columns: repeat(5, 1fr);
+ gap: 16px;
+ }
+
+ .srp-mini-card {
+ padding: 16px;
+ }
+
+ .srp-mini-card strong {
+ display: block;
+ margin-bottom: 8px;
+ font-size: .92rem;
+ color: var(--srp-ink);
+ }
+
+ .srp-mini-card span,
+ .srp-mini-card li {
+ color: var(--srp-ink-3);
+ font-size: .88rem;
+ }
+
+ .srp-mini-card ul {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ display: grid;
+ gap: 6px;
+ }
+
+ .srp-note {
+ margin-top: 14px;
+ color: var(--srp-ink-3);
+ font-size: .9rem;
+ }
+
+ .srp-style-1-main {
+ display: grid;
+ grid-template-columns: 360px 1fr;
+ gap: 22px;
+ align-items: start;
+ }
+
+ .srp-style-1-side {
+ padding: 4px 4px 4px 0;
+ }
+
+ .srp-style-1-photo-wrap {
+ display: grid;
+ gap: 18px;
+ }
+
+ .srp-style-2-main {
+ display: grid;
+ grid-template-columns: 1.08fr .92fr;
+ gap: 24px;
+ align-items: start;
+ }
+
+ .srp-style-2-info {
+ display: grid;
+ gap: 16px;
+ }
+
+ .srp-style-3-hero {
+ position: relative;
+ border-radius: 26px;
+ overflow: hidden;
+ min-height: 420px;
+ background: #d8e8eb;
+ margin-bottom: 22px;
+ }
+
+ .srp-style-3-hero img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ }
+
+ .srp-style-3-overlay {
+ position: absolute;
+ inset: 0;
+ background: linear-gradient(180deg, rgba(8,25,39,.06) 0%, rgba(8,25,39,.22) 42%, rgba(8,25,39,.70) 100%);
+ display: flex;
+ align-items: flex-end;
+ padding: 24px;
+ }
+
+ .srp-style-3-panel {
+ width: 100%;
+ background: rgba(255,255,255,.88);
+ border: 1px solid rgba(255,255,255,.30);
+ border-radius: 22px;
+ padding: 20px;
+ backdrop-filter: blur(10px);
+ }
+
+ .srp-style-3-bottom {
+ display: grid;
+ grid-template-columns: 1.1fr .9fr;
+ gap: 20px;
+ }
+
+ .srp-style-4-main {
+ display: grid;
+ grid-template-columns: 300px 1fr;
+ gap: 22px;
+ align-items: start;
+ }
+
+ .srp-style-4-left {
+ display: grid;
+ gap: 16px;
+ position: sticky;
+ top: 24px;
+ }
+
+ .srp-style-4-right {
+ display: grid;
+ gap: 18px;
+ }
+
+ .srp-style-4-gallery {
+ border-radius: 24px;
+ overflow: hidden;
+ }
+
+ .srp-style-4-gallery .srp-photo {
+ min-height: 460px;
+ border-radius: 24px;
+ }
+
+ .srp-style-5-main {
+ display: grid;
+ gap: 18px;
+ }
+
+ .srp-style-5-top {
+ display: grid;
+ grid-template-columns: .95fr 1.05fr;
+ gap: 22px;
+ align-items: stretch;
+ }
+
+ .srp-style-5-body {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 18px;
+ }
+
+ .srp-style-5-body-wide {
+ display: grid;
+ grid-template-columns: 1.15fr .85fr;
+ gap: 18px;
+ }
+
+ .srp-divider {
+ height: 1px;
+ background: rgba(15,47,70,.08);
+ margin: 18px 0;
+ }
+
+ @media (max-width: 1120px) {
+ .srp-style-1-main,
+ .srp-style-2-main,
+ .srp-style-3-bottom,
+ .srp-style-4-main,
+ .srp-style-5-top,
+ .srp-style-5-body-wide {
+ grid-template-columns: 1fr;
+ }
+
+ .srp-grid-5 {
+ grid-template-columns: repeat(3, 1fr);
+ }
+
+ .srp-style-4-left {
+ position: static;
+ }
+ }
+
+ @media (max-width: 760px) {
+ .srp-grid-2,
+ .srp-grid-3,
+ .srp-style-5-body {
+ grid-template-columns: 1fr;
+ }
+
+ .srp-grid-5 {
+ grid-template-columns: 1fr 1fr;
+ }
+
+ .srp-modal-shell {
+ padding: 16px;
+ }
+
+ .srp-photo,
+ .srp-style-4-gallery .srp-photo {
+ min-height: 250px;
+ }
+
+ .srp-style-3-hero {
+ min-height: 320px;
+ }
+ }
+
+ @media (max-width: 520px) {
+ .srp-container {
+ width: min(calc(100% - 18px), var(--srp-max));
+ }
+
+ .srp-grid-5 {
+ grid-template-columns: 1fr;
+ }
+
+ .srp-x {
+ width: 38px;
+ height: 38px;
+ }
+
+ .srp-btn {
+ width: 100%;
+ }
+ }
+ </style>
+</head>
+<body>
+ <div class="srp-preview-page">
+ <div class="srp-container">
+ <div class="srp-top">
+ <h1>Starfish Suite popup concepts</h1>
+ <p>
+ Below are 5 different ways to present the fullscreen room-detail experience after a guest clicks a room photo on the main accommodations page. Each concept uses the same Starfish Suite content and the same placeholder image.
+ </p>
+ <div class="srp-jump">
+ <a href="#option-1">Option 1</a>
+ <a href="#option-2">Option 2</a>
+ <a href="#option-3">Option 3</a>
+ <a href="#option-4">Option 4</a>
+ <a href="#option-5">Option 5</a>
+ </div>
+ </div>
+ </div>
+
+ <section class="srp-section" id="option-1">
+ <div class="srp-container">
+ <div class="srp-section-head">
+ <div class="srp-kicker">Option 1</div>
+ <h2>Classic two-column booking modal</h2>
+ <p>
+ Closest to the current logic. Strong clarity. Clean conversion flow. Easy for guests to scan.
+ </p>
+ </div>
+
+ <div class="srp-modal">
+ <div class="srp-modal-shell">
+ <div class="srp-closebar">
+ <div class="srp-x">×</div>
+ <strong>Room Information</strong>
+ </div>
+
+ <div class="srp-style-1-main">
+ <aside class="srp-style-1-side">
+ <div class="srp-badges">
+ <span class="srp-badge">#1 Starfish Suite</span>
+ <span class="srp-badge">5/5 Guest Rating</span>
+ </div>
+
+ <div class="srp-metrics" style="margin-top:12px;">
+ <span class="srp-metric">Sleeps 2</span>
+ <span class="srp-metric">1 Queen Bed</span>
+ <span class="srp-metric">Free WiFi</span>
+ <span class="srp-metric">Patio</span>
+ </div>
+
+ <div class="srp-rating">
+ 5/5
+ <small>Highly rated for cleanliness, fresh renovation feel, and amenities</small>
+ </div>
+
+ <div class="srp-actions">
+ <a class="srp-btn srp-btn-primary" href="#">Check Availability</a>
+ <a class="srp-btn srp-btn-secondary" href="#">Call Best Rate</a>
+ </div>
+
+ <div class="srp-divider"></div>
+
+ <div class="srp-mini-card">
+ <strong>Guests like it for</strong>
+ <div class="srp-like-list">
+ <span class="srp-like">Clean</span>
+ <span class="srp-like">Renovated feel</span>
+ <span class="srp-like">Great amenities</span>
+ </div>
+ </div>
+ </aside>
+
+ <div class="srp-style-1-photo-wrap">
+ <div class="srp-photo">
+ <img src="https://raw.githubusercontent.com/elettro/seascaperesortmarina/b41be728e1b3710d35a61263431d5f93f1b770be/images/exampleroom.jpg" alt="Starfish Suite placeholder photo" />
+ <div class="srp-photo-label">Starfish Suite · Placeholder Image</div>
+ </div>
+
+ <div class="srp-mini-card">
+ <h3 class="srp-title">#1 Starfish Suite</h3>
+ <p class="srp-copy">
+ Located only steps from the private beach, this suite features a queen-size bed and large bathroom in an open-style floor plan. It also includes a private patio to enjoy salty breezes and glimpses of the ocean. Maximum occupancy two.
+ </p>
+ </div>
+
+ <div class="srp-grid-5">
+ <div class="srp-amenity-card">
+ <h4>Bedroom</h4>
+ <ul>
+ <li>Air conditioning</li>
+ <li>Linens</li>
+ </ul>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>Bathroom</h4>
+ <ul>
+ <li>Free toiletries</li>
+ <li>Hair dryer</li>
+ <li>Shower</li>
+ <li>Towels</li>
+ </ul>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>Entertainment</h4>
+ <ul>
+ <li>Cable channels</li>
+ <li>TV</li>
+ </ul>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>Food & Drink</h4>
+ <ul>
+ <li>Coffeemaker</li>
+ <li>Microwave</li>
+ <li>Refrigerator</li>
+ </ul>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>More</h4>
+ <ul>
+ <li>Individually decorated</li>
+ <li>Individually furnished</li>
+ <li>Iron on request</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <section class="srp-section" id="option-2">
+ <div class="srp-container">
+ <div class="srp-section-head">
+ <div class="srp-kicker">Option 2</div>
+ <h2>Large image-first modal with stacked info panel</h2>
+ <p>
+ More premium. More visual. Better if Seascape wants the room photo to lead the experience.
+ </p>
+ </div>
+
+ <div class="srp-modal">
+ <div class="srp-modal-shell">
+ <div class="srp-closebar">
+ <div class="srp-x">×</div>
+ <strong>Back to Rooms</strong>
+ </div>
+
+ <div class="srp-style-2-main">
+ <div class="srp-photo" style="min-height:520px;">
+ <img src="https://raw.githubusercontent.com/elettro/seascaperesortmarina/b41be728e1b3710d35a61263431d5f93f1b770be/images/exampleroom.jpg" alt="Starfish Suite placeholder photo" />
+ <div class="srp-photo-label">Starfish Suite</div>
+ </div>
+
+ <div class="srp-style-2-info">
+ <div class="srp-mini-card">
+ <div class="srp-badges">
+ <span class="srp-badge">Unit 1</span>
+ <span class="srp-badge">Suite</span>
+ <span class="srp-badge">5/5 Rating</span>
+ </div>
+ <h3 class="srp-title" style="margin-top:12px;">Starfish Suite</h3>
+ <p class="srp-sub">Boutique suite steps from the private beach</p>
+ <div class="srp-metrics">
+ <span class="srp-metric">Sleeps 2</span>
+ <span class="srp-metric">1 Queen Bed</span>
+ <span class="srp-metric">Free WiFi</span>
+ <span class="srp-metric">Patio</span>
+ </div>
+ <p class="srp-copy">
+ This room works best for couples who want a clean, efficient Keys stay with a patio and quick access to the waterfront.
+ </p>
+ </div>
+
+ <div class="srp-mini-card">
+ <strong>Guest highlights</strong>
+ <div class="srp-like-list">
+ <span class="srp-like">Clean</span>
+ <span class="srp-like">Freshly updated feel</span>
+ <span class="srp-like">Strong amenities</span>
+ </div>
+ </div>
+
+ <div class="srp-mini-card">
+ <strong>Room description</strong>
+ <p class="srp-copy" style="margin-top:8px;">
+ Located only steps from the private beach, this suite boasts a queen-size bed and large bathroom in an open-style floor plan. The private patio adds outdoor comfort with salty breezes and glimpses of the ocean.
+ </p>
+ </div>
+
+ <div class="srp-actions">
+ <a class="srp-btn srp-btn-primary" href="#">Check Availability</a>
+ <a class="srp-btn srp-btn-secondary" href="#">Reserve Now, Pay Deposit</a>
+ </div>
+ </div>
+ </div>
+
+ <div class="srp-grid-3" style="margin-top:20px;">
+ <div class="srp-amenity-card">
+ <h4>Comfort</h4>
+ <ul>
+ <li>Air conditioning</li>
+ <li>Linens</li>
+ <li>Individually decorated</li>
+ <li>Individually furnished</li>
+ </ul>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>Bathroom</h4>
+ <ul>
+ <li>Free toiletries</li>
+ <li>Hair dryer</li>
+ <li>Shower</li>
+ <li>Towels</li>
+ </ul>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>In-Room Extras</h4>
+ <ul>
+ <li>Cable channels</li>
+ <li>TV</li>
+ <li>Coffeemaker</li>
+ <li>Microwave</li>
+ <li>Refrigerator</li>
+ <li>Iron on request</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <section class="srp-section" id="option-3">
+ <div class="srp-container">
+ <div class="srp-section-head">
+ <div class="srp-kicker">Option 3</div>
+ <h2>Immersive hero image modal with floating details panel</h2>
+ <p>
+ Most visual. Best if you want the room detail popup to feel more luxury and less utilitarian.
+ </p>
+ </div>
+
+ <div class="srp-modal">
+ <div class="srp-modal-shell">
+ <div class="srp-closebar">
+ <div class="srp-x">×</div>
+ <strong>Room Detail View</strong>
+ </div>
+
+ <div class="srp-style-3-hero">
+ <img src="https://raw.githubusercontent.com/elettro/seascaperesortmarina/b41be728e1b3710d35a61263431d5f93f1b770be/images/exampleroom.jpg" alt="Starfish Suite placeholder photo" />
+ <div class="srp-style-3-overlay">
+ <div class="srp-style-3-panel">
+ <div class="srp-badges">
+ <span class="srp-badge">#1 Starfish Suite</span>
+ <span class="srp-badge">5/5 Guest Room Rating</span>
+ </div>
+ <h3 class="srp-title" style="margin-top:12px;">A clean, cozy suite for two with private patio appeal.</h3>
+ <div class="srp-metrics">
+ <span class="srp-metric">Sleeps 2</span>
+ <span class="srp-metric">1 Queen Bed</span>
+ <span class="srp-metric">Patio</span>
+ <span class="srp-metric">Free WiFi</span>
+ </div>
+ <div class="srp-actions">
+ <a class="srp-btn srp-btn-primary" href="#">Check Availability</a>
+ <a class="srp-btn srp-btn-secondary" href="#">Call Best Rate</a>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="srp-style-3-bottom">
+ <div class="srp-amenity-card">
+ <h4>About this room</h4>
+ <p class="srp-copy" style="margin-top:0;">
+ Located only steps from the private beach, the Starfish Suite features an open-style floor plan, queen-size bed, large bathroom, and private patio. It is built for guests who want an easy, uncluttered stay with practical in-room conveniences.
+ </p>
+ <div class="srp-like-list" style="margin-top:14px;">
+ <span class="srp-like">Clean</span>
+ <span class="srp-like">Renovated feel</span>
+ <span class="srp-like">Great amenities</span>
+ </div>
+ </div>
+
+ <div class="srp-grid-2">
+ <div class="srp-amenity-card">
+ <h4>Core amenities</h4>
+ <ul>
+ <li>Air conditioning</li>
+ <li>Linens</li>
+ <li>TV</li>
+ <li>Cable channels</li>
+ <li>Free WiFi</li>
+ </ul>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>Bathroom & refreshment</h4>
+ <ul>
+ <li>Free toiletries</li>
+ <li>Hair dryer</li>
+ <li>Shower</li>
+ <li>Towels</li>
+ <li>Coffeemaker</li>
+ <li>Microwave</li>
+ <li>Refrigerator</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <p class="srp-note">
+ This approach makes the room feel more high-end and emotionally appealing before the guest drops into details.
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <section class="srp-section" id="option-4">
+ <div class="srp-container">
+ <div class="srp-section-head">
+ <div class="srp-kicker">Option 4</div>
+ <h2>Sidebar detail modal with full amenities dashboard</h2>
+ <p>
+ Most structured. Best for guests who want everything organized clearly and quickly.
+ </p>
+ </div>
+
+ <div class="srp-modal">
+ <div class="srp-modal-shell">
+ <div class="srp-closebar">
+ <div class="srp-x">×</div>
+ <strong>Room Information</strong>
+ </div>
+
+ <div class="srp-style-4-main">
+ <aside class="srp-style-4-left">
+ <div class="srp-mini-card">
+ <div class="srp-badges">
+ <span class="srp-badge">Unit 1</span>
+ <span class="srp-badge">Starfish Suite</span>
+ </div>
+ <h3 class="srp-title" style="margin-top:12px;">Starfish Suite</h3>
+ <div class="srp-metrics">
+ <span class="srp-metric">Sleeps 2</span>
+ <span class="srp-metric">1 Queen Bed</span>
+ <span class="srp-metric">Patio</span>
+ <span class="srp-metric">Free WiFi</span>
+ </div>
+ <div class="srp-rating">
+ 5/5
+ <small>Guest Room Rating</small>
+ </div>
+ <div class="srp-actions">
+ <a class="srp-btn srp-btn-primary" href="#">Check Availability</a>
+ <a class="srp-btn srp-btn-secondary" href="#">Reserve Now</a>
+ </div>
+ </div>
+
+ <div class="srp-mini-card">
+ <strong>Guests like it for</strong>
+ <ul>
+ <li>Clean room condition</li>
+ <li>Renovated new feel</li>
+ <li>Great practical amenities</li>
+ </ul>
+ </div>
+ </aside>
+
+ <div class="srp-style-4-right">
+ <div class="srp-style-4-gallery">
+ <div class="srp-photo">
+ <img src="https://raw.githubusercontent.com/elettro/seascaperesortmarina/b41be728e1b3710d35a61263431d5f93f1b770be/images/exampleroom.jpg" alt="Starfish Suite placeholder photo" />
+ <div class="srp-photo-label">Photo Gallery Placeholder</div>
+ </div>
+ </div>
+
+ <div class="srp-amenity-card">
+ <h4>Room overview</h4>
+ <p class="srp-copy" style="margin-top:0;">
+ Located only steps from the private beach, this suite includes a queen-size bed and large bathroom in an open-style floor plan. The private patio provides an easy outdoor extension of the room with glimpses of the ocean and a relaxed Keys feel.
+ </p>
+ </div>
+
+ <div class="srp-grid-3">
+ <div class="srp-amenity-card">
+ <h4>Bedroom</h4>
+ <ul>
+ <li>Air conditioning</li>
+ <li>Linens</li>
+ </ul>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>Bathroom</h4>
+ <ul>
+ <li>Free toiletries</li>
+ <li>Hair dryer</li>
+ <li>Shower</li>
+ <li>Towels</li>
+ </ul>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>Entertainment</h4>
+ <ul>
+ <li>Cable channels</li>
+ <li>TV</li>
+ </ul>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>Food & Drink</h4>
+ <ul>
+ <li>Coffeemaker</li>
+ <li>Microwave</li>
+ <li>Refrigerator</li>
+ </ul>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>Extra conveniences</h4>
+ <ul>
+ <li>Individually decorated</li>
+ <li>Individually furnished</li>
+ </ul>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>Service note</h4>
+ <ul>
+ <li>Iron / ironing board on request</li>
+ <li>Reserve now, pay deposit</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <section class="srp-section" id="option-5">
+ <div class="srp-container">
+ <div class="srp-section-head">
+ <div class="srp-kicker">Option 5</div>
+ <h2>Balanced resort popup with strong booking block and content bands</h2>
+ <p>
+ Best middle ground. It feels polished, visual, and organized without going too editorial or too technical.
+ </p>
+ </div>
+
+ <div class="srp-modal">
+ <div class="srp-modal-shell">
+ <div class="srp-closebar">
+ <div class="srp-x">×</div>
+ <strong>Starfish Suite</strong>
+ </div>
+
+ <div class="srp-style-5-main">
+ <div class="srp-style-5-top">
+ <div class="srp-photo" style="min-height:430px;">
+ <img src="https://raw.githubusercontent.com/elettro/seascaperesortmarina/b41be728e1b3710d35a61263431d5f93f1b770be/images/exampleroom.jpg" alt="Starfish Suite placeholder photo" />
+ <div class="srp-photo-label">Starfish Suite Placeholder Image</div>
+ </div>
+
+ <div class="srp-mini-card" style="padding:20px;">
+ <div class="srp-badges">
+ <span class="srp-badge">#1 Starfish Suite</span>
+ <span class="srp-badge">5/5 Guest Rating</span>
+ </div>
+ <h3 class="srp-title" style="margin-top:12px;">A simple and clean suite for two near the private beach.</h3>
+ <p class="srp-copy">
+ Open-style room layout. Queen bed. Large bathroom. Private patio. A strong choice for guests who want a boutique Keys stay without overcomplication.
+ </p>
+ <div class="srp-metrics" style="margin-top:14px;">
+ <span class="srp-metric">Sleeps 2</span>
+ <span class="srp-metric">1 Queen Bed</span>
+ <span class="srp-metric">Free WiFi</span>
+ <span class="srp-metric">Patio</span>
+ <span class="srp-metric">Microwave</span>
+ <span class="srp-metric">Refrigerator</span>
+ </div>
+ <div class="srp-actions">
+ <a class="srp-btn srp-btn-primary" href="#">Check Availability</a>
+ <a class="srp-btn srp-btn-secondary" href="#">Reserve Now, Pay Deposit</a>
+ </div>
+ <div class="srp-divider"></div>
+ <div class="srp-like-list">
+ <span class="srp-like">Clean</span>
+ <span class="srp-like">Renovated new</span>
+ <span class="srp-like">Great amenities</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="srp-style-5-body-wide">
+ <div class="srp-amenity-card">
+ <h4>Full room description</h4>
+ <p class="srp-copy" style="margin-top:0;">
+ Located only steps from the private beach, this suite boasts a queen-size bed and large bathroom in an open-style floor plan. This suite also features a private patio to enjoy the salty breezes and glimpses of the ocean. Maximum occupancy two.
+ </p>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>Quick room facts</h4>
+ <ul>
+ <li>Room type: Suite</li>
+ <li>Occupancy: 2 guests</li>
+ <li>Bed type: 1 Queen Bed</li>
+ <li>Outdoor feature: Patio</li>
+ <li>Connectivity: Free WiFi</li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="srp-style-5-body">
+ <div class="srp-amenity-card">
+ <h4>Bathroom & comfort</h4>
+ <ul>
+ <li>Free toiletries</li>
+ <li>Hair dryer</li>
+ <li>Shower</li>
+ <li>Towels</li>
+ <li>Air conditioning</li>
+ <li>Linens</li>
+ </ul>
+ </div>
+ <div class="srp-amenity-card">
+ <h4>Entertainment & food prep</h4>
+ <ul>
+ <li>Cable channels</li>
+ <li>TV</li>
+ <li>Coffeemaker</li>
+ <li>Microwave</li>
+ <li>Refrigerator</li>
+ <li>Iron on request</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <p class="srp-note">
+ This concept gives you the best balance of image presence, room clarity, amenity structure, and booking emphasis.
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+ </div>
+</body>
+</html>

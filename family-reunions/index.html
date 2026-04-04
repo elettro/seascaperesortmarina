@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Family Reunions in the Florida Keys | Seascape Resort & Marina</title>
+  <meta name="description" content="Bring your family together in a private waterfront setting at Seascape Resort & Marina in Marathon, Florida. Host up to 42 overnight guests across 13 rooms." />
+  <link rel="canonical" href="https://elettro.github.io/seascaperesortmarina/family-reunions/" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    :root {
+      --fr-navy: #102f43;
+      --fr-deep: #0b2434;
+      --fr-teal: #5eb8c8;
+      --fr-teal-soft: #e2f4f8;
+      --fr-gold: #d8b270;
+      --fr-cream: #faf7f1;
+      --fr-mist: #f3f9fb;
+      --fr-text: #28495c;
+      --fr-muted: #5f7b8c;
+      --fr-line: rgba(16, 47, 67, 0.13);
+      --fr-shadow: 0 22px 56px rgba(10, 35, 50, 0.14);
+      --fr-wrap: 1220px;
+      --fr-radius-xl: 30px;
+      --fr-radius-lg: 22px;
+      --fr-radius-md: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--fr-text);
+      background:
+        radial-gradient(circle at 8% 6%, rgba(94, 184, 200, 0.14), transparent 20%),
+        radial-gradient(circle at 96% 26%, rgba(216, 178, 112, 0.12), transparent 24%),
+        linear-gradient(180deg, #0e2d41 0px, #143a53 170px, #f6fbfc 360px, #ffffff 100%);
+    }
+
+    .family-page {
+      --family-nav-offset: 0px;
+      overflow: clip;
+    }
+
+    #site-nav {
+      position: relative;
+      z-index: 1200;
+    }
+
+    .family-page #site-nav .site-header,
+    .family-page #site-nav .utility-bar {
+      background: #0f2a3a;
+    }
+
+    .family-page main {
+      padding-top: var(--family-nav-offset);
+    }
+
+    .family-page #site-nav .hero,
+    .family-page #site-nav .video-shell,
+    .family-page #site-nav .video-overlay,
+    .family-page #site-nav .hero-overlay,
+    .family-page #site-nav .hero-content,
+    .family-page #site-nav .intro-strip,
+    .family-page #site-nav main {
+      display: none !important;
+    }
+
+    .family-wrap {
+      width: min(var(--fr-wrap), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .family-hero {
+      position: relative;
+      min-height: 82vh;
+      color: #fff;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(8, 26, 38, 0.42) 0%, rgba(8, 26, 38, 0.52) 44%, rgba(8, 26, 38, 0.78) 100%),
+        url('https://images.unsplash.com/photo-1468413253725-0d5181091126?auto=format&fit=crop&w=1900&q=80') center/cover no-repeat;
+    }
+
+    .family-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 16% 18%, rgba(89, 184, 201, 0.22), transparent 30%),
+        radial-gradient(circle at 84% 14%, rgba(216, 178, 112, 0.18), transparent 26%);
+      pointer-events: none;
+    }
+
+    .family-hero-inner {
+      position: relative;
+      z-index: 2;
+      padding: 96px 0 46px;
+    }
+
+    .family-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 26px;
+      align-items: end;
+    }
+
+    .family-kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.12);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 0.77rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .family-hero h1 {
+      margin: 0 0 14px;
+      max-width: 760px;
+      font-size: clamp(2.3rem, 5.8vw, 4.9rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+
+    .family-hero p {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(1.03rem, 2.1vw, 1.2rem);
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .family-action-row {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .family-btn {
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .family-btn:hover { transform: translateY(-2px); }
+
+    .family-btn-primary {
+      color: #152d3c;
+      background: linear-gradient(135deg, #f0dbab, var(--fr-gold));
+      box-shadow: 0 10px 24px rgba(216, 178, 112, 0.32);
+    }
+
+    .family-btn-secondary {
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .family-capacity-card {
+      border-radius: var(--fr-radius-xl);
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.93));
+      box-shadow: var(--fr-shadow);
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      color: var(--fr-text);
+    }
+
+    .family-capacity-top {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .family-chip {
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      background: rgba(94, 184, 200, 0.14);
+      border: 1px solid rgba(94, 184, 200, 0.32);
+      color: #1c6174;
+      font-size: 0.79rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .family-capacity-card h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3.2vw, 2.35rem);
+      color: var(--fr-navy);
+      line-height: 1.05;
+    }
+
+    .family-capacity-card p {
+      margin: 0;
+      color: var(--fr-muted);
+      line-height: 1.65;
+    }
+
+    .family-highlight-strip {
+      margin-top: -24px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .family-highlight-grid {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 253, 254, 0.95));
+      box-shadow: 0 14px 30px rgba(10, 35, 50, 0.12);
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .family-highlight-item {
+      border-radius: 14px;
+      min-height: 72px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #204d62;
+      padding: 10px;
+      background: linear-gradient(145deg, rgba(94, 184, 200, 0.12), rgba(216, 178, 112, 0.15));
+      border: 1px solid rgba(16, 47, 67, 0.08);
+    }
+
+    .family-section {
+      padding: 82px 0;
+    }
+
+    .family-head {
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .family-head h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      color: var(--fr-navy);
+      letter-spacing: -0.02em;
+    }
+
+    .family-head p {
+      margin: 0;
+      line-height: 1.72;
+      color: var(--fr-muted);
+    }
+
+    .family-two-col {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .family-card {
+      border-radius: var(--fr-radius-lg);
+      border: 1px solid var(--fr-line);
+      background: #fff;
+      box-shadow: 0 10px 26px rgba(12, 38, 54, 0.08);
+      padding: 24px;
+    }
+
+    .family-card h3 {
+      margin: 0 0 10px;
+      color: var(--fr-navy);
+      font-size: 1.18rem;
+    }
+
+    .family-card p {
+      margin: 0;
+      color: var(--fr-muted);
+      line-height: 1.7;
+    }
+
+    .family-capacity-band {
+      background: linear-gradient(180deg, #f2f9fb 0%, #fbfdfd 100%);
+      border-top: 1px solid rgba(16, 47, 67, 0.08);
+      border-bottom: 1px solid rgba(16, 47, 67, 0.08);
+    }
+
+    .family-capacity-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .family-stat-box {
+      border-radius: var(--fr-radius-lg);
+      background: linear-gradient(160deg, #0f3147, #133e57);
+      color: #fff;
+      padding: 28px;
+      box-shadow: var(--fr-shadow);
+    }
+
+    .family-stat {
+      display: grid;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .family-stat strong {
+      font-size: clamp(2rem, 4.8vw, 3.2rem);
+      line-height: 0.94;
+      letter-spacing: -0.02em;
+    }
+
+    .family-stat span {
+      color: rgba(255, 255, 255, 0.84);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-size: 0.77rem;
+    }
+
+    .family-moment-band {
+      position: relative;
+      color: #fff;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(9, 29, 41, 0.84), rgba(9, 29, 41, 0.82)),
+        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1900&q=80') center/cover no-repeat;
+    }
+
+    .family-moment-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
+    .family-moment {
+      padding: 18px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.09);
+      backdrop-filter: blur(4px);
+      line-height: 1.55;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .family-itinerary-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .family-itinerary-card {
+      border-radius: var(--fr-radius-lg);
+      border: 1px solid var(--fr-line);
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(11, 35, 48, 0.09);
+      padding: 22px;
+    }
+
+    .family-itinerary-card h3 {
+      margin: 0 0 10px;
+      color: var(--fr-navy);
+      font-size: 1.18rem;
+    }
+
+    .family-itinerary-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--fr-muted);
+      line-height: 1.65;
+    }
+
+    .family-feature-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .family-feature {
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid var(--fr-line);
+      padding: 16px;
+      font-weight: 700;
+      color: #254f64;
+      box-shadow: 0 8px 22px rgba(10, 30, 44, 0.07);
+    }
+
+    .family-booking {
+      background: linear-gradient(180deg, #f7fbfd 0%, #fefefe 100%);
+      border-top: 1px solid rgba(16, 47, 67, 0.08);
+      border-bottom: 1px solid rgba(16, 47, 67, 0.08);
+    }
+
+    .family-booking-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+    }
+
+    .family-booking .booking-widget-shell { margin: 0; }
+
+    .family-final-cta {
+      text-align: center;
+      padding-top: 90px;
+      padding-bottom: 90px;
+      background:
+        linear-gradient(180deg, rgba(12, 42, 60, 0.94), rgba(12, 42, 60, 0.98)),
+        radial-gradient(circle at center, rgba(94, 184, 200, 0.12), transparent 70%);
+      color: #fff;
+    }
+
+    .family-final-cta h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      color: #fff;
+    }
+
+    .family-final-cta p {
+      margin: 0 auto;
+      max-width: 780px;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1080px) {
+      .family-hero-grid,
+      .family-capacity-grid,
+      .family-booking-grid,
+      .family-two-col { grid-template-columns: 1fr; }
+
+      .family-highlight-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .family-moment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .family-itinerary-grid { grid-template-columns: 1fr; }
+      .family-feature-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .family-hero-inner { padding-top: 76px; }
+      .family-highlight-strip { margin-top: -18px; }
+      .family-highlight-grid { grid-template-columns: 1fr 1fr; }
+      .family-moment-grid { grid-template-columns: 1fr; }
+      .family-action-row .family-btn { width: 100%; }
+      .family-section { padding: 66px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell family-page">
+    <div id="site-nav"></div>
+
+    <main>
+      <section class="family-hero" aria-labelledby="family-reunions-title">
+        <div class="family-wrap family-hero-inner">
+          <div class="family-hero-grid">
+            <div>
+              <div class="family-kicker">Family Reunions · Marathon, Florida Keys</div>
+              <h1 id="family-reunions-title">A rare Florida Keys reunion setting where your whole family stays together.</h1>
+              <p>
+                Seascape Resort & Marina is designed for what matters most: meaningful time with the people you love. Everyone stays close, the waterfront is steps away, and your reunion flows naturally from morning coffee to sunset conversations.
+              </p>
+              <div class="family-action-row">
+                <a class="family-btn family-btn-primary" href="#reunion-booking">Check Reunion Dates</a>
+                <a class="family-btn family-btn-secondary" href="../contact/">Start Reunion Planning</a>
+              </div>
+            </div>
+
+            <aside class="family-capacity-card" aria-label="Family reunion capacity details">
+              <div class="family-capacity-top">
+                <div class="family-chip">13 Rooms Together</div>
+                <div class="family-chip">Up to 42 Overnight Guests</div>
+              </div>
+              <h2>Enough room for the people who matter most, all in one place.</h2>
+              <p>
+                This is the sweet spot for multi-generation family reunions: not too small, not too sprawling. Grandparents, parents, kids, siblings, cousins, and close friends can stay nearby and spend more time together with less friction.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="family-highlight-strip" aria-label="Family reunion highlights">
+        <div class="family-wrap">
+          <div class="family-highlight-grid">
+            <div class="family-highlight-item">13 Rooms Together</div>
+            <div class="family-highlight-item">Up to 42 Overnight Guests</div>
+            <div class="family-highlight-item">Private Waterfront Setting</div>
+            <div class="family-highlight-item">Pool, Pier, and Marina Steps Away</div>
+            <div class="family-highlight-item">Ideal for Multi-Generation Families</div>
+            <div class="family-highlight-item">Relaxed Florida Keys Atmosphere</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="family-section">
+        <div class="family-wrap">
+          <div class="family-head">
+            <h2>Family reunions feel easier when everyone stays close.</h2>
+            <p>
+              Seascape gives families something hard to find in the Florida Keys: an intimate waterfront property where comfort, privacy, and connection happen naturally. Instead of coordinating cars and scattered rooms, your group can move through the weekend together—slow mornings, spontaneous check-ins, and more shared moments.
+            </p>
+          </div>
+
+          <div class="family-two-col">
+            <article class="family-card">
+              <h3>Low-friction togetherness</h3>
+              <p>
+                Less driving. Less separation. More conversations between generations. With rooms, pool, marina, and fishing pier all close together, family members naturally cross paths throughout the day.
+              </p>
+            </article>
+            <article class="family-card">
+              <h3>Private, calm, and close-knit</h3>
+              <p>
+                Compared with larger resorts, Seascape feels quieter and more personal. Your reunion keeps its own rhythm in a waterfront setting built for meaningful time instead of crowds.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="family-section family-capacity-band">
+        <div class="family-wrap family-capacity-grid">
+          <article class="family-stat-box">
+            <div class="family-stat">
+              <strong>13</strong>
+              <span>Total rooms on property</span>
+            </div>
+            <div class="family-stat">
+              <strong>Up to 42</strong>
+              <span>Overnight guests across all rooms</span>
+            </div>
+            <p>
+              Host a true family reunion where nearly everyone can stay in one shared place—without the spread-out feeling of a larger hotel campus.
+            </p>
+          </article>
+
+          <article class="family-card">
+            <h3>The right size for a reunion that feels together.</h3>
+            <p>
+              Seascape is large enough to host your full group, yet intimate enough that grandparents, parents, and kids stay connected all weekend. It's a rare fit for families seeking privacy, easy navigation, and a naturally social waterfront layout.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="family-section">
+        <div class="family-wrap">
+          <div class="family-head">
+            <h2>Why families choose Seascape over generic group hotels.</h2>
+            <p>
+              Every part of the property supports family connection: everyone stays near each other, gathering areas are on the water, and activities are built in. It feels intimate and comfortable, not chaotic or over-programmed.
+            </p>
+          </div>
+          <div class="family-two-col">
+            <article class="family-card">
+              <h3>Simple to navigate for every age</h3>
+              <p>
+                Multi-generation groups move comfortably throughout the property. It is easy for grandparents and young kids alike, with shared spaces close by and no long property transfers.
+              </p>
+            </article>
+            <article class="family-card">
+              <h3>Waterfront gathering energy</h3>
+              <p>
+                Marina views, fishing pier access, and poolside downtime create natural places to reconnect. Your reunion feels active when you want it to, and restful when you need it.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="family-section family-moment-band">
+        <div class="family-wrap">
+          <div class="family-head">
+            <h2 style="color:#fff;">Where the meaningful parts of a reunion happen naturally.</h2>
+            <p style="color:rgba(255,255,255,0.86);">
+              Morning coffee by the water. Poolside catching up. Kids and grandparents crossing paths between rooms and the pier. Sunset photos by the marina. One place where stories get retold and new memories begin.
+            </p>
+          </div>
+          <div class="family-moment-grid">
+            <div class="family-moment">Early risers gather at the waterfront while the rest of the family slowly wakes up.</div>
+            <div class="family-moment">Poolside afternoons become the heart of the day, with cousins playing and parents reconnecting.</div>
+            <div class="family-moment">Fishing pier moments turn into shared highlights across generations.</div>
+            <div class="family-moment">Golden-hour photos and marina sunsets bring everyone together before dinner.</div>
+            <div class="family-moment">Evening conversations stretch a little longer when no one has to leave the property.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="family-section" aria-labelledby="sample-itinerary">
+        <div class="family-wrap">
+          <div class="family-head">
+            <h2 id="sample-itinerary">Sample family reunion itinerary</h2>
+            <p>
+              Picture how smooth your weekend can feel at Seascape. This sample layout helps families imagine a reunion with minimal logistics and maximum shared time.
+            </p>
+          </div>
+
+          <div class="family-itinerary-grid">
+            <article class="family-itinerary-card">
+              <h3>Friday · Arrive, settle in, reconnect</h3>
+              <ul>
+                <li>Staggered arrivals with easy parking and simple check-in.</li>
+                <li>Families settle into rooms and meet by the waterfront.</li>
+                <li>Relaxed welcome evening with casual dockside conversations.</li>
+              </ul>
+            </article>
+            <article class="family-itinerary-card">
+              <h3>Saturday · Main family day</h3>
+              <ul>
+                <li>Morning coffee near the marina and fishing pier.</li>
+                <li>Pool time, kayak outings, bike rides, or local Marathon options.</li>
+                <li>Group dinner, waterfront photos, and an unhurried sunset close.</li>
+              </ul>
+            </article>
+            <article class="family-itinerary-card">
+              <h3>Sunday · One last breakfast</h3>
+              <ul>
+                <li>Final breakfast together and last family photos by the water.</li>
+                <li>Easy departures without long property logistics.</li>
+                <li>Everyone leaves feeling like they truly had time together.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="family-section family-capacity-band">
+        <div class="family-wrap">
+          <div class="family-head">
+            <h2>Reunion-ready property features your family will actually use.</h2>
+            <p>
+              Everything below supports a comfortable, guest-centered reunion in Marathon—from waterfront relaxation to practical conveniences that keep the weekend easy.
+            </p>
+          </div>
+          <div class="family-feature-grid">
+            <div class="family-feature">Waterfront location in Marathon, Florida Keys</div>
+            <div class="family-feature">On-site marina and fishing pier access</div>
+            <div class="family-feature">Outdoor pool for all-ages downtime</div>
+            <div class="family-feature">Free WiFi and complimentary parking</div>
+            <div class="family-feature">Kayaks and bicycles for easy activity options</div>
+            <div class="family-feature">Picnic-friendly outdoor gathering spaces</div>
+            <div class="family-feature">Simple access to local restaurants and attractions</div>
+            <div class="family-feature">Ideal layout for multi-room family stays</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reunion-booking" class="family-section family-booking">
+        <div class="family-wrap family-booking-grid">
+          <div>
+            <div class="family-kicker" style="color:var(--fr-teal); border-color: rgba(94,184,200,0.32); background: rgba(94,184,200,0.10);">Plan Your Family Reunion</div>
+            <h2 style="margin:0 0 12px; color:var(--fr-navy); font-size:clamp(2rem,4vw,3.1rem); line-height:1.05;">Check dates, plan multi-room stays, and start your reunion inquiry.</h2>
+            <p style="margin:0; color:var(--fr-muted); line-height:1.72;">
+              Use direct booking for date checks, then connect with us for reunion planning support. Whether you need several rooms or a near-full-property stay, Seascape helps your family gather with less complexity.
+            </p>
+            <div class="family-action-row" style="margin-top:20px;">
+              <a class="family-btn family-btn-primary" href="../contact/">Contact for Reunion Planning</a>
+              <a class="family-btn" style="color:var(--fr-navy); background:#fff; border:1px solid var(--fr-line);" href="../rooms/">Explore Room Types</a>
+            </div>
+          </div>
+
+          <div class="booking-widget-shell" aria-label="FreeToBook availability widget">
+            <script type="text/javascript" src="https://static.freetobook.com/widgets/js/abfc3342.js"></script>
+            <div class="ftb_widget ftb_combined"></div>
+            <p class="booking-direct-note">Secure direct booking powered by FreeToBook.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="family-final-cta">
+        <div class="family-wrap">
+          <h2>Bring your family together in the Florida Keys.</h2>
+          <p>
+            At Seascape Resort & Marina, comfort, closeness, and privacy come together in one waterfront place. Host your family reunion where meaningful time feels effortless—and where everyone can truly be together.
+          </p>
+          <div class="family-action-row" style="justify-content:center; margin-top:26px;">
+            <a class="family-btn family-btn-primary" href="#reunion-booking">Check Reunion Dates</a>
+            <a class="family-btn family-btn-secondary" href="../contact/">Start Planning</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+  </div>
+
+  <script>
+    function syncFamilyNavOffset() {
+      const siteNav = document.getElementById('site-nav');
+      if (!siteNav) return;
+
+      const siteHeader = siteNav.querySelector('.site-header');
+      if (!siteHeader) return;
+
+      const familyShell = document.querySelector('.family-page');
+      if (familyShell) {
+        familyShell.style.setProperty('--family-nav-offset', `${siteHeader.offsetHeight}px`);
+      }
+    }
+
+    function loadSharedNavScript() {
+      if (document.querySelector('script[data-shared-nav-script="true"]')) return;
+
+      const script = document.createElement('script');
+      script.src = '../js/main.js';
+      script.defer = true;
+      script.dataset.sharedNavScript = 'true';
+      document.body.appendChild(script);
+    }
+
+    async function loadSharedPartial(targetId, path) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      try {
+        const response = await fetch(path);
+        if (!response.ok) throw new Error('Failed to load ' + path);
+
+        const markup = await response.text();
+
+        if (targetId === 'site-nav') {
+          const parser = new DOMParser();
+          const navDoc = parser.parseFromString(markup, 'text/html');
+          const siteHeader = navDoc.querySelector('.site-header');
+
+          target.innerHTML = siteHeader ? siteHeader.outerHTML : '';
+          syncFamilyNavOffset();
+          loadSharedNavScript();
+          window.addEventListener('resize', syncFamilyNavOffset);
+          window.addEventListener('load', syncFamilyNavOffset);
+          return;
+        }
+
+        const parser = new DOMParser();
+        const footerDoc = parser.parseFromString(markup, 'text/html');
+        const footerScripts = [...footerDoc.querySelectorAll('script')];
+        footerScripts.forEach((script) => script.remove());
+
+        target.innerHTML = footerDoc.body.innerHTML;
+
+        footerScripts.forEach((oldScript) => {
+          if (oldScript.src && document.querySelector(`script[src="${oldScript.src}"]`)) return;
+
+          const newScript = document.createElement('script');
+          [...oldScript.attributes].forEach((attribute) => {
+            newScript.setAttribute(attribute.name, attribute.value);
+          });
+
+          if (!oldScript.src) {
+            newScript.textContent = oldScript.textContent;
+          }
+
+          target.appendChild(newScript);
+        });
+      } catch (error) {
+        console.warn(error);
+      }
+    }
+
+    loadSharedPartial('site-nav', '../index.html');
+    loadSharedPartial('site-footer', '../footer/index.html');
+  </script>
+</body>
+</html>
