@@ -196,6 +196,7 @@
       aspect-ratio:16/10;
       background-size:cover;
       background-position:center;
+      overflow:hidden;
     }
 
     .room-image::before{
@@ -213,12 +214,22 @@
       background:linear-gradient(180deg, rgba(15,47,70,0) 0%, rgba(15,47,70,.46) 100%);
     }
 
+    .room-main-image{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      z-index:1;
+    }
+
     .image-actions{
       position:absolute;
       inset:14px 14px auto 14px;
       display:flex;
       justify-content:space-between;
-      z-index:2;
+      z-index:4;
     }
 
     .icon-chip,
@@ -233,6 +244,38 @@
       backdrop-filter:blur(10px);
       color:#fff;
     }
+
+    .room-slider-controls{
+      position:absolute;
+      inset:0;
+      z-index:4;
+      pointer-events:none;
+    }
+
+    .room-slider-arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.55);
+      background:rgba(6,42,102,.62);
+      color:#fff;
+      cursor:pointer;
+      pointer-events:auto;
+      transition:background-color .2s ease;
+    }
+
+    .room-slider-arrow:hover,
+    .room-slider-arrow:focus-visible{
+      background:rgba(6,42,102,.82);
+    }
+
+    .room-slider-arrow-prev{left:12px}
+    .room-slider-arrow-next{right:12px}
 
     .room-badges{
       position:absolute;
@@ -996,10 +1039,15 @@
         <div class="rooms-grid">
 
           <article class="room-card">
-            <div class="room-image" data-room-slider="unit-12" data-current-index="0" data-images="/images/room-12/unit-12-1.jpg|/images/room-12/unit-12-2.jpg|/images/room-12/unit-12-3.jpg|/images/room-12/unit-12-4.jpg|/images/room-12/unit-12-5-beds.jpg|/images/room-12/unit-12-6-beds.jpg|/images/room-12/unit-12-7-view.jpg|/images/room-12/unit-12-8-patio.jpg|/images/room-12/unit-12-9-bathroom.jpg|/images/room-12/unit-12-10-bathoom.jpg" style="background-image:url('/images/room-12/unit-12-1.jpg');">
+            <div class="room-image" data-room-slider="unit-12" data-current-index="0" data-images="/images/room-12/unit-12-1.jpg|/images/room-12/unit-12-2.jpg|/images/room-12/unit-12-3.jpg|/images/room-12/unit-12-4.jpg|/images/room-12/unit-12-5-beds.jpg|/images/room-12/unit-12-6-beds.jpg|/images/room-12/unit-12-7-view.jpg|/images/room-12/unit-12-8-patio.jpg|/images/room-12/unit-12-9-bathroom.jpg|/images/room-12/unit-12-10-bathoom.jpg" data-alt-texts="Unit 12 Seaview Bungalow exterior with ocean frontage|Unit 12 Seaview Bungalow bedroom and entry area|Unit 12 Seaview Bungalow interior with seating space|Unit 12 Seaview Bungalow room layout with ocean-inspired decor|Unit 12 Seaview Bungalow with two queen beds and linens|Unit 12 Seaview Bungalow alternate view of two queen beds|Unit 12 Seaview Bungalow direct ocean view from inside|Unit 12 Seaview Bungalow private patio seating area|Unit 12 Seaview Bungalow bathroom vanity and shower area|Unit 12 Seaview Bungalow bathroom shower detail">
+              <img class="room-main-image" src="/images/room-12/unit-12-1.jpg" alt="Unit 12 Seaview Bungalow exterior with ocean frontage" loading="eager" decoding="async">
               <div class="image-actions">
-                <button class="arrow-chip" type="button" aria-label="Previous image" data-room-slider-prev="unit-12"><svg class="mini-icon"><use href="#i-arrow-left"></use></svg></button>
-                <button class="arrow-chip" type="button" aria-label="Next image" data-room-slider-next="unit-12"><svg class="mini-icon"><use href="#i-arrow-right"></use></svg></button>
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-wave"></use></svg></span>
+                <span class="icon-chip"><svg class="mini-icon"><use href="#i-sparkles"></use></svg></span>
+              </div>
+              <div class="room-slider-controls" aria-label="Unit 12 image gallery controls">
+                <button class="room-slider-arrow room-slider-arrow-prev" type="button" aria-label="Previous image" data-room-slider-prev="unit-12"><svg class="mini-icon"><use href="#i-arrow-left"></use></svg></button>
+                <button class="room-slider-arrow room-slider-arrow-next" type="button" aria-label="Next image" data-room-slider-next="unit-12"><svg class="mini-icon"><use href="#i-arrow-right"></use></svg></button>
               </div>
               <div class="room-badges">
                 <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 4.9/5</span>
@@ -1258,18 +1306,56 @@
         .split('|')
         .map((src) => src.trim())
         .filter(Boolean);
+      const altTexts = (sliderEl.dataset.altTexts || '')
+        .split('|')
+        .map((alt) => alt.trim())
+        .filter(Boolean);
 
-      if (!roomId || images.length < 2) return;
+      if (!roomId || images.length === 0) return;
 
       const prevButton = document.querySelector(`[data-room-slider-prev="${roomId}"]`);
       const nextButton = document.querySelector(`[data-room-slider-next="${roomId}"]`);
+      const mainImage = sliderEl.querySelector('.room-main-image');
+      const fallbackImages = images.map((src) =>
+        src.startsWith('/images/room-12/') ? src.replace('/images/room-12/', '/images/unit-12/') : src
+      );
       let currentIndex = Number.parseInt(sliderEl.dataset.currentIndex || '0', 10);
 
       function applyImage(index) {
         currentIndex = (index + images.length) % images.length;
         sliderEl.dataset.currentIndex = String(currentIndex);
-        sliderEl.style.backgroundImage = `url('${images[currentIndex]}')`;
+
+        const selectedImage = images[currentIndex];
+        const selectedAlt = altTexts[currentIndex] || `Unit 12 Seaview Bungalow photo ${currentIndex + 1}`;
+
+        if (mainImage) {
+          mainImage.src = selectedImage;
+          mainImage.alt = selectedAlt;
+          mainImage.loading = currentIndex === 0 ? 'eager' : 'lazy';
+          mainImage.dataset.fallbackSrc = fallbackImages[currentIndex] || selectedImage;
+        } else {
+          sliderEl.style.backgroundImage = `url('${selectedImage}')`;
+        }
       }
+
+      if (mainImage) {
+        mainImage.addEventListener('error', () => {
+          const fallbackSrc = mainImage.dataset.fallbackSrc;
+          if (fallbackSrc && mainImage.src.indexOf(fallbackSrc) === -1) {
+            console.warn(`Room slider "${roomId}" fell back to local image path: ${fallbackSrc}`);
+            mainImage.src = fallbackSrc;
+          }
+        });
+      }
+
+      images.forEach((src, index) => {
+        const probe = new Image();
+        probe.onload = () => {};
+        probe.onerror = () => {
+          console.warn(`Room slider "${roomId}" could not load image at index ${index}: ${src}`);
+        };
+        probe.src = src;
+      });
 
       if (prevButton) {
         prevButton.addEventListener('click', () => {
@@ -1283,7 +1369,11 @@
         });
       }
 
-      applyImage(currentIndex);
+      if (!prevButton || !nextButton || !mainImage) {
+        console.warn(`Room slider "${roomId}" is missing an expected element.`);
+      }
+
+      applyImage(Number.isNaN(currentIndex) ? 0 : currentIndex);
     }
 
     initializeRoomSlider(document.querySelector('[data-room-slider="unit-12"]'));
