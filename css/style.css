@@ -2434,11 +2434,14 @@ a {
  height: auto;
  overflow: visible;
  background: transparent;
+ position: sticky;
+ top: 0;
+ z-index: 1000;
 }
 
 .privacy-page .site-header {
- position: sticky;
- top: 0;
+ position: relative;
+ top: auto;
  background: linear-gradient(180deg, rgba(8, 29, 42, 0.96), rgba(13, 39, 56, 0.9));
  padding-bottom: 12px;
 }
@@ -2573,8 +2576,8 @@ a {
 
 @media (max-width: 1024px) and (min-width: 768px) {
  .privacy-page .site-header {
- position: sticky !important;
- top: 0;
+ position: relative !important;
+ top: auto;
  background: linear-gradient(180deg, rgba(8, 29, 42, 0.96), rgba(13, 39, 56, 0.9)) !important;
  backdrop-filter: none;
  -webkit-backdrop-filter: none;
