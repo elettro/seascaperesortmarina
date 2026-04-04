@@ -1082,10 +1082,15 @@
           </article>
 
           <article class="room-card">
-            <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80');">
+            <div class="room-image" data-room-slider="unit-14" data-current-index="0" data-images="/seascaperesortmarina/images/unit-14/Unit14-image1.jpg|/seascaperesortmarina/images/unit-14/Unit14-image2.jpg|/seascaperesortmarina/images/unit-14/Unit14-image3.jpg|/seascaperesortmarina/images/unit-14/Unit14-image4.jpg|/seascaperesortmarina/images/unit-14/Unit14-image5.jpg|/seascaperesortmarina/images/unit-14/Unit14-image6.jpg|/seascaperesortmarina/images/unit-14/Unit14-image7.jpg|/seascaperesortmarina/images/unit-14/Unit14-image8.jpg|/seascaperesortmarina/images/unit-14/Unit14-image9.jpg" data-alt-texts="Unit 14 Seaview Bungalow photo 1|Unit 14 Seaview Bungalow photo 2|Unit 14 Seaview Bungalow photo 3|Unit 14 Seaview Bungalow photo 4|Unit 14 Seaview Bungalow photo 5|Unit 14 Seaview Bungalow photo 6|Unit 14 Seaview Bungalow photo 7|Unit 14 Seaview Bungalow photo 8|Unit 14 Seaview Bungalow photo 9">
+              <img class="room-main-image" src="/seascaperesortmarina/images/unit-14/Unit14-image1.jpg" alt="Unit 14 Seaview Bungalow photo 1" loading="eager" decoding="async">
               <div class="image-actions">
                 <span class="icon-chip"><svg class="mini-icon"><use href="#i-wave"></use></svg></span>
                 <span class="icon-chip"><svg class="mini-icon"><use href="#i-sparkles"></use></svg></span>
+              </div>
+              <div class="room-slider-controls" aria-label="Unit 14 image gallery controls">
+                <button class="room-slider-arrow room-slider-arrow-prev" type="button" aria-label="Previous image" data-room-slider-prev="unit-14"><svg class="mini-icon"><use href="#i-arrow-left"></use></svg></button>
+                <button class="room-slider-arrow room-slider-arrow-next" type="button" aria-label="Next image" data-room-slider-next="unit-14"><svg class="mini-icon"><use href="#i-arrow-right"></use></svg></button>
               </div>
               <div class="room-badges">
                 <span class="room-rating"><svg class="mini-icon"><use href="#i-star"></use></svg> 4.9/5</span>
@@ -1364,6 +1369,7 @@
     }
 
     initializeRoomSlider(document.querySelector('[data-room-slider="unit-12"]'));
+    initializeRoomSlider(document.querySelector('[data-room-slider="unit-14"]'));
   </script>
 </body>
 </html>
