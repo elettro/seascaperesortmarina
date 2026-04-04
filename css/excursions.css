@@ -532,26 +532,37 @@ iframe:focus-visible,
 /* ── CAPTAIN READABILITY OVERLAY ── */
 .excursion-guide-section{position:relative;overflow:hidden}
 .excursion-guide-section::before{
- content:"";
- position:absolute;
- inset:0;
- background:rgba(22,50,74,.55);
- z-index:1;
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(22,50,74,.62) 0%,rgba(17,39,58,.66) 100%);
+  z-index:1;
 }
 .excursion-guide-section>*{position:relative;z-index:2}
+.excursion-guide-section .cap-text{
+  background:linear-gradient(135deg,rgba(7,22,33,.44),rgba(7,22,33,.30));
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;
+  padding:1.4rem 1.5rem;
+  backdrop-filter:blur(2px);
+}
 .excursion-guide-section p{
- color:rgba(255,255,255,.92);
- font-size:1rem;
- line-height:1.6;
+  color:rgba(255,255,255,.96);
+  font-size:1.0625rem;
+  line-height:1.7;
 }
 .excursion-guide-section h2,
 .excursion-guide-section .guide-name{color:var(--brass)}
 .excursion-guide-section .guide-label,
 .excursion-guide-section .guide-subtitle,
 .excursion-guide-section .eyebrow,
-.excursion-guide-section .cap-rank{color:rgba(255,255,255,.75)}
+.excursion-guide-section .cap-rank{color:rgba(255,255,255,.82)}
 .excursion-guide-section h2,
-.excursion-guide-section p{text-shadow:0 2px 10px rgba(0,0,0,.25)}
+.excursion-guide-section p{text-shadow:0 2px 12px rgba(0,0,0,.34)}
+@media(max-width:768px){
+  .excursion-guide-section .cap-text{padding:1.1rem 1rem}
+  .excursion-guide-section p{font-size:1rem;line-height:1.65}
+}
 
 /* ── EXCURSION CARDS ── */
 .exc-bg{background:var(--bg)}
