@@ -470,6 +470,76 @@
       flex:0 0 18px;
     }
 
+
+
+    .unit12-modal-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(7,21,35,.74);
+      backdrop-filter:blur(4px);
+      z-index:3000;
+      display:none;
+      align-items:stretch;
+      justify-content:center;
+      padding:clamp(10px,2vw,26px);
+    }
+
+    .unit12-modal-overlay.is-open{display:flex}
+
+    .unit12-modal{
+      width:min(1240px,100%);
+      background:linear-gradient(180deg,#fafdff 0%,#f2f9fc 100%);
+      border-radius:26px;
+      border:1px solid rgba(255,255,255,.24);
+      box-shadow:0 24px 66px rgba(5,24,43,.42);
+      overflow:auto;
+      max-height:100%;
+      color:var(--ink);
+    }
+
+    .unit12-modal-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:16px;
+      padding:22px 24px 18px;
+      border-bottom:1px solid rgba(15,47,70,.08);
+      background:rgba(255,255,255,.72);
+      position:sticky;
+      top:0;
+      z-index:2;
+    }
+
+    .unit12-modal-title{margin:0;font-size:clamp(1.5rem,2.6vw,2.25rem);line-height:1.15;color:#062a66}
+    .unit12-close{
+      width:52px;height:52px;border:none;border-radius:999px;cursor:pointer;
+      background:#062a66;color:#fff;font-size:2rem;line-height:1;display:grid;place-items:center;
+    }
+
+    .unit12-modal-main{padding:22px 24px 26px;display:grid;gap:20px}
+    .unit12-top-grid{display:grid;grid-template-columns:minmax(280px,1fr) minmax(320px,1.2fr);gap:20px;align-items:start}
+
+    .unit12-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow-soft)}
+    .unit12-panel h4{margin:0 0 12px;color:#062a66;font-size:1.05rem}
+    .unit12-details{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+    .unit12-details li{display:flex;gap:10px;align-items:flex-start;font-weight:700;color:#123e74}
+
+    .unit12-gallery{position:relative;border-radius:18px;overflow:hidden;background:#e6f1f7;min-height:320px}
+    .unit12-gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
+    .unit12-gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:999px;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.33);display:grid;place-items:center;color:#123e74;cursor:pointer}
+    .unit12-gallery-arrow.prev{left:12px}
+    .unit12-gallery-arrow.next{right:12px}
+
+    .unit12-description{margin:0;color:var(--ink-2);font-size:1rem;line-height:1.7}
+    .unit12-amenities{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .unit12-amenity-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}
+    .unit12-amenity-card h5{margin:0 0 8px;color:#062a66;font-size:.96rem}
+    .unit12-amenity-card ul{margin:0;padding-left:18px;display:grid;gap:4px;color:#2b5165}
+
+    .unit12-modal-cta{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:12px;background:linear-gradient(135deg,var(--brand),#33a8d6);color:#fff;font-weight:700;box-shadow:0 12px 26px rgba(45,179,217,.25)}
+
+    body.modal-open{position:fixed;left:0;right:0;overflow:hidden;width:100%}
+
     footer{
       padding:26px 0 54px;
       color:var(--ink-3);
@@ -492,6 +562,12 @@
       .rooms-grid{
         grid-template-columns:1fr;
       }
+
+      .unit12-top-grid{
+        grid-template-columns:1fr;
+      }
+
+      .unit12-gallery{min-height:250px;}
     }
 
     @media (max-width: 640px) and (orientation: portrait){
@@ -535,6 +611,12 @@
       .cta-row{
         flex-direction:column;
       }
+
+      .unit12-modal-overlay{padding:0;}
+      .unit12-modal{border-radius:0;}
+      .unit12-modal-main{padding:18px 14px 20px;}
+      .unit12-modal-header{padding:16px 14px 14px;}
+      .unit12-amenities{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -1292,6 +1374,66 @@
   </main>
 
 
+
+  <div class="unit12-modal-overlay" id="unit12-modal-overlay" aria-hidden="true">
+    <div class="unit12-modal" id="unit12-modal" role="dialog" aria-modal="true" aria-labelledby="unit12-modal-title">
+      <div class="unit12-modal-header">
+        <h2 class="unit12-modal-title" id="unit12-modal-title">#12 Seaview Bungalow</h2>
+        <button class="unit12-close" id="unit12-modal-close" type="button" aria-label="Close Unit 12 details">×</button>
+      </div>
+      <div class="unit12-modal-main">
+        <div class="unit12-top-grid">
+          <div class="unit12-panel">
+            <h4>Details</h4>
+            <ul class="unit12-details">
+              <li><svg class="mini-icon"><use href="#i-wave"></use></svg> Ocean view</li>
+              <li><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 4</li>
+              <li><svg class="mini-icon"><use href="#i-bed"></use></svg> 2 Queen Beds</li>
+              <li><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</li>
+              <li><svg class="mini-icon"><use href="#i-credit-card"></use></svg> Reserve Now, Pay Deposit</li>
+              <li><svg class="mini-icon"><use href="#i-star"></use></svg> 4.9 / 5 Guest Room Rating</li>
+            </ul>
+            <div style="margin-top:14px;"><a class="unit12-modal-cta" href="#">Check Availability</a></div>
+          </div>
+
+          <div class="unit12-gallery" id="unit12-modal-gallery">
+            <img id="unit12-modal-image" src="/seascaperesortmarina/images/unit-12/unit-12-1.jpg" alt="Unit 12 Seaview Bungalow image 1" loading="lazy" decoding="async">
+            <button class="unit12-gallery-arrow prev" id="unit12-modal-prev" type="button" aria-label="Previous Unit 12 image"><svg class="mini-icon"><use href="#i-arrow-left"></use></svg></button>
+            <button class="unit12-gallery-arrow next" id="unit12-modal-next" type="button" aria-label="Next Unit 12 image"><svg class="mini-icon"><use href="#i-arrow-right"></use></svg></button>
+          </div>
+        </div>
+
+        <div class="unit12-panel">
+          <h4>Description</h4>
+          <p class="unit12-description">The minute you walk into this bungalow, you will notice the large sliding glass doors leading you to your private patio and views of turquoise ocean waters. This suite features two queen-size beds in a beautifully decorated coastal style. The newly renovated large bathroom with a spa-size shower will invigorate you after a day in the sun. Maximum occupancy four.</p>
+        </div>
+
+        <div class="unit12-amenities">
+          <div class="unit12-amenity-card">
+            <h5><svg class="mini-icon"><use href="#i-bed"></use></svg> Bedroom</h5>
+            <ul><li>Air Conditioning</li><li>Linens</li></ul>
+          </div>
+          <div class="unit12-amenity-card">
+            <h5><svg class="mini-icon"><use href="#i-bath"></use></svg> Bathroom</h5>
+            <ul><li>Free Toiletries</li><li>Extra Large Shower</li><li>Hair Dryer</li><li>Towels</li></ul>
+          </div>
+          <div class="unit12-amenity-card">
+            <h5><svg class="mini-icon"><use href="#i-tv"></use></svg> Entertainment</h5>
+            <ul><li>Cable channels</li><li>TV</li></ul>
+          </div>
+          <div class="unit12-amenity-card">
+            <h5><svg class="mini-icon"><use href="#i-coffee"></use></svg> Food &amp; Drink</h5>
+            <ul><li>K Cup Coffeemaker</li><li>Microwave</li><li>Refrigerator</li></ul>
+          </div>
+          <div class="unit12-amenity-card" style="grid-column:1 / -1;">
+            <h5><svg class="mini-icon"><use href="#i-sparkles"></use></svg> More</h5>
+            <ul><li>Individually decorated</li><li>Individually furnished</li><li>Iron/ironing board (on request)</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="site-footer" data-footer-path="../footer/index.html"></div>
 
   <script>
@@ -1404,8 +1546,89 @@
       applyImage(Number.isNaN(currentIndex) ? 0 : currentIndex);
     }
 
+
+
+    function initializeUnit12Modal() {
+      const overlay = document.getElementById('unit12-modal-overlay');
+      const modal = document.getElementById('unit12-modal');
+      const closeButton = document.getElementById('unit12-modal-close');
+      const triggerArea = document.querySelector('[data-room-slider="unit-12"]');
+      const galleryImage = document.getElementById('unit12-modal-image');
+      const prevButton = document.getElementById('unit12-modal-prev');
+      const nextButton = document.getElementById('unit12-modal-next');
+      if (!overlay || !modal || !closeButton || !triggerArea || !galleryImage || !prevButton || !nextButton) return;
+
+      const images = [
+        '/seascaperesortmarina/images/unit-12/unit-12-1.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-2.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-3.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-4.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-5-beds.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-6-beds.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-7-view.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-8-patio.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-9-bathroom.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-10-bathoom.jpg'
+      ];
+
+      let modalImageIndex = 0;
+      let savedScrollY = 0;
+
+      function updateModalImage(index) {
+        modalImageIndex = (index + images.length) % images.length;
+        galleryImage.src = images[modalImageIndex];
+        galleryImage.alt = `Unit 12 Seaview Bungalow image ${modalImageIndex + 1}`;
+      }
+
+      function openModal() {
+        savedScrollY = window.scrollY;
+        document.body.classList.add('modal-open');
+        document.body.style.top = `-${savedScrollY}px`;
+        overlay.classList.add('is-open');
+        overlay.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeModal() {
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+        document.body.style.top = '';
+        window.scrollTo(0, savedScrollY);
+      }
+
+      triggerArea.addEventListener('click', (event) => {
+        if (event.target.closest('.room-slider-arrow')) return;
+        openModal();
+      });
+
+      prevButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        updateModalImage(modalImageIndex - 1);
+      });
+
+      nextButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        updateModalImage(modalImageIndex + 1);
+      });
+
+      closeButton.addEventListener('click', closeModal);
+
+      overlay.addEventListener('click', (event) => {
+        if (event.target === overlay) closeModal();
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && overlay.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+
+      updateModalImage(0);
+    }
+
     initializeRoomSlider(document.querySelector('[data-room-slider="unit-12"]'));
     initializeRoomSlider(document.querySelector('[data-room-slider="unit-14"]'));
+    initializeUnit12Modal();
   </script>
 </body>
 </html>
