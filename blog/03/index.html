@@ -32,6 +32,19 @@
       color: var(--text);
     }
 
+
+    .visually-hidden-seo {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .blog-cook-catch-page main {
       display: block;
     }
@@ -1126,14 +1139,14 @@
       </div>
     </nav>
 
-    <section class="seo-page-summary" aria-labelledby="blog-03-index-summary-heading">
+    <section class="seo-page-summary visually-hidden-seo" aria-labelledby="blog-03-index-summary-heading">
       <h2 id="blog-03-index-summary-heading">Article summary</h2>
       <p>This guide explains where to find cook-your-catch style dining near Seascape Resort & Marina in Marathon, Florida Keys. It helps fishing and boating guests quickly compare local options after time on the water. Use it to plan seafood-focused meals during your stay.</p>
     </section>
   </header>
 
   <main>
-    <nav class="seo-breadcrumbs" aria-label="Breadcrumb">
+    <nav class="seo-breadcrumbs visually-hidden-seo" aria-label="Breadcrumb">
       <a href="/seascaperesortmarina/">Home</a>
       <span aria-hidden="true">/</span>
       <a href="/seascaperesortmarina/blog/">Blog</a>

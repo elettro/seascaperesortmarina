@@ -29,17 +29,31 @@
       color: var(--text);
     }
 
+    .visually-hidden-seo {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .blog-family-itinerary-page main {
       display: block;
-      padding-top: 138px;
     }
 
     .family-blog-hero {
+      position: relative;
+      min-height: 100svh;
+      overflow: hidden;
       background:
         linear-gradient(135deg, rgba(22, 50, 74, 0.76), rgba(45, 93, 115, 0.68)),
         url('../../images/scenery/Sombero-Beach-Near-Seascape-Resort-Marina-Marathon-Key-Florida- (4).jpg') center / cover no-repeat;
       color: #fff;
-      padding: clamp(88px, 12vw, 126px) 24px 72px;
+      padding: clamp(132px, 14vw, 176px) 24px 72px;
     }
 
     .family-blog-hero-inner,
@@ -186,10 +200,6 @@
     }
 
     @media (max-width: 900px) {
-      .blog-family-itinerary-page main {
-        padding-top: 94px;
-      }
-
       .feature-list {
         grid-template-columns: 1fr;
       }
@@ -317,14 +327,14 @@
       </div>
     </nav>
 
-    <section class="seo-page-summary" aria-labelledby="blog-02-index-summary-heading">
+    <section class="seo-page-summary visually-hidden-seo" aria-labelledby="blog-02-index-summary-heading">
       <h2 id="blog-02-index-summary-heading">Article summary</h2>
       <p>This post outlines a sample family weekend itinerary for Marathon in the Florida Keys. It is designed for Seascape Resort & Marina guests who want a clear day-by-day framework with realistic pacing. Use it to turn broad trip ideas into an actionable plan.</p>
     </section>
   </header>
 
   <main>
-    <nav class="seo-breadcrumbs" aria-label="Breadcrumb">
+    <nav class="seo-breadcrumbs visually-hidden-seo" aria-label="Breadcrumb">
       <a href="/seascaperesortmarina/">Home</a>
       <span aria-hidden="true">/</span>
       <a href="/seascaperesortmarina/blog/">Blog</a>
