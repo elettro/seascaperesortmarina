@@ -2421,3 +2421,151 @@ a {
     padding: 20px 16px;
   }
 }
+
+/* PRIVACY PAGE */
+.privacy-page {
+ margin: 0;
+ background: linear-gradient(180deg, #f5fbff 0%, #ffffff 280px);
+ color: #19384b;
+}
+
+.privacy-page .hero {
+ min-height: 0;
+ height: auto;
+ overflow: visible;
+ background: transparent;
+}
+
+.privacy-page .site-header {
+ position: sticky;
+ background: linear-gradient(180deg, rgba(8, 29, 42, 0.96), rgba(13, 39, 56, 0.9));
+ padding-bottom: 12px;
+}
+
+.privacy-page .utility-bar {
+ background: rgba(7, 24, 35, 0.78);
+ border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.privacy-page .utility-bar a,
+.privacy-page .utility-bar span {
+ color: #ffffff;
+ text-shadow: none;
+}
+
+.privacy-page .main-nav {
+ background: #ffffff;
+ box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+}
+
+.privacy-page .nav-left a,
+.privacy-page .nav-right > a:not(.book-now),
+.privacy-page .nav-dropdown-toggle,
+.privacy-page .nav-logo,
+.privacy-page .mobile-logo {
+ color: #0b2234;
+}
+
+.privacy-page main {
+ padding-top: clamp(32px, 4vw, 54px);
+}
+
+.privacy-content {
+ width: min(100%, 1100px);
+ margin: 0 auto;
+ padding: clamp(46px, 6vw, 84px) clamp(18px, 4vw, 42px) clamp(60px, 8vw, 110px);
+}
+
+.privacy-hero {
+ text-align: center;
+ padding: clamp(32px, 5vw, 48px) 0 clamp(36px, 6vw, 62px);
+}
+
+.privacy-hero h1 {
+ margin: 0;
+ font-size: clamp(2rem, 6vw, 3.5rem);
+ color: #12384d;
+ letter-spacing: -0.02em;
+}
+
+.privacy-hero p {
+ margin: 16px 0 0;
+ font-size: clamp(1rem, 2vw, 1.22rem);
+ color: #3e6479;
+}
+
+.privacy-effective-date {
+ display: block;
+ margin-top: 12px;
+ color: #56798d;
+ font-size: 0.92rem;
+ letter-spacing: 0.02em;
+ text-transform: uppercase;
+}
+
+.privacy-policy-copy {
+ max-width: 980px;
+ margin: 0 auto;
+ line-height: 1.75;
+ font-size: 1.02rem;
+ color: #244d62;
+}
+
+.privacy-policy-copy section + section {
+ margin-top: clamp(30px, 5vw, 46px);
+}
+
+.privacy-policy-copy h2 {
+ margin: 0 0 12px;
+ color: #12384d;
+ font-size: clamp(1.22rem, 2.2vw, 1.7rem);
+}
+
+.privacy-policy-copy p,
+.privacy-policy-copy ul {
+ margin: 0;
+}
+
+.privacy-policy-copy ul {
+ padding-left: 1.35rem;
+}
+
+.privacy-policy-copy li + li,
+.privacy-policy-copy p + p,
+.privacy-policy-copy p + ul,
+.privacy-policy-copy ul + p {
+ margin-top: 10px;
+}
+
+.privacy-contact-card {
+ max-width: 980px;
+ margin: clamp(38px, 6vw, 58px) auto 0;
+ padding: clamp(24px, 4vw, 34px);
+ border-radius: 18px;
+ border: 1px solid rgba(18, 56, 77, 0.14);
+ box-shadow: 0 16px 34px rgba(9, 33, 48, 0.1);
+ background: #f7fbfd;
+}
+
+.privacy-contact-card h2 {
+ margin: 0 0 12px;
+ color: #12384d;
+ font-size: clamp(1.22rem, 2.2vw, 1.62rem);
+}
+
+.privacy-contact-card p {
+ margin: 0;
+ white-space: pre-line;
+ line-height: 1.8;
+ color: #23495f;
+}
+
+@media (max-width: 768px) {
+ .privacy-content {
+ padding-top: 34px;
+ }
+
+ .privacy-policy-copy {
+ font-size: 0.98rem;
+ }
+}
