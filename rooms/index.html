@@ -1040,8 +1040,8 @@
         <div class="rooms-grid">
 
           <article class="room-card">
-            <div class="room-image" data-room-slider="unit-12" data-current-index="0" data-images="/images/room-12/unit-12-1.jpg|/images/room-12/unit-12-2.jpg|/images/room-12/unit-12-3.jpg|/images/room-12/unit-12-4.jpg|/images/room-12/unit-12-5-beds.jpg|/images/room-12/unit-12-6-beds.jpg|/images/room-12/unit-12-7-view.jpg|/images/room-12/unit-12-8-patio.jpg|/images/room-12/unit-12-9-bathroom.jpg|/images/room-12/unit-12-10-bathoom.jpg" data-alt-texts="Unit 12 Seaview Bungalow exterior with ocean frontage|Unit 12 Seaview Bungalow bedroom and entry area|Unit 12 Seaview Bungalow interior with seating space|Unit 12 Seaview Bungalow room layout with ocean-inspired decor|Unit 12 Seaview Bungalow with two queen beds and linens|Unit 12 Seaview Bungalow alternate view of two queen beds|Unit 12 Seaview Bungalow direct ocean view from inside|Unit 12 Seaview Bungalow private patio seating area|Unit 12 Seaview Bungalow bathroom vanity and shower area|Unit 12 Seaview Bungalow bathroom shower detail">
-              <img class="room-main-image" src="/images/room-12/unit-12-1.jpg" alt="Unit 12 Seaview Bungalow exterior with ocean frontage" loading="eager" decoding="async">
+            <div class="room-image" data-room-slider="unit-12" data-current-index="0" data-images="/seascaperesortmarina/images/unit-12/unit-12-1.jpg|/seascaperesortmarina/images/unit-12/unit-12-2.jpg|/seascaperesortmarina/images/unit-12/unit-12-3.jpg|/seascaperesortmarina/images/unit-12/unit-12-4.jpg|/seascaperesortmarina/images/unit-12/unit-12-5-beds.jpg|/seascaperesortmarina/images/unit-12/unit-12-6-beds.jpg|/seascaperesortmarina/images/unit-12/unit-12-7-view.jpg|/seascaperesortmarina/images/unit-12/unit-12-8-patio.jpg|/seascaperesortmarina/images/unit-12/unit-12-9-bathroom.jpg|/seascaperesortmarina/images/unit-12/unit-12-10-bathoom.jpg" data-alt-texts="Unit 12 Seaview Bungalow exterior with ocean frontage|Unit 12 Seaview Bungalow bedroom and entry area|Unit 12 Seaview Bungalow interior with seating space|Unit 12 Seaview Bungalow room layout with ocean-inspired decor|Unit 12 Seaview Bungalow with two queen beds and linens|Unit 12 Seaview Bungalow alternate view of two queen beds|Unit 12 Seaview Bungalow direct ocean view from inside|Unit 12 Seaview Bungalow private patio seating area|Unit 12 Seaview Bungalow bathroom vanity and shower area|Unit 12 Seaview Bungalow bathroom shower detail">
+              <img class="room-main-image" src="/seascaperesortmarina/images/unit-12/unit-12-1.jpg" alt="Unit 12 Seaview Bungalow exterior with ocean frontage" loading="eager" decoding="async">
               <div class="image-actions">
                 <span class="icon-chip"><svg class="mini-icon"><use href="#i-wave"></use></svg></span>
                 <span class="icon-chip"><svg class="mini-icon"><use href="#i-sparkles"></use></svg></span>
@@ -1314,12 +1314,9 @@
 
       if (!roomId || images.length === 0) return;
 
-      const prevButton = document.querySelector(`[data-room-slider-prev="${roomId}"]`);
-      const nextButton = document.querySelector(`[data-room-slider-next="${roomId}"]`);
+      const prevButton = sliderEl.querySelector(`[data-room-slider-prev="${roomId}"]`);
+      const nextButton = sliderEl.querySelector(`[data-room-slider-next="${roomId}"]`);
       const mainImage = sliderEl.querySelector('.room-main-image');
-      const fallbackImages = images.map((src) =>
-        src.startsWith('/images/room-12/') ? src.replace('/images/room-12/', '/images/unit-12/') : src
-      );
       let currentIndex = Number.parseInt(sliderEl.dataset.currentIndex || '0', 10);
 
       function applyImage(index) {
@@ -1333,20 +1330,9 @@
           mainImage.src = selectedImage;
           mainImage.alt = selectedAlt;
           mainImage.loading = currentIndex === 0 ? 'eager' : 'lazy';
-          mainImage.dataset.fallbackSrc = fallbackImages[currentIndex] || selectedImage;
         } else {
           sliderEl.style.backgroundImage = `url('${selectedImage}')`;
         }
-      }
-
-      if (mainImage) {
-        mainImage.addEventListener('error', () => {
-          const fallbackSrc = mainImage.dataset.fallbackSrc;
-          if (fallbackSrc && mainImage.src.indexOf(fallbackSrc) === -1) {
-            console.warn(`Room slider "${roomId}" fell back to local image path: ${fallbackSrc}`);
-            mainImage.src = fallbackSrc;
-          }
-        });
       }
 
       images.forEach((src, index) => {
