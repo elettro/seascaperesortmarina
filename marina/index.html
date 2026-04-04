@@ -975,32 +975,63 @@
 
 
 
-    @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    @media (min-width: 768px) and (max-width: 1024px) {
       .marina-page #site-nav .site-header {
         background: transparent !important;
       }
 
-      .marina-page #site-nav .main-nav {
-        display: block !important;
-        margin: 0 !important;
-        min-height: 60px;
-        padding: 0 12px;
-        border-radius: 0;
-        background: rgba(255, 255, 255, 0.96) !important;
-        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
-      }
-
-      .marina-page #site-nav .mobile-header-row {
+      .marina-page #site-nav .utility-bar {
         display: flex !important;
       }
 
-      .marina-page #site-nav .mobile-logo,
-      .marina-page #site-nav .mobile-phone-block {
-        color: #10263c !important;
+      .marina-page #site-nav .main-nav {
+        margin: 0 20px !important;
+        min-height: 68px;
+        width: auto;
+        padding: 0 16px;
+        border-radius: 14px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.96) !important;
       }
 
-      .marina-page #site-nav .mobile-menu-toggle span {
-        background: #10263c !important;
+      .marina-page #site-nav .nav-left,
+      .marina-page #site-nav .nav-right {
+        display: flex !important;
+        align-items: center;
+        flex-wrap: nowrap;
+        min-width: 0;
+        gap: 12px;
+      }
+
+      .marina-page #site-nav .nav-logo {
+        display: inline-flex !important;
+        justify-self: center;
+        align-items: center;
+      }
+
+      .marina-page #site-nav .nav-left a,
+      .marina-page #site-nav .nav-right > a:not(.book-now),
+      .marina-page #site-nav .nav-dropdown-toggle {
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      .marina-page #site-nav .mobile-header-row,
+      .marina-page #site-nav .mobile-menu-panel {
+        display: none !important;
+      }
+
+      .marina-page #site-nav .tablet-landscape-only-excursions,
+      .marina-page #site-nav .tablet-landscape-only-group-stays-left {
+        display: inline-flex !important;
+      }
+
+      .marina-page #site-nav .nav-right-group-stays {
+        display: none !important;
       }
     }
     @media (max-width: 767px) and (orientation: portrait) {
