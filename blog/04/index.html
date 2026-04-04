@@ -31,6 +31,19 @@
       color: var(--text);
     }
 
+
+    .visually-hidden-seo {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .blog-best-time-page main {
       display: block;
     }
@@ -1042,14 +1055,14 @@
       </div>
     </nav>
 
-    <section class="seo-page-summary" aria-labelledby="blog-04-index-summary-heading">
+    <section class="seo-page-summary visually-hidden-seo" aria-labelledby="blog-04-index-summary-heading">
       <h2 id="blog-04-index-summary-heading">Article summary</h2>
       <p>This article compares the best times to visit Marathon and the Florida Keys for different trip styles. It helps Seascape Resort & Marina guests weigh weather, seasonal pace, and activity timing before choosing travel dates. Use it to align your stay with your priorities.</p>
     </section>
   </header>
 
   <main>
-    <nav class="seo-breadcrumbs" aria-label="Breadcrumb">
+    <nav class="seo-breadcrumbs visually-hidden-seo" aria-label="Breadcrumb">
       <a href="/seascaperesortmarina/">Home</a>
       <span aria-hidden="true">/</span>
       <a href="/seascaperesortmarina/blog/">Blog</a>
