@@ -1434,6 +1434,65 @@
     </div>
   </div>
 
+  <div class="unit12-modal-overlay" id="unit14-modal-overlay" aria-hidden="true">
+    <div class="unit12-modal" id="unit14-modal" role="dialog" aria-modal="true" aria-labelledby="unit14-modal-title">
+      <div class="unit12-modal-header">
+        <h2 class="unit12-modal-title" id="unit14-modal-title">#14 Seaview Bungalow</h2>
+        <button class="unit12-close" id="unit14-modal-close" type="button" aria-label="Close Unit 14 details">×</button>
+      </div>
+      <div class="unit12-modal-main">
+        <div class="unit12-top-grid">
+          <div class="unit12-panel">
+            <h4>Details</h4>
+            <ul class="unit12-details">
+              <li><svg class="mini-icon"><use href="#i-wave"></use></svg> Ocean view</li>
+              <li><svg class="mini-icon"><use href="#i-users"></use></svg> Sleeps 4</li>
+              <li><svg class="mini-icon"><use href="#i-bed"></use></svg> 2 Queen Beds</li>
+              <li><svg class="mini-icon"><use href="#i-wifi"></use></svg> Free WiFi</li>
+              <li><svg class="mini-icon"><use href="#i-credit-card"></use></svg> Reserve Now, Pay Deposit</li>
+              <li><svg class="mini-icon"><use href="#i-star"></use></svg> 4.9 / 5 Guest Room Rating</li>
+            </ul>
+            <div style="margin-top:14px;"><a class="unit12-modal-cta" href="#">Reserve</a></div>
+          </div>
+
+          <div class="unit12-gallery" id="unit14-modal-gallery">
+            <img id="unit14-modal-image" src="/seascaperesortmarina/images/unit-14/Unit14-image1.jpg" alt="Unit 14 Seaview Bungalow image 1" loading="lazy" decoding="async">
+            <button class="unit12-gallery-arrow prev" id="unit14-modal-prev" type="button" aria-label="Previous Unit 14 image"><svg class="mini-icon"><use href="#i-arrow-left"></use></svg></button>
+            <button class="unit12-gallery-arrow next" id="unit14-modal-next" type="button" aria-label="Next Unit 14 image"><svg class="mini-icon"><use href="#i-arrow-right"></use></svg></button>
+          </div>
+        </div>
+
+        <div class="unit12-panel">
+          <h4>Description</h4>
+          <p class="unit12-description">From the moment you step to the entrance of this bungalow, you will notice the patio views of turquoise ocean waters. This suite features two queen-size beds in a beautifully decorated coastal style. This newly constructed unit with a spa-like shower head panel will invigorate you after a day in the sun. Maximum occupancy four.</p>
+        </div>
+
+        <div class="unit12-amenities">
+          <div class="unit12-amenity-card">
+            <h5><svg class="mini-icon"><use href="#i-bed"></use></svg> Bedroom</h5>
+            <ul><li>Air conditioning</li><li>Linens</li></ul>
+          </div>
+          <div class="unit12-amenity-card">
+            <h5><svg class="mini-icon"><use href="#i-bath"></use></svg> Bathroom</h5>
+            <ul><li>Free toiletries</li><li>Hair dryer</li><li>Shower</li><li>Towels</li></ul>
+          </div>
+          <div class="unit12-amenity-card">
+            <h5><svg class="mini-icon"><use href="#i-tv"></use></svg> Entertainment</h5>
+            <ul><li>Cable channels</li><li>TV</li></ul>
+          </div>
+          <div class="unit12-amenity-card">
+            <h5><svg class="mini-icon"><use href="#i-coffee"></use></svg> Food &amp; Drink</h5>
+            <ul><li>K Cup Coffeemaker</li><li>Microwave</li><li>Refrigerator</li></ul>
+          </div>
+          <div class="unit12-amenity-card" style="grid-column:1 / -1;">
+            <h5><svg class="mini-icon"><use href="#i-sparkles"></use></svg> More</h5>
+            <ul><li>Individually decorated</li><li>Individually furnished</li><li>Iron/ironing board (on request)</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="site-footer" data-footer-path="../footer/index.html"></div>
 
   <script>
@@ -1548,28 +1607,17 @@
 
 
 
-    function initializeUnit12Modal() {
-      const overlay = document.getElementById('unit12-modal-overlay');
-      const modal = document.getElementById('unit12-modal');
-      const closeButton = document.getElementById('unit12-modal-close');
-      const triggerArea = document.querySelector('[data-room-slider="unit-12"]');
-      const galleryImage = document.getElementById('unit12-modal-image');
-      const prevButton = document.getElementById('unit12-modal-prev');
-      const nextButton = document.getElementById('unit12-modal-next');
+    function initializeRoomModal(config) {
+      const overlay = document.getElementById(config.overlayId);
+      const modal = document.getElementById(config.modalId);
+      const closeButton = document.getElementById(config.closeButtonId);
+      const triggerArea = document.querySelector(`[data-room-slider="${config.roomId}"]`);
+      const galleryImage = document.getElementById(config.galleryImageId);
+      const prevButton = document.getElementById(config.prevButtonId);
+      const nextButton = document.getElementById(config.nextButtonId);
       if (!overlay || !modal || !closeButton || !triggerArea || !galleryImage || !prevButton || !nextButton) return;
 
-      const images = [
-        '/seascaperesortmarina/images/unit-12/unit-12-1.jpg',
-        '/seascaperesortmarina/images/unit-12/unit-12-2.jpg',
-        '/seascaperesortmarina/images/unit-12/unit-12-3.jpg',
-        '/seascaperesortmarina/images/unit-12/unit-12-4.jpg',
-        '/seascaperesortmarina/images/unit-12/unit-12-5-beds.jpg',
-        '/seascaperesortmarina/images/unit-12/unit-12-6-beds.jpg',
-        '/seascaperesortmarina/images/unit-12/unit-12-7-view.jpg',
-        '/seascaperesortmarina/images/unit-12/unit-12-8-patio.jpg',
-        '/seascaperesortmarina/images/unit-12/unit-12-9-bathroom.jpg',
-        '/seascaperesortmarina/images/unit-12/unit-12-10-bathoom.jpg'
-      ];
+      const { images, imageAltPrefix } = config;
 
       let modalImageIndex = 0;
       let savedScrollY = 0;
@@ -1577,7 +1625,7 @@
       function updateModalImage(index) {
         modalImageIndex = (index + images.length) % images.length;
         galleryImage.src = images[modalImageIndex];
-        galleryImage.alt = `Unit 12 Seaview Bungalow image ${modalImageIndex + 1}`;
+        galleryImage.alt = `${imageAltPrefix} image ${modalImageIndex + 1}`;
       }
 
       function openModal() {
@@ -1628,7 +1676,49 @@
 
     initializeRoomSlider(document.querySelector('[data-room-slider="unit-12"]'));
     initializeRoomSlider(document.querySelector('[data-room-slider="unit-14"]'));
-    initializeUnit12Modal();
+    initializeRoomModal({
+      roomId: 'unit-12',
+      overlayId: 'unit12-modal-overlay',
+      modalId: 'unit12-modal',
+      closeButtonId: 'unit12-modal-close',
+      galleryImageId: 'unit12-modal-image',
+      prevButtonId: 'unit12-modal-prev',
+      nextButtonId: 'unit12-modal-next',
+      imageAltPrefix: 'Unit 12 Seaview Bungalow',
+      images: [
+        '/seascaperesortmarina/images/unit-12/unit-12-1.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-2.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-3.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-4.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-5-beds.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-6-beds.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-7-view.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-8-patio.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-9-bathroom.jpg',
+        '/seascaperesortmarina/images/unit-12/unit-12-10-bathoom.jpg'
+      ]
+    });
+    initializeRoomModal({
+      roomId: 'unit-14',
+      overlayId: 'unit14-modal-overlay',
+      modalId: 'unit14-modal',
+      closeButtonId: 'unit14-modal-close',
+      galleryImageId: 'unit14-modal-image',
+      prevButtonId: 'unit14-modal-prev',
+      nextButtonId: 'unit14-modal-next',
+      imageAltPrefix: 'Unit 14 Seaview Bungalow',
+      images: [
+        '/seascaperesortmarina/images/unit-14/Unit14-image1.jpg',
+        '/seascaperesortmarina/images/unit-14/Unit14-image2.jpg',
+        '/seascaperesortmarina/images/unit-14/Unit14-image3.jpg',
+        '/seascaperesortmarina/images/unit-14/Unit14-image4.jpg',
+        '/seascaperesortmarina/images/unit-14/Unit14-image5.jpg',
+        '/seascaperesortmarina/images/unit-14/Unit14-image6.jpg',
+        '/seascaperesortmarina/images/unit-14/Unit14-image7.jpg',
+        '/seascaperesortmarina/images/unit-14/Unit14-image8.jpg',
+        '/seascaperesortmarina/images/unit-14/Unit14-image9.jpg'
+      ]
+    });
   </script>
 </body>
 </html>
