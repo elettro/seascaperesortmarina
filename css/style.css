@@ -2032,6 +2032,16 @@ a {
  .main-nav .mobile-menu-toggle span {
  background: #FFFFFF !important;
  }
+
+ .main-nav .mobile-menu-panel {
+ background: #fdfcf8 !important;
+ }
+
+ .main-nav .mobile-menu-panel > a,
+ .main-nav .mobile-submenu-toggle,
+ .main-nav .mobile-submenu a {
+ color: #10263c !important;
+ }
 }
 
 
