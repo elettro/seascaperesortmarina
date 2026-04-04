@@ -1,233 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Family Weekend Itinerary | Seascape Resort & Marina</title>
+  <meta
+    name="description"
+    content="Plan a smooth 3-day family weekend in Marathon, Florida Keys with marina time, pool breaks, and relaxed waterfront moments at Seascape Resort & Marina."
+  />
+  <link rel="stylesheet" href="../../css/style.css" />
 
-<title>Family Weekend Itinerary | Seascape Resort & Marina</title>
+  <style>
+    body.blog-family-itinerary-page {
+      background:
+        radial-gradient(circle at top left, rgba(184, 155, 107, 0.08), transparent 22%),
+        radial-gradient(circle at top right, rgba(45, 93, 115, 0.08), transparent 22%),
+        var(--bg);
+      color: var(--text);
+    }
 
-<!-- GLOBAL CSS -->
-<link rel="stylesheet" href="/style.css">
+    .blog-family-itinerary-page main {
+      display: block;
+      padding-top: 138px;
+    }
 
-<!-- BLOG PAGE CSS (extracted + adapted) -->
-<style>
+    .family-blog-hero {
+      background: linear-gradient(135deg, rgba(22, 50, 74, 0.96), rgba(45, 93, 115, 0.92));
+      color: #fff;
+      padding: clamp(88px, 12vw, 126px) 24px 72px;
+    }
 
-/* PAGE WRAP */
-.blog-page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 60px 24px 80px;
-}
+    .family-blog-hero-inner,
+    .family-blog-content,
+    .family-blog-cta {
+      width: min(100%, 1040px);
+      margin: 0 auto;
+    }
 
-/* HERO */
-.blog-hero {
-  width: 100%;
-  height: 420px;
-  background: linear-gradient(180deg,#0d2233,#0a8b9e);
-  display: flex;
-  align-items: flex-end;
-  padding: 40px;
-  color: #fff;
-}
+    .family-blog-hero h1 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      line-height: 0.98;
+      max-width: 12ch;
+    }
 
-.blog-hero h1 {
-  font-size: 42px;
-  line-height: 1.1;
-  max-width: 700px;
-}
+    .family-blog-meta {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-/* META */
-.blog-meta {
-  display: flex;
-  gap: 20px;
-  font-size: 14px;
-  margin: 30px 0 40px;
-  color: #5e7280;
-}
+    .family-blog-meta span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
 
-/* TEXT */
-.blog-page h2 {
-  font-size: 28px;
-  margin: 40px 0 16px;
-  color: #0d2233;
-}
+    .family-blog-content {
+      padding: 56px 24px 44px;
+    }
 
-.blog-page p {
-  font-size: 18px;
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
+    .family-blog-content h2 {
+      margin: 34px 0 12px;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--navy);
+    }
 
-/* CALLOUT */
-.blog-quote {
-  border-left: 4px solid #0a8b9e;
-  padding: 20px;
-  background: #f4fafb;
-  margin: 30px 0;
-}
+    .family-blog-content p {
+      margin: 0 0 16px;
+      font-size: 1.03rem;
+      line-height: 1.75;
+      color: var(--text);
+      max-width: 72ch;
+    }
 
-/* LIST */
-.feature-list {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 10px;
-  margin: 30px 0;
-}
+    .family-blog-quote {
+      margin: 28px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--brass);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      font-weight: 600;
+      color: var(--navy);
+      max-width: 76ch;
+    }
 
-.feature-item {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
+    .feature-list {
+      margin: 24px 0 10px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 780px;
+    }
 
-/* ITINERARY */
-.itinerary {
-  margin-top: 60px;
-}
+    .feature-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      font-weight: 600;
+    }
 
-.day {
-  border: 1px solid #e1e7ec;
-  padding: 24px;
-  margin-bottom: 20px;
-  border-radius: 6px;
-}
+    .itinerary-grid {
+      margin-top: 18px;
+      display: grid;
+      gap: 14px;
+    }
 
-.day h3 {
-  margin-bottom: 10px;
-}
+    .itinerary-day {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+    }
 
-/* CTA */
-.blog-cta {
-  background: #0d2233;
-  color: #fff;
-  padding: 40px;
-  margin-top: 60px;
-  text-align: center;
-}
+    .itinerary-day h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 1.25rem;
+    }
 
-.blog-cta a {
-  display: inline-block;
-  margin-top: 20px;
-  background: #0a8b9e;
-  padding: 14px 28px;
-  color: #fff;
-  text-decoration: none;
-}
+    .family-blog-cta-wrap {
+      padding: 16px 24px 80px;
+    }
 
-@media(max-width:768px){
-  .feature-list { grid-template-columns:1fr; }
-  .blog-hero h1 { font-size: 28px; }
-}
+    .family-blog-cta {
+      border-radius: 22px;
+      background: var(--navy);
+      color: #fff;
+      padding: 28px;
+      display: grid;
+      gap: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
 
-</style>
+    .family-blog-cta h2,
+    .family-blog-cta p {
+      margin: 0;
+      color: #fff;
+    }
 
+    .family-blog-cta-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      width: fit-content;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: var(--brass);
+      color: #fff;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .family-blog-cta-link:hover {
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 900px) {
+      .blog-family-itinerary-page main {
+        padding-top: 94px;
+      }
+
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+<body class="blog-family-itinerary-page">
+  <header class="site-header">
+    <div class="utility-bar">
+      <div class="utility-left">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" class="utility-directions" target="_blank" rel="noopener">Get Directions</a>
+        <span class="utility-separator">|</span>
+        <span class="utility-address">1275 76th Street Ocean, Marathon, FL 33050</span>
+        <span class="utility-separator">|</span>
+        <span class="utility-mile-marker">Mile Marker: 50</span>
+      </div>
 
-<body>
-
-<!-- GLOBAL NAV (COPY EXACT FROM HOMEPAGE) -->
-<header>
-  <nav class="nav-links" aria-label="Primary navigation">
-    <a href="https://elettro.github.io/seascaperesortmarina/where-to-eat/">Where to Eat</a>
-    <a href="https://elettro.github.io/seascaperesortmarina/things-to-do/">Things to Do</a>
-  </nav>
-</header>
-
-
-<!-- HERO -->
-<section class="blog-hero">
-  <h1>Best Florida Keys Family Weekend Itinerary</h1>
-</section>
-
-
-<!-- CONTENT -->
-<div class="blog-page">
-
-  <div class="blog-meta">
-    <div>Marathon, Florida Keys</div>
-    <div>3 Day Family Plan</div>
-    <div>8 min read</div>
-  </div>
-
-  <p>
-    If your family wants the Florida Keys without chaos, Marathon is the move.
-    Less driving. More water. More time together.
-  </p>
-
-  <h2>Why Families Choose Marathon</h2>
-
-  <p>
-    You stay central. You reduce friction. Kids stay engaged.
-    You don’t spend your trip in a car.
-  </p>
-
-  <div class="blog-quote">
-    Seascape gives you dock access, pool access, and real Keys experience without leaving the property.
-  </div>
-
-  <h2>Marina Experience</h2>
-
-  <p>
-    Ocean side access. Quick bay access. Flexible days.
-    That matters when conditions shift.
-  </p>
-
-  <div class="feature-list">
-    <div class="feature-item">✔ Dock Access</div>
-    <div class="feature-item">✔ Water + Electric</div>
-    <div class="feature-item">✔ Ice Available</div>
-    <div class="feature-item">✔ Ocean Access</div>
-    <div class="feature-item">✔ Pool</div>
-    <div class="feature-item">✔ WiFi</div>
-  </div>
-
-  <h2>Cook Your Catch</h2>
-
-  <p>
-    Catch fish. Bring it in. Have it cooked.
-    Kids remember this more than anything.
-  </p>
-
-  <h2>3 Day Itinerary</h2>
-
-  <div class="itinerary">
-
-    <div class="day">
-      <h3>Day 1</h3>
-      <p>Arrive. Walk property. Dock sunset. Pool. Reset.</p>
+      <div class="utility-right">
+        <a href="tel:+13057436212" class="utility-phone">
+          <span class="phone-icon" aria-hidden="true">☎</span>
+          <span class="phone-number">(305) 743-6212</span>
+        </a>
+        <span class="best-rates">Always Call Us Direct For Best Rates</span>
+      </div>
     </div>
 
-    <div class="day">
-      <h3>Day 2</h3>
-      <p>Fish early. Pool mid-day. Dock time. Cook your catch dinner.</p>
-    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="/seascaperesortmarina/rooms/">Rooms</a>
+        <a href="/seascaperesortmarina/marina/">Marina</a>
+        <a href="/seascaperesortmarina/amenities/">Amenities</a>
+        <a href="/seascaperesortmarina/excursions/" class="tablet-landscape-only-excursions">Excursions</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Group Stays</button>
+          <div class="nav-dropdown-menu">
+            <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
+            <a href="/seascaperesortmarina/weddings/">Weddings</a>
+            <a href="/seascaperesortmarina/family-reunions/">Family Reunions</a>
+            <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
+          </div>
+        </div>
+      </div>
 
-    <div class="day">
-      <h3>Day 3</h3>
-      <p>Slow morning. Coffee. Pack easy. Head out relaxed.</p>
-    </div>
+      <a href="/seascaperesortmarina/" class="nav-logo" aria-label="Seascape Resort & Marina home">
+        <span class="logo-main">SEASCAPE</span>
+        <span class="logo-sub">RESORT &amp; MARINA</span>
+      </a>
 
-  </div>
+      <div class="nav-right">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Explore Keys</button>
+          <div class="nav-dropdown-menu">
+            <a href="/seascaperesortmarina/things-to-do/">Things to Do</a>
+            <a href="/seascaperesortmarina/where-to-eat/">Where to Eat</a>
+            <a href="/seascaperesortmarina/local-events/">Local Events</a>
+          </div>
+        </div>
 
-  <div class="blog-cta">
-    <h2>Book Direct</h2>
-    <p>Best rates. Real support. No middleman.</p>
+        <a href="/seascaperesortmarina/blog/">Blog</a>
+        <a href="/seascaperesortmarina/contact/">Contact</a>
+        <a href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" class="book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
+      </div>
 
-    <a href="https://portal.freetobook.com/reservations?w_id=2977">
-      Check Availability
-    </a>
-  </div>
+      <div class="mobile-header-row">
+        <a href="/seascaperesortmarina/" class="mobile-logo" aria-label="Seascape Resort & Marina home">
+          <span class="logo-main">SEASCAPE</span>
+          <span class="logo-sub">RESORT &amp; MARINA</span>
+        </a>
 
-</div>
+        <a href="tel:+13057436212" class="mobile-phone-block">
+          <span class="mobile-phone-number">(305) 743-6212</span>
+          <span class="mobile-phone-note">Call Us For Best Rates</span>
+        </a>
 
+        <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
-<!-- FOOTER (COPY EXACT FROM HOMEPAGE) -->
-<footer>
-  <nav class="footer-links" aria-label="Footer navigation">
-    <a href="https://elettro.github.io/seascaperesortmarina/where-to-eat/">Where to Eat</a>
-    <a href="https://elettro.github.io/seascaperesortmarina/things-to-do/">Things to Do</a>
-  </nav>
-</footer>
+      <div class="mobile-menu-panel" id="mobile-menu" hidden>
+        <a href="/seascaperesortmarina/rooms/">Rooms</a>
+        <a href="/seascaperesortmarina/marina/">Marina</a>
+        <a href="/seascaperesortmarina/amenities/">Amenities</a>
+        <a href="/seascaperesortmarina/excursions/">Excursions</a>
 
+        <div class="mobile-submenu-group">
+          <button
+            class="mobile-submenu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-group-stays-submenu"
+          >
+            Group Stays
+          </button>
+          <div class="mobile-submenu" id="mobile-group-stays-submenu" hidden>
+            <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
+            <a href="/seascaperesortmarina/weddings/">Weddings</a>
+            <a href="/seascaperesortmarina/family-reunions/">Family Reunions</a>
+            <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
+          </div>
+        </div>
+
+        <div class="mobile-submenu-group">
+          <button
+            class="mobile-submenu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-explore-keys-submenu"
+          >
+            Explore Keys
+          </button>
+          <div class="mobile-submenu" id="mobile-explore-keys-submenu" hidden>
+            <a href="/seascaperesortmarina/things-to-do/">Things to Do</a>
+            <a href="/seascaperesortmarina/where-to-eat/">Where to Eat</a>
+            <a href="/seascaperesortmarina/local-events/">Local Events</a>
+          </div>
+        </div>
+
+        <a href="/seascaperesortmarina/blog/">Blog</a>
+        <a href="/seascaperesortmarina/contact/">Contact</a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" target="_blank" rel="noopener">Get Directions</a>
+        <a href="/seascaperesortmarina/book-now/" class="mobile-book-now">Book Now</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="family-blog-hero">
+      <div class="family-blog-hero-inner">
+        <h1>Best Florida Keys Family Weekend Itinerary</h1>
+        <div class="family-blog-meta" aria-label="Article details">
+          <span>Marathon, Florida Keys</span>
+          <span>3 Day Family Plan</span>
+          <span>8 Min Read</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="family-blog-content">
+      <p>If your family wants the Florida Keys without chaos, Marathon is the move. You get less windshield time, more water time, and a much easier rhythm for everyone.</p>
+
+      <h2>Why families choose Marathon</h2>
+      <p>You stay central. You reduce friction. Kids stay engaged. You spend less time in a car and more time doing what you actually came for.</p>
+
+      <div class="family-blog-quote">Seascape keeps your dock, pool, and room all in one place, so the day flows naturally without extra driving.</div>
+
+      <h2>Marina experience that works for real family trips</h2>
+      <p>Ocean-side dockage means quicker starts and easier returns. If weather shifts or energy levels change, you can adapt fast without losing the day.</p>
+
+      <div class="feature-list" aria-label="Family-friendly property highlights">
+        <div class="feature-item">✔ Dock Access</div>
+        <div class="feature-item">✔ Water + Electric</div>
+        <div class="feature-item">✔ Ice Available</div>
+        <div class="feature-item">✔ Quick Ocean Access</div>
+        <div class="feature-item">✔ Pool On Property</div>
+        <div class="feature-item">✔ Property Wi-Fi</div>
+      </div>
+
+      <h2>Simple 3-day family itinerary</h2>
+      <div class="itinerary-grid">
+        <article class="itinerary-day">
+          <h3>Day 1</h3>
+          <p>Arrive, settle in, walk the marina, then do a pool reset and dockside sunset.</p>
+        </article>
+
+        <article class="itinerary-day">
+          <h3>Day 2</h3>
+          <p>Get out on the water early, take a mid-day pool break, then cap the day with a laid-back dinner.</p>
+        </article>
+
+        <article class="itinerary-day">
+          <h3>Day 3</h3>
+          <p>Slow breakfast, one more waterfront moment, easy pack-up, and a relaxed departure.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="family-blog-cta-wrap">
+      <div class="family-blog-cta">
+        <h2>Book direct for the best value</h2>
+        <p>Best rates, direct support, and a smoother booking experience for your family weekend.</p>
+        <a class="family-blog-cta-link" href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" target="_blank" rel="noopener noreferrer">Check Availability</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer" data-footer-path="../../footer/index.html"></div>
+
+  <script src="../../js/main.js"></script>
 </body>
 </html>
