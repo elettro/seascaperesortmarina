@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Seascape Journal | Seascape Resort &amp; Marina</title>
+  <meta name="description" content="Explore Seascape Resort & Marina blog guides, itineraries, and Florida Keys inspiration for your next Marathon stay." />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    body.blog-directory-page {
+      background:
+        radial-gradient(circle at 10% 14%, rgba(126, 208, 214, 0.14), transparent 30%),
+        radial-gradient(circle at 88% 28%, rgba(204, 171, 128, 0.14), transparent 34%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    .blog-directory-main {
+      display: block;
+      overflow: hidden;
+    }
+
+    .blog-directory-hero {
+      position: relative;
+      padding: 138px 0 96px;
+      background:
+        linear-gradient(180deg, rgba(12, 38, 58, 0.9), rgba(12, 38, 58, 0.6)),
+        url("../images/scenery/Sombero-Beach-Near-Seascape-Resort-Marina-Marathon-Key-Florida- (3).jpg") center center / cover no-repeat;
+      isolation: isolate;
+    }
+
+    .blog-directory-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 22%, rgba(255, 255, 255, 0.16), transparent 15%),
+        radial-gradient(circle at 80% 80%, rgba(255, 233, 202, 0.1), transparent 19%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .blog-directory-hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(100% - 48px, 1080px);
+      margin: 0 auto;
+      color: #fff;
+    }
+
+    .blog-directory-kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .blog-directory-hero h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.4rem, 5.4vw, 4.3rem);
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      color: #fff;
+      max-width: 12ch;
+    }
+
+    .blog-directory-hero p {
+      margin: 18px 0 0;
+      max-width: 58ch;
+      font-size: 1.06rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .wave-divider {
+      height: 72px;
+      margin-top: -1px;
+      background:
+        radial-gradient(120% 120% at 50% -18%, rgba(255,255,255,0.95) 58%, transparent 59%),
+        linear-gradient(180deg, rgba(173, 226, 229, 0.22), rgba(173, 226, 229, 0));
+    }
+
+    .blog-grid-section {
+      position: relative;
+      width: min(100% - 48px, 1120px);
+      margin: 0 auto;
+      padding: 34px 0 108px;
+    }
+
+    .blog-grid-section::before,
+    .blog-grid-section::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+      border-radius: 999px;
+      filter: blur(2px);
+    }
+
+    .blog-grid-section::before {
+      width: 220px;
+      height: 220px;
+      top: 12%;
+      right: -80px;
+      background: radial-gradient(circle, rgba(196, 154, 105, 0.15), transparent 68%);
+    }
+
+    .blog-grid-section::after {
+      width: 280px;
+      height: 280px;
+      bottom: 10%;
+      left: -100px;
+      background: radial-gradient(circle, rgba(108, 186, 193, 0.16), transparent 70%);
+    }
+
+    .blog-grid-intro {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 34px;
+    }
+
+    .blog-grid-intro h2 {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 4.2vw, 3rem);
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .blog-grid-intro p {
+      margin: 12px 0 0;
+      max-width: 64ch;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .blog-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .blog-card {
+      display: block;
+      background: #fff;
+      border: 1px solid rgba(18, 48, 74, 0.1);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(17, 35, 53, 0.08);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      height: 100%;
+    }
+
+    .blog-card:hover,
+    .blog-card:focus-visible {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 44px rgba(17, 35, 53, 0.14);
+      border-color: rgba(39, 103, 134, 0.26);
+    }
+
+    .blog-card:focus-visible {
+      outline: 2px solid rgba(39, 103, 134, 0.45);
+      outline-offset: 2px;
+    }
+
+    .blog-card-image-wrap {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #dceef0;
+    }
+
+    .blog-card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .blog-card:hover .blog-card-image,
+    .blog-card:focus-visible .blog-card-image {
+      transform: scale(1.06);
+    }
+
+    .blog-card-content {
+      padding: 22px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 250px;
+    }
+
+    .blog-card-date {
+      margin: 0;
+      font-size: 0.79rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #5f7d8f;
+    }
+
+    .blog-card-title {
+      margin: 10px 0 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      color: var(--navy);
+      font-size: clamp(1.65rem, 2.3vw, 2.1rem);
+      line-height: 1.02;
+    }
+
+    .blog-card-summary {
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.72;
+      flex: 1;
+    }
+
+    .blog-card-cta {
+      margin: 16px 0 0;
+      font-weight: 700;
+      color: #1f6d8f;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .blog-card-cta::after {
+      content: "→";
+      transition: transform 0.2s ease;
+    }
+
+    .blog-card:hover .blog-card-cta::after,
+    .blog-card:focus-visible .blog-card-cta::after {
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 991px) {
+      .blog-directory-hero {
+        padding: 128px 0 86px;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-card-content {
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .blog-directory-hero,
+      .blog-grid-section {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .blog-directory-hero-inner,
+      .blog-grid-section {
+        width: min(100% - 32px, 1120px);
+      }
+
+      .blog-directory-hero {
+        padding: 116px 0 74px;
+      }
+
+      .wave-divider {
+        height: 56px;
+      }
+
+      .blog-grid-section {
+        padding-top: 28px;
+        padding-bottom: 82px;
+      }
+
+      .blog-card-content {
+        padding: 20px 18px 20px;
+      }
+    }
+  </style>
+</head>
+<body class="blog-directory-page">
+  <header class="site-header">
+    <div class="utility-bar">
+      <div class="utility-left">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" class="utility-directions" target="_blank" rel="noopener">Get Directions</a>
+        <span class="utility-separator">|</span>
+        <span class="utility-address">1275 76th Street Ocean, Marathon, FL 33050</span>
+        <span class="utility-separator">|</span>
+        <span class="utility-mile-marker">Mile Marker: 50</span>
+      </div>
+
+      <div class="utility-right">
+        <a href="tel:+13057436212" class="utility-phone">
+          <span class="phone-icon" aria-hidden="true">☎</span>
+          <span class="phone-number">(305) 743-6212</span>
+        </a>
+        <span class="best-rates">Always Call Us Direct For Best Rates</span>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="/seascaperesortmarina/rooms/">Rooms</a>
+        <a href="/seascaperesortmarina/marina/">Marina</a>
+        <a href="/seascaperesortmarina/amenities/">Amenities</a>
+        <a href="/seascaperesortmarina/excursions/" class="tablet-landscape-only-excursions">Excursions</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Group Stays</button>
+          <div class="nav-dropdown-menu">
+            <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
+            <a href="/seascaperesortmarina/weddings/">Weddings</a>
+            <a href="/seascaperesortmarina/family-reunions/">Family Reunions</a>
+            <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="/seascaperesortmarina/" class="nav-logo" aria-label="Seascape Resort &amp; Marina home">
+        <span class="logo-main">SEASCAPE</span>
+        <span class="logo-sub">RESORT &amp; MARINA</span>
+      </a>
+
+      <div class="nav-right">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Explore Keys</button>
+          <div class="nav-dropdown-menu">
+            <a href="https://elettro.github.io/seascaperesortmarina/where-to-eat/">Where to Eat</a>
+            <a href="https://elettro.github.io/seascaperesortmarina/things-to-do/">Things to Do</a>
+            <a href="/seascaperesortmarina/local-events/">Local Events</a>
+          </div>
+        </div>
+
+        <a href="/seascaperesortmarina/blog/">Blog</a>
+        <a href="/seascaperesortmarina/contact/">Contact</a>
+        <a href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" class="book-now" target="_blank" rel="noopener noreferrer">Book Now</a>
+      </div>
+
+      <div class="mobile-header-row">
+        <a href="/seascaperesortmarina/" class="mobile-logo" aria-label="Seascape Resort &amp; Marina home">
+          <span class="logo-main">SEASCAPE</span>
+          <span class="logo-sub">RESORT &amp; MARINA</span>
+        </a>
+
+        <a href="tel:+13057436212" class="mobile-phone-block">
+          <span class="mobile-phone-number">(305) 743-6212</span>
+          <span class="mobile-phone-note">Call Us For Best Rates</span>
+        </a>
+
+        <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div class="mobile-menu-panel" id="mobile-menu" hidden>
+        <a href="/seascaperesortmarina/rooms/">Rooms</a>
+        <a href="/seascaperesortmarina/marina/">Marina</a>
+        <a href="/seascaperesortmarina/amenities/">Amenities</a>
+        <a href="/seascaperesortmarina/excursions/">Excursions</a>
+
+        <div class="mobile-submenu-group">
+          <button class="mobile-submenu-toggle" type="button" aria-expanded="false" aria-controls="mobile-group-stays-submenu">Group Stays</button>
+          <div class="mobile-submenu" id="mobile-group-stays-submenu" hidden>
+            <a href="/seascaperesortmarina/full-property-buyouts/">Full Property Buyouts</a>
+            <a href="/seascaperesortmarina/weddings/">Weddings</a>
+            <a href="/seascaperesortmarina/family-reunions/">Family Reunions</a>
+            <a href="/seascaperesortmarina/retreats-gatherings/">Retreats &amp; Gatherings</a>
+          </div>
+        </div>
+
+        <div class="mobile-submenu-group">
+          <button class="mobile-submenu-toggle" type="button" aria-expanded="false" aria-controls="mobile-explore-keys-submenu">Explore Keys</button>
+          <div class="mobile-submenu" id="mobile-explore-keys-submenu" hidden>
+            <a href="https://elettro.github.io/seascaperesortmarina/where-to-eat/">Where to Eat</a>
+            <a href="https://elettro.github.io/seascaperesortmarina/things-to-do/">Things to Do</a>
+            <a href="/seascaperesortmarina/local-events/">Local Events</a>
+          </div>
+        </div>
+
+        <a href="/seascaperesortmarina/blog/">Blog</a>
+        <a href="/seascaperesortmarina/contact/">Contact</a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=1275+76th+Street+Ocean,+Marathon,+FL+33050" target="_blank" rel="noopener">Get Directions</a>
+        <a href="/seascaperesortmarina/book-now/" class="mobile-book-now">Book Now</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="blog-directory-main">
+    <section class="blog-directory-hero">
+      <div class="blog-directory-hero-inner">
+        <span class="blog-directory-kicker">Seascape Journal</span>
+        <h1>Guides and inspiration for your Florida Keys stay</h1>
+        <p>From practical planning to dock-to-dinner traditions, explore our latest stories for making the most of Marathon. Browse seasonal guides, family-friendly itineraries, and local experiences that start steps from the water.</p>
+      </div>
+    </section>
+
+    <div class="wave-divider" aria-hidden="true"></div>
+
+    <section class="blog-grid-section" aria-labelledby="all-stories-heading">
+      <div class="blog-grid-intro">
+        <h2 id="all-stories-heading">Latest articles</h2>
+        <p>Browse our complete collection, with the newest stories first.</p>
+      </div>
+
+      <div class="blog-grid">
+        <a href="./04/" class="blog-card" aria-label="Read article: Best Time to Visit the Florida Keys">
+          <div class="blog-card-image-wrap">
+            <img src="../images/scenery/Sombero-Beach-Near-Seascape-Resort-Marina-Marathon-Key-Florida- (4).jpg" class="blog-card-image" alt="Palm-framed shoreline and turquoise water at Sombrero Beach in Marathon" loading="lazy" />
+          </div>
+          <div class="blog-card-content">
+            <!-- TODO: confirm published date for blog 04 -->
+            <p class="blog-card-date">Published date coming soon</p>
+            <h3 class="blog-card-title">Best Time to Visit the Florida Keys: A Complete Month by Month Guide</h3>
+            <p class="blog-card-summary">This guide breaks down what each month in the Keys actually feels like from a Marathon perspective, including weather, crowds, rates, and fishing patterns. It gives practical tradeoffs between peak season comfort and shoulder-season value. Travelers can quickly match timing to priorities like calmer docks, better rates, or stronger seasonal fishing.</p>
+            <span class="blog-card-cta">Read Article</span>
+          </div>
+        </a>
+
+        <a href="./03/" class="blog-card" aria-label="Read article: Best Cook Your Catch Restaurants Near Marathon, Florida Keys">
+          <div class="blog-card-image-wrap">
+            <img src="../images/Seascape-Resort-Marina-Ted-Phone-43-1500x844-1.jpg" class="blog-card-image" alt="Seascape marina docks at sunset in Marathon, Florida Keys" loading="lazy" />
+          </div>
+          <div class="blog-card-content">
+            <!-- TODO: confirm published date for blog 03 -->
+            <p class="blog-card-date">Published date coming soon</p>
+            <h3 class="blog-card-title">Best Cook Your Catch Restaurants Near Marathon, Florida Keys</h3>
+            <p class="blog-card-summary">Focused on the classic dock-to-table Keys tradition, this article explains how hook-and-cook dining works after your day on the water. It compares confirmed local restaurants near Seascape, including prep styles, distance, and what to know before arriving with your fish. It is designed to help guests avoid guesswork and turn a catch into a memorable waterfront dinner.</p>
+            <span class="blog-card-cta">Read Article</span>
+          </div>
+        </a>
+
+        <a href="./02/" class="blog-card" aria-label="Read article: Best Florida Keys Family Weekend Itinerary">
+          <div class="blog-card-image-wrap">
+            <img src="../images/seascape-pool.jpg" class="blog-card-image" alt="Seascape Resort pool surrounded by palms in Marathon" loading="lazy" />
+          </div>
+          <div class="blog-card-content">
+            <!-- TODO: confirm published date for blog 02 -->
+            <p class="blog-card-date">Published date coming soon</p>
+            <h3 class="blog-card-title">Best Florida Keys Family Weekend Itinerary</h3>
+            <p class="blog-card-summary">Built around a simple three-day flow, this itinerary focuses on keeping family travel smooth, flexible, and centered on the water. It highlights why Marathon works well for shorter stays and emphasizes easy transitions between dock time, pool resets, and low-stress evenings. The article also includes a straightforward day-by-day plan for arrival, on-the-water time, and relaxed checkout.</p>
+            <span class="blog-card-cta">Read Article</span>
+          </div>
+        </a>
+
+        <a href="./01/" class="blog-card" aria-label="Read article: The Florida Keys family weekend that feels easy from the start">
+          <div class="blog-card-image-wrap">
+            <img src="../images/scenery/Sombero-Beach-Near-Seascape-Resort-Marina-Marathon-Key-Florida- (2).jpg" class="blog-card-image" alt="Aerial view of soft sand and shallow aqua water at Sombrero Beach" loading="lazy" />
+          </div>
+          <div class="blog-card-content">
+            <!-- TODO: confirm published date for blog 01 -->
+            <p class="blog-card-date">Published date coming soon</p>
+            <h3 class="blog-card-title">The Florida Keys Family Weekend That Feels Easy from the Start</h3>
+            <p class="blog-card-summary">This story maps out a low-friction family escape designed around Seascape’s waterfront setting, with realistic pacing instead of overpacked plans. It blends dock sunsets, pool time, and practical local outing ideas to keep each day enjoyable for mixed-age groups. The itinerary also reinforces direct-booking guidance and on-site convenience for a calmer overall trip.</p>
+            <span class="blog-card-cta">Read Article</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer" data-footer-path="../footer/index.html"></div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
