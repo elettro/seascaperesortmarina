@@ -798,16 +798,6 @@
       }
     }
 
-    @media (max-width: 780px) and (orientation: portrait) {
-      .marina-hero-content {
-        grid-template-columns: 1fr;
-      }
-
-      .marina-hero-title {
-        font-size: clamp(2rem, 11vw, 3.2rem);
-      }
-    }
-
     @media (max-width: 560px) {
       .marina-shell,
       .marina-hero-content,
@@ -980,6 +970,191 @@
         width: 100%;
         max-width: 100%;
         margin-top: 0;
+      }
+    }
+
+
+    @media (max-width: 767px) and (orientation: portrait) {
+      .marina-page {
+        --nav-height: 76px;
+      }
+
+      .marina-page,
+      .marina-page main,
+      .marina-page .marina-hero,
+      .marina-page .marina-hero-content {
+        overflow-x: clip;
+      }
+
+      .marina-page .marina-hero {
+        margin-top: calc(var(--nav-height) * -1);
+        min-height: auto;
+        padding-top: 0;
+        padding-bottom: 0;
+        display: block;
+        overflow: visible;
+        background-position: center center;
+      }
+
+      .marina-page .marina-hero-content {
+        width: calc(100% - 24px);
+        margin: 0 auto;
+        padding-top: calc(var(--nav-height) + 42px);
+        padding-bottom: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .marina-page .marina-hero-copy {
+        max-width: 100%;
+        padding-top: 0;
+      }
+
+      .marina-page .marina-eyebrow {
+        display: inline-flex;
+        margin: 0 0 14px;
+        padding: 10px 14px;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        line-height: 1.2;
+        white-space: normal;
+      }
+
+      .marina-page .marina-hero-title {
+        margin: 0 0 14px;
+        max-width: 100%;
+        font-size: clamp(2.25rem, 11vw, 3.3rem);
+        line-height: 0.98;
+        letter-spacing: -0.03em;
+        text-wrap: balance;
+      }
+
+      .marina-page .marina-hero-text {
+        margin: 0 0 18px;
+        max-width: 100%;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .marina-page .marina-hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 0;
+      }
+
+      .marina-page .marina-hero-actions .btn-primary,
+      .marina-page .marina-hero-actions .btn-secondary {
+        width: 100%;
+        min-height: 52px;
+        padding: 0 18px;
+      }
+
+      .marina-page .marina-hero-card {
+        width: 100%;
+        max-width: 100%;
+        justify-self: stretch;
+        padding: 18px;
+        border-radius: 22px;
+        margin-top: 4px;
+      }
+
+      .marina-page .marina-hero-card-top {
+        grid-template-columns: 56px 1fr;
+        gap: 12px;
+        align-items: start;
+        margin-bottom: 14px;
+      }
+
+      .marina-page .marina-hero-card-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        font-size: 24px;
+      }
+
+      .marina-page .marina-hero-card h3 {
+        font-size: 1.08rem;
+        line-height: 1.2;
+        margin: 0 0 4px;
+      }
+
+      .marina-page .marina-hero-card p {
+        font-size: 0.94rem;
+        line-height: 1.55;
+      }
+
+      .marina-page .marina-hero-mini-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .marina-page .marina-hero-mini {
+        padding: 14px;
+        border-radius: 16px;
+      }
+
+      .marina-page .marina-hero-mini strong {
+        font-size: 0.96rem;
+        line-height: 1.25;
+      }
+
+      .marina-page .marina-hero-mini span {
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+
+      .marina-page .floating-ribbon {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        transform: none;
+        width: calc(100% - 24px);
+        margin: 0 auto;
+        padding: 10px 0 22px;
+      }
+
+      .marina-page .floating-ribbon-inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 14px 14px 6px;
+        border-radius: 20px;
+      }
+
+      .marina-page .ribbon-item {
+        gap: 12px;
+        padding: 0 0 14px;
+        margin-bottom: 14px;
+        border-bottom: 1px solid rgba(15,47,70,0.08);
+      }
+
+      .marina-page .ribbon-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .marina-page .ribbon-icon {
+        width: 42px;
+        height: 42px;
+        flex: 0 0 42px;
+        border-radius: 12px;
+        font-size: 18px;
+      }
+
+      .marina-page .ribbon-item strong {
+        font-size: 0.96rem;
+        line-height: 1.2;
+      }
+
+      .marina-page .ribbon-item span {
+        font-size: 0.88rem;
+        line-height: 1.45;
       }
     }
 
