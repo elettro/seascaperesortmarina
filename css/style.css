@@ -2360,3 +2360,65 @@ a {
  display: block;
  }
 }
+
+
+.sitemap-main {
+  padding: 48px 20px 64px;
+  background: linear-gradient(180deg, #f5fbfd 0%, #ffffff 100%);
+}
+
+.sitemap-shell {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+}
+
+.sitemap-helper {
+  margin: 12px 0 28px;
+  max-width: 760px;
+  color: #36556a;
+  line-height: 1.65;
+}
+
+.sitemap-group {
+  margin-bottom: 18px;
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px solid rgba(17, 71, 94, 0.12);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.sitemap-group:nth-of-type(even) {
+  background: rgba(224, 244, 250, 0.46);
+}
+
+.sitemap-group h2 {
+  margin: 0 0 12px;
+  color: #0f3e57;
+}
+
+.sitemap-group ul {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+}
+
+.sitemap-group a {
+  color: #0f516a;
+  text-decoration: none;
+}
+
+.sitemap-group a:hover,
+.sitemap-group a:focus-visible {
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .sitemap-main {
+    padding: 32px 16px 44px;
+  }
+
+  .sitemap-group {
+    padding: 20px;
+  }
+}
