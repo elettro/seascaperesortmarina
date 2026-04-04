@@ -54,10 +54,31 @@
       position: relative;
       min-height: 100svh;
       overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(10, 18, 24, 0.22), rgba(10, 18, 24, 0.68)),
-        url("../../images/food/food-in-a-japanese-restaurant-the-chef-salts-grilled-fr-2026-03-13-Seascape-Resort-Marina.jpg") center center / cover no-repeat;
       isolation: isolate;
+      background: #1c313f;
+    }
+
+    .blog-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: opacity 1s ease-in-out;
+      z-index: 0;
+      opacity: 0;
+    }
+
+    .blog-hero-bg.is-active {
+      opacity: 1;
+    }
+
+    .blog-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10, 18, 24, 0.22), rgba(10, 18, 24, 0.68));
+      z-index: 1;
+      pointer-events: none;
     }
 
     .blog-hero::after {
@@ -67,7 +88,7 @@
       background:
         radial-gradient(circle at 18% 20%, rgba(255,255,255,0.16), transparent 14%),
         linear-gradient(90deg, rgba(15, 36, 53, 0.58) 0%, rgba(15, 36, 53, 0.16) 48%, rgba(15, 36, 53, 0.42) 100%);
-      z-index: 1;
+      z-index: 2;
       pointer-events: none;
     }
 
@@ -1122,6 +1143,9 @@
 
   <main>
     <section class="blog-hero">
+      <div class="blog-hero-bg blog-hero-bg-a is-active"></div>
+      <div class="blog-hero-bg blog-hero-bg-b"></div>
+      <div class="blog-hero-overlay" aria-hidden="true"></div>
       <div class="blog-hero-inner">
         <div class="blog-hero-copy">
           <div class="blog-hero-kicker">Restaurant Guide</div>
@@ -1697,6 +1721,37 @@
 
   <div id="site-footer" data-footer-path="../../footer/index.html"></div>
 
+  <script>
+    (function rotateHeroBackgrounds() {
+      const hero = document.querySelector('.blog-hero');
+      const bgLayers = hero ? hero.querySelectorAll('.blog-hero-bg') : [];
+      if (!hero || bgLayers.length < 2) return;
+
+      const images = [
+        '../../images/food/food-in-a-japanese-restaurant-the-chef-salts-grilled-fr-2026-03-13-Seascape-Resort-Marina.jpg',
+        '../../images/food/grilled-jungle-fish-2026-01-11-seascape-resort-marina.jpg',
+        '../../images/food/hands-of-a-woman-holding-a-lemon-and-pouring-fried-2026-01-08-seascape-resort-marina.jpg'
+      ];
+
+      bgLayers[0].style.backgroundImage = `url("${images[0]}")`;
+      bgLayers[1].style.backgroundImage = `url("${images[1]}")`;
+
+      let activeIndex = 0;
+      let nextImageIndex = 1;
+
+      window.setInterval(() => {
+        const incomingLayer = bgLayers[1 - activeIndex];
+        const outgoingLayer = bgLayers[activeIndex];
+
+        incomingLayer.style.backgroundImage = `url("${images[nextImageIndex]}")`;
+        incomingLayer.classList.add('is-active');
+        outgoingLayer.classList.remove('is-active');
+
+        activeIndex = 1 - activeIndex;
+        nextImageIndex = (nextImageIndex + 1) % images.length;
+      }, 5000);
+    })();
+  </script>
   <script src="../../js/main.js"></script>
 </body>
 </html>
