@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.seascaperesortandmarina.com/sitemap.xml
+Sitemap: https://www.seascaperesortandmarina.com/image-sitemap.xml
