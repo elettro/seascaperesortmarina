@@ -495,17 +495,31 @@
     }
 
     @media (max-width: 640px) and (orientation: portrait){
+      .cta-row{
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+        align-items:stretch;
+        justify-content:flex-start;
+        height:auto;
+        min-height:0;
+        max-height:none;
+      }
+
       .cta-row .cta-btn,
       .cta-row .cta-secondary{
         width:100%;
-        height:48px;
-        min-height:48px;
-        padding:0 18px;
+        height:auto;
+        min-height:0;
+        max-height:none;
+        aspect-ratio:auto;
+        padding:14px 18px;
         display:flex;
         align-items:center;
         justify-content:center;
         gap:10px;
-        line-height:1;
+        flex:0 0 auto;
+        align-self:auto;
       }
 
       .cta-row .cta-btn .mini-icon,
