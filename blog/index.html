@@ -32,11 +32,22 @@
     .blog-directory-main {
       display: block;
       overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    .seo-page-summary,
+    .seo-breadcrumbs {
+      display: none;
     }
 
     .blog-directory-hero {
       position: relative;
+      margin-top: 0;
       padding: 138px 0 96px;
+      min-height: clamp(460px, 62vh, 680px);
+      display: flex;
+      align-items: flex-end;
       background:
         linear-gradient(180deg, rgba(12, 38, 58, 0.9), rgba(12, 38, 58, 0.6)),
         url("../images/scenery/Sombero-Beach-Near-Seascape-Resort-Marina-Marathon-Key-Florida- (3).jpg") center center / cover no-repeat;
@@ -230,7 +241,8 @@
       font-family: "Cormorant Garamond", Georgia, serif;
       color: var(--navy);
       font-size: clamp(1.65rem, 2.3vw, 2.1rem);
-      line-height: 1.02;
+      line-height: 1.1;
+      text-wrap: balance;
     }
 
     .blog-card-summary {
@@ -261,7 +273,8 @@
 
     @media (max-width: 991px) {
       .blog-directory-hero {
-        padding: 128px 0 86px;
+        padding: 122px 0 86px;
+        min-height: 520px;
       }
 
       .blog-grid {
@@ -286,7 +299,8 @@
       }
 
       .blog-directory-hero {
-        padding: 116px 0 74px;
+        padding: 108px 0 74px;
+        min-height: 460px;
       }
 
       .wave-divider {
@@ -411,19 +425,9 @@
       </div>
     </nav>
 
-    <section class="seo-page-summary" aria-labelledby="blog-index-summary-heading">
-      <h2 id="blog-index-summary-heading">Blog summary</h2>
-      <p>The Seascape Resort & Marina blog shares practical Marathon and Florida Keys travel guides. Articles cover family itineraries, local dining, seasonal timing, and trip ideas connected to stays at our waterfront resort and marina. Use this page to find planning content before booking.</p>
-    </section>
   </header>
 
   <main class="blog-directory-main">
-    <nav class="seo-breadcrumbs" aria-label="Breadcrumb">
-      <a href="/seascaperesortmarina/">Home</a>
-      <span aria-hidden="true">/</span>
-      <span>Blog</span>
-    </nav>
-
     <section class="blog-directory-hero">
       <div class="blog-directory-hero-inner">
         <span class="blog-directory-kicker">Seascape Journal</span>
