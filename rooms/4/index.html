@@ -153,15 +153,6 @@
  align-items: center;
  }
 
- .eyebrow{
- display: inline-block;
- margin-bottom: 14px;
- font-size: .82rem;
- font-weight: 700;
- text-transform: uppercase;
- letter-spacing: .20em;
- color: var(--brand-deep);
- }
 
  .hero h1{
  margin: 0 0 16px;
@@ -457,32 +448,9 @@
  min-width: 200px;
  }
 
- .category-summary{
- display: grid;
- grid-template-columns: repeat(4, 1fr);
- gap: 14px;
- margin-top: 22px;
- }
 
- .summary-card{
- background: rgba(255,255,255,.90);
- border: 1px solid rgba(15,47,70,.08);
- border-radius: 20px;
- padding: 18px;
- box-shadow: var(--shadow-soft);
- }
 
- .summary-card strong{
- display: block;
- margin-bottom: 8px;
- font-size: 1.12rem;
- color: var(--ink);
- }
 
- .summary-card span{
- color: var(--ink-3);
- font-size: .9rem;
- }
 
  .info-band{
  background: linear-gradient(180deg, rgba(243,248,249,.9), rgba(255,255,255,.95));
@@ -543,8 +511,7 @@
  flex-wrap: wrap;
  }
 
- .category-summary,
- .info-grid{
+  .info-grid{
  grid-template-columns: repeat(2, 1fr);
  }
  }
@@ -564,8 +531,7 @@
  grid-template-columns: 1fr;
  }
 
- .category-summary,
- .info-grid{
+  .info-grid{
  grid-template-columns: 1fr;
  }
  }
@@ -610,12 +576,9 @@
  </header>
 
  <main>
-    <nav class="seo-breadcrumbs" aria-label="Breadcrumb"><p><a href="/seascaperesortmarina/">Home</a> <span aria-hidden="true">/</span> <a href="/seascaperesortmarina/rooms/">Rooms</a> <span aria-hidden="true">/</span> <span aria-current="page">Accommodations</span></p></nav>
-
- <section class="hero">
+<section class="hero">
  <div class="container hero-grid">
  <div>
- <span class="eyebrow">Stay by the Water</span>
  <h1>Choose the Seascape room style that fits your Keys getaway.</h1>
  <p>
  From simple suites for two to ocean-view bungalows and larger apartment-style stays, Seascape Resort & Marina offers a mix of accommodations designed around comfort, direct booking value, and easy access to the waterfront.
@@ -651,25 +614,6 @@
  <span>Call +1 (305) 743-6212 for guaranteed best rates</span>
  </div>
  </div>
- </div>
- </div>
-
- <div class="container category-summary">
- <div class="summary-card">
- <strong>Suites</strong>
- <span>Smart options for couples and smaller stays. Strong value. Clean resort-style comfort.</span>
- </div>
- <div class="summary-card">
- <strong>Ocean-View Suites</strong>
- <span>For guests who want a more view-forward stay without jumping into a larger footprint.</span>
- </div>
- <div class="summary-card">
- <strong>Apartments</strong>
- <span>Best fit for families, longer visits, and guests who want more kitchen support.</span>
- </div>
- <div class="summary-card">
- <strong>Bungalows</strong>
- <span>Direct ocean-view appeal with a relaxed Keys feel and strong family flexibility.</span>
  </div>
  </div>
  </section>
