@@ -2583,3 +2583,16 @@ a {
  -webkit-backdrop-filter: none;
  }
 }
+
+
+/* AI clarity blocks */
+.breadcrumbs{width:min(1180px,calc(100% - 32px));margin:18px auto 8px;font-size:.9rem;color:#35576b}
+.breadcrumbs ol{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.breadcrumbs a{color:#0f2f46;text-decoration:underline}
+.ai-summary-block,.ai-offerings,.ai-faq{width:min(1180px,calc(100% - 32px));margin:16px auto;padding:18px 20px;border-radius:14px;background:#f4f9fb;border:1px solid rgba(15,47,70,.12)}
+.ai-summary-block h2,.ai-offerings h2,.ai-faq h2{margin:0 0 10px;color:#0f2f46;font-size:1.35rem}
+.ai-summary-block p,.ai-offerings p,.ai-faq p{margin:0 0 8px;color:#35576b;line-height:1.6}
+.ai-offerings ul{margin:0;padding-left:18px;color:#35576b;line-height:1.6}
+.ai-faq details{padding:10px 0;border-top:1px solid rgba(15,47,70,.1)}
+.ai-faq details:first-of-type{border-top:0;padding-top:0}
+.ai-faq summary{cursor:pointer;font-weight:700;color:#0f2f46}
