@@ -14,6 +14,7 @@
  --radius: 22px;
  --text-soft: var(--muted);
  --accent: var(--brass);
+ --tablet-portrait-header-height: 60px;
 }
 
 * {
@@ -2000,11 +2001,6 @@ a {
 /* Tablet hero + navigation overrides to match desktop behavior */
 @media (max-width: 1024px) and (min-width: 768px) {
  .site-header {
- position: absolute !important;
- top: 0;
- left: 0;
- width: 100%;
- z-index: 50;
  background: rgba(0, 0, 0, 0.2) !important;
  box-shadow: none !important;
  border-radius: 0 !important;
@@ -2051,9 +2047,33 @@ a {
  left: 0 !important;
  right: 0 !important;
  width: 100% !important;
- position: sticky !important;
- top: 0 !important;
- z-index: 1000 !important;
+ z-index: 1200 !important;
+ }
+
+ .main-nav {
+ min-height: var(--tablet-portrait-header-height);
+ }
+
+ .mobile-header-row {
+ min-height: var(--tablet-portrait-header-height);
+ }
+
+ .mobile-menu-panel {
+ position: fixed;
+ top: var(--tablet-portrait-header-height);
+ left: 0;
+ right: 0;
+ max-height: calc(100svh - var(--tablet-portrait-header-height));
+ overflow-y: auto;
+ -webkit-overflow-scrolling: touch;
+ }
+
+ .site-header + main {
+ padding-top: var(--tablet-portrait-header-height);
+ }
+
+ .hero-content {
+ top: calc(var(--tablet-portrait-header-height) + 16px) !important;
  }
 }
 
