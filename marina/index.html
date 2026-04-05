@@ -649,6 +649,99 @@
       border: 0;
     }
 
+    .seo-faq,
+    .seo-explore-links {
+      width: min(920px, calc(100% - 32px));
+      margin: 30px auto 0;
+      padding: 34px clamp(18px, 4vw, 34px);
+      border-radius: 22px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbfc 100%);
+      border: 1px solid rgba(15, 47, 70, 0.12);
+      box-shadow: 0 18px 40px rgba(9, 32, 51, 0.09);
+    }
+
+    .seo-faq h2,
+    .seo-explore-links h2 {
+      margin: 0 0 18px;
+      text-align: center;
+      color: var(--navy);
+      font-size: clamp(1.55rem, 3.4vw, 2.05rem);
+      letter-spacing: -0.02em;
+    }
+
+    .seo-faq details {
+      margin-bottom: 10px;
+      border: 1px solid rgba(15, 47, 70, 0.12);
+      border-radius: 14px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .seo-faq details:last-child {
+      margin-bottom: 0;
+    }
+
+    .seo-faq summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 14px 18px;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .seo-faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .seo-faq summary::before {
+      content: "▸";
+      color: var(--teal);
+      transition: transform 0.2s ease;
+      font-size: 1.05rem;
+    }
+
+    .seo-faq details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .seo-faq details p {
+      margin: 0;
+      padding: 0 18px 16px 36px;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .seo-explore-links ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      max-width: 700px;
+      margin-inline: auto;
+    }
+
+    .seo-explore-links li a {
+      display: block;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 47, 70, 0.12);
+      background: #ffffff;
+      color: var(--navy);
+      font-weight: 600;
+      text-align: center;
+      transition: 0.2s ease;
+    }
+
+    .seo-explore-links li a:hover {
+      transform: translateY(-1px);
+      border-color: rgba(87, 184, 201, 0.7);
+      box-shadow: 0 10px 18px rgba(9, 32, 51, 0.1);
+    }
+
     @media (min-width: 1050px) and (orientation: portrait) {
       .marina-page .marina-hero-copy {
         padding-top: 60px;
@@ -701,6 +794,11 @@
 
       .streetview-frame iframe {
         height: 500px;
+      }
+
+      .seo-faq,
+      .seo-explore-links {
+        margin-top: 22px;
       }
     }
 
