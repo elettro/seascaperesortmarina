@@ -3,55 +3,247 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
- <title>FAQ | Seascape Resort & Marina</title>
- <meta name="description" content="Frequently asked questions about Seascape Resort & Marina in Marathon, Florida Keys. Learn about rooms, marina access, group stays, and more.">
- <link rel="canonical" href="https://www.seascaperesortandmarina.com/faq/" />
- <link rel="stylesheet" href="/css/style.css" />
+ <title>FAQ | Seascape Resort &amp; Marina in Marathon, Florida Keys</title>
+ <meta name="description" content="Frequently asked questions about Seascape Resort &amp; Marina in Marathon, Florida Keys. Explore answers on rooms, marina access, bookings, group stays, and local experiences." />
+ <link rel="canonical" href="https://www.seascaperesortandmarina.com/seascaperesortmarina/faq/" />
+ <meta name="robots" content="index,follow" />
+ <meta property="og:title" content="FAQ | Seascape Resort &amp; Marina in Marathon, Florida Keys" />
+ <meta property="og:description" content="Get quick answers about accommodations, marina details, group stays, and planning your stay at Seascape Resort &amp; Marina." />
+ <meta property="og:url" content="https://www.seascaperesortandmarina.com/seascaperesortmarina/faq/" />
+ <meta property="og:type" content="website" />
+ <meta property="og:site_name" content="Seascape Resort &amp; Marina" />
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:title" content="FAQ | Seascape Resort &amp; Marina in Marathon, Florida Keys" />
+ <meta name="twitter:description" content="Find answers on rooms, marina access, group stays, and planning your Florida Keys waterfront stay." />
+ <link rel="stylesheet" href="/seascaperesortmarina/css/style.css" />
  <style>
-  .faq-page-wrap {
-   max-width: 1000px;
-   margin: 0 auto;
-   padding: 56px 24px 80px;
+  .faq-main {
+   background:
+    radial-gradient(circle at 10% 0%, rgba(126, 181, 203, 0.18), transparent 42%),
+    radial-gradient(circle at 90% 15%, rgba(10, 56, 75, 0.08), transparent 35%),
+    linear-gradient(180deg, rgba(247, 251, 252, 1) 0%, rgba(255, 255, 255, 1) 55%);
+   padding: 40px 0 96px;
   }
 
-  .faq-intro {
-   margin-bottom: 44px;
+  .faq-page-wrap {
+   max-width: 1160px;
+   margin: 0 auto;
+   padding: 0 24px;
+  }
+
+  .faq-hero {
+   margin: 18px 0 34px;
+   padding: 38px clamp(24px, 3.4vw, 48px);
+   border: 1px solid rgba(10, 56, 75, 0.12);
+   border-radius: 22px;
+   box-shadow: 0 20px 44px rgba(10, 56, 75, 0.08);
+   background: linear-gradient(150deg, rgba(255, 255, 255, 0.98) 0%, rgba(242, 249, 252, 0.94) 100%);
+  }
+
+  .faq-eyebrow {
+   margin: 0 0 10px;
+   letter-spacing: 0.14em;
+   text-transform: uppercase;
+   font-size: 0.78rem;
+   color: #1a5c73;
+   font-weight: 700;
+  }
+
+  .faq-hero h1 {
+   margin: 0;
+   font-size: clamp(1.95rem, 3.1vw, 2.75rem);
+   line-height: 1.2;
+  }
+
+  .faq-hero p {
+   margin: 14px 0 0;
+   max-width: 760px;
+   line-height: 1.75;
+   color: rgba(10, 56, 75, 0.88);
+  }
+
+  .faq-section-index {
+   margin: 0 0 44px;
+  }
+
+  .faq-section-index h2 {
+   margin: 0 0 16px;
+   font-size: clamp(1.3rem, 2vw, 1.7rem);
+  }
+
+  .faq-index-grid {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   display: grid;
+   grid-template-columns: repeat(3, minmax(0, 1fr));
+   gap: 14px;
+  }
+
+  .faq-index-grid a {
+   display: block;
+   padding: 15px 16px;
+   border-radius: 14px;
+   border: 1px solid rgba(10, 56, 75, 0.14);
+   background: #fff;
+   color: #0a384b;
+   text-decoration: none;
+   font-weight: 600;
+   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .faq-index-grid a:hover,
+  .faq-index-grid a:focus-visible {
+   transform: translateY(-2px);
+   box-shadow: 0 10px 22px rgba(10, 56, 75, 0.12);
+   border-color: rgba(10, 56, 75, 0.3);
+   outline: none;
+  }
+
+  .faq-content-grid {
+   display: grid;
+   grid-template-columns: minmax(0, 1fr);
+   gap: 24px;
   }
 
   .faq-group {
-   margin: 0 0 44px;
-   padding: 28px;
+   margin: 0;
+   padding: 30px clamp(20px, 2.6vw, 32px);
    border: 1px solid rgba(10, 56, 75, 0.12);
-   border-radius: 16px;
+   border-radius: 18px;
    background: #fff;
+   box-shadow: 0 10px 30px rgba(10, 56, 75, 0.06);
+  }
+
+  .faq-group h2 {
+   margin: 0 0 6px;
+   font-size: clamp(1.35rem, 2vw, 1.75rem);
   }
 
   .faq-item {
    margin: 0;
-   padding: 0 0 24px;
+   padding: 22px 0;
    border-bottom: 1px solid rgba(10, 56, 75, 0.15);
   }
 
-  .faq-item + .faq-item {
-   margin-top: 24px;
+  .faq-item:first-of-type {
+   padding-top: 18px;
   }
 
-  .faq-item:last-child {
-   padding-bottom: 0;
+  .faq-item:last-of-type {
+   padding-bottom: 4px;
    border-bottom: 0;
   }
 
   .faq-item h3 {
    margin: 0 0 10px;
+   font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+   line-height: 1.4;
   }
 
   .faq-item p {
    margin: 0;
-   line-height: 1.7;
+   line-height: 1.8;
+   color: rgba(10, 56, 75, 0.9);
   }
 
   .faq-item a {
-   text-decoration: underline;
+   color: #0d5a79;
+   text-underline-offset: 2px;
+   font-weight: 600;
+  }
+
+  .faq-cta {
+   margin-top: 34px;
+   padding: 28px;
+   border: 1px solid rgba(10, 56, 75, 0.12);
+   border-radius: 18px;
+   background: rgba(255, 255, 255, 0.92);
+   text-align: center;
+  }
+
+  .faq-cta h2 {
+   margin: 0;
+   font-size: clamp(1.25rem, 2vw, 1.7rem);
+  }
+
+  .faq-cta p {
+   margin: 12px auto 0;
+   max-width: 640px;
+   line-height: 1.7;
+  }
+
+  .faq-cta-links {
+   margin: 18px 0 0;
+   display: flex;
+   justify-content: center;
+   gap: 10px;
+   flex-wrap: wrap;
+  }
+
+  .faq-cta-links a {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   padding: 11px 16px;
+   min-height: 44px;
+   border-radius: 999px;
+   border: 1px solid rgba(10, 56, 75, 0.22);
+   background: #ffffff;
+   color: #0a384b;
+   text-decoration: none;
+   font-weight: 600;
+  }
+
+  .faq-cta-links a:hover,
+  .faq-cta-links a:focus-visible {
+   background: #0a384b;
+   color: #fff;
+   outline: none;
+  }
+
+  @media (max-width: 991px) {
+   .faq-main {
+    padding-top: 28px;
+   }
+
+   .faq-index-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+  }
+
+  @media (max-width: 767px) {
+   .faq-main {
+    padding: 20px 0 72px;
+   }
+
+   .faq-page-wrap {
+    padding: 0 16px;
+   }
+
+   .faq-hero {
+    margin-top: 8px;
+    padding: 28px 20px;
+    border-radius: 16px;
+   }
+
+   .faq-index-grid {
+    grid-template-columns: minmax(0, 1fr);
+   }
+
+   .faq-group {
+    border-radius: 14px;
+    padding: 24px 18px;
+   }
+
+   .faq-item {
+    padding: 18px 0;
+   }
+
+   .faq-cta {
+    border-radius: 14px;
+    padding: 24px 18px;
+   }
   }
  </style>
 </head>
@@ -93,7 +285,7 @@
  </div>
  </div>
 
- <a href="/seascaperesortmarina/" class="nav-logo" aria-label="Seascape Resort & Marina home">
+ <a href="/seascaperesortmarina/" class="nav-logo" aria-label="Seascape Resort &amp; Marina home">
  <span class="logo-main">SEASCAPE</span>
  <span class="logo-sub">RESORT &amp; MARINA</span>
  </a>
@@ -114,7 +306,7 @@
  </div>
 
  <div class="mobile-header-row">
- <a href="/seascaperesortmarina/" class="mobile-logo" aria-label="Seascape Resort & Marina home">
+ <a href="/seascaperesortmarina/" class="mobile-logo" aria-label="Seascape Resort &amp; Marina home">
  <span class="logo-main">SEASCAPE</span>
  <span class="logo-sub">RESORT &amp; MARINA</span>
  </a>
@@ -179,122 +371,149 @@
  </div>
  </header>
 
- <main>
+ <main id="main-content" class="faq-main">
   <div class="faq-page-wrap">
-   <div class="faq-intro">
-    <h1>Frequently Asked Questions</h1>
-    <p>Find answers about staying at Seascape Resort &amp; Marina in Marathon, Florida Keys. This page covers rooms, marina access, group stays, and local experiences.</p>
+   <section class="faq-hero" aria-labelledby="faq-heading">
+    <p class="faq-eyebrow">Guest Planning Guide</p>
+    <h1 id="faq-heading">Frequently Asked Questions</h1>
+    <p>
+     Find quick answers for planning your waterfront stay at Seascape Resort &amp; Marina in Marathon.
+     Browse by topic for room details, marina access, booking guidance, and group trip planning.
+    </p>
+   </section>
+
+   <nav class="faq-section-index" aria-label="FAQ section quick links">
+    <h2>Jump to a section</h2>
+    <ul class="faq-index-grid">
+     <li><a href="#general">General</a></li>
+     <li><a href="#rooms-stays">Rooms &amp; Stays</a></li>
+     <li><a href="#marina">Marina</a></li>
+     <li><a href="#bookings">Bookings</a></li>
+     <li><a href="#group-stays">Group Stays</a></li>
+     <li><a href="#location-experience">Location &amp; Experience</a></li>
+    </ul>
+   </nav>
+
+   <div class="faq-content-grid">
+    <section class="faq-group" id="general" aria-labelledby="general-heading">
+     <h2 id="general-heading">General</h2>
+     <article class="faq-item">
+      <h3>Where is Seascape Resort &amp; Marina located?</h3>
+      <p>Seascape Resort &amp; Marina is in Marathon, Florida, in the heart of the Keys with direct waterfront access near local dining and <a href="/seascaperesortmarina/things-to-do/">things to do in Marathon</a>.</p>
+     </article>
+     <article class="faq-item">
+      <h3>What type of property is Seascape Resort &amp; Marina?</h3>
+      <p>Seascape is a boutique waterfront resort with a marina-focused atmosphere, comfortable guest accommodations, and easy access to both on-site and nearby experiences.</p>
+     </article>
+     <article class="faq-item">
+      <h3>Is Seascape located directly on the water?</h3>
+      <p>Yes. Seascape is directly on the water with dockside views, marina access, and a calm coastal setting throughout the property.</p>
+     </article>
+    </section>
+
+    <section class="faq-group" id="rooms-stays" aria-labelledby="rooms-stays-heading">
+     <h2 id="rooms-stays-heading">Rooms &amp; Stays</h2>
+     <article class="faq-item">
+      <h3>What types of rooms are available?</h3>
+      <p>Seascape offers room layouts designed for couples, families, and longer stays. Compare options and features on the <a href="/seascaperesortmarina/rooms/">rooms page</a>.</p>
+     </article>
+     <article class="faq-item">
+      <h3>Do rooms include kitchen facilities?</h3>
+      <p>Many accommodations include practical kitchen or kitchenette features. For exact in-room amenities, review the <a href="/seascaperesortmarina/rooms/">room details</a> before booking.</p>
+     </article>
+     <article class="faq-item">
+      <h3>Is parking available for guests?</h3>
+      <p>Yes, guest parking is available on property. If you have vehicle or trailer questions, please <a href="/seascaperesortmarina/contact/">contact Seascape directly</a> before arrival.</p>
+     </article>
+     <article class="faq-item">
+      <h3>Is the property family-friendly?</h3>
+      <p>Yes. Seascape is family-friendly and popular for multigenerational stays with convenient access to water activities and nearby attractions.</p>
+     </article>
+    </section>
+
+    <section class="faq-group" id="marina" aria-labelledby="marina-heading">
+     <h2 id="marina-heading">Marina</h2>
+     <article class="faq-item">
+      <h3>Does Seascape have a marina?</h3>
+      <p>Yes. Seascape includes on-site dockage and a true waterfront setting. Visit the <a href="/seascaperesortmarina/marina/">marina page</a> for details.</p>
+     </article>
+     <article class="faq-item">
+      <h3>Can I bring my own boat?</h3>
+      <p>In many cases, yes. Boat access and dockage are core parts of the experience. Reach out through the <a href="/seascaperesortmarina/contact/">contact page</a> to confirm availability for your dates.</p>
+     </article>
+     <article class="faq-item">
+      <h3>Is this a fishing-friendly location?</h3>
+      <p>Absolutely. Marathon is known for world-class fishing, and Seascape's marina access supports early departures and easy returns.</p>
+     </article>
+     <article class="faq-item">
+      <h3>Are charters or excursions available nearby?</h3>
+      <p>Yes. Guests can enjoy boating and fishing experiences nearby, plus local recommendations on our <a href="/seascaperesortmarina/things-to-do/">things-to-do guide</a>.</p>
+     </article>
+    </section>
+
+    <section class="faq-group" id="bookings" aria-labelledby="bookings-heading">
+     <h2 id="bookings-heading">Bookings</h2>
+     <article class="faq-item">
+      <h3>How do I book a stay?</h3>
+      <p>You can book directly through Seascape's official options or by phone. For personalized help, use the <a href="/seascaperesortmarina/contact/">contact page</a>.</p>
+     </article>
+     <article class="faq-item">
+      <h3>What is the best way to get the best rate?</h3>
+      <p>The best way to secure the best available rate is to book direct and call Seascape for current offers, seasonal availability, and stay recommendations.</p>
+     </article>
+     <article class="faq-item">
+      <h3>Is there a minimum stay requirement?</h3>
+      <p>Minimum stay requirements can vary by season, unit type, and travel dates. Contact Seascape directly to confirm details for your itinerary.</p>
+     </article>
+    </section>
+
+    <section class="faq-group" id="group-stays" aria-labelledby="group-stays-heading">
+     <h2 id="group-stays-heading">Group Stays</h2>
+     <article class="faq-item">
+      <h3>Can I book the entire property?</h3>
+      <p>Yes, full-property options are available for qualifying groups. Learn more on our <a href="/seascaperesortmarina/full-property-buyouts/">full property buyouts page</a>.</p>
+     </article>
+     <article class="faq-item">
+      <h3>Is Seascape suitable for weddings or events?</h3>
+      <p>Yes. Seascape is a strong fit for intimate and destination celebrations. Explore planning details on the <a href="/seascaperesortmarina/weddings/">weddings page</a>.</p>
+     </article>
+     <article class="faq-item">
+      <h3>Do you offer retreats or group gatherings?</h3>
+      <p>Yes. Seascape hosts reunions, retreats, and coordinated group stays. Explore options on our <a href="/seascaperesortmarina/retreats-gatherings/">retreats &amp; gatherings page</a>.</p>
+     </article>
+    </section>
+
+    <section class="faq-group" id="location-experience" aria-labelledby="location-experience-heading">
+     <h2 id="location-experience-heading">Location &amp; Experience</h2>
+     <article class="faq-item">
+      <h3>What is there to do nearby?</h3>
+      <p>Guests can enjoy boating, fishing, beaches, local restaurants, and Keys-style sightseeing. Start with our curated <a href="/seascaperesortmarina/things-to-do/">Marathon activities guide</a>.</p>
+     </article>
+     <article class="faq-item">
+      <h3>Is Seascape close to other Florida Keys attractions?</h3>
+      <p>Yes. Marathon's central location makes it easy to explore both Upper and Lower Keys highlights while returning to a quieter waterfront home base.</p>
+     </article>
+     <article class="faq-item">
+      <h3>What makes Marathon a good place to stay?</h3>
+      <p>Marathon balances accessibility, local character, and water access, making it ideal for easy day outings and calm evenings at the resort.</p>
+     </article>
+    </section>
    </div>
 
-   <section class="faq-group">
-    <h2>General</h2>
-    <div class="faq-item">
-     <h3>Where is Seascape Resort &amp; Marina located?</h3>
-     <p>Seascape Resort &amp; Marina is located in Marathon, Florida in the heart of the Florida Keys, offering direct waterfront access and a relaxed island setting near local dining and <a href="/things-to-do/">things to do in Marathon</a>.</p>
-    </div>
-    <div class="faq-item">
-     <h3>What type of property is Seascape Resort &amp; Marina?</h3>
-     <p>Seascape is a boutique waterfront resort with a marina-focused atmosphere, comfortable guest accommodations, and easy access to on-site and nearby experiences.</p>
-    </div>
-    <div class="faq-item">
-     <h3>Is Seascape located directly on the water?</h3>
-     <p>Yes. Seascape is directly on the water with dockside views, marina access, and a relaxed coastal setting throughout the property.</p>
-    </div>
-   </section>
-
-   <section class="faq-group">
-    <h2>Rooms &amp; Stays</h2>
-    <div class="faq-item">
-     <h3>What types of rooms are available?</h3>
-     <p>Seascape offers a range of Florida Keys accommodations designed for couples, families, and extended stays. You can compare layouts and features on the <a href="/rooms/">rooms page</a>.</p>
-    </div>
-    <div class="faq-item">
-     <h3>Do rooms include kitchen facilities?</h3>
-     <p>Many accommodations include practical kitchen or kitchenette features. For exact in-room amenities, visit the <a href="/rooms/">room details section</a> before booking.</p>
-    </div>
-    <div class="faq-item">
-     <h3>Is parking available for guests?</h3>
-     <p>Yes, guest parking is available on property. If you have specific vehicle or trailer needs, please <a href="/contact/">contact Seascape directly</a> before arrival.</p>
-    </div>
-    <div class="faq-item">
-     <h3>Is the property family-friendly?</h3>
-     <p>Yes. Seascape is family-friendly and popular for multigenerational trips with convenient access to waterfront activities and local attractions.</p>
-    </div>
-   </section>
-
-   <section class="faq-group">
-    <h2>Marina</h2>
-    <div class="faq-item">
-     <h3>Does Seascape have a marina?</h3>
-     <p>Yes. Seascape includes on-site dockage and a true waterfront setting. Visit the <a href="/marina/">marina page</a> for details about access and dockside convenience.</p>
-    </div>
-    <div class="faq-item">
-     <h3>Can I bring my own boat?</h3>
-     <p>In many cases, yes. Boat access and dockage are key parts of the property experience. Reach out through the <a href="/contact/">contact page</a> to confirm availability for your dates.</p>
-    </div>
-    <div class="faq-item">
-     <h3>Is this a fishing-friendly location?</h3>
-     <p>Absolutely. Marathon is known for world-class fishing, and Seascape's marina-friendly location makes early departures and easy returns simple for anglers.</p>
-    </div>
-    <div class="faq-item">
-     <h3>Are charters or excursions available nearby?</h3>
-     <p>Yes. Guests can find fishing, boating, and island experiences nearby, plus curated local recommendations on our <a href="/things-to-do/">things to do</a> and excursion resources.</p>
-    </div>
-   </section>
-
-   <section class="faq-group">
-    <h2>Bookings</h2>
-    <div class="faq-item">
-     <h3>How do I book a stay?</h3>
-     <p>You can book directly through Seascape's official booking options or by phone. For personalized help, use the <a href="/contact/">contact page</a> and our team can assist.</p>
-    </div>
-    <div class="faq-item">
-     <h3>What is the best way to get the best rate?</h3>
-     <p>The best way to secure the best available rate is to book direct and call Seascape for current offers, seasonal availability, and stay recommendations.</p>
-    </div>
-    <div class="faq-item">
-     <h3>Is there a minimum stay requirement?</h3>
-     <p>Minimum stay requirements can vary by season, unit type, and travel dates. Contact Seascape directly to confirm the exact requirement for your itinerary.</p>
-    </div>
-   </section>
-
-   <section class="faq-group">
-    <h2>Group Stays</h2>
-    <div class="faq-item">
-     <h3>Can I book the entire property?</h3>
-     <p>Yes, full-property options are available for qualifying groups. Learn more about private resort access on our <a href="/buyout/">full property buyout page</a>.</p>
-    </div>
-    <div class="faq-item">
-     <h3>Is Seascape suitable for weddings or events?</h3>
-     <p>Yes. Seascape is a strong fit for intimate and destination celebrations. Explore event possibilities and planning support on the <a href="/weddings/">weddings page</a>.</p>
-    </div>
-    <div class="faq-item">
-     <h3>Do you offer retreats or group gatherings?</h3>
-     <p>Yes. Seascape regularly hosts reunions, retreats, and coordinated group stays with flexible shared-space access and nearby activities.</p>
-    </div>
-   </section>
-
-   <section class="faq-group">
-    <h2>Location &amp; Experience</h2>
-    <div class="faq-item">
-     <h3>What is there to do nearby?</h3>
-     <p>Guests can enjoy boating, fishing, beaches, local restaurants, and Keys-style sightseeing. Start with our curated <a href="/things-to-do/">Marathon activities guide</a>.</p>
-    </div>
-    <div class="faq-item">
-     <h3>Is Seascape close to other Florida Keys attractions?</h3>
-     <p>Yes. Marathon's central location makes it easy to explore both Upper and Lower Keys highlights while returning to a quieter waterfront home base.</p>
-    </div>
-    <div class="faq-item">
-     <h3>What makes Marathon a good place to stay?</h3>
-     <p>Marathon offers a balance of accessibility, local character, and water access, making it ideal for travelers who want easy outings and calm evenings at the resort.</p>
+   <section class="faq-cta" aria-labelledby="faq-cta-heading">
+    <h2 id="faq-cta-heading">Still have questions?</h2>
+    <p>Our team can help with trip planning, room guidance, marina details, and group-stay coordination.</p>
+    <div class="faq-cta-links">
+     <a href="/seascaperesortmarina/contact/">Contact Us</a>
+     <a href="tel:+13057436212">Call (305) 743-6212</a>
     </div>
    </section>
   </div>
  </main>
 
- <div id="site-footer" data-footer-path="/footer/index.html"></div>
+ <div id="site-footer" data-footer-path="/seascaperesortmarina/footer/index.html"></div>
 
- <script src="/js/main.js"></script>
+ <script src="/seascaperesortmarina/js/main.js"></script>
  <script type="application/ld+json">
  {
   "@context": "https://schema.org",
@@ -305,7 +524,7 @@
     "name": "Where is Seascape Resort & Marina located?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Seascape Resort & Marina is located in Marathon, Florida in the heart of the Florida Keys, offering direct waterfront access and a relaxed island setting near local dining and things to do in Marathon."
+     "text": "Seascape Resort & Marina is in Marathon, Florida, in the heart of the Keys with direct waterfront access near local dining and things to do in Marathon."
     }
    },
    {
@@ -313,7 +532,7 @@
     "name": "What type of property is Seascape Resort & Marina?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Seascape is a boutique waterfront resort with a marina-focused atmosphere, comfortable guest accommodations, and easy access to on-site and nearby experiences."
+     "text": "Seascape is a boutique waterfront resort with a marina-focused atmosphere, comfortable guest accommodations, and easy access to both on-site and nearby experiences."
     }
    },
    {
@@ -321,7 +540,7 @@
     "name": "Is Seascape located directly on the water?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Yes. Seascape is directly on the water with dockside views, marina access, and a relaxed coastal setting throughout the property."
+     "text": "Yes. Seascape is directly on the water with dockside views, marina access, and a calm coastal setting throughout the property."
     }
    },
    {
@@ -329,7 +548,7 @@
     "name": "What types of rooms are available?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Seascape offers a range of Florida Keys accommodations designed for couples, families, and extended stays."
+     "text": "Seascape offers room layouts designed for couples, families, and longer stays."
     }
    },
    {
@@ -345,7 +564,7 @@
     "name": "Is parking available for guests?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Yes, guest parking is available on property, and guests with specific vehicle or trailer needs should contact Seascape directly before arrival."
+     "text": "Yes, guest parking is available on property, and guests with vehicle or trailer questions can contact Seascape before arrival."
     }
    },
    {
@@ -353,7 +572,7 @@
     "name": "Is the property family-friendly?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Yes. Seascape is family-friendly and popular for multigenerational trips with convenient access to waterfront activities and local attractions."
+     "text": "Yes. Seascape is family-friendly and popular for multigenerational stays with convenient access to water activities and nearby attractions."
     }
    },
    {
@@ -369,7 +588,7 @@
     "name": "Can I bring my own boat?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "In many cases, yes. Boat access and dockage are key parts of the property experience, and guests can contact Seascape to confirm availability for specific dates."
+     "text": "In many cases, yes. Boat access and dockage are core parts of the experience, and guests can contact Seascape to confirm availability for specific dates."
     }
    },
    {
@@ -377,7 +596,7 @@
     "name": "Is this a fishing-friendly location?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Absolutely. Marathon is known for world-class fishing, and Seascape's marina-friendly location makes early departures and easy returns simple for anglers."
+     "text": "Absolutely. Marathon is known for world-class fishing, and Seascape's marina access supports early departures and easy returns."
     }
    },
    {
@@ -385,7 +604,7 @@
     "name": "Are charters or excursions available nearby?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Yes. Guests can find fishing, boating, and island experiences nearby, plus curated local recommendations through Seascape's area guides."
+     "text": "Yes. Guests can enjoy boating and fishing experiences nearby, plus local recommendations through Seascape's things-to-do guides."
     }
    },
    {
@@ -393,7 +612,7 @@
     "name": "How do I book a stay?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Guests can book directly through Seascape's official booking options or by phone for personalized assistance."
+     "text": "Guests can book directly through Seascape's official options or by phone for personalized assistance."
     }
    },
    {
@@ -433,7 +652,7 @@
     "name": "Do you offer retreats or group gatherings?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Yes. Seascape regularly hosts reunions, retreats, and coordinated group stays with flexible shared-space access and nearby activities."
+     "text": "Yes. Seascape hosts reunions, retreats, and coordinated group stays with flexible shared-space access and nearby activities."
     }
    },
    {
@@ -457,7 +676,7 @@
     "name": "What makes Marathon a good place to stay?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Marathon offers a balance of accessibility, local character, and water access, making it ideal for travelers who want easy outings and calm evenings at the resort."
+     "text": "Marathon balances accessibility, local character, and water access, making it ideal for easy day outings and calm evenings at the resort."
     }
    }
   ]
