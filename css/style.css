@@ -2046,6 +2046,11 @@ a {
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
  .site-header {
+ position: fixed !important;
+ top: 0 !important;
+ left: 0 !important;
+ right: 0 !important;
+ width: 100% !important;
  position: sticky !important;
  top: 0 !important;
  z-index: 1000 !important;
