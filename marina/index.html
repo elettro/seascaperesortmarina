@@ -917,15 +917,41 @@
         position: relative;
         z-index: 1;
         margin-top: calc(var(--nav-height) * -1);
+        min-height: auto;
+        padding-bottom: 24px;
+        overflow: visible;
       }
 
       .marina-page .marina-hero-content {
-        padding-top: calc(var(--nav-height) + 56px);
-        padding-bottom: 150px;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+        padding-top: calc(var(--nav-height, 84px) + 56px);
+        padding-bottom: 28px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        align-items: start;
       }
 
       .marina-page .marina-hero-copy {
+        max-width: 100%;
         padding-top: 46px;
+      }
+
+      .marina-page .marina-hero-title {
+        max-width: 100%;
+        font-size: clamp(3rem, 7vw, 4.4rem);
+        line-height: 0.98;
+      }
+
+      .marina-page .marina-hero-text {
+        max-width: 100%;
+      }
+
+      .marina-page .marina-hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
       }
 
       .marina-page .floating-ribbon {
@@ -934,15 +960,43 @@
         right: auto;
         bottom: auto;
         transform: none;
-        margin-bottom: 34px;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+        padding: 4px 0 18px;
       }
 
       .marina-page .marina-hero-card {
-        width: min(520px, 100%);
+        width: 100%;
+        max-width: none;
+        justify-self: stretch;
+        padding: 22px;
+      }
+
+      .marina-page .marina-hero-card-top {
+        align-items: start;
       }
 
       .marina-page .marina-hero-mini-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .marina-page .floating-ribbon-inner {
         grid-template-columns: 1fr;
+        gap: 0;
+        padding: 20px;
+      }
+
+      .marina-page .ribbon-item {
+        padding: 0 0 16px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid rgba(15,47,70,0.08);
+      }
+
+      .marina-page .ribbon-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: 0;
       }
     }
 
