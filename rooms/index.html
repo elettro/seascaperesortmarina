@@ -480,6 +480,112 @@
       flex:0 0 18px;
     }
 
+    .seo-faq,
+    .seo-explore-links{
+      padding:0 0 32px;
+    }
+
+    .seo-shell{
+      width:min(calc(100% - 32px), 900px);
+      margin:0 auto;
+      background:linear-gradient(180deg,#ffffff 0%, #f9fcff 100%);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow-soft);
+      padding:clamp(20px,3.2vw,34px);
+      text-align:center;
+    }
+
+    .seo-faq h2,
+    .seo-explore-links h2{
+      margin:0 0 14px;
+      font-size:clamp(1.5rem,2.4vw,2.1rem);
+      color:#062a66;
+      line-height:1.2;
+      text-wrap:balance;
+    }
+
+    .seo-faq details{
+      text-align:left;
+      background:var(--surface-2);
+      border:1px solid rgba(15,47,70,.12);
+      border-radius:14px;
+      padding:0;
+      margin:10px 0;
+      overflow:hidden;
+    }
+
+    .seo-faq summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight:700;
+      color:var(--ink);
+      padding:14px 16px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+
+    .seo-faq summary::-webkit-details-marker{display:none}
+
+    .seo-faq summary::before{
+      content:'›';
+      color:var(--brand-deep);
+      font-size:1.2rem;
+      line-height:1;
+      transform:translateY(1px);
+      transition:transform .2s ease;
+    }
+
+    .seo-faq details[open] summary::before{
+      transform:rotate(90deg) translateX(2px);
+    }
+
+    .seo-faq details p{
+      margin:0;
+      padding:0 16px 16px 40px;
+      color:var(--ink-2);
+      line-height:1.65;
+    }
+
+    .seo-explore-links ul{
+      margin:10px auto 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+      max-width:620px;
+      text-align:left;
+    }
+
+    .seo-explore-links li a{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-height:46px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(15,47,70,.1);
+      background:#fff;
+      color:var(--ink);
+      font-weight:700;
+      box-shadow:0 6px 16px rgba(15,47,70,.05);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+
+    .seo-explore-links li a::before{
+      content:'•';
+      color:var(--brand-deep);
+      font-size:1.4rem;
+      line-height:1;
+      transform:translateY(-1px);
+    }
+
+    .seo-explore-links li a:hover,
+    .seo-explore-links li a:focus-visible{
+      transform:translateY(-1px);
+      box-shadow:0 10px 22px rgba(15,47,70,.12);
+    }
 
 
     .unit12-modal-overlay{
@@ -1379,22 +1485,26 @@
   
 
   <section class="seo-faq" aria-labelledby="page-faq-heading">
-    <h2 id="page-faq-heading">Frequently asked questions</h2>
-    <details><summary>What room types are available at Seascape Resort & Marina?</summary><p>The rooms page lists suites, ocean-view suites, apartments, and bungalows so you can choose the stay style that fits your group size and trip goals.</p></details>
-    <details><summary>Is Seascape Resort & Marina in Marathon, Florida Keys?</summary><p>Yes. Seascape Resort & Marina is located in Marathon, Florida, in the Florida Keys.</p></details>
-    <details><summary>Can I review stay policies before booking?</summary><p>Yes. This page includes key policies such as check-in/check-out times, pet policy, payment methods, and arrival guidance.</p></details>
-    <details><summary>Who is this rooms page most helpful for?</summary><p>It is designed for couples, families, and small groups comparing accommodations for a waterfront Florida Keys stay.</p></details>
+    <div class="seo-shell">
+      <h2 id="page-faq-heading">Frequently asked questions</h2>
+      <details><summary>What room types are available at Seascape Resort & Marina?</summary><p>The rooms page lists suites, ocean-view suites, apartments, and bungalows so you can choose the stay style that fits your group size and trip goals.</p></details>
+      <details><summary>Is Seascape Resort & Marina in Marathon, Florida Keys?</summary><p>Yes. Seascape Resort & Marina is located in Marathon, Florida, in the Florida Keys.</p></details>
+      <details><summary>Can I review stay policies before booking?</summary><p>Yes. This page includes key policies such as check-in/check-out times, pet policy, payment methods, and arrival guidance.</p></details>
+      <details><summary>Who is this rooms page most helpful for?</summary><p>It is designed for couples, families, and small groups comparing accommodations for a waterfront Florida Keys stay.</p></details>
+    </div>
   </section>
 
   <section class="seo-explore-links" aria-labelledby="seo-explore-links-heading">
-    <h2 id="seo-explore-links-heading">Explore More at Seascape Resort &amp; Marina</h2>
-    <ul>
-      <li><a href="/seascaperesortmarina/rooms/">Browse Rooms in Marathon</a></li>
-      <li><a href="/seascaperesortmarina/marina/">See Marina &amp; Dockage Details</a></li>
-      <li><a href="/seascaperesortmarina/things-to-do/">Plan Things To Do Nearby</a></li>
-      <li><a href="/seascaperesortmarina/local-events/">View Local Marathon Events</a></li>
-      <li><a href="/seascaperesortmarina/contact/">Contact Seascape Resort &amp; Marina</a></li>
-    </ul>
+    <div class="seo-shell">
+      <h2 id="seo-explore-links-heading">Explore More at Seascape Resort &amp; Marina</h2>
+      <ul>
+        <li><a href="/seascaperesortmarina/rooms/">Browse Rooms in Marathon</a></li>
+        <li><a href="/seascaperesortmarina/marina/">See Marina &amp; Dockage Details</a></li>
+        <li><a href="/seascaperesortmarina/things-to-do/">Plan Things To Do Nearby</a></li>
+        <li><a href="/seascaperesortmarina/local-events/">View Local Marathon Events</a></li>
+        <li><a href="/seascaperesortmarina/contact/">Contact Seascape Resort &amp; Marina</a></li>
+      </ul>
+    </div>
   </section>
 </main>
 
