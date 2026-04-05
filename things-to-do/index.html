@@ -535,6 +535,86 @@
       transform: translateY(0);
     }
 
+    .seo-support-wrap {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 44px auto 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      align-items: start;
+    }
+
+    .seo-faq,
+    .seo-explore-links {
+      margin: 0;
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.99), rgba(247,251,252,.99));
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 30px rgba(15,47,70,.08);
+      text-align: center;
+    }
+
+    .seo-faq h2,
+    .seo-explore-links h2 {
+      margin: 0 0 14px;
+      font-family: "Lora", serif;
+      font-size: clamp(1.6rem, 2.8vw, 2rem);
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--navy);
+    }
+
+    .seo-faq details {
+      text-align: left;
+      background: var(--offwhite);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-top: 10px;
+      padding: 12px 14px;
+    }
+
+    .seo-faq summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--navy);
+      list-style: none;
+    }
+
+    .seo-faq summary::-webkit-details-marker { display: none; }
+
+    .seo-faq details p {
+      margin: 10px 0 0;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    .seo-explore-links ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+      display: grid;
+      gap: 9px;
+    }
+
+    .seo-explore-links a {
+      display: block;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--offwhite);
+      color: var(--navy-2);
+      font-weight: 700;
+      transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+
+    .seo-explore-links a:hover {
+      background: #ecf7fa;
+      border-color: rgba(10,139,158,.35);
+      transform: translateY(-1px);
+    }
+
     @media (max-width: 1120px) {
       .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
@@ -559,6 +639,9 @@
       .cards-grid { grid-template-columns: 1fr; }
       .card-body { padding: 20px 18px 16px; }
       .cta-card { padding: 38px 20px; }
+      .seo-support-wrap { grid-template-columns: 1fr; margin-top: 36px; }
+      .seo-faq,
+      .seo-explore-links { padding: 24px 18px; }
     }
   </style>
 </head>
@@ -1053,23 +1136,25 @@
     </div>
   
 
-  <section class="seo-faq" aria-labelledby="page-faq-heading">
-    <h2 id="page-faq-heading">Frequently asked questions</h2>
-    <details><summary>What kinds of activities are covered on this page?</summary><p>The page highlights nearby Marathon and Florida Keys activities such as beaches, water time, and family-friendly stops.</p></details>
-    <details><summary>Is this guide only for Seascape guests?</summary><p>It is built for Seascape guests first, but any visitor planning time in Marathon can use it for ideas.</p></details>
-    <details><summary>How does this page help with trip planning?</summary><p>It groups local experiences in one place so you can build a realistic itinerary around your room and marina plans.</p></details>
-  </section>
+  <div class="seo-support-wrap">
+    <section class="seo-faq" aria-labelledby="page-faq-heading">
+      <h2 id="page-faq-heading">Frequently asked questions</h2>
+      <details><summary>What kinds of activities are covered on this page?</summary><p>The page highlights nearby Marathon and Florida Keys activities such as beaches, water time, and family-friendly stops.</p></details>
+      <details><summary>Is this guide only for Seascape guests?</summary><p>It is built for Seascape guests first, but any visitor planning time in Marathon can use it for ideas.</p></details>
+      <details><summary>How does this page help with trip planning?</summary><p>It groups local experiences in one place so you can build a realistic itinerary around your room and marina plans.</p></details>
+    </section>
 
-  <section class="seo-explore-links" aria-labelledby="seo-explore-links-heading">
-    <h2 id="seo-explore-links-heading">Explore More at Seascape Resort &amp; Marina</h2>
-    <ul>
-      <li><a href="/seascaperesortmarina/rooms/">Browse Rooms in Marathon</a></li>
-      <li><a href="/seascaperesortmarina/marina/">See Marina &amp; Dockage Details</a></li>
-      <li><a href="/seascaperesortmarina/things-to-do/">Plan Things To Do Nearby</a></li>
-      <li><a href="/seascaperesortmarina/local-events/">View Local Marathon Events</a></li>
-      <li><a href="/seascaperesortmarina/contact/">Contact Seascape Resort &amp; Marina</a></li>
-    </ul>
-  </section>
+    <section class="seo-explore-links" aria-labelledby="seo-explore-links-heading">
+      <h2 id="seo-explore-links-heading">Explore More at Seascape Resort &amp; Marina</h2>
+      <ul>
+        <li><a href="/seascaperesortmarina/rooms/">Browse Rooms in Marathon</a></li>
+        <li><a href="/seascaperesortmarina/marina/">See Marina &amp; Dockage Details</a></li>
+        <li><a href="/seascaperesortmarina/things-to-do/">Plan Things To Do Nearby</a></li>
+        <li><a href="/seascaperesortmarina/local-events/">View Local Marathon Events</a></li>
+        <li><a href="/seascaperesortmarina/contact/">Contact Seascape Resort &amp; Marina</a></li>
+      </ul>
+    </section>
+  </div>
 </main>
 
   <div id="site-footer" data-footer-path="../footer/index.html"></div>
