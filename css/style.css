@@ -2044,6 +2044,14 @@ a {
  }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+ .site-header {
+ position: sticky !important;
+ top: 0 !important;
+ z-index: 1000 !important;
+ }
+}
+
 
 @media (max-width: 767px) and (orientation: portrait) {
  .excursions-page .hero-content {
