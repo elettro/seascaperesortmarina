@@ -304,6 +304,93 @@
       opacity: 0.93;
     }
 
+    .seo-faq,
+    .seo-explore-links {
+      width: min(900px, calc(100% - 34px));
+      margin: 0 auto 28px;
+      border-radius: 22px;
+      border: 1px solid var(--buyout-line);
+      background: linear-gradient(165deg, #ffffff 0%, #f5fbfe 100%);
+      box-shadow: 0 14px 34px rgba(8, 33, 47, 0.09);
+      padding: 30px 28px;
+      text-align: center;
+    }
+
+    .seo-faq h2,
+    .seo-explore-links h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--buyout-ink);
+    }
+
+    .seo-faq details {
+      margin: 0 0 10px;
+      border: 1px solid rgba(17, 47, 66, 0.16);
+      border-radius: 14px;
+      background: #fff;
+      text-align: left;
+      overflow: hidden;
+    }
+
+    .seo-faq details:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .seo-faq summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 14px 16px;
+      font-weight: 600;
+      color: #14394f;
+    }
+
+    .seo-faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .seo-faq summary::before {
+      content: "▸";
+      margin-right: 8px;
+      color: var(--buyout-sea);
+    }
+
+    .seo-faq details[open] summary::before {
+      content: "▾";
+    }
+
+    .seo-faq details p {
+      margin: 0;
+      padding: 0 16px 14px;
+      color: var(--buyout-ink-soft);
+      line-height: 1.65;
+    }
+
+    .seo-explore-links ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+    }
+
+    .seo-explore-links a {
+      color: #0e4f73;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(72, 173, 194, 0.12);
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .seo-explore-links a:hover,
+    .seo-explore-links a:focus-visible {
+      background: rgba(72, 173, 194, 0.24);
+      color: #0a3a56;
+      transform: translateY(-1px);
+    }
+
     @media (max-width: 1120px) {
       .buyout-grid-4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -339,6 +426,11 @@
       .buyout-tone,
       .buyout-cta-band {
         padding: 34px 22px;
+      }
+
+      .seo-faq,
+      .seo-explore-links {
+        padding: 24px 18px;
       }
     }
   </style>
