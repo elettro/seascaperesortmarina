@@ -2051,6 +2051,8 @@ a {
  left: 0 !important;
  right: 0 !important;
  width: 100% !important;
+ position: sticky !important;
+ top: 0 !important;
  z-index: 1000 !important;
  }
 }
