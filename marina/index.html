@@ -67,6 +67,10 @@
     }
 
 
+    .marina-page .marina-hero-wrap {
+      position: relative;
+    }
+
     .marina-page .marina-hero {
       position: relative;
       margin-top: calc(var(--nav-height, 84px) * -1);
@@ -924,7 +928,7 @@
         z-index: 1;
         margin-top: calc(var(--nav-height) * -1);
         min-height: auto;
-        padding-bottom: 24px;
+        padding-bottom: 0;
         overflow: visible;
       }
 
@@ -967,8 +971,8 @@
         bottom: auto;
         transform: none;
         width: calc(100% - 40px);
-        margin: 0 auto;
-        padding: 4px 0 18px;
+        margin: 0 auto 24px;
+        padding: 0;
       }
 
       .marina-page .marina-hero-card {
@@ -988,12 +992,15 @@
       }
 
       .marina-page .floating-ribbon-inner {
+        display: grid;
         grid-template-columns: 1fr;
         gap: 0;
         padding: 20px;
+        border-radius: 24px;
       }
 
       .marina-page .ribbon-item {
+        gap: 12px;
         padding: 0 0 16px;
         margin-bottom: 16px;
         border-bottom: 1px solid rgba(15,47,70,0.08);
@@ -1003,6 +1010,21 @@
         margin-bottom: 0;
         padding-bottom: 0;
         border-bottom: 0;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .marina-page .marina-hero {
+        position: relative;
+      }
+
+      .marina-page .floating-ribbon {
+        position: absolute;
+        left: 50%;
+        bottom: 28px;
+        transform: translateX(-50%);
+        width: min(1120px, calc(100% - 32px));
+        z-index: 3;
       }
     }
 
@@ -1199,82 +1221,84 @@
     <div id="site-nav"></div>
 
     <main>
-<section class="marina-hero">
-    <div class="marina-hero-content">
-      <div class="marina-hero-copy">
-        <h1 class="marina-hero-title">Dock your boat. Walk to the pool. Be back in your room in seconds.</h1>
-        <p class="marina-hero-text">
-          This is the rare Florida Keys stay where the marina is not off somewhere else. It is right here on the property. Boat parking, fishing pier access, pool time, sunset time, and room convenience all live in one easy waterfront setting.
-        </p>
-        <div class="marina-hero-actions">
-          <a href="/seascaperesortmarina/contact/" class="btn-primary">Ask About Marina Availability</a>
-          <a href="/seascaperesortmarina/rooms/" class="btn-secondary">View Accommodations</a>
-        </div>
-      </div>
-
-      <div class="marina-hero-card">
-        <div class="marina-hero-card-top">
-          <div class="marina-hero-card-icon">⚓</div>
-          <div>
-            <h3>Your day starts steps from the water</h3>
-            <p>No loading up the truck and driving back and forth. Stay close to your boat, your gear, the pool, and your room.</p>
+<div class="marina-hero-wrap">
+  <section class="marina-hero">
+      <div class="marina-hero-content">
+        <div class="marina-hero-copy">
+          <h1 class="marina-hero-title">Dock your boat. Walk to the pool. Be back in your room in seconds.</h1>
+          <p class="marina-hero-text">
+            This is the rare Florida Keys stay where the marina is not off somewhere else. It is right here on the property. Boat parking, fishing pier access, pool time, sunset time, and room convenience all live in one easy waterfront setting.
+          </p>
+          <div class="marina-hero-actions">
+            <a href="/seascaperesortmarina/contact/" class="btn-primary">Ask About Marina Availability</a>
+            <a href="/seascaperesortmarina/rooms/" class="btn-secondary">View Accommodations</a>
           </div>
         </div>
 
-        <div class="marina-hero-mini-grid">
-          <div class="marina-hero-mini">
-            <strong>On-property marina feel</strong>
-            <span>A more connected stay for anglers, boaters, and families.</span>
+        <div class="marina-hero-card">
+          <div class="marina-hero-card-top">
+            <div class="marina-hero-card-icon">⚓</div>
+            <div>
+              <h3>Your day starts steps from the water</h3>
+              <p>No loading up the truck and driving back and forth. Stay close to your boat, your gear, the pool, and your room.</p>
+            </div>
           </div>
-          <div class="marina-hero-mini">
-            <strong>Sunset-friendly dock</strong>
-            <span>Relax at the pier after a day on the water.</span>
-          </div>
-          <div class="marina-hero-mini">
-            <strong>Easy ocean access</strong>
-            <span>Oceanside position with quick boating convenience.</span>
-          </div>
-          <div class="marina-hero-mini">
-            <strong>Better flow to your trip</strong>
-            <span>Less hassle. More time actually enjoying the Keys.</span>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="floating-ribbon">
-      <div class="floating-ribbon-inner">
-        <div class="ribbon-item">
-          <div class="ribbon-icon">🚤</div>
-          <div>
-            <strong>Boat-friendly stay</strong>
-            <span>Bring the boating lifestyle into the center of your trip.</span>
-          </div>
-        </div>
-        <div class="ribbon-item">
-          <div class="ribbon-icon">🎣</div>
-          <div>
-            <strong>Fishing pier energy</strong>
-            <span>Cast a line, watch the water, or enjoy the dock at dusk.</span>
-          </div>
-        </div>
-        <div class="ribbon-item">
-          <div class="ribbon-icon">🏖️</div>
-          <div>
-            <strong>Pool and waterfront together</strong>
-            <span>Move from boating to lounging without losing time.</span>
-          </div>
-        </div>
-        <div class="ribbon-item">
-          <div class="ribbon-icon">🌅</div>
-          <div>
-            <strong>Classic Keys atmosphere</strong>
-            <span>Salt air, light breeze, glowing water, and laid-back evenings.</span>
+          <div class="marina-hero-mini-grid">
+            <div class="marina-hero-mini">
+              <strong>On-property marina feel</strong>
+              <span>A more connected stay for anglers, boaters, and families.</span>
+            </div>
+            <div class="marina-hero-mini">
+              <strong>Sunset-friendly dock</strong>
+              <span>Relax at the pier after a day on the water.</span>
+            </div>
+            <div class="marina-hero-mini">
+              <strong>Easy ocean access</strong>
+              <span>Oceanside position with quick boating convenience.</span>
+            </div>
+            <div class="marina-hero-mini">
+              <strong>Better flow to your trip</strong>
+              <span>Less hassle. More time actually enjoying the Keys.</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </section>
+
+  <div class="floating-ribbon">
+    <div class="floating-ribbon-inner">
+      <div class="ribbon-item">
+        <div class="ribbon-icon">🚤</div>
+        <div>
+          <strong>Boat-friendly stay</strong>
+          <span>Bring the boating lifestyle into the center of your trip.</span>
+        </div>
+      </div>
+      <div class="ribbon-item">
+        <div class="ribbon-icon">🎣</div>
+        <div>
+          <strong>Fishing pier energy</strong>
+          <span>Cast a line, watch the water, or enjoy the dock at dusk.</span>
+        </div>
+      </div>
+      <div class="ribbon-item">
+        <div class="ribbon-icon">🏖️</div>
+        <div>
+          <strong>Pool and waterfront together</strong>
+          <span>Move from boating to lounging without losing time.</span>
+        </div>
+      </div>
+      <div class="ribbon-item">
+        <div class="ribbon-icon">🌅</div>
+        <div>
+          <strong>Classic Keys atmosphere</strong>
+          <span>Salt air, light breeze, glowing water, and laid-back evenings.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
   <section class="content-section">
     <div class="marina-shell split">
