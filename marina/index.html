@@ -458,6 +458,36 @@
       padding: 80px 0;
     }
 
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .feature-band--dockstay {
+        min-height: 68vh;
+        background-attachment: scroll;
+        background-size: 108% auto;
+        background-position: center 30%;
+      }
+
+      .feature-band--dockstay .band-inner {
+        padding: 98px 0;
+      }
+
+      .feature-band--dockstay::before {
+        background: linear-gradient(180deg, rgba(9,32,51,0.36), rgba(9,32,51,0.5));
+      }
+    }
+
+    @media (min-width: 1024px) and (max-width: 1366px) {
+      .feature-band--dockstay {
+        min-height: 64vh;
+        background-attachment: scroll;
+        background-size: 106% auto;
+        background-position: center 25%;
+      }
+
+      .feature-band--dockstay .band-inner {
+        padding: 92px 0;
+      }
+    }
+
     .band-inner h2 {
       margin: 0 0 16px;
       color: #ffffff;
@@ -1448,7 +1478,7 @@
     </div>
   </section>
 
-  <section class="feature-band" style="background-image:url('../images/Seascape-Resort-Marina-Ted-Phone-78-1500x996-1.jpg');">
+  <section class="feature-band feature-band--dockstay" style="background-image:url('../images/Seascape-Resort-Marina-Ted-Phone-78-1500x996-1.jpg');">
     <div class="band-inner">
       <h2>More dock-and-stay.<br>Less drive-and-commute.</h2>
       <p>
