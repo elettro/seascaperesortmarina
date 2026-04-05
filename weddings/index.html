@@ -322,6 +322,83 @@
       justify-content: center;
     }
 
+    .weddings-page .seo-faq,
+    .weddings-page .seo-explore-links {
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto 28px;
+      padding: 28px clamp(18px, 3.2vw, 34px);
+      border-radius: 20px;
+      border: 1px solid var(--weddings-line);
+      background:
+        linear-gradient(165deg, rgba(88, 184, 200, 0.08), rgba(212, 176, 103, 0.14)),
+        #fff;
+      box-shadow: 0 14px 36px rgba(9, 34, 49, 0.08);
+      text-align: center;
+    }
+
+    .weddings-page .seo-faq h2,
+    .weddings-page .seo-explore-links h2 {
+      margin: 0 0 16px;
+      color: var(--weddings-ink);
+      font-size: clamp(1.6rem, 2.8vw, 2rem);
+    }
+
+    .weddings-page .seo-faq details {
+      text-align: left;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(18, 52, 74, 0.13);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+
+    .weddings-page .seo-faq details:last-child {
+      margin-bottom: 0;
+    }
+
+    .weddings-page .seo-faq summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--weddings-ink);
+    }
+
+    .weddings-page .seo-faq p {
+      margin-top: 10px;
+      color: var(--weddings-ink-soft);
+    }
+
+    .weddings-page .seo-explore-links ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .weddings-page .seo-explore-links li {
+      margin: 0;
+    }
+
+    .weddings-page .seo-explore-links a {
+      display: block;
+      padding: 11px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid rgba(18, 52, 74, 0.14);
+      background: rgba(255, 255, 255, 0.92);
+      color: #0f4b61;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .weddings-page .seo-explore-links a:hover,
+    .weddings-page .seo-explore-links a:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(15, 75, 97, 0.35);
+      box-shadow: 0 8px 20px rgba(15, 75, 97, 0.14);
+      outline: none;
+    }
+
     @media (max-width: 1080px) {
       .weddings-grid-4,
       .weddings-list-grid {
