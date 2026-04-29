@@ -868,13 +868,15 @@ a {
  color: rgba(255, 245, 226, 0.92);
 }
 
-.hero-content h1 {
+.home-page .hero-content h1 {
  margin: 0;
  max-width: 12ch;
- font-family: Georgia, "Times New Roman", serif;
+ font-family: "Trajan Pro", "Cinzel", "Cormorant Garamond", "Times New Roman", serif;
  font-size: clamp(2.6rem, 5.8vw, 5.1rem);
- line-height: 1.02;
- letter-spacing: 0.02em;
+ line-height: 1.05;
+ letter-spacing: 0.12em;
+ font-weight: 500;
+ text-transform: uppercase;
  text-wrap: balance;
  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
 }
