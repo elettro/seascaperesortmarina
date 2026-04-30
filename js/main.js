@@ -353,3 +353,22 @@
  console.warn(error);
  });
 })();
+
+function removeExpiredEvents() {
+ const today = new Date();
+ today.setHours(0, 0, 0, 0);
+
+ document.querySelectorAll('[data-event-date]').forEach((eventCard) => {
+ const eventDateValue = eventCard.getAttribute('data-event-date');
+ if (!eventDateValue) return;
+
+ const eventDate = new Date(`${eventDateValue}T00:00:00`);
+ eventDate.setHours(0, 0, 0, 0);
+
+ if (eventDate < today) {
+ eventCard.remove();
+ }
+ });
+}
+
+document.addEventListener('DOMContentLoaded', removeExpiredEvents);
