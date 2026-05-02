@@ -320,17 +320,11 @@
  <article class="card reveal">
  <div class="card-img">
  <div class="card-icon" aria-hidden="true">🌙</div>
- <img class="card-media-fallback" src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image-BoatLitUpAtNight-1.png" alt="Night reef snapper fishing trip in the Florida Keys">
- <iframe
- id="night-snapper-video"
- class="card-media-video"
- src="https://www.youtube.com/embed/mKOgdmJGk-E?autoplay=1&mute=1&loop=1&playlist=mKOgdmJGk-E&controls=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1"
- title="Night Reef Snapper Trip video"
- allow="autoplay; encrypted-media; picture-in-picture"
- referrerpolicy="strict-origin-when-cross-origin"
- tabindex="-1"
- aria-hidden="true"
- ></iframe>
+ <img
+ src="images/Seascape-Marina-Resort-Captain-Kevin-Marathon-Key-16x9-Image-BoatLitUpAtNight-1.png"
+ alt="Captain Kevin night fishing boat lit up at Seascape Marina Resort in Marathon Key"
+ class="excursion-card-image"
+ >
  </div>
  <div class="card-body">
  <div class="card-tag">June – July · After Dark</div>
@@ -992,21 +986,6 @@ document.querySelectorAll('img').forEach(function(img) {
  img.src = tempPhotoFor(img.alt);
  });
 });
-
-// ── NIGHT SNAPPER CARD VIDEO FALLBACK ──
-(function ensureNightSnapperFallback() {
- var iframe = document.getElementById('night-snapper-video');
- if (!iframe) return;
-
- var revealFallback = function() {
- iframe.style.display = 'none';
- };
-
- iframe.addEventListener('error', revealFallback);
- window.setTimeout(function() {
- if (iframe.contentWindow == null) revealFallback();
- }, 3500);
-})();
 
 // ── SCROLL REVEAL ──
 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
