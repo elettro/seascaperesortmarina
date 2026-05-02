@@ -575,6 +575,7 @@ iframe:focus-visible,
 .card-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:55px;background:linear-gradient(to top,rgba(22,50,74,.25),transparent)}
 .card-media-fallback{position:absolute;inset:0;z-index:0}
 .card-media-video{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1;pointer-events:none}
+.excursion-card-image{display:block;width:100%;height:100%;object-fit:cover;border-radius:22px 22px 0 0}
 .card-icon{position:absolute;top:.9rem;right:.9rem;width:38px;height:38px;background:rgba(18,168,157,.88);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;z-index:2}
 .featured-slider-arrow{
  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
