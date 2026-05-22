@@ -98,6 +98,17 @@
     const files = [1,23,2,24,3,25,4,26,5,27,6,28,7,29,8,30,9,31,10,32,11,33,12,34,13,35,14,36,15,37,16,38,17,39,18,40,19,41,20,42,21,43,22]
       .map(n => `../images/property/seascape-resort-marina-grounds (${n}).jpg`);
 
+    function shuffleArray(items) {
+      const shuffled = [...items];
+      for (let i = shuffled.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    }
+
+    const randomizedFiles = shuffleArray(files);
+
     const views = [
       {id:'uniform-4',name:'Uniform 4-Up',klass:'grid four-col uniform'},
       {id:'masonry',name:'Masonry',klass:'masonry'},
@@ -128,7 +139,7 @@
       const grid = document.createElement('div');
       grid.className = v.klass;
 
-      files.forEach((src, i) => {
+      randomizedFiles.forEach((src, i) => {
         const card = document.createElement('figure');
         card.className = 'card';
         const img = document.createElement('img');
