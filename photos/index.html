@@ -44,11 +44,20 @@
     .timeline .card{display:grid;grid-template-columns:120px 1fr;align-items:stretch}
     .timeline .label{padding:1rem;background:#0f5d7c;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
     .timeline img{aspect-ratio:16/9}
+    .card img{cursor:pointer}
+    .photo-lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:1000;padding:1rem}
+    .photo-lightbox.open{display:flex}
+    .photo-lightbox-close{position:absolute;top:.75rem;right:.75rem;border:1px solid rgba(255,255,255,.55);background:rgba(0,0,0,.35);color:#fff;width:42px;height:42px;border-radius:50%;font-size:1.6rem;line-height:1;cursor:pointer}
+    .photo-lightbox-content{position:relative;display:flex;align-items:center;gap:.6rem;max-width:min(96vw,1400px);width:100%}
+    .photo-lightbox-image{max-height:90vh;max-width:100%;width:auto;border-radius:14px;box-shadow:0 16px 38px rgba(0,0,0,.45);user-select:none;-webkit-user-drag:none}
+    .photo-lightbox-nav{border:none;background:rgba(255,255,255,.2);color:#fff;width:46px;height:46px;border-radius:50%;font-size:1.8rem;cursor:pointer;flex:0 0 auto}
+    .photo-lightbox-nav:hover{background:rgba(255,255,255,.3)}
     @media (min-width:640px){.masonry{columns:2}}
     @media (min-width:900px){.masonry{columns:3}}
     @media (max-width:1024px){.four-col{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media (max-width:760px){.three-col,.four-col,.two-col{grid-template-columns:repeat(2,minmax(0,1fr))}.timeline .card{grid-template-columns:1fr}.timeline .label{padding:.55rem}}
     @media (max-width:460px){.three-col,.four-col,.two-col{grid-template-columns:1fr}.panorama .card:nth-child(5n+1),.feature .card:first-child{grid-column:auto}}
+    @media (max-width:760px){.photo-lightbox-content{gap:.25rem}.photo-lightbox-nav{width:38px;height:38px;font-size:1.4rem}}
   </style>
 </head>
 <body>
@@ -93,6 +102,14 @@
   </main>
 
   <div id="site-footer" data-footer-path="../footer/index.html"></div>
+  <div class="photo-lightbox" id="photo-lightbox" aria-hidden="true" role="dialog" aria-label="Expanded gallery image view">
+    <button class="photo-lightbox-close" id="photo-lightbox-close" type="button" aria-label="Close image viewer">&times;</button>
+    <div class="photo-lightbox-content">
+      <button class="photo-lightbox-nav" id="photo-lightbox-prev" type="button" aria-label="Previous image">&#10094;</button>
+      <img id="photo-lightbox-image" class="photo-lightbox-image" alt="Expanded Seascape Resort & Marina grounds photo" />
+      <button class="photo-lightbox-nav" id="photo-lightbox-next" type="button" aria-label="Next image">&#10095;</button>
+    </div>
+  </div>
 
   <script>
     const files = [1,23,2,24,3,25,4,26,5,27,6,28,7,29,8,30,9,31,10,32,11,33,12,34,13,35,14,36,15,37,16,38,17,39,18,40,19,41,20,42,21,43,22]
@@ -124,6 +141,45 @@
 
     const tabs = document.getElementById('gallery-tabs');
     const wrap = document.getElementById('gallery-views');
+    const lightbox = document.getElementById('photo-lightbox');
+    const lightboxImage = document.getElementById('photo-lightbox-image');
+    const lightboxClose = document.getElementById('photo-lightbox-close');
+    const lightboxPrev = document.getElementById('photo-lightbox-prev');
+    const lightboxNext = document.getElementById('photo-lightbox-next');
+    let activeIndex = 0;
+    let touchStartX = null;
+    const swipeThreshold = 45;
+
+    function updateLightboxImage() {
+      const src = randomizedFiles[activeIndex];
+      lightboxImage.src = src;
+      lightboxImage.alt = `Expanded Seascape Resort & Marina grounds photo ${activeIndex + 1}`;
+    }
+
+    function openLightbox(index) {
+      activeIndex = index;
+      updateLightboxImage();
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      touchStartX = null;
+    }
+
+    function showPrevious() {
+      activeIndex = (activeIndex - 1 + randomizedFiles.length) % randomizedFiles.length;
+      updateLightboxImage();
+    }
+
+    function showNext() {
+      activeIndex = (activeIndex + 1) % randomizedFiles.length;
+      updateLightboxImage();
+    }
 
     views.forEach((v, idx) => {
       const btn = document.createElement('button');
@@ -147,6 +203,7 @@
         img.alt = `Seascape Resort & Marina grounds photo ${i+1}`;
         img.loading = 'lazy';
         img.decoding = 'async';
+        img.dataset.index = i.toString();
         if (v.id === 'timeline') {
           const label = document.createElement('figcaption');
           label.className = 'label';
@@ -168,6 +225,35 @@
       document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active', v.id===b.dataset.target));
       window.scrollTo({top: tabs.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth'});
     });
+
+    wrap.addEventListener('click', (e) => {
+      const clickedImage = e.target.closest('img[data-index]');
+      if (!clickedImage) return;
+      openLightbox(Number(clickedImage.dataset.index));
+    });
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', showPrevious);
+    lightboxNext.addEventListener('click', showNext);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPrevious();
+      if (e.key === 'ArrowRight') showNext();
+    });
+
+    lightboxImage.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    lightboxImage.addEventListener('touchend', (e) => {
+      if (touchStartX === null) return;
+      const distance = e.changedTouches[0].clientX - touchStartX;
+      if (distance > swipeThreshold) showPrevious();
+      if (distance < -swipeThreshold) showNext();
+      touchStartX = null;
+    }, { passive: true });
 
     async function loadPartial(id, path){
       const target = document.getElementById(id);
