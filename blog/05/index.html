@@ -1,64 +1,928 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Why Seascape Resort & Marina Earns a 4.6 Rating</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seascape Resort & Marina TripAdvisor Review Score Breakdown</title>
+  <meta name="description" content="A visual breakdown of Seascape Resort & Marina's high TripAdvisor review scores, including location, cleanliness, service, value, rooms, and sleep quality." />
 
-<style>
-body{margin:0;font-family:Arial;background:#f6fbfc;color:#1f2f3a;line-height:1.6}
-.container{max-width:900px;margin:0 auto;padding:40px 20px}
-h1{color:#0f2f46;font-size:2.5rem;margin-bottom:10px}
-h2{color:#0f2f46;margin-top:30px}
-p{color:#4f6776}
-.box{background:#fff;border:1px solid #e2eef2;border-radius:16px;padding:20px;margin:20px 0}
-.stat{font-size:2rem;font-weight:bold;color:#0f2f46}
-.highlight{background:#eaf7fa;border-left:4px solid #57b8c9;padding:15px;margin:20px 0}
-</style>
+  <style>
+    :root {
+      --deep: #063f2a;
+      --green: #008d3c;
+      --light-green: #e8f7ee;
+      --navy: #12384f;
+      --sky: #eaf8fb;
+      --sand: #f8f1e5;
+      --text: #23313b;
+      --muted: #667782;
+      --white: #ffffff;
+      --line: rgba(18, 56, 79, 0.12);
+      --shadow: 0 20px 50px rgba(18, 56, 79, 0.12);
+      --radius: 26px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f3fbfd 0%, #ffffff 42%, #f8f1e5 100%);
+      line-height: 1.65;
+    }
+
+    .page {
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      padding: 86px 22px 58px;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(0, 141, 60, 0.18), transparent 28%),
+        radial-gradient(circle at 86% 12%, rgba(87, 184, 201, 0.26), transparent 30%),
+        linear-gradient(135deg, #ffffff 0%, #eaf8fb 48%, #f8f1e5 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(0, 141, 60, 0.1);
+      color: var(--deep);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      color: var(--navy);
+      font-size: clamp(2.45rem, 6vw, 5.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-lede {
+      margin: 0 0 24px;
+      max-width: 660px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 22px rgba(18, 56, 79, 0.08);
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .rating-panel {
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .rating-top {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: center;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 22px;
+    }
+
+    .score-big {
+      font-size: clamp(4rem, 8vw, 6.4rem);
+      line-height: 0.8;
+      font-weight: 900;
+      color: var(--deep);
+      letter-spacing: -0.08em;
+    }
+
+    .rating-word {
+      font-size: 1.18rem;
+      color: var(--deep);
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .review-count {
+      color: var(--navy);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .dots {
+      display: flex;
+      gap: 5px;
+      margin: 7px 0;
+    }
+
+    .dot {
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background: var(--green);
+      display: block;
+    }
+
+    .dot.half {
+      background: linear-gradient(90deg, var(--green) 50%, transparent 50%);
+      border: 2px solid var(--green);
+    }
+
+    .rank-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--light-green);
+      border: 1px solid rgba(0, 141, 60, 0.18);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .rank-number {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      background: var(--deep);
+      color: white;
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    .rank-copy strong {
+      display: block;
+      color: var(--deep);
+      font-size: 1.02rem;
+      line-height: 1.25;
+    }
+
+    .rank-copy span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 3px;
+    }
+
+    .section {
+      padding: 64px 22px;
+    }
+
+    .section-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .score-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 14px 36px rgba(18, 56, 79, 0.08);
+    }
+
+    .score-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 15px;
+    }
+
+    .score-card h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 1.15rem;
+    }
+
+    .score-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: var(--light-green);
+      border: 1px solid rgba(0, 141, 60, 0.2);
+      color: var(--deep);
+      display: grid;
+      place-items: center;
+      font-size: 1.22rem;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .bar {
+      height: 13px;
+      background: rgba(18, 56, 79, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 12px 0 14px;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), #20ad58);
+    }
+
+    .score-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .visual-band {
+      background:
+        linear-gradient(135deg, rgba(6, 63, 42, 0.96), rgba(18, 56, 79, 0.94)),
+        radial-gradient(circle at 22% 20%, rgba(255,255,255,0.2), transparent 28%);
+      color: var(--white);
+      padding: 64px 22px;
+    }
+
+    .visual-band-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .visual-band h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .visual-band p {
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+      font-size: 1.05rem;
+    }
+
+    .metric-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 45px;
+      gap: 12px;
+      align-items: center;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 12px;
+    }
+
+    .metric-label {
+      font-weight: 800;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .metric-line {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      overflow: hidden;
+    }
+
+    .metric-line span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: #32d46f;
+    }
+
+    .metric-value {
+      text-align: right;
+      font-weight: 900;
+      color: white;
+    }
+
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 0.72fr 0.28fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .article {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(24px, 4vw, 46px);
+      box-shadow: var(--shadow);
+    }
+
+    .article h2 {
+      color: var(--navy);
+      margin: 38px 0 10px;
+      font-size: clamp(1.6rem, 3vw, 2.35rem);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    .article h2:first-child {
+      margin-top: 0;
+    }
+
+    .article p {
+      margin: 0 0 18px;
+      color: var(--text);
+    }
+
+    .highlight {
+      padding: 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--light-green), #ffffff);
+      border: 1px solid rgba(0, 141, 60, 0.18);
+      margin: 24px 0;
+      color: var(--deep);
+      font-size: 1.12rem;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .sidebar {
+      display: grid;
+      gap: 16px;
+      position: sticky;
+      top: 18px;
+    }
+
+    .side-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 14px 36px rgba(18, 56, 79, 0.08);
+    }
+
+    .side-card h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 1.15rem;
+    }
+
+    .side-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .side-stat:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .side-stat strong {
+      color: var(--deep);
+      font-size: 2rem;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .side-stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .takeaway {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 14px 36px rgba(18, 56, 79, 0.08);
+      min-height: 180px;
+    }
+
+    .takeaway-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: var(--light-green);
+      color: var(--deep);
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .takeaway h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 1.08rem;
+    }
+
+    .takeaway p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .cta {
+      padding: 72px 22px;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.24), transparent 28%),
+        linear-gradient(135deg, var(--navy), var(--deep));
+      color: white;
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .cta h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .cta p {
+      margin: 0 auto 26px;
+      max-width: 680px;
+      color: rgba(255,255,255,0.78);
+      font-size: 1.1rem;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      background: white;
+      color: var(--deep);
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 16px 35px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .visual-band-inner,
+      .blog-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .score-grid,
+      .takeaway-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 58px;
+      }
+
+      .rating-top {
+        grid-template-columns: 1fr;
+      }
+
+      .score-grid,
+      .takeaway-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metric-row {
+        grid-template-columns: 92px 1fr 38px;
+        gap: 8px;
+      }
+
+      .metric-label {
+        font-size: 0.8rem;
+      }
+
+      .article {
+        padding: 24px 18px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<div class="container">
+  <main class="page">
 
-<h1>Why Seascape Resort & Marina Earns a 4.6 Rating</h1>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">TripAdvisor Review Breakdown</div>
+          <h1>Why Guests Rate Seascape So Highly</h1>
+          <p class="hero-lede">
+            Seascape Resort & Marina has earned a 4.6 "Very Good" TripAdvisor rating from 836 reviews, with standout scores for location, cleanliness, service, value, rooms, and sleep quality.
+          </p>
 
-<p>Seascape Resort & Marina maintains a 4.6 rating across 836 TripAdvisor reviews. This is not a small sample. It reflects long-term consistency and repeat guest satisfaction.</p>
+          <div class="hero-actions">
+            <span class="pill">4.6 Overall Rating</span>
+            <span class="pill">836 Reviews</span>
+            <span class="pill">#1 of 13 Small Hotels in Marathon</span>
+          </div>
+        </div>
 
-<div class="box">
-<div class="stat">631</div>
-<p>Excellent Reviews</p>
-</div>
+        <aside class="rating-panel" aria-label="TripAdvisor score overview">
+          <div class="rating-top">
+            <div class="score-big">4.6</div>
+            <div>
+              <div class="rating-word">Very Good</div>
+              <div class="dots" aria-label="4.6 rating dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot half"></span>
+              </div>
+              <div class="review-count">836 reviews</div>
+            </div>
+          </div>
 
-<h2>Review Distribution Tells the Truth</h2>
-<p>The majority of guests leave highly positive feedback. Negative reviews exist but remain limited and do not cluster around a single failure point.</p>
+          <div class="rank-card">
+            <div class="rank-number">#1</div>
+            <div class="rank-copy">
+              <strong>Top-ranked small hotel in Marathon</strong>
+              <span>#1 of 13 small hotels according to the TripAdvisor snapshot</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-<ul>
-<li>Excellent dominates</li>
-<li>Good reinforces satisfaction</li>
-<li>Poor and Terrible remain minimal</li>
-</ul>
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>The Scorecard at a Glance</h2>
+          <p>
+            These scores show strength across the full guest experience. Location leads the profile, followed closely by cleanliness and service.
+          </p>
+        </div>
 
-<h2>Top Performing Categories</h2>
-<ul>
-<li>Location: 4.8</li>
-<li>Service: 4.7</li>
-<li>Cleanliness: 4.7</li>
-</ul>
+        <div class="score-grid">
+          <article class="score-card">
+            <div class="score-card-top">
+              <h3>Location</h3>
+              <div class="score-badge">4.8</div>
+            </div>
+            <div class="bar"><span style="width:96%"></span></div>
+            <p>The highest category score. Guests value the Marathon setting, marina atmosphere, waterfront access, and easy Florida Keys convenience.</p>
+          </article>
 
-<p>These are the most important trust drivers when choosing a hotel.</p>
+          <article class="score-card">
+            <div class="score-card-top">
+              <h3>Cleanliness</h3>
+              <div class="score-badge">4.7</div>
+            </div>
+            <div class="bar"><span style="width:94%"></span></div>
+            <p>A strong trust signal. Guests consistently feel the property is clean, maintained, and cared for.</p>
+          </article>
 
-<div class="highlight">
-Strong location plus reliable service creates immediate booking confidence.
-</div>
+          <article class="score-card">
+            <div class="score-card-top">
+              <h3>Service</h3>
+              <div class="score-badge">4.7</div>
+            </div>
+            <div class="bar"><span style="width:94%"></span></div>
+            <p>Small hotels win with personal attention. This score suggests guests feel welcomed and supported during their stay.</p>
+          </article>
 
-<h2>Room Score Context</h2>
-<p>Rooms score 4.4. This reflects expectation differences. Guests expecting a luxury chain may rate lower. Guests seeking a Keys-style marina stay rate higher.</p>
+          <article class="score-card">
+            <div class="score-card-top">
+              <h3>Value</h3>
+              <div class="score-badge">4.5</div>
+            </div>
+            <div class="bar"><span style="width:90%"></span></div>
+            <p>Guests feel the stay delivers real value in a high-demand Florida Keys market.</p>
+          </article>
 
-<h2>Conversion Insight</h2>
-<p>This rating works because it aligns with the actual experience. It is not inflated. It is consistent.</p>
+          <article class="score-card">
+            <div class="score-card-top">
+              <h3>Sleep Quality</h3>
+              <div class="score-badge">4.5</div>
+            </div>
+            <div class="bar"><span style="width:90%"></span></div>
+            <p>A key comfort metric. Guests are generally resting well after days spent boating, exploring, swimming, and relaxing.</p>
+          </article>
 
-<p><strong>Bottom line:</strong> Seascape is a low-risk booking supported by real volume and strong satisfaction patterns.</p>
+          <article class="score-card">
+            <div class="score-card-top">
+              <h3>Rooms</h3>
+              <div class="score-badge">4.4</div>
+            </div>
+            <div class="bar"><span style="width:88%"></span></div>
+            <p>The rooms score remains strong, while the broader resort setting appears to drive the total guest experience.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section class="visual-band">
+      <div class="visual-band-inner">
+        <div>
+          <h2>Every Major Category Scores Above 4.4</h2>
+          <p>
+            This is the real story. Seascape does not rely on one strong category. The resort performs well across location, guest care, cleanliness, comfort, and overall value.
+          </p>
+        </div>
+
+        <div class="metric-stack">
+          <div class="metric-row">
+            <div class="metric-label">Location</div>
+            <div class="metric-line"><span style="width:96%"></span></div>
+            <div class="metric-value">4.8</div>
+          </div>
+
+          <div class="metric-row">
+            <div class="metric-label">Cleanliness</div>
+            <div class="metric-line"><span style="width:94%"></span></div>
+            <div class="metric-value">4.7</div>
+          </div>
+
+          <div class="metric-row">
+            <div class="metric-label">Service</div>
+            <div class="metric-line"><span style="width:94%"></span></div>
+            <div class="metric-value">4.7</div>
+          </div>
+
+          <div class="metric-row">
+            <div class="metric-label">Value</div>
+            <div class="metric-line"><span style="width:90%"></span></div>
+            <div class="metric-value">4.5</div>
+          </div>
+
+          <div class="metric-row">
+            <div class="metric-label">Sleep</div>
+            <div class="metric-line"><span style="width:90%"></span></div>
+            <div class="metric-value">4.5</div>
+          </div>
+
+          <div class="metric-row">
+            <div class="metric-label">Rooms</div>
+            <div class="metric-line"><span style="width:88%"></span></div>
+            <div class="metric-value">4.4</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner blog-layout">
+        <article class="article">
+          <h2>TripAdvisor Review Breakdown: Why Seascape Resort & Marina Scores So Strong With Guests</h2>
+          <p>
+            Seascape Resort & Marina has earned a 4.6 "Very Good" rating on TripAdvisor, based on 836 reviews. Even stronger, it ranks #1 of 13 small hotels in Marathon.
+          </p>
+          <p>
+            That combination says a lot. Guests are not only leaving positive reviews. They are ranking Seascape above every comparable small hotel in the area.
+          </p>
+
+          <div class="highlight">
+            For travelers choosing where to stay in the Florida Keys, review scores matter. They show what past guests experienced across the areas that shape a trip.
+          </div>
+
+          <h2>Location: 4.8</h2>
+          <p>
+            The 4.8 location score is the standout. This is the highest category rating shown, and it reflects one of Seascape's biggest advantages.
+          </p>
+          <p>
+            Guests value the setting. Seascape offers the classic Marathon experience: waterfront access, marina atmosphere, easy access to Keys attractions, and a relaxing resort environment without the feel of a massive hotel.
+          </p>
+          <p>
+            A high location score tells future guests they are booking into the right area, not settling for a disconnected hotel far from the water, boating, dining, and island activities.
+          </p>
+
+          <h2>Cleanliness: 4.7</h2>
+          <p>
+            Cleanliness is one of the most important hotel review categories. A 4.7 score shows guests consistently feel the property is well cared for.
+          </p>
+          <p>
+            For a small resort, this matters even more. Guests expect charm, comfort, and personality, but they also expect clean rooms, clean shared areas, and a property that feels maintained.
+          </p>
+
+          <h2>Service: 4.7</h2>
+          <p>
+            The 4.7 service rating is a major trust signal. Small hotels compete on personal attention. Guests often choose a smaller resort because they want a more relaxed, human experience than a large chain hotel provides.
+          </p>
+          <p>
+            This score suggests Seascape delivers that experience. Guests feel supported, welcomed, and taken care of.
+          </p>
+
+          <h2>Value: 4.5</h2>
+          <p>
+            A 4.5 value score means guests feel the stay is worth the price. That matters in the Florida Keys, where lodging costs rise quickly.
+          </p>
+          <p>
+            Guests want more than a room. They want location, atmosphere, amenities, convenience, and comfort. Seascape's value score shows guests see the full package.
+          </p>
+
+          <h2>Sleep Quality: 4.5</h2>
+          <p>
+            Sleep quality is often overlooked until it becomes a problem. A 4.5 score shows guests are generally resting well during their stay.
+          </p>
+          <p>
+            After a day in the sun, on the water, or exploring Marathon, comfort matters. Strong sleep quality means guests leave refreshed, not frustrated.
+          </p>
+
+          <h2>Rooms: 4.4</h2>
+          <p>
+            The rooms score is still strong at 4.4. This tells a clear story. Guests are pleased with the accommodations, while the resort's biggest strengths appear to be the total experience.
+          </p>
+          <p>
+            For a Florida Keys resort, that is important. Guests often choose properties like Seascape because they want more than a standard hotel room. They want outdoor space, water access, convenience, and a relaxed Keys atmosphere.
+          </p>
+
+          <h2>#1 of 13 Small Hotels in Marathon</h2>
+          <p>
+            This ranking is one of the strongest points in the review profile. Being rated #1 of 13 small hotels in Marathon means Seascape is not only performing well on its own. It is outperforming its direct category competitors.
+          </p>
+          <p>
+            For travelers comparing boutique hotels, waterfront stays, and smaller resort-style properties, this ranking gives Seascape a powerful advantage.
+          </p>
+
+          <h2>What These Review Scores Tell Future Guests</h2>
+          <p>
+            The overall review profile points to a clear guest experience. Seascape wins on location. It delivers strong cleanliness. It earns high marks for service. It offers solid value in a high-demand destination. It gives guests a comfortable place to rest after enjoying Marathon and the Florida Keys.
+          </p>
+
+          <div class="highlight">
+            The 4.6 overall rating is not built on one category. It is supported by strong scores across the full guest experience.
+          </div>
+
+          <h2>Why This Matters When Booking a Florida Keys Stay</h2>
+          <p>
+            Travelers heading to Marathon want confidence before they book. They want to know the property is in a great location. They want clean rooms. They want helpful service. They want to feel the trip is worth the money. They want a stay that feels connected to the Florida Keys.
+          </p>
+          <p>
+            Seascape Resort & Marina's TripAdvisor ratings answer those questions clearly. With a 4.6 overall score, 836 reviews, and a #1 ranking among small hotels in Marathon, the property has earned strong guest trust.
+          </p>
+        </article>
+
+        <aside class="sidebar">
+          <div class="side-card">
+            <h3>Review Snapshot</h3>
+            <div class="side-stat">
+              <strong>4.6</strong>
+              <span>overall rating</span>
+            </div>
+            <div class="side-stat">
+              <strong>836</strong>
+              <span>guest reviews</span>
+            </div>
+            <div class="side-stat">
+              <strong>#1</strong>
+              <span>of 13 small hotels</span>
+            </div>
+          </div>
+
+          <div class="side-card">
+            <h3>Highest Scores</h3>
+            <div class="side-stat">
+              <strong>4.8</strong>
+              <span>location</span>
+            </div>
+            <div class="side-stat">
+              <strong>4.7</strong>
+              <span>cleanliness</span>
+            </div>
+            <div class="side-stat">
+              <strong>4.7</strong>
+              <span>service</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2>What the Scores Say in Plain English</h2>
+          <p>
+            These review categories translate into practical booking confidence for future guests.
+          </p>
+        </div>
+
+        <div class="takeaway-grid">
+          <div class="takeaway">
+            <div class="takeaway-icon">1</div>
+            <h3>Guests trust the location</h3>
+            <p>The 4.8 location score shows Seascape is positioned where Florida Keys travelers want to be.</p>
+          </div>
+
+          <div class="takeaway">
+            <div class="takeaway-icon">2</div>
+            <h3>The property feels cared for</h3>
+            <p>Cleanliness at 4.7 helps remove one of the biggest concerns guests have before booking.</p>
+          </div>
+
+          <div class="takeaway">
+            <div class="takeaway-icon">3</div>
+            <h3>Service is a strength</h3>
+            <p>The 4.7 service score supports the smaller-hotel promise of personal guest attention.</p>
+          </div>
+
+          <div class="takeaway">
+            <div class="takeaway-icon">4</div>
+            <h3>The stay feels worth it</h3>
+            <p>Value at 4.5 shows guests see the full experience as worth the price.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta-inner">
+        <h2>A Strong Review Profile Built on the Full Guest Experience</h2>
+        <p>
+          Seascape Resort & Marina's TripAdvisor scores show a balanced, trusted, high-performing guest experience in Marathon and the Florida Keys.
+        </p>
+        <a class="cta-button" href="https://booking-directly.com/widgets/v7lnd6kJdFVJ8w0hUq4SwsdEwxReP62DytBF6jNsIwQLbHSbyA65BAQvKsMz6" target="_blank" rel="noopener noreferrer">Check Availability</a>
+      </div>
+    </section>
+
+  </main>
 </body>
 </html>
