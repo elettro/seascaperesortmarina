@@ -734,6 +734,57 @@
       .unit12-modal-header{padding:16px 14px 14px;}
       .unit12-amenities{grid-template-columns:1fr;}
     }
+
+    /* ── Lightbox ─────────────────────────────────────────── */
+    #room-lightbox{
+      position:fixed;inset:0;z-index:5000;
+      background:rgba(0,0,0,.94);
+      display:none;align-items:center;justify-content:center;
+    }
+    #room-lightbox.is-open{display:flex}
+
+    #room-lightbox-close{
+      position:absolute;top:14px;right:14px;
+      width:46px;height:46px;border-radius:50%;
+      background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);
+      color:#fff;font-size:1.55rem;line-height:1;cursor:pointer;
+      display:grid;place-items:center;z-index:2;transition:background .15s;
+    }
+    #room-lightbox-close:hover{background:rgba(255,255,255,.22)}
+
+    #room-lightbox-prev,#room-lightbox-next{
+      position:absolute;top:50%;transform:translateY(-50%);
+      width:50px;height:50px;border-radius:50%;
+      background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);
+      color:#fff;cursor:pointer;display:grid;place-items:center;z-index:2;
+      transition:background .15s;
+    }
+    #room-lightbox-prev:hover,#room-lightbox-next:hover{background:rgba(255,255,255,.22)}
+    #room-lightbox-prev{left:14px}
+    #room-lightbox-next{right:14px}
+    #room-lightbox-prev svg,#room-lightbox-next svg{width:22px;height:22px;stroke:#fff}
+
+    #room-lightbox-img-wrap{
+      display:flex;align-items:center;justify-content:center;
+      max-width:calc(100vw - 130px);max-height:calc(100vh - 72px);
+    }
+    #room-lightbox-img{
+      max-width:100%;max-height:calc(100vh - 72px);
+      object-fit:contain;border-radius:6px;display:block;
+      user-select:none;
+    }
+    #room-lightbox-counter{
+      position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+      color:rgba(255,255,255,.6);font-size:.82rem;letter-spacing:.06em;
+      pointer-events:none;
+    }
+    .unit12-gallery img{cursor:zoom-in}
+
+    @media(max-width:600px){
+      #room-lightbox-img-wrap{max-width:calc(100vw - 96px)}
+      #room-lightbox-prev{left:6px}
+      #room-lightbox-next{right:6px}
+    }
   </style>
 </head>
 <body class="rooms-page">
@@ -2147,6 +2198,11 @@
       });
 
       updateModalImage(0);
+
+      galleryImage.addEventListener('click', function(e) {
+        e.stopPropagation();
+        window.RoomLightbox.open(images, modalImageIndex);
+      });
     }
 
     const roomModalConfigs = [
@@ -2434,6 +2490,67 @@
       initializeRoomSlider(document.querySelector(`[data-room-slider="${config.roomId}"]`));
       initializeRoomModal(config);
     });
+  </script>
+
+  <!-- Shared lightbox (sits above all modals) -->
+  <div id="room-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Photo lightbox">
+    <button id="room-lightbox-close" type="button" aria-label="Close lightbox">&#x2715;</button>
+    <button id="room-lightbox-prev" type="button" aria-label="Previous photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <div id="room-lightbox-img-wrap">
+      <img id="room-lightbox-img" src="" alt="">
+    </div>
+    <button id="room-lightbox-next" type="button" aria-label="Next photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+    <div id="room-lightbox-counter"></div>
+  </div>
+
+  <script>
+    (function() {
+      const lb     = document.getElementById('room-lightbox');
+      const lbImg  = document.getElementById('room-lightbox-img');
+      const lbPrev = document.getElementById('room-lightbox-prev');
+      const lbNext = document.getElementById('room-lightbox-next');
+      const lbClose= document.getElementById('room-lightbox-close');
+      const lbCtr  = document.getElementById('room-lightbox-counter');
+
+      let _images = [], _idx = 0;
+
+      function show(i) {
+        _idx = (i + _images.length) % _images.length;
+        lbImg.src = _images[_idx];
+        lbCtr.textContent = _images.length > 1 ? (_idx + 1) + ' / ' + _images.length : '';
+      }
+
+      window.RoomLightbox = {
+        open: function(images, startIndex) {
+          _images = images;
+          lb.classList.add('is-open');
+          lb.setAttribute('aria-hidden', 'false');
+          show(startIndex);
+        }
+      };
+
+      lbClose.addEventListener('click', closeLb);
+      lbPrev.addEventListener('click', function(e){ e.stopPropagation(); show(_idx - 1); });
+      lbNext.addEventListener('click', function(e){ e.stopPropagation(); show(_idx + 1); });
+      lb.addEventListener('click', function(e){ if (e.target === lb || e.target === document.getElementById('room-lightbox-img-wrap')) closeLb(); });
+
+      document.addEventListener('keydown', function(e) {
+        if (!lb.classList.contains('is-open')) return;
+        if (e.key === 'Escape')      closeLb();
+        if (e.key === 'ArrowLeft')   show(_idx - 1);
+        if (e.key === 'ArrowRight')  show(_idx + 1);
+      });
+
+      function closeLb() {
+        lb.classList.remove('is-open');
+        lb.setAttribute('aria-hidden', 'true');
+        lbImg.src = '';
+      }
+    })();
   </script>
 </body>
 </html>
