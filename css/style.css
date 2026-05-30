@@ -1897,8 +1897,10 @@ a {
 
 /* Portrait mobile: fix Explore Rooms button cutoff */
 @media only screen and (max-width: 767px) and (orientation: portrait) {
+ html,
  body {
  overflow-x: hidden;
+ max-width: 100%;
  }
  .home-page .hero {
  overflow: visible !important;
