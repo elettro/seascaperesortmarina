@@ -1054,6 +1054,8 @@ a {
 
 .booking-widget-shell {
  width: min(100%, 540px);
+ max-width: 100%;
+ overflow-x: hidden;
  margin-top: 10px;
  padding: clamp(20px, 3.8vw, 34px);
  background: rgba(255, 255, 255, 0.96);
@@ -1699,7 +1701,6 @@ a {
  .hero {
  width: 100vw !important;
  margin: 0 !important;
- margin-top: 60px !important;
  padding: 0 !important;
  min-height: calc(100svh - 60px) !important;
  overflow: hidden !important;
@@ -1744,6 +1745,13 @@ a {
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
+ body {
+ padding-top: 60px;
+ position: relative;
+ }
+ .hero {
+ min-height: calc(100svh - 60px) !important;
+ }
  .video-shell {
  position: absolute !important;
  }
