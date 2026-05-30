@@ -1731,7 +1731,7 @@ a {
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
  .video-shell {
- position: relative !important;
+ position: absolute !important;
  }
 
  .hero-trust {
@@ -1879,7 +1879,7 @@ a {
 
 @media (max-width: 900px) and (orientation: landscape) {
  .video-shell {
- position: relative !important;
+ position: absolute !important;
  }
 }
 
