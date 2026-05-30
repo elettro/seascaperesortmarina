@@ -137,12 +137,16 @@ a {
  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-.hero-audio-toggle::before {
- content: "🔇";
+.hero-audio-toggle .icon-unmuted {
+ display: none;
 }
 
-.hero-audio-toggle[aria-pressed="true"]::before {
- content: "🔊";
+.hero-audio-toggle[aria-pressed="true"] .icon-muted {
+ display: none;
+}
+
+.hero-audio-toggle[aria-pressed="true"] .icon-unmuted {
+ display: block;
 }
 
 .hero-audio-toggle:hover {
@@ -1250,9 +1254,10 @@ a {
 @media only screen and (max-width: 767px) and (orientation: portrait) {
  .home-page .hero-audio-toggle {
  display: grid;
- top: calc(12px + env(safe-area-inset-top, 0px));
- right: calc(12px + env(safe-area-inset-right, 0px));
+ top: 72px;
+ right: 14px;
  bottom: auto;
+ left: auto;
  }
 }
 
@@ -1866,9 +1871,10 @@ a {
 /* Mobile audio toggle: top-right on landscape mobile */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
  .hero > .hero-audio-toggle {
- top: calc(12px + env(safe-area-inset-top, 0px));
- right: calc(12px + env(safe-area-inset-right, 0px));
+ top: 14px;
+ right: 14px;
  bottom: auto;
+ left: auto;
  position: fixed;
  z-index: 1000;
  }
