@@ -1227,19 +1227,15 @@ a {
 
 @media (max-width: 480px) {
  .hero-content h1 {
- max-width: 100%;
- font-size: clamp(1.85rem, 8.8vw, 2.3rem);
+ max-width: 11ch;
+ font-size: clamp(2.15rem, 11.5vw, 2.7rem);
  line-height: 1.06;
- text-align: center;
- align-self: center;
  }
 
  .hero-subheadline {
  max-width: 30ch;
  font-size: 0.95rem;
  line-height: 1.4;
- text-align: center;
- align-self: center;
  }
 
  .hero-audio-toggle {
