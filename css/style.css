@@ -1887,12 +1887,12 @@ a {
 /* Mobile audio toggle: top-right on landscape mobile */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
  .hero > .hero-audio-toggle {
+ position: absolute;
  top: 14px;
  right: 14px;
  bottom: auto;
  left: auto;
- position: fixed;
- z-index: 1000;
+ z-index: 10;
  }
 }
 
