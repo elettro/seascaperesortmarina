@@ -281,6 +281,31 @@
  window.addEventListener('orientationchange', scheduleUpdate);
 })();
 
+// Landscape mobile: measure real nav height and push hero below it
+(function() {
+ const nav = document.querySelector('.main-nav');
+ const audioToggle = document.getElementById('hero-audio-toggle');
+ if (!nav) return;
+
+ function applyLandscapeLayout() {
+  const isLandscape = window.matchMedia('(orientation: landscape) and (max-width: 1024px)').matches;
+  if (!isLandscape) {
+   document.body.style.paddingTop = '';
+   if (audioToggle) audioToggle.style.top = '';
+   return;
+  }
+  const navH = Math.round(nav.getBoundingClientRect().height);
+  document.body.style.paddingTop = navH + 'px';
+  if (audioToggle) audioToggle.style.top = (navH + 12) + 'px';
+ }
+
+ applyLandscapeLayout();
+ window.addEventListener('resize', applyLandscapeLayout);
+ window.addEventListener('orientationchange', function() {
+  setTimeout(applyLandscapeLayout, 150);
+ });
+})();
+
 
 (() => {
  const existingUniversalScript = document.querySelector('script[data-ml-universal="true"]');

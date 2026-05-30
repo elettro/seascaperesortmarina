@@ -1717,13 +1717,13 @@ a {
 
  .video-shell iframe {
  position: absolute !important;
- top: 50% !important;
+ top: 0 !important;
  left: 50% !important;
- width: 100vw !important;
- height: 177.78vw !important;
+ width: max(100vw, 177.78vh) !important;
+ height: max(56.25vw, 100%) !important;
  min-width: 100vw !important;
  min-height: 100% !important;
- transform: translate(-50%, -50%) !important;
+ transform: translateX(-50%) !important;
  }
 
  .hero-content {
@@ -1746,11 +1746,7 @@ a {
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
  body {
- padding-top: 60px;
  position: relative;
- }
- .hero {
- min-height: calc(100svh - 60px) !important;
  }
  .video-shell {
  position: absolute !important;
@@ -1905,14 +1901,14 @@ a {
  }
 }
 
-/* Mobile landscape: hamburger color + mute button position */
+/* Mobile landscape: hamburger color */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
  .mobile-menu-toggle span {
  background: #10263c;
  }
  .hero > .hero-audio-toggle {
  position: absolute;
- top: 70px;
+ top: 14px;
  right: 14px;
  bottom: auto;
  left: auto;
