@@ -156,7 +156,7 @@ a {
 }
 
 @media (max-width: 1024px) {
- .video-shell > .hero-audio-toggle {
+ .hero > .hero-audio-toggle {
  right: calc(12px + env(safe-area-inset-right, 0px));
  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
  top: auto;
@@ -1249,7 +1249,10 @@ a {
 
 @media only screen and (max-width: 767px) and (orientation: portrait) {
  .home-page .hero-audio-toggle {
- display: none;
+ display: grid;
+ top: calc(12px + env(safe-area-inset-top, 0px));
+ right: calc(12px + env(safe-area-inset-right, 0px));
+ bottom: auto;
  }
 }
 
@@ -1857,6 +1860,24 @@ a {
 @media (max-width: 900px) and (orientation: landscape) {
  .video-shell {
  position: relative !important;
+ }
+}
+
+/* Mobile audio toggle: top-right on landscape mobile */
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+ .hero > .hero-audio-toggle {
+ top: calc(12px + env(safe-area-inset-top, 0px));
+ right: calc(12px + env(safe-area-inset-right, 0px));
+ bottom: auto;
+ position: fixed;
+ z-index: 1000;
+ }
+}
+
+/* Portrait mobile: give hero enough height so Explore Rooms button isn't clipped */
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+ .home-page .hero {
+ min-height: calc(100svh + 90px);
  }
 }
 
