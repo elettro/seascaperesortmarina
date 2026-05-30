@@ -1909,6 +1909,9 @@ a {
  body {
  overflow-x: hidden;
  }
+ .home-page .hero {
+ min-height: fit-content !important;
+ }
  .home-page .hero-content {
  position: relative !important;
  overflow: visible !important;
