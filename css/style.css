@@ -1936,7 +1936,7 @@ a {
  padding-bottom: 60px !important;
  }
  .home-page .hero-content h1 {
- margin-left: -5px;
+ margin-left: -5px !important;
  }
  .home-page .hero-actions {
  overflow: visible !important;
