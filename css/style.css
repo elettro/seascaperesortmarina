@@ -1932,7 +1932,8 @@ a {
  margin-left: 0 !important;
  max-width: 100% !important;
  padding-top: calc(60px + 14px) !important;
- padding-right: 60px !important;
+ padding-left: 20px !important;
+ padding-right: 20px !important;
  padding-bottom: 60px !important;
  }
  .home-page .hero-content h1 {
@@ -1940,6 +1941,11 @@ a {
  }
  .home-page .hero-actions {
  overflow: visible !important;
+ }
+ .video-shell iframe {
+ transform: translate(-50%, calc(-50% - 80px)) !important;
+ height: calc(max(100svh, 56.25vw) + 160px) !important;
+ min-height: calc(max(100svh, 56.25vw) + 160px) !important;
  }
 }
 
