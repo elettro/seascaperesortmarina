@@ -29,6 +29,11 @@ body {
  max-width: 100%;
 }
 
+main {
+ overflow-x: hidden;
+ max-width: 100%;
+}
+
 body {
  font-family: "Inter", Arial, sans-serif;
  background: var(--bg);
@@ -1697,7 +1702,7 @@ a {
  }
 
  .video-shell {
- top: 60px !important;
+ top: 0 !important;
  left: 0 !important;
  right: 0 !important;
  bottom: 0 !important;
@@ -1891,7 +1896,7 @@ a {
 /* Mobile landscape: hamburger color + mute button position */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
  .mobile-menu-toggle span {
- background: #ffffff;
+ background: #10263c;
  }
  .hero > .hero-audio-toggle {
  position: absolute;
