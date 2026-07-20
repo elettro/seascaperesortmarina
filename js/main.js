@@ -118,7 +118,7 @@
  // Best-effort request to prevent YouTube captions from loading by default.
  // Browser Live Caption and viewer accessibility preferences remain outside website control.
  const buildEmbedSrc = (videoId) =>
- `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&modestbranding=1&rel=0&enablejsapi=1&cc_load_policy=0&iv_load_policy=3${getEmbedOrigin()}`;
+ `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&modestbranding=1&rel=0&enablejsapi=1&cc_load_policy=0&iv_load_policy=3&disablekb=1${getEmbedOrigin()}`;
 
  const isMobileViewport = () => window.innerWidth <= mobileOnlyBreakpoint;
  const isPortrait = () => window.matchMedia('(orientation: portrait)').matches;
