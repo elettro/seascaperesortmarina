@@ -115,8 +115,10 @@
  return `&origin=${encodeURIComponent(window.location.origin)}`;
  };
 
+ // Best-effort request to prevent YouTube captions from loading by default.
+ // Browser Live Caption and viewer accessibility preferences remain outside website control.
  const buildEmbedSrc = (videoId) =>
- `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&modestbranding=1&rel=0&enablejsapi=1&cc_load_policy=3&iv_load_policy=3${getEmbedOrigin()}`;
+ `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&modestbranding=1&rel=0&enablejsapi=1&cc_load_policy=0&iv_load_policy=3&disablekb=1${getEmbedOrigin()}`;
 
  const isMobileViewport = () => window.innerWidth <= mobileOnlyBreakpoint;
  const isPortrait = () => window.matchMedia('(orientation: portrait)').matches;
@@ -149,19 +151,6 @@
  }),
  '*'
  );
- };
-
- const disableHeroCaptions = () => {
- // YouTube force-enables captions on muted autoplay embeds when the video
- // has an auto-generated track; unload the caption module to keep them off.
- if (heroPlayerReady && heroPlayer) {
- heroPlayer.unloadModule('captions');
- heroPlayer.unloadModule('cc');
- return;
- }
-
- postPlayerCommand('unloadModule', ['captions']);
- postPlayerCommand('unloadModule', ['cc']);
  };
 
  const ensureYouTubeApiReady = () => {
@@ -197,13 +186,7 @@
  onReady: () => {
  heroPlayerReady = true;
  resolve(heroPlayer);
- disableHeroCaptions();
  applyHeroAudioState();
- },
- onStateChange: (event) => {
- if (event.data === window.YT?.PlayerState?.PLAYING) {
- disableHeroCaptions();
- }
  }
  }
  });
@@ -284,7 +267,6 @@
 
  heroIframe.addEventListener('load', () => {
  window.setTimeout(() => {
- disableHeroCaptions();
  applyHeroAudioState();
  ensureHeroPlayer().catch(() => {
  // Fallback to postMessage controls when the API cannot initialize.
